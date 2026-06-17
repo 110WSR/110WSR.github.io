@@ -2,6 +2,9 @@ import { useState, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCharacter } from "../shared/storage/CharacterContext";
 import type { Attributes, Personality, SavingThrows } from "../shared/storage/types";
+import type { Item, AttackEntry } from "../shared/types/types";
+import { createDefaultItem } from "../shared/types/types";
+import weaponPresets from "../../data/weaponPresets.json";
 import HPRollPanel from "./HPRollPanel";
 import StepIndicator from "./creator/StepIndicator";
 import BasicInfoForm from "./creator/BasicInfoForm";
@@ -110,11 +113,59 @@ export default function CharacterCreator() {
 
     const classId = findClassId(className);
 
+    // 创建 Item 对象和攻击栏条目
+    const newItems: Item[] = [];
+    const newAttackEntries: AttackEntry[] = [];
+
+    // 根据选择的武器名称查找预设
+    const weaponPresetList = weaponPresets as any[];
+    for (const weaponName of selectedWeapons) {
+      const preset = weaponPresetList.find((w: any) => w.label === weaponName);
+      if (preset) {
+        const item = createDefaultItem(preset.label);
+        item.isWeapon = true;
+        item.damageDice = preset.damageDice;
+        item.damageType = preset.damageType;
+        item.attackAttr = preset.attackAttr;
+        item.tags = preset.tags;
+        item.proficient = true;
+        newItems.push(item);
+        newAttackEntries.push({
+          id: `weapon_${item.id}`,
+          type: "weapon",
+          refId: item.id,
+        });
+      } else {
+        // 如果没有预设，创建一个基本武器条目
+        const item = createDefaultItem(weaponName);
+        item.isWeapon = true;
+        item.proficient = true;
+        newItems.push(item);
+        newAttackEntries.push({
+          id: `weapon_${item.id}`,
+          type: "weapon",
+          refId: item.id,
+        });
+      }
+    }
+
+    // 添加护甲作为物品
+    if (selectedArmor) {
+      const armorItem = createDefaultItem(selectedArmor);
+      newItems.push(armorItem);
+    }
+
+    // 添加盾牌
+    if (hasShield) {
+      const shieldItem = createDefaultItem("盾牌");
+      newItems.push(shieldItem);
+    }
+
     newCharacter(finalName);
     setAttributes(attributes);
     setBasicInfo({ 职业: className, 职业_id: classId, 种族: race, 背景: background, 阵营: alignment, 玩家名: "", 经验值: "" });
     setLevel(level);
-    updateCharacter({ currentHP, customMaxHP: maxHP });
+    updateCharacter({ currentHP, customMaxHP: maxHP, items: newItems, attackEntries: newAttackEntries });
     setPersonality(localPersonality);
     setEquipment(equipParts.join("\n"));
     setBackstory(backstory);
@@ -198,6 +249,7 @@ export default function CharacterCreator() {
               selectedArmor={selectedArmor} onArmorChange={setSelectedArmor}
               hasShield={hasShield} onShieldChange={setHasShield}
               equipmentText={equipmentText} onEquipmentTextChange={setEquipmentText}
+              className={className}
             />
           </div>
         )}

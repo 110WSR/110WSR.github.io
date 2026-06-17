@@ -708,7 +708,7 @@ function RestIcon({ type, onShortRest, onLongRest, onPopupClose, shortRollLog, s
 }
 
 function HitDiceDisplay({ remainingHitDice: forcedRemaining }: { remainingHitDice?: number }) {
-  const { character } = useCharacter();
+  const { character, updateCharacter } = useCharacter();
   const hitDiceText = useMemo(() => {
     if (!character) return "0";
     const classId = character.basicInfo["职业_id"];
@@ -716,8 +716,29 @@ function HitDiceDisplay({ remainingHitDice: forcedRemaining }: { remainingHitDic
     if (!classEntry) return "0";
     const level = typeof character.level === "number" ? character.level : 1;
     const remaining = forcedRemaining ?? level;
-    return `${remaining}d${classEntry.hitpoints[0]}`;
+    return \`\${remaining}d\${classEntry.hitpoints[0]}\`;
   }, [character, forcedRemaining]);
+
+  const [editing, setEditing] = useState(false);
+  const [editValue, setEditValue] = useState("");
+
+  const handleStartEdit = () => {
+    if (!character) return;
+    setEditValue(hitDiceText);
+    setEditing(true);
+  };
+
+  const handleCommitEdit = () => {
+    setEditing(false);
+    const match = editValue.match(/^(\d+)d(\d+)$/i);
+    if (!match || !character) return;
+    const remaining = parseInt(match[1]);
+    const dieSize = parseInt(match[2]);
+    const classId = character.basicInfo["职业_id"];
+    const classEntry = classId ? (classData as any)[classId] : null;
+    if (!classEntry) return;
+    updateCharacter({ customHeights: { ...character.customHeights, _hitDiceRemaining: remaining } });
+  };
 
   return (
     <div className="absolute bg-white h-[90px] left-[62px] rounded-[2px] top-[386px] w-[149px]" data-name="hit-dice">
@@ -725,7 +746,19 @@ function HitDiceDisplay({ remainingHitDice: forcedRemaining }: { remainingHitDic
         <div className="absolute contents right-[9px] top-[10px]">
           <div className="absolute bg-sheet-content-bg h-[56px] overflow-clip right-[9px] top-[10px] w-[131px]">
             <div className="-translate-x-1/2 -translate-y-1/2 [word-break:break-word] absolute flex flex-col font-serif-regular font-normal h-[56px] justify-center leading-[0] left-[65.5px] text-[24px] text-black text-center top-[28px] w-[131px]" style={{ fontVariationSettings: "'CTGR' 0, 'wdth' 100" }}>
-              <p className="leading-[normal]">{hitDiceText}</p>
+              {editing ? (
+                <input
+                  autoFocus
+                  value={editValue}
+                  onChange={(e) => setEditValue(e.target.value)}
+                  onBlur={handleCommitEdit}
+                  onKeyDown={(e) => { if (e.key === "Enter") handleCommitEdit(); if (e.key === "Escape") setEditing(false); }}
+                  className="w-full h-full bg-transparent text-center text-[24px] font-serif-regular outline-none border-none p-0 m-0"
+                  style={{ fontVariationSettings: "'CTGR' 0, 'wdth' 100" }}
+                />
+              ) : (
+                <p className="leading-[normal] cursor-pointer hover:bg-sheet-hover-bg" onClick={handleStartEdit}>{hitDiceText}</p>
+              )}
             </div>
           </div>
           <div className="[word-break:break-word] absolute bottom-[12px] flex flex-col font-serif-medium-cjk font-medium justify-center leading-[0] right-[74.5px] text-[10px] text-black text-center translate-x-1/2 translate-y-1/2 w-[131px]" style={{ fontVariationSettings: "'CTGR' 0, 'wdth' 100" }}>

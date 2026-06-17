@@ -14,6 +14,16 @@ import EquipmentSelectionPanel from "./creator/EquipmentSelectionPanel";
 import CharacterDetailsPanel from "./creator/CharacterDetailsPanel";
 import { ATTRIBUTE_FIELDS, generateRandomAttributes } from "./creator/types";
 import type { AttributeMethod } from "./creator/types";
+import classIdentifiers from "../../data/classIdentifiers.json";
+
+/** 根据职业中文名查找对应的 classId */
+function findClassId(className: string): string {
+  if (!className) return "";
+  const entry = classIdentifiers.find((c: any) =>
+    c.labels.some((l: string) => l === className)
+  );
+  return entry?.id ?? "";
+}
 
 export default function CharacterCreator() {
   const navigate = useNavigate();
@@ -80,9 +90,11 @@ export default function CharacterCreator() {
     if (hasShield) equipParts.push("盾牌");
     if (equipmentText.trim()) equipParts.push(equipmentText.trim());
 
+    const classId = findClassId(className);
+
     newCharacter(finalName);
     setAttributes(attributes);
-    setBasicInfo({ 职业: className, 种族: race, 背景: background, 阵营: alignment, 玩家名: "", 经验值: "" });
+    setBasicInfo({ 职业: className, 职业_id: classId, 种族: race, 背景: background, 阵营: alignment, 玩家名: "", 经验值: "" });
     setLevel(level);
     updateCharacter({ currentHP, customMaxHP: maxHP });
     setPersonality(localPersonality);
@@ -94,6 +106,7 @@ export default function CharacterCreator() {
       newCharacter, setAttributes, setBasicInfo, setLevel, setPersonality, setEquipment, setBackstory, navigate]);
 
   const attributeSummary = useMemo(() => ATTRIBUTE_FIELDS.reduce((sum, f) => sum + attributes[f.key], 0), [attributes]);
+  const classId = useMemo(() => findClassId(className), [className]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-stone-900 via-stone-800 to-stone-900">
@@ -136,11 +149,11 @@ export default function CharacterCreator() {
           </div>
         )}
 
-        {step === 3 && className && (
+        {step === 3 && classId && (
           <div className="bg-stone-800/30 rounded-lg border border-stone-700/50 p-6">
             <h2 className="text-amber-300 text-lg font-semibold mb-4">投掷生命值</h2>
             <HPRollPanel
-              className={className}
+              classId={classId}
               level={level}
               conValue={attributes.con_value}
               onHPChange={handleHPChange}
@@ -148,7 +161,7 @@ export default function CharacterCreator() {
           </div>
         )}
 
-        {step === 3 && !className && (
+        {step === 3 && !classId && (
           <div className="bg-stone-800/30 rounded-lg border border-stone-700/50 p-6">
             <h2 className="text-amber-300 text-lg font-semibold mb-4">投掷生命值</h2>
             <p className="text-stone-400 text-sm">请先在基本信息中选择职业</p>

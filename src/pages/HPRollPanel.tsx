@@ -1,30 +1,25 @@
 import { useState, useCallback, useMemo } from "react";
+import classData from "../../data/classData.json";
 
 interface HPRollPanelProps {
-  className: string;
+  classId: string;
   level: number;
   conValue: number;
   onHPChange: (current: number, max: number) => void;
 }
 
-/** 根据职业名获取生命骰面数 */
-function getHitDieSize(className: string): number {
-  const hitDieMap: Record<string, number> = {
-    "法师": 6, "术士": 6, "邪术师": 8,
-    "牧师": 8, "德鲁伊": 8, "游荡者": 8, "武僧": 8,
-    "诗人": 8, "契术师": 8,
-    "战士": 10, "圣武士": 10, "游侠": 10,
-    "野蛮人": 12,
-  };
-  return hitDieMap[className] ?? 8;
+/** 根据职业ID获取生命骰面数 */
+function getHitDieSize(classId: string): number {
+  const entry = (classData as Record<string, any>)[classId];
+  return entry?.hitpoints?.[0] ?? 8;
 }
 
 function calcMod(val: number): number {
   return Math.floor((val - 10) / 2);
 }
 
-export default function HPRollPanel({ className, level, conValue, onHPChange }: HPRollPanelProps) {
-  const hitDieSize = useMemo(() => getHitDieSize(className), [className]);
+export default function HPRollPanel({ classId, level, conValue, onHPChange }: HPRollPanelProps) {
+  const hitDieSize = useMemo(() => getHitDieSize(classId), [classId]);
   const conMod = useMemo(() => calcMod(conValue), [conValue]);
 
   const [rolls, setRolls] = useState<number[]>([]);
@@ -60,10 +55,6 @@ export default function HPRollPanel({ className, level, conValue, onHPChange }: 
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <div>
-          <span className="text-stone-400 text-sm">职业: </span>
-          <span className="text-amber-300 font-medium">{className}</span>
-        </div>
         <div>
           <span className="text-stone-400 text-sm">生命骰: </span>
           <span className="text-amber-300 font-medium">d{hitDieSize}</span>

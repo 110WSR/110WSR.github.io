@@ -40,9 +40,28 @@ export default function EquipmentPanel({ className }: EquipmentPanelProps) {
   }, [quantityEditIndex]);
 
   // 敲入分隔符时立即分割
+  const [isComposing, setIsComposing] = useState(false);
   const handleInputChange: React.ChangeEventHandler<HTMLTextAreaElement> = useCallback((e) => {
     setInputText(e.target.value);
   }, []);
+
+  const handleCompositionStart = useCallback(() => {
+    setIsComposing(true);
+  }, []);
+
+  const handleCompositionEnd = useCallback((e: React.CompositionEvent<HTMLTextAreaElement>) => {
+    setIsComposing(false);
+    // 输入法结束后检查是否有分隔符
+    const text = (e.target as HTMLTextAreaElement).value;
+    if (/[、，,]/.test(text)) {
+      const names = text.split(/[、，,]+/).map(s => s.trim()).filter(Boolean);
+      if (names.length > 1) {
+        const newItems = [...items, ...names.map(name => createDefaultItem(name))];
+        setItems(newItems);
+        setInputText("");
+      }
+    }
+  }, [items, setItems]);
 
   const commitInput = useCallback(() => {
     const text = inputText.trim();
@@ -55,11 +74,11 @@ export default function EquipmentPanel({ className }: EquipmentPanelProps) {
   }, [inputText, items, setItems]);
 
   const handleInputKeyDown: React.KeyboardEventHandler<HTMLTextAreaElement> = useCallback((e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && !isComposing) {
       e.preventDefault();
       commitInput();
     }
-  }, [commitInput]);
+  }, [commitInput, isComposing]);
 
   const scheduleHide = useCallback(() => {
     if (hideLocked.current) return;
@@ -213,18 +232,21 @@ export default function EquipmentPanel({ className }: EquipmentPanelProps) {
             <textarea
               ref={addInputRef as React.Ref<HTMLTextAreaElement>}
               value={inputText}
-              onChange={handleInputChange}
-              onKeyDown={handleInputKeyDown}
-              onBlur={commitInput}
-              placeholder={items.length === 0 ? "输入物品" : "添加物品"}
-              rows={1}
-              className="block w-full bg-transparent border-none outline-none resize-none overflow-hidden font-serif-regular-cjk text-[18px] text-black placeholder:text-sheet-text-placeholder leading-normal pl-[2px]"
-              style={{ fontVariationSettings: "'CTGR' 0, 'wdth' 100" }}
-              onInput={(e) => {
+              onChange={(e) => {
+                handleInputChange(e);
+                // 自动调整高度
                 const el = e.currentTarget;
                 el.style.height = "auto";
                 el.style.height = el.scrollHeight + "px";
               }}
+              onKeyDown={handleInputKeyDown}
+              onBlur={commitInput}
+              onCompositionStart={handleCompositionStart}
+              onCompositionEnd={handleCompositionEnd}
+              placeholder={items.length === 0 ? "输入物品" : "添加物品"}
+              rows={1}
+              className="block w-full bg-transparent border-none outline-none resize-none overflow-hidden font-serif-regular-cjk text-[18px] text-black placeholder:text-sheet-text-placeholder leading-normal pl-[2px]"
+              style={{ fontVariationSettings: "'CTGR' 0, 'wdth' 100" }}
             />
           </div>
         </ScrollArea>

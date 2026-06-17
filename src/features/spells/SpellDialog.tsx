@@ -205,6 +205,15 @@ export function SpellDialog({
                 />
                 <span style={{ ...T, color: sheetColors.textMedium }}>专注</span>
               </div>
+              {!isCantrip && (
+                <div style={{ display: "flex", alignItems: "center", gap: 5, userSelect: "none" }}>
+                  <ButtonComponent
+                    checked={!!data.prepared}
+                    onChange={() => set("prepared", !data.prepared)}
+                  />
+                  <span style={{ ...T, color: sheetColors.textMedium }}>已准备</span>
+                </div>
+              )}
             </div>
           </div>
 

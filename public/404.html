@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D&D 5e 角色构建器</title>
+  <script>
+    // GitHub Pages SPA 路由重定向
+    // 当用户直接访问 /create 或 /sheet 时，GitHub Pages 会返回 404
+    // 这个脚本将重定向到 index.html 并保留路径
+    sessionStorage.redirect = location.href;
+  </script>
+  <meta http-equiv="refresh" content="0;URL='/'">
+</head>
+<body>
+  <script>
+    // 如果上面的 meta refresh 没有生效，用 JS 重定向
+    location.href = '/';
+  </script>
+</body>
+</html>

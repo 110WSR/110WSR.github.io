@@ -716,7 +716,7 @@ function HitDiceDisplay({ remainingHitDice: forcedRemaining }: { remainingHitDic
     if (!classEntry) return "0";
     const level = typeof character.level === "number" ? character.level : 1;
     const remaining = forcedRemaining ?? level;
-    return \`\${remaining}d\${classEntry.hitpoints[0]}\`;
+    return `${remaining}d${classEntry.hitpoints[0]}`;
   }, [character, forcedRemaining]);
 
   const [editing, setEditing] = useState(false);
@@ -733,11 +733,10 @@ function HitDiceDisplay({ remainingHitDice: forcedRemaining }: { remainingHitDic
     const match = editValue.match(/^(\d+)d(\d+)$/i);
     if (!match || !character) return;
     const remaining = parseInt(match[1]);
-    const dieSize = parseInt(match[2]);
     const classId = character.basicInfo["职业_id"];
     const classEntry = classId ? (classData as any)[classId] : null;
     if (!classEntry) return;
-    updateCharacter({ customHeights: { ...character.customHeights, _hitDiceRemaining: remaining } });
+    updateCharacter({ customHeights: { ...character.customHeights, [-1]: remaining } });
   };
 
   return (

@@ -28,12 +28,10 @@ export default function HPRollPanel({ classId, level, conValue, onHPChange }: HP
 
   const handleRoll = useCallback(() => {
     const newRolls: number[] = [];
-    // 第1级取最大值
-    let total = hitDieSize + conMod;
-    newRolls.push(hitDieSize);
+    let total = 0;
 
-    // 后续等级投掷
-    for (let i = 1; i < level; i++) {
+    // 所有等级都投掷（包括第1级）
+    for (let i = 0; i < level; i++) {
       const roll = Math.floor(Math.random() * hitDieSize) + 1;
       newRolls.push(roll);
       total += roll + conMod;
@@ -68,7 +66,7 @@ export default function HPRollPanel({ classId, level, conValue, onHPChange }: HP
       {!rolled ? (
         <div className="text-center py-6">
           <p className="text-stone-400 text-sm mb-4">
-            点击下方按钮投掷生命值（第1级取最大值 d{hitDieSize}，后续等级投掷 d{hitDieSize} + 体质调整值）
+            点击下方按钮投掷生命值（每级投掷 d{hitDieSize} + 体质调整值）
           </p>
           <button
             onClick={handleRoll}
@@ -86,7 +84,7 @@ export default function HPRollPanel({ classId, level, conValue, onHPChange }: HP
                 <div
                   key={index}
                   className="w-10 h-10 rounded-lg bg-stone-800 border border-stone-700 flex items-center justify-center text-amber-300 font-bold text-sm"
-                  title={index === 0 ? "第1级（最大值）" : `第${index + 1}级`}
+                  title={`第${index + 1}级`}
                 >
                   {roll}
                 </div>

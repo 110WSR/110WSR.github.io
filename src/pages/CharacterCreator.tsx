@@ -1,7 +1,7 @@
 import { useState, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCharacter } from "../shared/storage/CharacterContext";
-import type { Attributes, Personality } from "../shared/storage/types";
+import type { Attributes, Personality, SavingThrows } from "../shared/storage/types";
 import HPRollPanel from "./HPRollPanel";
 import StepIndicator from "./creator/StepIndicator";
 import BasicInfoForm from "./creator/BasicInfoForm";
@@ -25,6 +25,24 @@ function findClassId(className: string): string {
   return entry?.id ?? "";
 }
 
+
+/** 各职业默认熟练豁免映射 */
+const CLASS_SAVING_THROWS: Record<string, { strength?: boolean; dexterity?: boolean; constitution?: boolean; intelligence?: boolean; wisdom?: boolean; charisma?: boolean }> = {
+  barbarian: { strength: true, constitution: true },
+  bard: { dexterity: true, charisma: true },
+  cleric: { wisdom: true, charisma: true },
+  druid: { intelligence: true, wisdom: true },
+  fighter: { strength: true, constitution: true },
+  monk: { strength: true, dexterity: true },
+  paladin: { wisdom: true, charisma: true },
+  ranger: { strength: true, dexterity: true },
+  rogue: { dexterity: true, intelligence: true },
+  sorcerer: { constitution: true, charisma: true },
+  warlock: { wisdom: true, charisma: true },
+  wizard: { intelligence: true, wisdom: true },
+  artificer: { constitution: true, intelligence: true },
+  bloodhunter: { strength: true, wisdom: true },
+};
 export default function CharacterCreator() {
   const navigate = useNavigate();
   const { newCharacter, setAttributes, setBasicInfo, setLevel, setPersonality, setEquipment, setBackstory, updateCharacter } = useCharacter();
@@ -100,6 +118,10 @@ export default function CharacterCreator() {
     setPersonality(localPersonality);
     setEquipment(equipParts.join("\n"));
     setBackstory(backstory);
+    // 根据职业设置默认熟练豁免
+    if (classId && CLASS_SAVING_THROWS[classId]) {
+      updateCharacter({ savingThrows: CLASS_SAVING_THROWS[classId] as SavingThrows });
+    }
     navigate("/sheet");
   }, [charName, className, race, background, level, attributes, currentHP, maxHP, alignment, localPersonality, backstory,
       selectedWeapons, selectedArmor, hasShield, equipmentText, updateCharacter,

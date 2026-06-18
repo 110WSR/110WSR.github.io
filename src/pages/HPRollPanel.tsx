@@ -30,15 +30,20 @@ export default function HPRollPanel({ classId, level, conValue, onHPChange }: HP
     const newRolls: number[] = [];
     let total = 0;
 
-    // 所有等级都投掷（包括第1级）
-    for (let i = 0; i < level; i++) {
+    // 第1级取生命骰最大值
+    const firstRoll = hitDieSize;
+    newRolls.push(firstRoll);
+    total += firstRoll + conMod;
+
+    // 第2级开始投掷
+    for (let i = 1; i < level; i++) {
       const roll = Math.floor(Math.random() * hitDieSize) + 1;
       newRolls.push(roll);
       total += roll + conMod;
     }
 
     setRolls(newRolls);
-    setTotalHP(Math.max(total, level)); // 至少1级1血
+    setTotalHP(Math.max(total, level));
     setRolled(true);
     onHPChange(total, total);
   }, [hitDieSize, conMod, level, onHPChange]);
@@ -66,7 +71,7 @@ export default function HPRollPanel({ classId, level, conValue, onHPChange }: HP
       {!rolled ? (
         <div className="text-center py-6">
           <p className="text-stone-400 text-sm mb-4">
-            点击下方按钮投掷生命值（每级投掷 d{hitDieSize} + 体质调整值）
+            点击下方按钮投掷生命值（第1级取最大值 d{hitDieSize}，之后每级投掷 d{hitDieSize} + 体质调整值）
           </p>
           <button
             onClick={handleRoll}
@@ -115,7 +120,7 @@ export default function HPRollPanel({ classId, level, conValue, onHPChange }: HP
                 type="number"
                 defaultValue={totalHP}
                 min={level}
-                max={hitDieSize * level + conMod * level}
+                max={hitDieSize + conMod + (level - 1) * hitDieSize + conMod * level}
                 onChange={(e) => {
                   const v = parseInt(e.target.value);
                   if (!isNaN(v)) handleManualSet(v);

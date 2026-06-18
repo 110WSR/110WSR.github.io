@@ -14,6 +14,7 @@ import RandomRollPanel from "./creator/RandomRollPanel";
 import RecommendedPanel from "./creator/RecommendedPanel";
 import ManualInputPanel from "./creator/ManualInputPanel";
 import EquipmentSelectionPanel from "./creator/EquipmentSelectionPanel";
+import SkillSelectionPanel from "./creator/SkillSelectionPanel";
 import CharacterDetailsPanel from "./creator/CharacterDetailsPanel";
 import { ATTRIBUTE_FIELDS, generateRandomAttributes } from "./creator/types";
 import type { AttributeMethod } from "./creator/types";
@@ -51,7 +52,7 @@ export default function CharacterCreator() {
   const { newCharacter, setAttributes, setBasicInfo, setLevel, setPersonality, setEquipment, setBackstory, updateCharacter } = useCharacter();
 
   const [step, setStep] = useState(0);
-  const steps = ["基本信息", "选择方法", "确认属性", "投掷生命值", "选择装备", "角色细节", "完成"];
+  const steps = ["基本信息", "选择方法", "确认属性", "投掷生命值", "选择技能", "选择装备", "角色细节", "完成"];
 
   const [method, setMethod] = useState<AttributeMethod>("standard");
 
@@ -70,6 +71,7 @@ export default function CharacterCreator() {
   const [hasShield, setHasShield] = useState(false);
   const [equipmentText, setEquipmentText] = useState("");
 
+  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
   const [alignment, setAlignment] = useState("");
   const [localPersonality, setLocalPersonality] = useState<Personality>({
     个性特点: "", 理想: "", 牵绊: "", 缺点: "",
@@ -173,9 +175,15 @@ export default function CharacterCreator() {
     if (classId && CLASS_SAVING_THROWS[classId]) {
       updateCharacter({ savingThrows: CLASS_SAVING_THROWS[classId] as SavingThrows });
     }
+    // 保存技能熟练
+    const skillsRecord: Record<string, 0 | 1 | 2> = {};
+    for (const skillName of selectedSkills) {
+      skillsRecord[skillName] = 1;
+    }
+    updateCharacter({ skills: skillsRecord });
     navigate("/sheet");
   }, [charName, className, race, background, level, attributes, currentHP, maxHP, alignment, localPersonality, backstory,
-      selectedWeapons, selectedArmor, hasShield, equipmentText, updateCharacter,
+      selectedWeapons, selectedArmor, hasShield, equipmentText, selectedSkills, updateCharacter,
       newCharacter, setAttributes, setBasicInfo, setLevel, setPersonality, setEquipment, setBackstory, navigate]);
 
   const attributeSummary = useMemo(() => ATTRIBUTE_FIELDS.reduce((sum, f) => sum + attributes[f.key], 0), [attributes]);
@@ -243,6 +251,18 @@ export default function CharacterCreator() {
 
         {step === 4 && (
           <div className="bg-stone-800/30 rounded-lg border border-stone-700/50 p-6">
+            <h2 className="text-amber-300 text-lg font-semibold mb-4">选择技能熟练项</h2>
+            <p className="text-stone-400 text-sm mb-4">根据你的职业选择熟练的技能（点击切换）</p>
+            <SkillSelectionPanel
+              className={className}
+              selectedSkills={selectedSkills}
+              onSkillsChange={setSelectedSkills}
+            />
+          </div>
+        )}
+
+        {step === 5 && (
+          <div className="bg-stone-800/30 rounded-lg border border-stone-700/50 p-6">
             <h2 className="text-amber-300 text-lg font-semibold mb-4">选择装备</h2>
             <EquipmentSelectionPanel
               selectedWeapons={selectedWeapons} onWeaponsChange={setSelectedWeapons}
@@ -254,7 +274,7 @@ export default function CharacterCreator() {
           </div>
         )}
 
-        {step === 5 && (
+        {step === 6 && (
           <div className="bg-stone-800/30 rounded-lg border border-stone-700/50 p-6">
             <h2 className="text-amber-300 text-lg font-semibold mb-4">角色细节</h2>
             <CharacterDetailsPanel
@@ -265,7 +285,7 @@ export default function CharacterCreator() {
           </div>
         )}
 
-        {step === 6 && (
+        {step === 7 && (
           <div className="bg-stone-800/30 rounded-lg border border-stone-700/50 p-6 text-center">
             <div className="w-20 h-20 rounded-full bg-amber-700/30 border-2 border-amber-600/50 flex items-center justify-center mx-auto mb-6">
               <svg className="w-10 h-10 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
@@ -304,7 +324,7 @@ export default function CharacterCreator() {
             上一步
           </button>
 
-          {step < 6 && (
+          {step < 7 && (
             <button
               onClick={() => {
                 if (step === 0 && !className) return;
@@ -320,7 +340,7 @@ export default function CharacterCreator() {
               }
               className="px-6 py-2 rounded-lg bg-amber-700 hover:bg-amber-600 disabled:opacity-30 disabled:cursor-not-allowed text-amber-50 transition-colors text-sm font-medium"
             >
-              {step === 5 ? "查看摘要" : "下一步"}
+              {step === 6 ? "查看摘要" : "下一步"}
             </button>
           )}
         </div>

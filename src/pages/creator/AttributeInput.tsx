@@ -1,6 +1,6 @@
 import { POINT_BUY_COST, calcMod } from "./types";
 
-export default function AttributeInput({ label, abbr, value, onChange, min = 3, max = 18, remainingPoints }: {
+export default function AttributeInput({ label, abbr, value, onChange, min = 3, max = 20, remainingPoints }: {
   label: string; abbr: string; value: number; onChange: (val: number) => void; min?: number; max?: number; remainingPoints?: number;
 }) {
   const mod = calcMod(value);

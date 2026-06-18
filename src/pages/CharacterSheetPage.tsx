@@ -8,6 +8,7 @@ import SpellSheet from "./PageSpell";
 import ArchiveDialog from "../dialogs/ArchiveDialog";
 import ExportDialog from "../dialogs/ExportPdfDialog";
 import CustomItemDialog from "../dialogs/CustomItemDialog";
+import DiceRoller from "../features/character/DiceRoller";
 
 // ============================================================================
 // 角色卡面板 - 整合原有角色卡功能
@@ -43,6 +44,7 @@ export default function CharacterSheetPage() {
   const { character } = useCharacter();
   const [activeDialog, setActiveDialog] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
+  const [diceRollerOpen, setDiceRollerOpen] = useState(false);
 
   const closeDialog = () => setActiveDialog(null);
 
@@ -238,6 +240,24 @@ export default function CharacterSheetPage() {
         onArchiveManageClick={() => setActiveDialog("archive")}
         onCustomItemClick={() => setActiveDialog("custom")}
       />
+
+      {/* 掷骰器按钮 - 悬浮在右下角 */}
+      {!diceRollerOpen && (
+        <button
+          onClick={() => setDiceRollerOpen(true)}
+          className="fixed bottom-20 right-6 z-[9998] w-12 h-12 rounded-full bg-amber-700 hover:bg-amber-600 text-white shadow-lg hover:shadow-amber-700/30 transition-all duration-200 flex items-center justify-center"
+          title="打开掷骰器"
+        >
+          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>
+        </button>
+      )}
+
+      {/* 悬浮掷骰器 */}
+      {diceRollerOpen && (
+        <DiceRoller onClose={() => setDiceRollerOpen(false)} />
+      )}
 
       {/* 对话框 */}
       <ArchiveDialog open={activeDialog === "archive"} onOpenChange={(open) => { if (!open) closeDialog(); }} />

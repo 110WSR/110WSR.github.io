@@ -1,0 +1,3886 @@
+[
+  {
+    "cn": "精金护甲",
+    "en": "Adamantine Armor"
+  },
+  {
+    "cn": "炼金壶",
+    "en": "Alchemy Jug"
+  },
+  {
+    "cn": "弹药",
+    "en": "Ammunition，+1、+2"
+  },
+  {
+    "cn": "健康护符",
+    "en": "Amulet of Health"
+  },
+  {
+    "cn": "反侦护符",
+    "en": "Amulet of Proof Against Detection and"
+  },
+  {
+    "cn": "位面护符",
+    "en": "Amulet of The Planes"
+  },
+  {
+    "cn": "活化盾",
+    "en": "Animated Shield"
+  },
+  {
+    "cn": "夸力许装置",
+    "en": "Apparatus of Kwalish"
+  },
+  {
+    "cn": "夸力许装置拉杆功能",
+    "en": "Apparatus\tof\tKwalish\tLevers"
+  },
+  {
+    "cn": "护甲",
+    "en": "Armor，+1、+2"
+  },
+  {
+    "cn": "坚不可摧护甲",
+    "en": "Armor of Invulnerability"
+  },
+  {
+    "cn": "抗性护甲",
+    "en": "Armor of Resistance"
+  },
+  {
+    "cn": "易伤护甲",
+    "en": "Armor of Vulnerability"
+  },
+  {
+    "cn": "诅咒",
+    "en": "Curse"
+  },
+  {
+    "cn": "吸矢盾",
+    "en": "Arrow-Catching Shield"
+  },
+  {
+    "cn": "屠杀箭",
+    "en": "Arrow of Slaying"
+  },
+  {
+    "cn": "魔豆之袋",
+    "en": "Bag of Beans"
+  },
+  {
+    "cn": "吞噬袋",
+    "en": "Bag of Devouring"
+  },
+  {
+    "cn": "次元袋",
+    "en": "Bag of Holding"
+  },
+  {
+    "cn": "把次元袋放入霍华德便利袋",
+    "en": "Heward’s\thandy\thaversack 、"
+  },
+  {
+    "cn": "魔术袋",
+    "en": "Bag of Tricks"
+  },
+  {
+    "cn": "灰色魔术袋",
+    "en": "Gray\tBag\tof\tTricks"
+  },
+  {
+    "cn": "铁锈色魔术袋",
+    "en": "Rust\tBag\tof\tTricks"
+  },
+  {
+    "cn": "棕褐色魔术袋",
+    "en": "Tan\tBag\tof\tTricks"
+  },
+  {
+    "cn": "力场珠",
+    "en": "Bead of Force"
+  },
+  {
+    "cn": "矮人腰带",
+    "en": "Belt of Dwarvenkind"
+  },
+  {
+    "cn": "巨人之力腰带",
+    "en": "Belt of Giant Strength"
+  },
+  {
+    "cn": "石巨人之力腰带",
+    "en": "Belt\tof\tstone\tgiant\tstrength"
+  },
+  {
+    "cn": "狂战斧",
+    "en": "Berserker Axe"
+  },
+  {
+    "cn": "精灵之靴",
+    "en": "Boots of Elvenkind"
+  },
+  {
+    "cn": "浮空之靴",
+    "en": "Boots of Levitation"
+  },
+  {
+    "cn": "速度之靴",
+    "en": "Boots of Speed"
+  },
+  {
+    "cn": "跳跑之靴",
+    "en": "Boots of Striding and Springing"
+  },
+  {
+    "cn": "雪地之靴",
+    "en": "Boots of the Winterlands"
+  },
+  {
+    "cn": "命令元素水钵",
+    "en": "Bowl of Commanding Water"
+  },
+  {
+    "cn": "射手护腕",
+    "en": "Bracers of Archery"
+  },
+  {
+    "cn": "防御护腕",
+    "en": "Bracers of Defense"
+  },
+  {
+    "cn": "命令元素火盆",
+    "en": "Brazier of Commanding Fire"
+  },
+  {
+    "cn": "护盾胸针",
+    "en": "Brooch of Shielding"
+  },
+  {
+    "cn": "飞天扫帚",
+    "en": "Broom of Flying"
+  },
+  {
+    "cn": "祈神蜡烛",
+    "en": "Candle of Invocation"
+  },
+  {
+    "cn": "水下呼吸帽",
+    "en": "Cap of Water Breathing"
+  },
+  {
+    "cn": "郎中披肩",
+    "en": "Cape of the Mountebank"
+  },
+  {
+    "cn": "飞毯",
+    "en": "Carpet of Flying"
+  },
+  {
+    "cn": "命令元素香炉",
+    "en": "Censer of Controlling Air Elementals"
+  },
+  {
+    "cn": "开门钟琴",
+    "en": "Chime of Opening"
+  },
+  {
+    "cn": "爆裂头饰",
+    "en": "Circlet of Blasting"
+  },
+  {
+    "cn": "节肢斗篷",
+    "en": "Cloak of Arachnida"
+  },
+  {
+    "cn": "移位斗篷",
+    "en": "Cloak of Displacement"
+  },
+  {
+    "cn": "精灵斗篷",
+    "en": "Cloak of Elvenkind"
+  },
+  {
+    "cn": "隐身斗篷",
+    "en": "Cloak of Invisibility"
+  },
+  {
+    "cn": "防护斗篷",
+    "en": "Cloak of Protection"
+  },
+  {
+    "cn": "蝙蝠斗篷",
+    "en": "Cloak of the Bat"
+  },
+  {
+    "cn": "蝠鲼斗篷",
+    "en": "Cloak of the Manta Ray"
+  },
+  {
+    "cn": "水晶球",
+    "en": "Crystal Ball"
+  },
+  {
+    "cn": "读心水晶球",
+    "en": "Crystal\tBall\tof\tMinf\tReading"
+  },
+  {
+    "cn": "心灵感应水晶球",
+    "en": "Crystal\tBall\tof\tTelepathy"
+  },
+  {
+    "cn": "真知水晶球",
+    "en": "Crystal\tBall\tof\tTrue\tSeeing"
+  },
+  {
+    "cn": "力场魔方",
+    "en": "Cube of Force"
+  },
+  {
+    "cn": "力场魔方各面效果",
+    "en": "Cube of Force Faces"
+  },
+  {
+    "cn": "异界之门魔方",
+    "en": "Cubic Gate"
+  },
+  {
+    "cn": "迪恩的折叠要塞",
+    "en": "Daern's Instant Fortress"
+  },
+  {
+    "cn": "淬毒匕首",
+    "en": "Dagger of Venom"
+  },
+  {
+    "cn": "舞空剑",
+    "en": "Dancing Sword"
+  },
+  {
+    "cn": "无尽水瓶",
+    "en": "Decanter of Endless Water"
+  },
+  {
+    "cn": "幻象牌组",
+    "en": "Deck of Illusions"
+  },
+  {
+    "cn": "红心",
+    "en": "A"
+  },
+  {
+    "cn": "方块",
+    "en": "A"
+  },
+  {
+    "cn": "黑桃",
+    "en": "A"
+  },
+  {
+    "cn": "梅花",
+    "en": "A"
+  },
+  {
+    "cn": "万象无常牌",
+    "en": "Deck of Many Things"
+  },
+  {
+    "cn": "是愚者",
+    "en": "Fool"
+  },
+  {
+    "cn": "平衡",
+    "en": "Balance"
+  },
+  {
+    "cn": "彗星",
+    "en": "Comet"
+  },
+  {
+    "cn": "城堡",
+    "en": "Donjon"
+  },
+  {
+    "cn": "蛇发女妖",
+    "en": "Euryale"
+  },
+  {
+    "cn": "命运三女神",
+    "en": "The\tFates"
+  },
+  {
+    "cn": "火焰",
+    "en": "Flames"
+  },
+  {
+    "cn": "关于树敌",
+    "en": "A\tQuestion\tof\tEnmity"
+  },
+  {
+    "cn": "愚者",
+    "en": "Fool"
+  },
+  {
+    "cn": "宝石",
+    "en": "Gem"
+  },
+  {
+    "cn": "白痴",
+    "en": "Idiot"
+  },
+  {
+    "cn": "小丑",
+    "en": "Jester"
+  },
+  {
+    "cn": "钥匙",
+    "en": "Key"
+  },
+  {
+    "cn": "骑士",
+    "en": "Knight"
+  },
+  {
+    "cn": "月亮",
+    "en": "Moon"
+  },
+  {
+    "cn": "浪人",
+    "en": "Rogue"
+  },
+  {
+    "cn": "废墟",
+    "en": "Ruin"
+  },
+  {
+    "cn": "死亡化身",
+    "en": "Avatar of Death"
+  },
+  {
+    "cn": "虚体移动",
+    "en": "Incorporeal\tMovement"
+  },
+  {
+    "cn": "免疫驱散",
+    "en": "Turning\tImmuntiy"
+  },
+  {
+    "cn": "收割之镰",
+    "en": "Reaping\tScythe"
+  },
+  {
+    "cn": "头骨",
+    "en": "Skull"
+  },
+  {
+    "cn": "星辰",
+    "en": "Star"
+  },
+  {
+    "cn": "太阳",
+    "en": "Sun"
+  },
+  {
+    "cn": "利爪",
+    "en": "Talons"
+  },
+  {
+    "cn": "王座",
+    "en": "Throne"
+  },
+  {
+    "cn": "大臣",
+    "en": "Vizier"
+  },
+  {
+    "cn": "虚空",
+    "en": "The\tVoid"
+  },
+  {
+    "cn": "防御者",
+    "en": "Defender"
+  },
+  {
+    "cn": "恶魔护甲",
+    "en": "Demon Armor"
+  },
+  {
+    "cn": "次元镣铐",
+    "en": "Dimensional Shackles"
+  },
+  {
+    "cn": "龙鳞甲",
+    "en": "Dragon Scale Mail"
+  },
+  {
+    "cn": "威仪",
+    "en": "Frightful\t Presence"
+  },
+  {
+    "cn": "屠龙者",
+    "en": "Dragon Slayer"
+  },
+  {
+    "cn": "漂浮之球",
+    "en": "Driftglobe"
+  },
+  {
+    "cn": "无踪粉",
+    "en": "Dust of Disappearance"
+  },
+  {
+    "cn": "干燥粉",
+    "en": "Dust of Dryness"
+  },
+  {
+    "cn": "喷嚏粉",
+    "en": "Dust of Sneezing and Choking"
+  },
+  {
+    "cn": "矮人板甲",
+    "en": "Dwarven Plate"
+  },
+  {
+    "cn": "矮人飞锤",
+    "en": "Dwarven Thrower"
+  },
+  {
+    "cn": "火巨灵囚瓶",
+    "en": "Efreeti Bottle"
+  },
+  {
+    "cn": "火巨灵链甲",
+    "en": "Efreeti Chain"
+  },
+  {
+    "cn": "还可以说和理解原初语",
+    "en": "Primordial"
+  },
+  {
+    "cn": "元素宝石",
+    "en": "Elemental Gem"
+  },
+  {
+    "cn": "健康灵药",
+    "en": "Elixir of Health"
+  },
+  {
+    "cn": "精灵链甲",
+    "en": "Elven Chain"
+  },
+  {
+    "cn": "无尽烟壶",
+    "en": "Eversmoking Bottle"
+  },
+  {
+    "cn": "魅惑镜片",
+    "en": "Eyes of Charming"
+  },
+  {
+    "cn": "微视镜片",
+    "en": "Eyes of Minute Seeing"
+  },
+  {
+    "cn": "鹰眼镜片",
+    "en": "Eyes of the Eagle"
+  },
+  {
+    "cn": "异能塑像",
+    "en": "Figurine of Wondrous Power"
+  },
+  {
+    "cn": "青铜狮鹫",
+    "en": "Bronze\tGriffon"
+  },
+  {
+    "cn": "乌木苍蝇",
+    "en": "Ebony\t Fly"
+  },
+  {
+    "cn": "黄金狮子",
+    "en": "Golden\tLions"
+  },
+  {
+    "cn": "象牙山羊",
+    "en": "Ivory\tG oat s"
+  },
+  {
+    "cn": "大理石象",
+    "en": "Marble\tElephant"
+  },
+  {
+    "cn": "黑曜石驹",
+    "en": "Obsidian\tSteed"
+  },
+  {
+    "cn": "玛瑙犬",
+    "en": "Onyx\tDog"
+  },
+  {
+    "cn": "蛇纹石猫头鹰",
+    "en": "Serpentine\tOwl"
+  },
+  {
+    "cn": "白银渡鸦",
+    "en": "Silver\tRaven"
+  },
+  {
+    "cn": "巨苍蝇",
+    "en": "Giant Fly"
+  },
+  {
+    "cn": "焰舌",
+    "en": "Flame Tongue"
+  },
+  {
+    "cn": "折叠船",
+    "en": "Folding Boat"
+  },
+  {
+    "cn": "霜铭",
+    "en": "Frost Brand"
+  },
+  {
+    "cn": "食人魔力量护手",
+    "en": "Gauntlets of Ogre Power"
+  },
+  {
+    "cn": "光彩夺目宝石",
+    "en": "Gem of Brightness"
+  },
+  {
+    "cn": "真视宝石",
+    "en": "Gem of Seeing"
+  },
+  {
+    "cn": "巨人屠杀者",
+    "en": "Giant Slayer"
+  },
+  {
+    "cn": "幻惑镶钉皮甲",
+    "en": "Glamoured Studded Leather"
+  },
+  {
+    "cn": "辟矢夺箭手套",
+    "en": "Gloves of Missile Snaring"
+  },
+  {
+    "cn": "运动健将手套",
+    "en": "Gloves of Swimming and Climbing"
+  },
+  {
+    "cn": "窃贼手套",
+    "en": "Gloves of Thievery"
+  },
+  {
+    "cn": "夜视镜",
+    "en": "Goggles of Night"
+  },
+  {
+    "cn": "雷神之锤",
+    "en": "Hammer of Thunderbolts"
+  },
+  {
+    "cn": "巨人杀手",
+    "en": "Giant’s\tBane"
+  },
+  {
+    "cn": "易容帽",
+    "en": "Hat of Disguise"
+  },
+  {
+    "cn": "智力头带",
+    "en": "Headband of Intellect"
+  },
+  {
+    "cn": "光辉头盔",
+    "en": "Helm of Brilliance"
+  },
+  {
+    "cn": "通晓语言头盔",
+    "en": "Helm of Comprehending Languages"
+  },
+  {
+    "cn": "心灵感应头盔",
+    "en": "Helm of Telepathy"
+  },
+  {
+    "cn": "传送头盔",
+    "en": "Helm of Teleportation"
+  },
+  {
+    "cn": "霍华德的便利袋",
+    "en": "Heward's Handy Haversack"
+  },
+  {
+    "cn": "神圣复仇者",
+    "en": "Holy Avenger"
+  },
+  {
+    "cn": "音爆号角",
+    "en": "Horn of Blasting"
+  },
+  {
+    "cn": "瓦尔哈拉号角",
+    "en": "Horn of Valhalla"
+  },
+  {
+    "cn": "西风马蹄铁",
+    "en": "Horseshoes of a Zephyr"
+  },
+  {
+    "cn": "加速马蹄铁",
+    "en": "Horseshoes of Speed"
+  },
+  {
+    "cn": "不动权杖",
+    "en": "Immovable Rod"
+  },
+  {
+    "cn": "吟游诗人乐器",
+    "en": "Instrument of the Bards"
+  },
+  {
+    "cn": "藤蔓曼陀林",
+    "en": "Canaith"
+  },
+  {
+    "cn": "聆听者七弦琴",
+    "en": "Cli"
+  },
+  {
+    "cn": "奥莱姆竖琴",
+    "en": "Oiiamh"
+  },
+  {
+    "cn": "艾恩石",
+    "en": "Ioun Stone"
+  },
+  {
+    "cn": "艾恩",
+    "en": "Ioun"
+  },
+  {
+    "cn": "吸收",
+    "en": "Absorption"
+  },
+  {
+    "cn": "机敏",
+    "en": "Agility"
+  },
+  {
+    "cn": "警觉",
+    "en": "Awareness"
+  },
+  {
+    "cn": "坚韧",
+    "en": "Fortitude"
+  },
+  {
+    "cn": "高等吸收",
+    "en": "Greater\tAbsorption"
+  },
+  {
+    "cn": "洞悉",
+    "en": "Insight"
+  },
+  {
+    "cn": "才智",
+    "en": "Intellect"
+  },
+  {
+    "cn": "统御",
+    "en": "Leadership"
+  },
+  {
+    "cn": "精通",
+    "en": "Mastery"
+  },
+  {
+    "cn": "防护",
+    "en": "Protection"
+  },
+  {
+    "cn": "再生",
+    "en": "Regeneration"
+  },
+  {
+    "cn": "储法",
+    "en": "Reserve"
+  },
+  {
+    "cn": "力量",
+    "en": "Strength"
+  },
+  {
+    "cn": "维生",
+    "en": "Sustenance"
+  },
+  {
+    "cn": "比拉罗的铁索",
+    "en": "Iron Bands of Bilarro"
+  },
+  {
+    "cn": "收妖瓶",
+    "en": "Iron Flask"
+  },
+  {
+    "cn": "闪电标枪",
+    "en": "Javelin of Lighting"
+  },
+  {
+    "cn": "卡夫统灵药",
+    "en": "Keoghtom's Ointment"
+  },
+  {
+    "cn": "显像提灯",
+    "en": "Lantern of Revealing"
+  },
+  {
+    "cn": "吉兆之刃",
+    "en": "Luck Blade"
+  },
+  {
+    "cn": "幸运",
+    "en": "Luck"
+  },
+  {
+    "cn": "许愿",
+    "en": "Wish"
+  },
+  {
+    "cn": "瓦解之锤",
+    "en": "Mace of Disruption"
+  },
+  {
+    "cn": "打击之锤",
+    "en": "Mace of Smiting"
+  },
+  {
+    "cn": "恐惧之锤",
+    "en": "Mace of Terror"
+  },
+  {
+    "cn": "法术抗性斗篷",
+    "en": "Mantle of Spell Resistance"
+  },
+  {
+    "cn": "强身手册",
+    "en": "Manual of Bodily Health"
+  },
+  {
+    "cn": "健体手册",
+    "en": "Manual of Gainful Exercise"
+  },
+  {
+    "cn": "魔像手册",
+    "en": "Manual of Golems"
+  },
+  {
+    "cn": "灵巧手册",
+    "en": "Manual of Quickness of Action"
+  },
+  {
+    "cn": "水手护甲",
+    "en": "Mariner's Armor"
+  },
+  {
+    "cn": "读心勋章",
+    "en": "Medallion of Thoughts"
+  },
+  {
+    "cn": "摄心镜",
+    "en": "Mirror of Life Trapping"
+  },
+  {
+    "cn": "秘银甲",
+    "en": "Mithral Armor"
+  },
+  {
+    "cn": "适应项链",
+    "en": "Necklace of Adaptation"
+  },
+  {
+    "cn": "火球项链",
+    "en": "Necklace of Fireballs"
+  },
+  {
+    "cn": "念珠项链",
+    "en": "Necklace of Prayer Beads"
+  },
+  {
+    "cn": "九转夺命剑",
+    "en": "Nine Lives Stealer"
+  },
+  {
+    "cn": "诺泽尔的惊奇颜料",
+    "en": "Nolzur's Marvelous Pigments"
+  },
+  {
+    "cn": "誓仇弓",
+    "en": "Oathbow"
+  },
+  {
+    "cn": "以太化之油",
+    "en": "Oil of Etherealness"
+  },
+  {
+    "cn": "锐锋之油",
+    "en": "Oil of Sharpness"
+  },
+  {
+    "cn": "滑溜之油",
+    "en": "Oil of Slipperiness"
+  },
+  {
+    "cn": "法力再生珍珠",
+    "en": "Pearl of Power"
+  },
+  {
+    "cn": "保健护符",
+    "en": "Periapt of Health"
+  },
+  {
+    "cn": "辟毒护符",
+    "en": "Periapt of Proof Against Poison"
+  },
+  {
+    "cn": "愈合护符",
+    "en": "Periapt of Wound Closure"
+  },
+  {
+    "cn": "迷情媚药",
+    "en": "Philter of Love"
+  },
+  {
+    "cn": "颤栗乐笙",
+    "en": "Pipes of Haunting"
+  },
+  {
+    "cn": "唤鼠乐笙",
+    "en": "Pipes of the Sewers"
+  },
+  {
+    "cn": "以太化板甲",
+    "en": "Plate Armor of Etherealness"
+  },
+  {
+    "cn": "次元洞",
+    "en": "Portable Hole"
+  },
+  {
+    "cn": "化兽为友药水",
+    "en": "Potion of Animal Friendship"
+  },
+  {
+    "cn": "鹰眼术药水",
+    "en": "Potion of Clairvoyance"
+  },
+  {
+    "cn": "攀爬药水",
+    "en": "Potion of Climbing"
+  },
+  {
+    "cn": "缩小药水",
+    "en": "Potion of Diminution"
+  },
+  {
+    "cn": "火焰吐息药水",
+    "en": "Potion of Fire Breath"
+  },
+  {
+    "cn": "飞行药水",
+    "en": "Potion of Flying"
+  },
+  {
+    "cn": "气化形体药水",
+    "en": "Potion of Gaseous Form"
+  },
+  {
+    "cn": "巨人之力药水",
+    "en": "Potion of Giant Strength"
+  },
+  {
+    "cn": "成长药水",
+    "en": "Potion of Growth"
+  },
+  {
+    "cn": "治疗药水",
+    "en": "Potion of Healing"
+  },
+  {
+    "cn": "英雄气概药水",
+    "en": "Potion of Heroism"
+  },
+  {
+    "cn": "隐身药水",
+    "en": "Potion of Invisibility"
+  },
+  {
+    "cn": "坚不可摧药水",
+    "en": "Potion of Invulnerability"
+  },
+  {
+    "cn": "延寿药水",
+    "en": "Potion of Longevity"
+  },
+  {
+    "cn": "读心药水",
+    "en": "Potion of Mind Reading"
+  },
+  {
+    "cn": "剧毒药水",
+    "en": "Potion of Poison"
+  },
+  {
+    "cn": "抗性药水",
+    "en": "Potion of Resistance"
+  },
+  {
+    "cn": "加速药水",
+    "en": "Potion of Speed"
+  },
+  {
+    "cn": "活力药水",
+    "en": "Potion of Vitality"
+  },
+  {
+    "cn": "水下呼吸药水",
+    "en": "Potion of Water Breathing"
+  },
+  {
+    "cn": "夸尔羽符",
+    "en": "Quaal's Feather Token"
+  },
+  {
+    "cn": "天鹅船",
+    "en": "Swan\t Boat"
+  },
+  {
+    "cn": "艾罗娜的箭袋",
+    "en": "Quiver of Ehlonna"
+  },
+  {
+    "cn": "支配动物戒指",
+    "en": "Ring of Animal Influence"
+  },
+  {
+    "cn": "召唤气巨灵戒指",
+    "en": "Ring of Djinni Summoning"
+  },
+  {
+    "cn": "命令元素戒指",
+    "en": "Ring of Elemental Command"
+  },
+  {
+    "cn": "命令气元素戒指",
+    "en": "Ring\tof\tAir\tElemental\tCommand"
+  },
+  {
+    "cn": "命令土元素戒指",
+    "en": "Ring\tof\tEarth\tElemental\tCommand"
+  },
+  {
+    "cn": "命令火元素戒指",
+    "en": "Ring\tof\tFire\t Elemental\tCommand"
+  },
+  {
+    "cn": "火族语",
+    "en": "Ignan"
+  },
+  {
+    "cn": "命令水元素戒指",
+    "en": "Ring\tof\tWaterElemental\tCommand"
+  },
+  {
+    "cn": "反射闪避戒指",
+    "en": "Ring of Evasion"
+  },
+  {
+    "cn": "羽落戒指",
+    "en": "Ring of Feather Falling"
+  },
+  {
+    "cn": "自由行动戒指",
+    "en": "Ring of Free Action"
+  },
+  {
+    "cn": "隐身戒指",
+    "en": "Ring of Invisibility"
+  },
+  {
+    "cn": "跳跃戒指",
+    "en": "Ring of Jumping"
+  },
+  {
+    "cn": "心灵护盾戒指",
+    "en": "Ring of Mind Shielding"
+  },
+  {
+    "cn": "防御戒指",
+    "en": "Ring of Protection"
+  },
+  {
+    "cn": "再生戒指",
+    "en": "Ring of Regeneration"
+  },
+  {
+    "cn": "抗性戒指",
+    "en": "Ring of Resistance"
+  },
+  {
+    "cn": "流星戒指",
+    "en": "Ring of Shooting Stars"
+  },
+  {
+    "cn": "妖火",
+    "en": "Faerie\t Fire"
+  },
+  {
+    "cn": "展妖火",
+    "en": "Faerie\tFire"
+  },
+  {
+    "cn": "球形闪电",
+    "en": "Ball\tLightning"
+  },
+  {
+    "cn": "流星",
+    "en": "Shooting\tStars"
+  },
+  {
+    "cn": "储法戒指",
+    "en": "Ring of Spell Storing"
+  },
+  {
+    "cn": "法术反转戒指",
+    "en": "Ring of Spell Turning"
+  },
+  {
+    "cn": "善泳戒指",
+    "en": "Ring of Swimming"
+  },
+  {
+    "cn": "心灵遥控戒指",
+    "en": "Ring of Telekinesis"
+  },
+  {
+    "cn": "公羊戒指",
+    "en": "Ring of the Ram"
+  },
+  {
+    "cn": "三愿戒指",
+    "en": "Ring of Three Wishes"
+  },
+  {
+    "cn": "温暖戒指",
+    "en": "Ring of Warmth"
+  },
+  {
+    "cn": "水行戒指",
+    "en": "Ring of Water Walking"
+  },
+  {
+    "cn": "百眼法袍",
+    "en": "Robe of Eyes"
+  },
+  {
+    "cn": "虹光法袍",
+    "en": "Robe of Scintillating Colors"
+  },
+  {
+    "cn": "星辰法袍",
+    "en": "Robe of Stars"
+  },
+  {
+    "cn": "大法师法袍",
+    "en": "Robe of the Archmagi"
+  },
+  {
+    "cn": "杂货法袍",
+    "en": "Robe of Useful Items"
+  },
+  {
+    "cn": "吸收权杖",
+    "en": "Rod of Absorption"
+  },
+  {
+    "cn": "警示权杖",
+    "en": "Rod of Alertness"
+  },
+  {
+    "cn": "法术",
+    "en": "Spells"
+  },
+  {
+    "cn": "防护灵光",
+    "en": "Protective\tAura"
+  },
+  {
+    "cn": "王者权杖",
+    "en": "Rod of Lordly Might"
+  },
+  {
+    "cn": "六个按钮",
+    "en": "Six\tButtons"
+  },
+  {
+    "cn": "吸取生命",
+    "en": "Drain\tLife"
+  },
+  {
+    "cn": "麻痹",
+    "en": "Paralyze"
+  },
+  {
+    "cn": "惊惧",
+    "en": "Terrify"
+  },
+  {
+    "cn": "契约掌控者权杖",
+    "en": "Rod of the Pact Keeper"
+  },
+  {
+    "cn": "复活权杖",
+    "en": "Rod of Resurrection"
+  },
+  {
+    "cn": "支配权杖",
+    "en": "Rod of Rulership"
+  },
+  {
+    "cn": "庇护权杖",
+    "en": "Rod of Security"
+  },
+  {
+    "cn": "攀爬绳",
+    "en": "Rope of Climbing"
+  },
+  {
+    "cn": "纠缠绳",
+    "en": "Rope of Entanglement"
+  },
+  {
+    "cn": "铁骑马鞍",
+    "en": "Saddle of The Cavalier"
+  },
+  {
+    "cn": "防护圣甲虫",
+    "en": "Scarab of Protection"
+  },
+  {
+    "cn": "急速弯刀",
+    "en": "Scimitar of Speed"
+  },
+  {
+    "cn": "守护卷轴",
+    "en": "Scroll of Protection"
+  },
+  {
+    "cn": "传讯石",
+    "en": "Sending Stones"
+  },
+  {
+    "cn": "警戒之盾",
+    "en": "Sentinel Shield"
+  },
+  {
+    "cn": "盾牌",
+    "en": "Shield，+1、+2"
+  },
+  {
+    "cn": "引弹盾",
+    "en": "Shield of Missile Attraction"
+  },
+  {
+    "cn": "蛛行便鞋",
+    "en": "Slippers of Spider Climbing"
+  },
+  {
+    "cn": "至尊胶",
+    "en": "Sovereign Glue"
+  },
+  {
+    "cn": "法术卷轴",
+    "en": "Spell Scroll"
+  },
+  {
+    "cn": "抗法盾",
+    "en": "Spellguard Shield"
+  },
+  {
+    "cn": "湮灭法球",
+    "en": "Sphere of Annihilation"
+  },
+  {
+    "cn": "魅惑法杖",
+    "en": "Staff of Charming"
+  },
+  {
+    "cn": "火焰法杖",
+    "en": "Staff of Fire"
+  },
+  {
+    "cn": "冰霜法杖",
+    "en": "Staff of Frost"
+  },
+  {
+    "cn": "治愈法杖",
+    "en": "Staff of Healing"
+  },
+  {
+    "cn": "威力法杖",
+    "en": "Staff of Power"
+  },
+  {
+    "cn": "威力打击",
+    "en": "Power\tStrike"
+  },
+  {
+    "cn": "复仇打击",
+    "en": "Retributive\tStrike"
+  },
+  {
+    "cn": "强袭法杖",
+    "en": "Staff of Striking"
+  },
+  {
+    "cn": "虫群法杖",
+    "en": "Staff of Swarming Insects"
+  },
+  {
+    "cn": "虫云",
+    "en": "Insect\tCloud"
+  },
+  {
+    "cn": "蝰蛇法杖",
+    "en": "Staff of The Adder"
+  },
+  {
+    "cn": "贤者法杖",
+    "en": "Staff of The Magi"
+  },
+  {
+    "cn": "法术吸收",
+    "en": "Spell\tAbsorption"
+  },
+  {
+    "cn": "巨蟒法杖",
+    "en": "Staff of The Python"
+  },
+  {
+    "cn": "丛林法杖",
+    "en": "Staff of The Woodlands"
+  },
+  {
+    "cn": "树形态",
+    "en": "Tree\tForm"
+  },
+  {
+    "cn": "雷霆法杖",
+    "en": "Staff of Thunder And Lightning"
+  },
+  {
+    "cn": "电闪",
+    "en": "Lightning"
+  },
+  {
+    "cn": "雷鸣",
+    "en": "Thunder"
+  },
+  {
+    "cn": "闪电击",
+    "en": "Lightning\tStrike"
+  },
+  {
+    "cn": "雷霆",
+    "en": "Thinderclap"
+  },
+  {
+    "cn": "雷电",
+    "en": "Thinder\tand\tLightning"
+  },
+  {
+    "cn": "凋零法杖",
+    "en": "Staff of Withering"
+  },
+  {
+    "cn": "命令元素石核",
+    "en": "Stone of Controlling Earth"
+  },
+  {
+    "cn": "幸运石",
+    "en": "Stone of Good Luck"
+  },
+  {
+    "cn": "阳炎剑",
+    "en": "Sun Blade"
+  },
+  {
+    "cn": "应答之剑",
+    "en": "Sword of Answering"
+  },
+  {
+    "cn": "解答者",
+    "en": "Answer"
+  },
+  {
+    "cn": "还击者",
+    "en": "Back\tTalker"
+  },
+  {
+    "cn": "定论者",
+    "en": "Concluder"
+  },
+  {
+    "cn": "讥讽者",
+    "en": "Last\tQuip"
+  },
+  {
+    "cn": "驳斥者",
+    "en": "Rebutter"
+  },
+  {
+    "cn": "答复者",
+    "en": "Replier"
+  },
+  {
+    "cn": "反驳者",
+    "en": "Retorter"
+  },
+  {
+    "cn": "潜伏者",
+    "en": "Scather"
+  },
+  {
+    "cn": "毁灭者",
+    "en": "Squelcher"
+  },
+  {
+    "cn": "窃命剑",
+    "en": "Sword of Life Stealing"
+  },
+  {
+    "cn": "锋锐之剑",
+    "en": "Sword of Sharpness"
+  },
+  {
+    "cn": "复仇之剑",
+    "en": "Sword of Vengeance"
+  },
+  {
+    "cn": "血光剑",
+    "en": "Sword of Wounding"
+  },
+  {
+    "cn": "纯善护符",
+    "en": "Talisman of Pure Good"
+  },
+  {
+    "cn": "法球护符",
+    "en": "Talisman of The Sphere"
+  },
+  {
+    "cn": "至恶护符",
+    "en": "Talisman of Ultimate Evil"
+  },
+  {
+    "cn": "触须权杖",
+    "en": "Tentacle Rod"
+  },
+  {
+    "cn": "静思卷册",
+    "en": "Tome of Clear Thought"
+  },
+  {
+    "cn": "统御卷册",
+    "en": "Tome of Leadership And Influence"
+  },
+  {
+    "cn": "静语卷册",
+    "en": "Tome of The Stilled Tongue"
+  },
+  {
+    "cn": "守秘者维克",
+    "en": "Vecna"
+  },
+  {
+    "cn": "通晓卷册",
+    "en": "Tome of Understanding"
+  },
+  {
+    "cn": "唤鱼三叉戟",
+    "en": "Trident of Fish Command"
+  },
+  {
+    "cn": "万溶剂",
+    "en": "Universal Solvent"
+  },
+  {
+    "cn": "恶毒武器",
+    "en": "Vicious Weapon"
+  },
+  {
+    "cn": "斩首剑",
+    "en": "Vorpal Sword"
+  },
+  {
+    "cn": "定身魔杖",
+    "en": "Wand of Binding"
+  },
+  {
+    "cn": "援助脱离",
+    "en": "Assisted\tEscape"
+  },
+  {
+    "cn": "搜敌魔杖",
+    "en": "Wand of Enemy Detection"
+  },
+  {
+    "cn": "恐惧魔杖",
+    "en": "Wand of Fear"
+  },
+  {
+    "cn": "命令",
+    "en": "Command"
+  },
+  {
+    "cn": "恐惧力场",
+    "en": "Cone\tof\tFear"
+  },
+  {
+    "cn": "执行闪避",
+    "en": "Dodge"
+  },
+  {
+    "cn": "火球魔杖",
+    "en": "Wand of Fireballs"
+  },
+  {
+    "cn": "闪电束魔杖",
+    "en": "Wand of Lightning Bolts"
+  },
+  {
+    "cn": "搜魔魔杖",
+    "en": "Wand of Magic Detection"
+  },
+  {
+    "cn": "魔法飞弹魔杖",
+    "en": "Wand of Magic Missiles"
+  },
+  {
+    "cn": "麻痹魔杖",
+    "en": "Wand of Paralysis"
+  },
+  {
+    "cn": "变形魔杖",
+    "en": "Wand of Polymorph"
+  },
+  {
+    "cn": "探秘魔杖",
+    "en": "Wand of Secrets"
+  },
+  {
+    "cn": "战法师魔杖",
+    "en": "Wand of The War Mage，+1、+2"
+  },
+  {
+    "cn": "蛛网魔杖",
+    "en": "Wand of Web"
+  },
+  {
+    "cn": "惊异魔杖",
+    "en": "Wand of Wonder"
+  },
+  {
+    "cn": "武器",
+    "en": "Weapon，+1、+2"
+  },
+  {
+    "cn": "警戒武器",
+    "en": "Weapon of Warning"
+  },
+  {
+    "cn": "诸界之井",
+    "en": "Well of Many Worlds"
+  },
+  {
+    "cn": "造风之扇",
+    "en": "Wind Fan"
+  },
+  {
+    "cn": "飞翼之靴",
+    "en": "Winged Boots"
+  },
+  {
+    "cn": "飞翼斗篷",
+    "en": "Wings of Flying"
+  },
+  {
+    "cn": "智能魔法物品",
+    "en": "Sentient Magic Items"
+  },
+  {
+    "cn": "智能魔法物品就像",
+    "en": "NPC"
+  },
+  {
+    "cn": "创作智能魔法物品",
+    "en": "Creating Sentient"
+  },
+  {
+    "cn": "属性值",
+    "en": "Abilities"
+  },
+  {
+    "cn": "交流方式",
+    "en": "Communication"
+  },
+  {
+    "cn": "感官",
+    "en": "Senses"
+  },
+  {
+    "cn": "阵营",
+    "en": "Alignment"
+  },
+  {
+    "cn": "性格",
+    "en": "Characteristics"
+  },
+  {
+    "cn": "目标",
+    "en": "Special Purpose"
+  },
+  {
+    "cn": "对抗",
+    "en": "Conflict"
+  },
+  {
+    "cn": "智能魔法物品范例",
+    "en": "Sample Sentient Items"
+  },
+  {
+    "cn": "黑刃",
+    "en": "Blackrazor"
+  },
+  {
+    "cn": "吞噬灵魂",
+    "en": "Devour\tSoul"
+  },
+  {
+    "cn": "灵魂猎手",
+    "en": "Soul\tHunter"
+  },
+  {
+    "cn": "智能",
+    "en": "Sentience"
+  },
+  {
+    "cn": "个性",
+    "en": "Personality"
+  },
+  {
+    "cn": "月刃",
+    "en": "Moonblade"
+  },
+  {
+    "cn": "月刃属性",
+    "en": "Moonblade\tProperties"
+  },
+  {
+    "cn": "波涛",
+    "en": "Wave"
+  },
+  {
+    "cn": "征服",
+    "en": "Whelm"
+  },
+  {
+    "cn": "投掷武器",
+    "en": "Thrown\tWeapon"
+  },
+  {
+    "cn": "震荡波",
+    "en": "Shock\tWave"
+  },
+  {
+    "cn": "超然警觉",
+    "en": "Supernatural\tAwareness"
+  },
+  {
+    "cn": "契丹米尔",
+    "en": "Ctenmiir"
+  },
+  {
+    "cn": "神器",
+    "en": "Artifacts"
+  },
+  {
+    "cn": "神器属性",
+    "en": "Artifact Properties"
+  },
+  {
+    "cn": "弱效增益属性",
+    "en": "Minor\tBeneficial\tProperties"
+  },
+  {
+    "cn": "强效增益属性",
+    "en": "Major\tBeneficial\tProperties"
+  },
+  {
+    "cn": "弱效减益属性",
+    "en": "Minor\tDetrimental\tProperties"
+  },
+  {
+    "cn": "强效减益属性",
+    "en": "Major\tDetrimental\tProperties"
+  },
+  {
+    "cn": "矮人王圣斧",
+    "en": "Axe of The Dwarvish Lords"
+  },
+  {
+    "cn": "魔法武器",
+    "en": "Magic\tWeapon"
+  },
+  {
+    "cn": "随机属性",
+    "en": "Random\tProperties"
+  },
+  {
+    "cn": "莫拉丁的祝福",
+    "en": "Blessings\tof\tMoradin"
+  },
+  {
+    "cn": "召唤土元素",
+    "en": "Conjure\tEarth\tElemental"
+  },
+  {
+    "cn": "地深漫游",
+    "en": "Travel\tthe\tDepths"
+  },
+  {
+    "cn": "破坏圣斧",
+    "en": "Destroying\tthe\tAxe"
+  },
+  {
+    "cn": "创造它的地心熔炉",
+    "en": "Earthheart\tForge"
+  },
+  {
+    "cn": "圣洁之书",
+    "en": "Book of Exalted Deeds"
+  },
+  {
+    "cn": "提高感知",
+    "en": "Increased\tWisdom"
+  },
+  {
+    "cn": "魔法启迪",
+    "en": "Enlightened\tMagic"
+  },
+  {
+    "cn": "光环",
+    "en": "Halo"
+  },
+  {
+    "cn": "破坏圣书",
+    "en": "Destroying\tthe\tBook"
+  },
+  {
+    "cn": "邪秽学识",
+    "en": "Vile\tLore"
+  },
+  {
+    "cn": "秽暗之书",
+    "en": "Book of Vile Darkness"
+  },
+  {
+    "cn": "属性值调整",
+    "en": "Adjusted\tAbility\tScores"
+  },
+  {
+    "cn": "黑暗印记",
+    "en": "Mark\tof\tDarkness"
+  },
+  {
+    "cn": "命令邪恶",
+    "en": "Command\tEvil"
+  },
+  {
+    "cn": "暗秘学识",
+    "en": "Dark\tLore"
+  },
+  {
+    "cn": "暗秘灵言",
+    "en": "Dark\tSpeech"
+  },
+  {
+    "cn": "种名为暗秘灵言",
+    "en": "Dark\tSpeech"
+  },
+  {
+    "cn": "破坏书典",
+    "en": "Destroying\tthe\tBook"
+  },
+  {
+    "cn": "维克那法眼和魔掌",
+    "en": "Eye and Hand of Vecna"
+  },
+  {
+    "cn": "维克那",
+    "en": "Vecna"
+  },
+  {
+    "cn": "蜘蛛王座之主",
+    "en": "Master\tof\tthe\tSpider\tThrone，"
+  },
+  {
+    "cn": "维克那法眼",
+    "en": "Eye\tof\tVecna"
+  },
+  {
+    "cn": "法眼属性",
+    "en": "Properties\tof\tthe\tEye"
+  },
+  {
+    "cn": "制的",
+    "en": "NPC"
+  },
+  {
+    "cn": "魔掌属性",
+    "en": "Properties\tof\tthe\tHand"
+  },
+  {
+    "cn": "法眼加魔掌属性",
+    "en": "Properties\tof\tthe\tEye\tand\tHand"
+  },
+  {
+    "cn": "破坏法眼和魔掌",
+    "en": "Destroying\tthe\tEye\tand\tHand"
+  },
+  {
+    "cn": "斯之剑",
+    "en": "Sword\tof\tKas"
+  },
+  {
+    "cn": "龙珠",
+    "en": "Orb of Dragonkind"
+  },
+  {
+    "cn": "称龙族宝珠",
+    "en": "Dragon\tOrbs"
+  },
+  {
+    "cn": "克西丝",
+    "en": "Takhisis"
+  },
+  {
+    "cn": "呼唤巨龙",
+    "en": "Call\tDragons"
+  },
+  {
+    "cn": "破坏龙珠",
+    "en": "Destroying\tan\tOrb"
+  },
+  {
+    "cn": "凯斯之剑",
+    "en": "Sword of Kas"
+  },
+  {
+    "cn": "其名为血手凯斯",
+    "en": "Kas\tthe\tBloody\tHanded"
+  },
+  {
+    "cn": "凯斯之灵",
+    "en": "Spirit\tof\tKas"
+  },
+  {
+    "cn": "破坏魔剑",
+    "en": "Destroying\tthe\tSword"
+  },
+  {
+    "cn": "奥喀斯之杖",
+    "en": "Wand of Orcus"
+  },
+  {
+    "cn": "呼唤不死生物",
+    "en": "Call\tUndead"
+  },
+  {
+    "cn": "破坏魔杖",
+    "en": "Destroying\tthe\tWand"
+  },
+  {
+    "cn": "其他奖励",
+    "en": "Other Rewards"
+  },
+  {
+    "cn": "祝福",
+    "en": "Blessings"
+  },
+  {
+    "cn": "祝福健康",
+    "en": "Blessing\tof\tHealth"
+  },
+  {
+    "cn": "保护祝福",
+    "en": "Blessing\tof\tProtection"
+  },
+  {
+    "cn": "魔抗祝福",
+    "en": "Blessing\tof\tMagic\tResistance"
+  },
+  {
+    "cn": "理解祝福",
+    "en": "Blessing\tof\tUnderstanding"
+  },
+  {
+    "cn": "瓦尔哈拉祝福",
+    "en": "Blessing\tof\tValhalla"
+  },
+  {
+    "cn": "武器增强祝福",
+    "en": "Blessing\tof\tWeapon\tEnhancement"
+  },
+  {
+    "cn": "愈合祝福",
+    "en": "Blessing\tof\tWound\tClosu re"
+  },
+  {
+    "cn": "护咒",
+    "en": "Charms"
+  },
+  {
+    "cn": "召唤动物护咒",
+    "en": "Charm\tof\tAnimal\tConjuring"
+  },
+  {
+    "cn": "黑暗视觉护咒",
+    "en": "Charm\tof\tDarkvision"
+  },
+  {
+    "cn": "羽落护咒",
+    "en": "Charm\tof\tFeather\tFalling"
+  },
+  {
+    "cn": "英雄气概护咒",
+    "en": "Charm\tof\tHeroism"
+  },
+  {
+    "cn": "复原护咒",
+    "en": "Charm\tof\tRestoration"
+  },
+  {
+    "cn": "杀戮护咒",
+    "en": "Charm\tof\tthe\tSlayer"
+  },
+  {
+    "cn": "活力护咒",
+    "en": "Charm\tof\tVitality"
+  },
+  {
+    "cn": "推荐信",
+    "en": "Letters of Recommendation"
+  },
+  {
+    "cn": "绕开许多麻烦直接拜访某些",
+    "en": "NPC，"
+  },
+  {
+    "cn": "勋章",
+    "en": "Medals"
+  },
+  {
+    "cn": "奖章",
+    "en": "Royal\tBadge\tof\tValor"
+  },
+  {
+    "cn": "的盾牌）给保护不列里斯",
+    "en": "Brelish"
+  },
+  {
+    "cn": "金熊",
+    "en": "Golden\tBear\tof\tBreland"
+  },
+  {
+    "cn": "但却可以影响与",
+    "en": "NPC"
+  },
+  {
+    "cn": "封地",
+    "en": "Parcels of Land"
+  },
+  {
+    "cn": "人情",
+    "en": "Special Favors"
+  },
+  {
+    "cn": "对中立的",
+    "en": "NPC"
+  },
+  {
+    "cn": "特权",
+    "en": "Special Rights"
+  },
+  {
+    "cn": "要塞",
+    "en": "Strongholds"
+  },
+  {
+    "cn": "头衔",
+    "en": "Titles"
+  },
+  {
+    "cn": "训练",
+    "en": "Training"
+  },
+  {
+    "cn": "传奇恩惠",
+    "en": "Epic Boons"
+  },
+  {
+    "cn": "传奇恩惠替代品",
+    "en": "Alternatives\tto\tEpic\tBoons"
+  },
+  {
+    "cn": "属性值加成",
+    "en": "Ability\tScore\tImprovement"
+  },
+  {
+    "cn": "新专长",
+    "en": "New\tFeat"
+  },
+  {
+    "cn": "英勇战斗之恩惠",
+    "en": "Boon of Combat Prowess"
+  },
+  {
+    "cn": "次元旅行之恩惠",
+    "en": "Boon of Dimensional Travel"
+  },
+  {
+    "cn": "扭曲命运之恩惠",
+    "en": "Boon of Fate"
+  },
+  {
+    "cn": "超凡强韧之恩惠",
+    "en": "Boon of Fortitude"
+  },
+  {
+    "cn": "高等魔法之恩惠",
+    "en": "Boon of High Magic"
+  },
+  {
+    "cn": "不朽不灭之恩惠",
+    "en": "Boon of Immortality"
+  },
+  {
+    "cn": "金身不坏之恩惠",
+    "en": "Boon of Invincibility"
+  },
+  {
+    "cn": "无敌攻势之恩惠",
+    "en": "Boon of Irresistible Offense"
+  },
+  {
+    "cn": "操弄幸运之恩惠",
+    "en": "Boon of Luck"
+  },
+  {
+    "cn": "魔法抗性之恩惠",
+    "en": "Boon of Magic Resistance"
+  },
+  {
+    "cn": "无双狙杀之恩惠",
+    "en": "Boon of Peerless Aim"
+  },
+  {
+    "cn": "完美健康之恩惠",
+    "en": "Boon of Perfect Health"
+  },
+  {
+    "cn": "位面旅者之恩惠",
+    "en": "Boon of Planar Travel"
+  },
+  {
+    "cn": "迅捷施法之恩惠",
+    "en": "Boon of Quick Casting"
+  },
+  {
+    "cn": "恢复能力之恩惠",
+    "en": "Boon of Recovery"
+  },
+  {
+    "cn": "动能反弹之恩惠",
+    "en": "Boon of Resilience"
+  },
+  {
+    "cn": "技能熟练之恩惠",
+    "en": "Boon of Skill Proficiency"
+  },
+  {
+    "cn": "速度爆发之恩惠",
+    "en": "Boon of Speed"
+  },
+  {
+    "cn": "法术掌控之恩惠",
+    "en": "Boon of Spell Mastery"
+  },
+  {
+    "cn": "法术召返之恩惠",
+    "en": "Boon of the Recall"
+  },
+  {
+    "cn": "炽焰魂魄之恩惠",
+    "en": "Boon of Fire Soul"
+  },
+  {
+    "cn": "暗夜精魂之恩惠",
+    "en": "Boon of the Night Spirit"
+  },
+  {
+    "cn": "暴风降生之恩惠",
+    "en": "Boon of Stormborn"
+  },
+  {
+    "cn": "无拘无束之恩惠",
+    "en": "Boon of the Unfettered"
+  },
+  {
+    "cn": "真实视觉之恩惠",
+    "en": "Boon of Truesight"
+  },
+  {
+    "cn": "无形无迹之恩惠",
+    "en": "Boon of Undetectability"
+  },
+  {
+    "cn": "跑团原则",
+    "en": "Table Rules"
+  },
+  {
+    "cn": "尊重他人",
+    "en": "Foster\t respect"
+  },
+  {
+    "cn": "排除干扰",
+    "en": "Avoid\tdistractions"
+  },
+  {
+    "cn": "备足零食",
+    "en": "Have\tSnacks"
+  },
+  {
+    "cn": "掷骰",
+    "en": "Dice Rolling"
+  },
+  {
+    "cn": "骰命中与伤害",
+    "en": "Rolling Attacks and Damage"
+  },
+  {
+    "cn": "规则讨论",
+    "en": "Rules Discussions"
+  },
+  {
+    "cn": "超游思维",
+    "en": "Meragame Thinking"
+  },
+  {
+    "cn": "玩家缺席",
+    "en": "Missing Players"
+  },
+  {
+    "cn": "人数少的团队",
+    "en": "Small Groups"
+  },
+  {
+    "cn": "以掷骰为本",
+    "en": "Rolling with It"
+  },
+  {
+    "cn": "掷骰不如思考",
+    "en": "Ignoring the Dice"
+  },
+  {
+    "cn": "掷骰与思考结合",
+    "en": "The Middle Path"
+  },
+  {
+    "cn": "属性值应用",
+    "en": "Using Ability Scores"
+  },
+  {
+    "cn": "多次属性检定",
+    "en": "Multiple Ability Checks"
+  },
+  {
+    "cn": "智力检定对感知检定",
+    "en": "Intelligence\tCheck\tvs"
+  },
+  {
+    "cn": "攻击检定",
+    "en": "Attack Rolls"
+  },
+  {
+    "cn": "属性检定",
+    "en": "Ability\tChecks"
+  },
+  {
+    "cn": "豁免检定",
+    "en": "Saving\tThrows"
+  },
+  {
+    "cn": "熟练项",
+    "en": "Proficiency"
+  },
+  {
+    "cn": "技能",
+    "en": "Skills"
+  },
+  {
+    "cn": "工具",
+    "en": "Tools"
+  },
+  {
+    "cn": "豁免检定与攻击检定",
+    "en": "Saving Throws and Attack"
+  },
+  {
+    "cn": "激励",
+    "en": "Inspiration"
+  },
+  {
+    "cn": "给予激励",
+    "en": "Awarding Inspiration"
+  },
+  {
+    "cn": "角色扮演",
+    "en": "Roleplaying"
+  },
+  {
+    "cn": "英勇事迹",
+    "en": "Heroism"
+  },
+  {
+    "cn": "胜利奖赏",
+    "en": "A\tReward\tfor\t Vitory"
+  },
+  {
+    "cn": "题材仿真",
+    "en": "Genre\tEmulation"
+  },
+  {
+    "cn": "玩家与激励",
+    "en": "Players\tand\tInspiration"
+  },
+  {
+    "cn": "什么时候给予激励",
+    "en": "When Do You Award"
+  },
+  {
+    "cn": "跟进激励",
+    "en": "Tracking Inspiration"
+  },
+  {
+    "cn": "不用激励",
+    "en": "Ignoring Inspiration"
+  },
+  {
+    "cn": "决定与后果",
+    "en": "Resolution and Consequences"
+  },
+  {
+    "cn": "失败的程度",
+    "en": "Degrees of Failure"
+  },
+  {
+    "cn": "大成功或大失败",
+    "en": "Critical Success or Failure"
+  },
+  {
+    "cn": "探索",
+    "en": "Exploration"
+  },
+  {
+    "cn": "地图旅行步调",
+    "en": "Map\tTravel\tPace"
+  },
+  {
+    "cn": "特殊旅行步调",
+    "en": "Special Travel Pace"
+  },
+  {
+    "cn": "留意其他生物",
+    "en": "Noticing Other Chreatures"
+  },
+  {
+    "cn": "追踪",
+    "en": "Tracking"
+  },
+  {
+    "cn": "社交",
+    "en": "Social Interaction"
+  },
+  {
+    "cn": "改变态度",
+    "en": "Changing\tAttitude"
+  },
+  {
+    "cn": "个性突破点",
+    "en": "Determining\tCharacteristics"
+  },
+  {
+    "cn": "对话反应",
+    "en": "Conversation\tReaction"
+  },
+  {
+    "cn": "协助检定",
+    "en": "Aiding\tthe\tCheck"
+  },
+  {
+    "cn": "多次检定",
+    "en": "Multiple\tChecks"
+  },
+  {
+    "cn": "戏中描绘的",
+    "en": "NPC"
+  },
+  {
+    "cn": "果有多个",
+    "en": "NPC"
+  },
+  {
+    "cn": "作来给",
+    "en": "NPC"
+  },
+  {
+    "cn": "吸引玩家们",
+    "en": "Engaging the Players"
+  },
+  {
+    "cn": "迎合玩家爱好",
+    "en": "Appeal\tto\tPlayer\tPreferences"
+  },
+  {
+    "cn": "瞄准特定角色",
+    "en": "Target\t Specific\t Characters"
+  },
+  {
+    "cn": "也许被问及的",
+    "en": "NPC"
+  },
+  {
+    "cn": "物件",
+    "en": "Object"
+  },
+  {
+    "cn": "物件的资料",
+    "en": "Statistics for Objects"
+  },
+  {
+    "cn": "护甲等级",
+    "en": "Armor\tClass"
+  },
+  {
+    "cn": "物件护甲等级",
+    "en": "Object\tArmor\tClass"
+  },
+  {
+    "cn": "生命值",
+    "en": "Hit\tPoint"
+  },
+  {
+    "cn": "物件生命值",
+    "en": "Object\tHit\tPoints"
+  },
+  {
+    "cn": "巨型与超巨型物件",
+    "en": "Huge\tand\tGargantuan\tObject"
+  },
+  {
+    "cn": "物件与伤害类型",
+    "en": "Object\tand\tDamage\tTypes"
+  },
+  {
+    "cn": "伤害阈值",
+    "en": "Damage\tThreshold"
+  },
+  {
+    "cn": "战斗",
+    "en": "Combat"
+  },
+  {
+    "cn": "跟进先攻",
+    "en": "Tracking Initiative"
+  },
+  {
+    "cn": "非公开名单",
+    "en": "Hidden List"
+  },
+  {
+    "cn": "公开名单",
+    "en": "Visible List"
+  },
+  {
+    "cn": "索引卡",
+    "en": "Index Cards"
+  },
+  {
+    "cn": "跟进怪物生命值",
+    "en": "Tracking Monster Hit"
+  },
+  {
+    "cn": "克拉格",
+    "en": "Krag"
+  },
+  {
+    "cn": "索德",
+    "en": "Thod"
+  },
+  {
+    "cn": "穆尔",
+    "en": "Mur"
+  },
+  {
+    "cn": "样的微缩模型并分别表上",
+    "en": "A、B、C"
+  },
+  {
+    "cn": "食人魔",
+    "en": "Ogre\tA"
+  },
+  {
+    "cn": "怪物与重击",
+    "en": "Monsters and Critical Hits"
+  },
+  {
+    "cn": "即兴伤害",
+    "en": "Improvising Damage"
+  },
+  {
+    "cn": "伤害危害度与等级",
+    "en": "Damage\tSeverity\tand\tLevel"
+  },
+  {
+    "cn": "判定效应范围",
+    "en": "Adjudicating Areas of Effect"
+  },
+  {
+    "cn": "效应范围内目标",
+    "en": "Targets\tin\tAreas\tof\tEffect"
+  },
+  {
+    "cn": "处理乱斗",
+    "en": "Handling Mobs"
+  },
+  {
+    "cn": "乱斗攻击",
+    "en": "Mob\tAttacks"
+  },
+  {
+    "cn": "战术地图",
+    "en": "Tactical Maps"
+  },
+  {
+    "cn": "方格与六角格中的怪物体型",
+    "en": "Creature Size on"
+  },
+  {
+    "cn": "生物体型与空间",
+    "en": "Creature\tSize\tand\tSpace"
+  },
+  {
+    "cn": "效应范围",
+    "en": "Areas of Effect"
+  },
+  {
+    "cn": "视线",
+    "en": "Line of Sight"
+  },
+  {
+    "cn": "掩护",
+    "en": "Cover"
+  },
+  {
+    "cn": "方格中的夹击",
+    "en": "Flanking\ton\tSquares"
+  },
+  {
+    "cn": "六角格中的夹击",
+    "en": "Flanking\ton\tHexes"
+  },
+  {
+    "cn": "判定反应时机",
+    "en": "Adjudicating Reaction"
+  },
+  {
+    "cn": "游戏效应混合",
+    "en": "Combining Game Effects"
+  },
+  {
+    "cn": "追逐",
+    "en": "Chases"
+  },
+  {
+    "cn": "开始追逐",
+    "en": "Beginning a Chase"
+  },
+  {
+    "cn": "疾奔中",
+    "en": "Dashing"
+  },
+  {
+    "cn": "疾走",
+    "en": "Dash"
+  },
+  {
+    "cn": "法术与攻击",
+    "en": "Spells and Attacks"
+  },
+  {
+    "cn": "逃脱因素",
+    "en": "Escape\tFactors"
+  },
+  {
+    "cn": "野外追逐意外",
+    "en": "Wilderness\tChase\tComplications"
+  },
+  {
+    "cn": "追逐中的意外",
+    "en": "Chase Complications"
+  },
+  {
+    "cn": "城中追逐意外",
+    "en": "Urban\tChase\tComplications"
+  },
+  {
+    "cn": "自建追逐意外表",
+    "en": "Designing Your Own Chase Tables"
+  },
+  {
+    "cn": "之门",
+    "en": "Baldur’s\tGate"
+  },
+  {
+    "cn": "分头行动",
+    "en": "Splitting Up"
+  },
+  {
+    "cn": "绘制追逐路线",
+    "en": "Mapping the Chase"
+  },
+  {
+    "cn": "角色反转",
+    "en": "Role Reversal"
+  },
+  {
+    "cn": "攻城装备",
+    "en": "Siege Equipment"
+  },
+  {
+    "cn": "弩炮",
+    "en": "Ballista"
+  },
+  {
+    "cn": "弩矢",
+    "en": "Bolt"
+  },
+  {
+    "cn": "火炮",
+    "en": "Cannon"
+  },
+  {
+    "cn": "炮弹",
+    "en": "Cannon\t Ball"
+  },
+  {
+    "cn": "吊挂大锅",
+    "en": "Cauldron, Suspended"
+  },
+  {
+    "cn": "滚油",
+    "en": "Boiling\tOil"
+  },
+  {
+    "cn": "弹射投石机",
+    "en": "Mangonel"
+  },
+  {
+    "cn": "弹射投石",
+    "en": "Mangonel\tStone"
+  },
+  {
+    "cn": "攻城槌",
+    "en": "Ram"
+  },
+  {
+    "cn": "攻城塔",
+    "en": "Siege Tower"
+  },
+  {
+    "cn": "配重投石机",
+    "en": "Trebuchet"
+  },
+  {
+    "cn": "配重投石",
+    "en": "Trebuchet\tStone"
+  },
+  {
+    "cn": "疾病",
+    "en": "Diseases"
+  },
+  {
+    "cn": "疾病范例",
+    "en": "Sample Diseases"
+  },
+  {
+    "cn": "失心疯",
+    "en": "Cackle Fever"
+  },
+  {
+    "cn": "下水道瘟疫",
+    "en": "Sewer Plague"
+  },
+  {
+    "cn": "腐眼症",
+    "en": "Sight Rot"
+  },
+  {
+    "cn": "毒药",
+    "en": "Poisons"
+  },
+  {
+    "cn": "接触",
+    "en": "Contact"
+  },
+  {
+    "cn": "服用",
+    "en": "Ingested"
+  },
+  {
+    "cn": "吸入",
+    "en": "Inhaled"
+  },
+  {
+    "cn": "损伤",
+    "en": "Injury"
+  },
+  {
+    "cn": "毒药范例",
+    "en": "Sample Poisons"
+  },
+  {
+    "cn": "刺客之血",
+    "en": "Assassin’s\tBlood"
+  },
+  {
+    "cn": "焦引熏烟",
+    "en": "Burnt\tOthur\tFumes"
+  },
+  {
+    "cn": "食腐虫粘液",
+    "en": "Carrion\tCrawler"
+  },
+  {
+    "cn": "卓尔毒药",
+    "en": "Drow\tPoison"
+  },
+  {
+    "cn": "乙太精",
+    "en": "Essence\tof\tEther"
+  },
+  {
+    "cn": "怨恨",
+    "en": "Malice"
+  },
+  {
+    "cn": "午夜之泪",
+    "en": "Midnight\tTears"
+  },
+  {
+    "cn": "腐精之油",
+    "en": "Oil\tof\tTaggit"
+  },
+  {
+    "cn": "苍白酊剂",
+    "en": "Pale\tTincture"
+  },
+  {
+    "cn": "紫虫毒液",
+    "en": "Purple\tWorm\tPoison"
+  },
+  {
+    "cn": "蛇毒",
+    "en": "Serpent\tVenom"
+  },
+  {
+    "cn": "蒙汗药",
+    "en": "Torpor"
+  },
+  {
+    "cn": "真理血清",
+    "en": "Truth\tSerum"
+  },
+  {
+    "cn": "飞龙毒液",
+    "en": "Wyvern\tPoison"
+  },
+  {
+    "cn": "采购毒药",
+    "en": "Purchasing Poison"
+  },
+  {
+    "cn": "毒药的制作与提炼",
+    "en": "Crafting and"
+  },
+  {
+    "cn": "疯狂",
+    "en": "Madness"
+  },
+  {
+    "cn": "发疯",
+    "en": "Going Mad"
+  },
+  {
+    "cn": "短暂性疯狂",
+    "en": "Short-Term\tMadness"
+  },
+  {
+    "cn": "长期性疯狂",
+    "en": "Long-Term\tMadness"
+  },
+  {
+    "cn": "永久性疯狂",
+    "en": "Indefinite\tMadness"
+  },
+  {
+    "cn": "治愈疯狂",
+    "en": "Curing Madness"
+  },
+  {
+    "cn": "经验值",
+    "en": "Experience Points"
+  },
+  {
+    "cn": "致个人角色分到的",
+    "en": "XP"
+  },
+  {
+    "cn": "缺席角色",
+    "en": "Absent Characters"
+  },
+  {
+    "cn": "照样获取",
+    "en": "XP，"
+  },
+  {
+    "cn": "对应的",
+    "en": "XP，"
+  },
+  {
+    "cn": "奖励相应的",
+    "en": "XP"
+  },
+  {
+    "cn": "而使跟进",
+    "en": "XP"
+  },
+  {
+    "cn": "基于聚会升级",
+    "en": "Session-Based Advancement"
+  },
+  {
+    "cn": "基于故事升级",
+    "en": "Story-Based Advancement"
+  },
+  {
+    "cn": "属性选用项",
+    "en": "Ability Options"
+  },
+  {
+    "cn": "熟练骰",
+    "en": "Proficiency\tDie"
+  },
+  {
+    "cn": "技能变体",
+    "en": "Skill Variants"
+  },
+  {
+    "cn": "属性检定熟练项",
+    "en": "Ability Check Proficiency"
+  },
+  {
+    "cn": "职业对应属性检定熟练项",
+    "en": "Ability\tCheck\tProficiencies\tby"
+  },
+  {
+    "cn": "背景熟练项",
+    "en": "Background Proficiency"
+  },
+  {
+    "cn": "个性特征熟练项",
+    "en": "Personality Trait Proficiency"
+  },
+  {
+    "cn": "荣誉值",
+    "en": "Honor Score"
+  },
+  {
+    "cn": "国度的卡拉图",
+    "en": "Kara-Tur"
+  },
+  {
+    "cn": "荣誉检定",
+    "en": "Honor\tChecks"
+  },
+  {
+    "cn": "荣誉豁免",
+    "en": "Honor\tSaving\tThrows"
+  },
+  {
+    "cn": "理智值",
+    "en": "Sanity Score"
+  },
+  {
+    "cn": "理智检定",
+    "en": "Sanity\tChecks"
+  },
+  {
+    "cn": "冒险选用项",
+    "en": "Adventuring Options"
+  },
+  {
+    "cn": "心慌与惊恐",
+    "en": "Fear and Horror"
+  },
+  {
+    "cn": "心慌",
+    "en": "Fear"
+  },
+  {
+    "cn": "惊恐",
+    "en": "Horror"
+  },
+  {
+    "cn": "治疗",
+    "en": "Healing"
+  },
+  {
+    "cn": "依赖医疗包",
+    "en": "Healer’s Kit Dependency"
+  },
+  {
+    "cn": "疗愈",
+    "en": "Healing Surges"
+  },
+  {
+    "cn": "缓慢自愈",
+    "en": "Slow Natural Healing"
+  },
+  {
+    "cn": "英雄史诗",
+    "en": "Epic Heroism"
+  },
+  {
+    "cn": "残酷现实",
+    "en": "Gritty Realism"
+  },
+  {
+    "cn": "属性",
+    "en": "Properties"
+  },
+  {
+    "cn": "扫射",
+    "en": "Burst\tFire"
+  },
+  {
+    "cn": "爆炸物",
+    "en": "Explosives"
+  },
+  {
+    "cn": "炸弹",
+    "en": "Bomb"
+  },
+  {
+    "cn": "火药",
+    "en": "Gunpowder"
+  },
+  {
+    "cn": "炸药",
+    "en": "Dynamite"
+  },
+  {
+    "cn": "榴弹",
+    "en": "Grenades"
+  },
+  {
+    "cn": "试验异域科技",
+    "en": "Figuring\tOut\tAlien\tTechnology"
+  },
+  {
+    "cn": "枪械",
+    "en": "Firearms"
+  },
+  {
+    "cn": "情节点数",
+    "en": "Plot Points"
+  },
+  {
+    "cn": "成为一名",
+    "en": "NPC，"
+  },
+  {
+    "cn": "而该玩家的角色也随之变为",
+    "en": "NPC，"
+  },
+  {
+    "cn": "战斗选用项",
+    "en": "Combat Options"
+  },
+  {
+    "cn": "先攻变体",
+    "en": "Initiative Variants"
+  },
+  {
+    "cn": "先攻值",
+    "en": "Initiative Score"
+  },
+  {
+    "cn": "集群先攻",
+    "en": "Side Initiative"
+  },
+  {
+    "cn": "为每个",
+    "en": "PC"
+  },
+  {
+    "cn": "速度因素",
+    "en": "Speed Factor"
+  },
+  {
+    "cn": "先攻调整值",
+    "en": "Initiative\tModifiers"
+  },
+  {
+    "cn": "速度因素先攻调整值",
+    "en": "Speed\tFactor\tInitiative\tModifiers"
+  },
+  {
+    "cn": "骰先攻",
+    "en": "Rolling\tInitiative"
+  },
+  {
+    "cn": "回合",
+    "en": "Turns"
+  },
+  {
+    "cn": "动作选用项",
+    "en": "Action Options"
+  },
+  {
+    "cn": "爬到更大生物身上",
+    "en": "Climb onto a Bigger Creature"
+  },
+  {
+    "cn": "缴械",
+    "en": "Disarm"
+  },
+  {
+    "cn": "标记",
+    "en": "Mark"
+  },
+  {
+    "cn": "强冲",
+    "en": "Overrun"
+  },
+  {
+    "cn": "挪移",
+    "en": "Shove Aside"
+  },
+  {
+    "cn": "翻滚",
+    "en": "Tumble"
+  },
+  {
+    "cn": "命中掩护体",
+    "en": "Hitting Cover"
+  },
+  {
+    "cn": "从生物群中开路",
+    "en": "Cleaving through"
+  },
+  {
+    "cn": "伤患",
+    "en": "Injuries"
+  },
+  {
+    "cn": "遗留伤患",
+    "en": "Lingering\tInjuries"
+  },
+  {
+    "cn": "休克",
+    "en": "System\tShock"
+  },
+  {
+    "cn": "可以使用该选用规则来判定怪物和",
+    "en": "NPC"
+  },
+  {
+    "cn": "创作怪物",
+    "en": "Creating a Monster"
+  },
+  {
+    "cn": "修改怪物",
+    "en": "Modifying a Monster"
+  },
+  {
+    "cn": "置换武器",
+    "en": "Switching Weapons"
+  },
+  {
+    "cn": "添加专有特质",
+    "en": "Adding a Special Trait"
+  },
+  {
+    "cn": "快速创建怪物资料",
+    "en": "Creating Quick"
+  },
+  {
+    "cn": "对应挑战等级的怪物资料",
+    "en": "Monster\tStatistics\tby"
+  },
+  {
+    "cn": "防御挑战等级",
+    "en": "Defensive\tChallenge\tRating"
+  },
+  {
+    "cn": "平均挑战等级",
+    "en": "Average\tChallenge\tRating"
+  },
+  {
+    "cn": "挑战等级对应经验值",
+    "en": "Experience\tPoints\tby\tChallenge"
+  },
+  {
+    "cn": "创建怪物资料板",
+    "en": "Creating a Monster Stat"
+  },
+  {
+    "cn": "分配生命骰",
+    "en": "Assign\tHit\tDice"
+  },
+  {
+    "cn": "体型对应生命骰",
+    "en": "Hit\tDice\tby\tSize"
+  },
+  {
+    "cn": "抗性与免疫对应有效生命值",
+    "en": "Effective\tHit\tPoints\tBased"
+  },
+  {
+    "cn": "结算攻击加值",
+    "en": "Calculate\tAttack\tBonuses"
+  },
+  {
+    "cn": "基于武器的伤害",
+    "en": "Base\tthe\tDamage\ton\tthe\tWeapon"
+  },
+  {
+    "cn": "总伤害输出",
+    "en": "Overall\tDamage\tOutput"
+  },
+  {
+    "cn": "攻击附带",
+    "en": "Attack\tRiders"
+  },
+  {
+    "cn": "飞行怪物",
+    "en": "Flying\tMonster"
+  },
+  {
+    "cn": "被动察觉值",
+    "en": "Passive\tPerception\tScore"
+  },
+  {
+    "cn": "心灵感应",
+    "en": "Telepathy"
+  },
+  {
+    "cn": "怪物特性",
+    "en": "Monster\tFeatures"
+  },
+  {
+    "cn": "好斗",
+    "en": "Aggressive"
+  },
+  {
+    "cn": "伏击",
+    "en": "Ambusher"
+  },
+  {
+    "cn": "无定形",
+    "en": "Amorphous"
+  },
+  {
+    "cn": "水陆两栖",
+    "en": "Amphibious"
+  },
+  {
+    "cn": "天使武器",
+    "en": "Angelic\tWeapons"
+  },
+  {
+    "cn": "魔力依赖",
+    "en": "Antimagic"
+  },
+  {
+    "cn": "凌空剑",
+    "en": "Flying\tSword"
+  },
+  {
+    "cn": "反射闪避",
+    "en": "Avoidance"
+  },
+  {
+    "cn": "盲感",
+    "en": "Blind\tSenses"
+  },
+  {
+    "cn": "血腥狂乱",
+    "en": "Blood\tFrenzy"
+  },
+  {
+    "cn": "吐息武器",
+    "en": "Breath\tWeapon"
+  },
+  {
+    "cn": "残暴",
+    "en": "Brute"
+  },
+  {
+    "cn": "变色皮肤",
+    "en": "Chameleon\tSkin"
+  },
+  {
+    "cn": "变形",
+    "en": "ChangeShape"
+  },
+  {
+    "cn": "冲锋",
+    "en": "Charge"
+  },
+  {
+    "cn": "魅惑",
+    "en": "Charm"
+  },
+  {
+    "cn": "绞缠",
+    "en": "Constrict"
+  },
+  {
+    "cn": "伤害吸收",
+    "en": "Damage"
+  },
+  {
+    "cn": "肉身魔像",
+    "en": "Flesh\tgolem"
+  },
+  {
+    "cn": "伤害转移",
+    "en": "Damage\tTransfer"
+  },
+  {
+    "cn": "自爆",
+    "en": "Death\tBurst"
+  },
+  {
+    "cn": "魔鬼视界",
+    "en": "Devil\tSight"
+  },
+  {
+    "cn": "俯冲",
+    "en": "Dive"
+  },
+  {
+    "cn": "回声定位",
+    "en": "Echolocation"
+  },
+  {
+    "cn": "元素之躯",
+    "en": "Elemental\tBody"
+  },
+  {
+    "cn": "变巨",
+    "en": "Enlarge"
+  },
+  {
+    "cn": "以太化",
+    "en": "Etherealness"
+  },
+  {
+    "cn": "拟形",
+    "en": "False\tAppearance"
+  },
+  {
+    "cn": "精类血统",
+    "en": "Fey\tAncestry"
+  },
+  {
+    "cn": "邪魔祝福",
+    "en": "Fiendish\tBlessing"
+  },
+  {
+    "cn": "飞掠",
+    "en": "Flyby"
+  },
+  {
+    "cn": "骇人威仪",
+    "en": "Frightful\tPresence"
+  },
+  {
+    "cn": "擒抱者",
+    "en": "Grappler"
+  },
+  {
+    "cn": "屏息",
+    "en": "Hold\tBreat"
+  },
+  {
+    "cn": "恐惧面容",
+    "en": "Horrifying\tVisage"
+  },
+  {
+    "cn": "照明",
+    "en": "Illumination"
+  },
+  {
+    "cn": "幻形",
+    "en": "Illusory\tAppearance"
+  },
+  {
+    "cn": "不变形态",
+    "en": "Immutable\tForm"
+  },
+  {
+    "cn": "幽魂",
+    "en": "Ghost"
+  },
+  {
+    "cn": "天生施法",
+    "en": "Innate\tSpellcasting"
+  },
+  {
+    "cn": "神秘莫测",
+    "en": "Inscrutable"
+  },
+  {
+    "cn": "隐形",
+    "en": "Invisibility"
+  },
+  {
+    "cn": "敏锐感官",
+    "en": "Keen\tSenses"
+  },
+  {
+    "cn": "光照敏感",
+    "en": "Light\tSensitivity"
+  },
+  {
+    "cn": "迷宫追忆",
+    "en": "Labyrinthine\tRecall"
+  },
+  {
+    "cn": "领导",
+    "en": "Leadership"
+  },
+  {
+    "cn": "传奇抗性",
+    "en": "Legendary"
+  },
+  {
+    "cn": "远古黑龙",
+    "en": "Ancient\tblack\tdragon"
+  },
+  {
+    "cn": "魔法抗性",
+    "en": "Magic\tResistance"
+  },
+  {
+    "cn": "成军优势",
+    "en": "Martial\tAdvantage"
+  },
+  {
+    "cn": "拟声",
+    "en": "Minicry"
+  },
+  {
+    "cn": "迅捷逃生",
+    "en": "Nimble\tEscape"
+  },
+  {
+    "cn": "异界观察",
+    "en": "Otherworldly"
+  },
+  {
+    "cn": "寇涛鱼人",
+    "en": "Kuo-toa"
+  },
+  {
+    "cn": "集群战术",
+    "en": "Pack\tTacuics"
+  },
+  {
+    "cn": "招架",
+    "en": "Parry"
+  },
+  {
+    "cn": "附身",
+    "en": "Possession"
+  },
+  {
+    "cn": "猛扑",
+    "en": "Pounce"
+  },
+  {
+    "cn": "灵能护体",
+    "en": "Psychic\tDefense"
+  },
+  {
+    "cn": "横行",
+    "en": "Rampage"
+  },
+  {
+    "cn": "灵敏反应",
+    "en": "Reactive"
+  },
+  {
+    "cn": "读心",
+    "en": "Read\tThoughts"
+  },
+  {
+    "cn": "鲁莽",
+    "en": "Reckless"
+  },
+  {
+    "cn": "攻击重定向",
+    "en": "Redirect\tAttack"
+  },
+  {
+    "cn": "拖拽",
+    "en": "Reel"
+  },
+  {
+    "cn": "复生",
+    "en": "Rejuvenation"
+  },
+  {
+    "cn": "顽强",
+    "en": "Relentless"
+  },
+  {
+    "cn": "幽影隐匿",
+    "en": "Shadow\tStealth"
+  },
+  {
+    "cn": "变形生物",
+    "en": "Shapechanger"
+  },
+  {
+    "cn": "攻城怪物",
+    "en": "Siege\tMonster"
+  },
+  {
+    "cn": "滑溜",
+    "en": "Slippery"
+  },
+  {
+    "cn": "施法",
+    "en": "Spellcasting"
+  },
+  {
+    "cn": "蜘行",
+    "en": "SpiderClimb"
+  },
+  {
+    "cn": "立定起跳",
+    "en": "Standing\tLeap"
+  },
+  {
+    "cn": "坚定",
+    "en": "Steadfast"
+  },
+  {
+    "cn": "恶臭",
+    "en": "Stench"
+  },
+  {
+    "cn": "日照敏感",
+    "en": "Sunlight\tSensitivity"
+  },
+  {
+    "cn": "强效隐形",
+    "en": "Superior\tInvisibility"
+  },
+  {
+    "cn": "稳步",
+    "en": "Sure-Footed"
+  },
+  {
+    "cn": "突袭打击",
+    "en": "Surprise\tAttack"
+  },
+  {
+    "cn": "吞咽",
+    "en": "Swallow"
+  },
+  {
+    "cn": "传送",
+    "en": "Teleport"
+  },
+  {
+    "cn": "地形伪装",
+    "en": "Terrain\tCamouflage"
+  },
+  {
+    "cn": "掘道者",
+    "en": "Tunneler"
+  },
+  {
+    "cn": "抵抗驱散",
+    "en": "Turn\tResistance"
+  },
+  {
+    "cn": "双头",
+    "en": "Two\tHeads"
+  },
+  {
+    "cn": "不死坚韧",
+    "en": "Undead\tFortitude"
+  },
+  {
+    "cn": "蛛网",
+    "en": "Web"
+  },
+  {
+    "cn": "蛛网感知",
+    "en": "Web\tSense"
+  },
+  {
+    "cn": "蛛网行者",
+    "en": "Web\tWalker"
+  },
+  {
+    "cn": "负伤狂怒",
+    "en": "Wounded\tFury"
+  },
+  {
+    "cn": "从零开始创建",
+    "en": "Creating NPCs from Scratch"
+  },
+  {
+    "cn": "跟创作怪物一样的程序确定该",
+    "en": "NPC"
+  },
+  {
+    "cn": "非玩家角色特性",
+    "en": "NPC Features"
+  },
+  {
+    "cn": "狂蛙人",
+    "en": "Bullywug\t -2"
+  },
+  {
+    "cn": "蛙类交流",
+    "en": "Speak\twith\tFrogs\tand\tToads"
+  },
+  {
+    "cn": "龙裔",
+    "en": "Dragonborn"
+  },
+  {
+    "cn": "龙族血统",
+    "en": "Draconic\tAncestry"
+  },
+  {
+    "cn": "卓尔",
+    "en": "Drow"
+  },
+  {
+    "cn": "矮人",
+    "en": "Dwarf"
+  },
+  {
+    "cn": "精灵",
+    "en": "Elf"
+  },
+  {
+    "cn": "豺狼人",
+    "en": "Gnoll\t +2"
+  },
+  {
+    "cn": "侏儒",
+    "en": "Gnome"
+  },
+  {
+    "cn": "地底侏儒",
+    "en": "Deep"
+  },
+  {
+    "cn": "地精",
+    "en": "Goblin\t -2"
+  },
+  {
+    "cn": "石盲蛮族",
+    "en": "Gimlock\t +2"
+  },
+  {
+    "cn": "半精灵",
+    "en": "Half-elf"
+  },
+  {
+    "cn": "半兽人",
+    "en": "Half-orc"
+  },
+  {
+    "cn": "半身人",
+    "en": "Halfling"
+  },
+  {
+    "cn": "大地精",
+    "en": "Hobgoblin"
+  },
+  {
+    "cn": "天狗",
+    "en": "Kenku\t +2"
+  },
+  {
+    "cn": "狗头人",
+    "en": "Kobold\t -4"
+  },
+  {
+    "cn": "蜥蜴人",
+    "en": "Lizardfolk\t +2"
+  },
+  {
+    "cn": "人鱼",
+    "en": "Merfolk"
+  },
+  {
+    "cn": "兽人",
+    "en": "Orc\t +2"
+  },
+  {
+    "cn": "骷髅",
+    "en": "Skeleton\t +2"
+  },
+  {
+    "cn": "提夫林",
+    "en": "Tiefling"
+  },
+  {
+    "cn": "战蜥人",
+    "en": "Troglodyte\t +2"
+  },
+  {
+    "cn": "僵尸",
+    "en": "Zombbie\t +1"
+  },
+  {
+    "cn": "带职业的怪物",
+    "en": "Monsters with Classes"
+  },
+  {
+    "cn": "创作法术",
+    "en": "Creating a Spell"
+  },
+  {
+    "cn": "法术伤害",
+    "en": "Spell\tDamage"
+  },
+  {
+    "cn": "治疗法术",
+    "en": "Healing Spells"
+  },
+  {
+    "cn": "创作魔法物品",
+    "en": "Creating a Magic Item"
+  },
+  {
+    "cn": "修改物品",
+    "en": "Modifying an Item"
+  },
+  {
+    "cn": "威力水平",
+    "en": "Power Level"
+  },
+  {
+    "cn": "稀有度对应魔法物品威力",
+    "en": "Magic\tItem\tPower\tby\tParity"
+  },
+  {
+    "cn": "最大法术环阶",
+    "en": "Maximum\tSpell\tLevel"
+  },
+  {
+    "cn": "最大加值",
+    "en": "Maximum\tBonus"
+  },
+  {
+    "cn": "同调",
+    "en": "Attunement"
+  },
+  {
+    "cn": "创作新的角色选项",
+    "en": "Creating New"
+  },
+  {
+    "cn": "创作种族或亚种",
+    "en": "Creating a Rage or"
+  },
+  {
+    "cn": "改头换面",
+    "en": "Cosmetic Alterations"
+  },
+  {
+    "cn": "转变文化",
+    "en": "Cultural Alterations"
+  },
+  {
+    "cn": "创作新亚种",
+    "en": "Creating a New Subrace"
+  },
+  {
+    "cn": "精灵武器训练",
+    "en": "Elf\tWeapon\tTraining"
+  },
+  {
+    "cn": "妖精步伐",
+    "en": "Fey\tStep"
+  },
+  {
+    "cn": "创作新种族",
+    "en": "Creating a New Rage"
+  },
+  {
+    "cn": "年龄",
+    "en": "Age"
+  },
+  {
+    "cn": "体型",
+    "en": "Size"
+  },
+  {
+    "cn": "速度",
+    "en": "Speed"
+  },
+  {
+    "cn": "黑暗视觉",
+    "en": "Darkvision"
+  },
+  {
+    "cn": "天界抗性",
+    "en": "Celestial\tResistance"
+  },
+  {
+    "cn": "天界遗赠",
+    "en": "Celestial\tLegacy"
+  },
+  {
+    "cn": "语言",
+    "en": "Languages"
+  },
+  {
+    "cn": "修改职业",
+    "en": "Modifying a Class"
+  },
+  {
+    "cn": "改变熟练项",
+    "en": "Changing Proficiencies"
+  },
+  {
+    "cn": "改变法术列表",
+    "en": "Changing Spell Lists"
+  },
+  {
+    "cn": "限制门槛",
+    "en": "Restricting Class Access"
+  },
+  {
+    "cn": "闻学院",
+    "en": "College\tof\tLore"
+  },
+  {
+    "cn": "替换职业特性",
+    "en": "Substituting Class Features"
+  },
+  {
+    "cn": "创作新的职业分支",
+    "en": "Creating New Class Options"
+  },
+  {
+    "cn": "游荡者（诡术师",
+    "en": "Arcane\tTrickster"
+  },
+  {
+    "cn": "法术值消耗",
+    "en": "Spell\tPoint\tCost"
+  },
+  {
+    "cn": "等级对应法术值",
+    "en": "Spell\tPoints\tby\tLevel"
+  },
+  {
+    "cn": "创作背景",
+    "en": "Creating a Background"
+  },
+  {
+    "cn": "以此与",
+    "en": "NPC"
+  },
+  {
+    "cn": "起始区域",
+    "en": "Starting Area"
+  },
+  {
+    "cn": "通道",
+    "en": "Passages"
+  },
+  {
+    "cn": "通道宽度",
+    "en": "Passage\tWidth"
+  },
+  {
+    "cn": "门类型",
+    "en": "Door\tType"
+  },
+  {
+    "cn": "门后",
+    "en": "Byond\ta\tDoor"
+  },
+  {
+    "cn": "房间",
+    "en": "Chambers"
+  },
+  {
+    "cn": "房间出口",
+    "en": "Chamber\tExits"
+  },
+  {
+    "cn": "出口位置",
+    "en": "Exit\tLocation"
+  },
+  {
+    "cn": "出口类型",
+    "en": "Exit\tType"
+  },
+  {
+    "cn": "楼梯",
+    "en": "Stairs"
+  },
+  {
+    "cn": "连接区域",
+    "en": "Connecting Areas"
+  },
+  {
+    "cn": "填充地下城",
+    "en": "Stocking a dungeon"
+  },
+  {
+    "cn": "房间用途",
+    "en": "Chamber Purpose"
+  },
+  {
+    "cn": "地下城",
+    "en": "Dungeon"
+  },
+  {
+    "cn": "通用地下城房间",
+    "en": "General\tDungeon\tChambers"
+  },
+  {
+    "cn": "房间现状",
+    "en": "Current\tChamber\tState"
+  },
+  {
+    "cn": "地下城房间内容",
+    "en": "Dungeon\tChamber\tContents"
+  },
+  {
+    "cn": "怪物和动机",
+    "en": "Monster and Motivations"
+  },
+  {
+    "cn": "怪物动机",
+    "en": "Monster\tMotivation"
+  },
+  {
+    "cn": "随机地下城危害物",
+    "en": "Ranbom Dungeon"
+  },
+  {
+    "cn": "地下城危害物",
+    "en": "Dungeon\tHazards"
+  },
+  {
+    "cn": "障碍",
+    "en": "Obstacles"
+  },
+  {
+    "cn": "陷阱触发",
+    "en": "Trap\tTrigger"
+  },
+  {
+    "cn": "陷阱危害度",
+    "en": "Trap\tDamage\tSeverity"
+  },
+  {
+    "cn": "陷阱效应",
+    "en": "Trap\tEffects"
+  },
+  {
+    "cn": "随机唬人把戏",
+    "en": "Random Tricks"
+  },
+  {
+    "cn": "唬人物件",
+    "en": "Trick\tObjects"
+  },
+  {
+    "cn": "唬人把戏",
+    "en": "Tricks"
+  },
+  {
+    "cn": "随机宝藏",
+    "en": "Random Treasures"
+  },
+  {
+    "cn": "空房间",
+    "en": "Empty Rooms"
+  },
+  {
+    "cn": "地下城装饰",
+    "en": "Dungeon Dressing"
+  },
+  {
+    "cn": "响声",
+    "en": "Noises"
+  },
+  {
+    "cn": "空气",
+    "en": "Air"
+  },
+  {
+    "cn": "气味",
+    "en": "Odors"
+  },
+  {
+    "cn": "通用特征物",
+    "en": "General\tFeatures"
+  },
+  {
+    "cn": "通用设备与摆设",
+    "en": "General\tFurnishings\tand\tAppointments"
+  },
+  {
+    "cn": "宗教饰物与设备",
+    "en": "Religious\tArticles\tand\tFurnishings"
+  },
+  {
+    "cn": "魔法师设备",
+    "en": "Mage\tFurnishings"
+  },
+  {
+    "cn": "生活器具和个人物品",
+    "en": "Utensils\tand\tPersonal\tItems"
+  },
+  {
+    "cn": "容器内容物",
+    "en": "Container\tContents"
+  },
+  {
+    "cn": "各环境中的怪物",
+    "en": "Monsters by Environment"
+  },
+  {
+    "cn": "冻土怪物",
+    "en": "Arctic\tMonsters"
+  },
+  {
+    "cn": "海岸怪物",
+    "en": "Coastal\tMonsters"
+  },
+  {
+    "cn": "荒漠怪物",
+    "en": "Desert\tMonsters"
+  },
+  {
+    "cn": "丛林怪物",
+    "en": "Forest\tMonsters"
+  },
+  {
+    "cn": "草原怪物",
+    "en": "Grassland\tMonsters"
+  },
+  {
+    "cn": "丘地怪物",
+    "en": "Hill\tMonsters"
+  },
+  {
+    "cn": "山地怪物",
+    "en": "Mountain\tMonsters"
+  },
+  {
+    "cn": "沼泽怪物",
+    "en": "Swamp\tMonsters"
+  },
+  {
+    "cn": "幽暗地域怪物",
+    "en": "Underdark\tMonsters"
+  },
+  {
+    "cn": "水下怪物",
+    "en": "Underwater\tMonsters"
+  },
+  {
+    "cn": "城中怪物",
+    "en": "Urban\tMonsters"
+  },
+  {
+    "cn": "各挑战等级的怪物",
+    "en": "Monsters by Challenge"
+  },
+  {
+    "cn": "泰拉斯奎巨兽",
+    "en": "Tarrasque"
+  },
+  {
+    "cn": "阿特拉斯游戏公司",
+    "en": "Atlas\tGames"
+  },
+  {
+    "cn": "生机",
+    "en": "Creating\tCharacter"
+  },
+  {
+    "cn": "攻略",
+    "en": "Immediate\tFiction"
+  },
+  {
+    "cn": "纪堡垒",
+    "en": "The\tMedieval\tFortress"
+  },
+  {
+    "cn": "剧作的原理",
+    "en": "Story"
+  },
+  {
+    "cn": "大众报",
+    "en": "PennyPress"
+  },
+  {
+    "cn": "作者文摘杂志社",
+    "en": "Writers\tDigest"
+  }
+]

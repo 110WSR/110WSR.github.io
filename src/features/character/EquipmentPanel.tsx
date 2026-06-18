@@ -7,6 +7,7 @@ import type { Item } from "../../shared/types/types";
 import { createDefaultItem } from "../../shared/types/types";
 import { ItemDialog } from "./ItemDialog";
 import { ItemTooltip } from "./ItemTooltip";
+import { EquipmentLibraryDialog } from "./EquipmentLibraryDialog";
 import { sheetColors } from "../../shared/tokens/colors";
 
 interface EquipmentPanelProps {
@@ -26,6 +27,7 @@ export default function EquipmentPanel({ className }: EquipmentPanelProps) {
   const [quantityValue, setQuantityValue] = useState("");
   const [inputText, setInputText] = useState("");
   const [contextMenu, setContextMenu] = useState<{ index: number; x: number; y: number } | null>(null);
+  const [libraryOpen, setLibraryOpen] = useState(false);
   const quantityInputRef = useRef<HTMLInputElement>(null);
   const addInputRef = useRef<HTMLTextAreaElement>(null);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -112,6 +114,11 @@ export default function EquipmentPanel({ className }: EquipmentPanelProps) {
     }
     setItems(newItems);
   };
+
+  const handleLibrarySelect = useCallback((item: Item) => {
+    const newItems = [...items, item];
+    setItems(newItems);
+  }, [items, setItems]);
 
   const handleChargeChange = useCallback((featureId: string, note: string) => {
     if (hoveredIndex === null) return;
@@ -250,6 +257,14 @@ export default function EquipmentPanel({ className }: EquipmentPanelProps) {
             />
           </div>
         </ScrollArea>
+
+        {/* 装备库按钮 */}
+        <button
+          onClick={() => setLibraryOpen(true)}
+          className="absolute bottom-[6px] right-[10px] text-[11px] text-sheet-text-placeholder hover:text-sheet-text-secondary transition-colors font-serif-regular-cjk"
+        >
+          装备库
+        </button>
       </SectionContainer>
 
       {/* Tooltip */}
@@ -276,6 +291,13 @@ export default function EquipmentPanel({ className }: EquipmentPanelProps) {
           onClose={() => setDialogOpen(false)}
         />
       )}
+
+      {/* 装备库检索 */}
+      <EquipmentLibraryDialog
+        open={libraryOpen}
+        onSelect={handleLibrarySelect}
+        onClose={() => setLibraryOpen(false)}
+      />
 
       {/* 右键删除菜单 */}
       {contextMenu && ReactDOM.createPortal(

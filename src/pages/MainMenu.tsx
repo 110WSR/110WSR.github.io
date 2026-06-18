@@ -141,11 +141,40 @@ export default function MainMenu() {
           </div>
         )}
 
-        {/* 底部信息 */}
-        <div className="mt-8 text-center">
+        {/* 底部信息 - 感谢与引用声明 */}
+        <div className="mt-8 text-center space-y-2">
           <p className="text-stone-600 text-xs tracking-wider">
             基于 D&D 5e 玩家手册 · 非官方工具
           </p>
+          <div className="text-stone-700 text-[10px] leading-relaxed max-w-md mx-auto">
+            <p>
+              角色卡页面 UI 设计基于{' '}
+              <a
+                href="https://github.com/Youye39/DND5E-builder"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-stone-500 hover:text-amber-500 transition-colors underline underline-offset-2"
+              >
+                Youye39/DND5E-builder
+              </a>
+              {' '}（MIT 许可证），感谢原作者的出色工作。
+            </p>
+            <p className="mt-1">
+              5e 玩家手册中文翻译文本来源于{' '}
+              <a
+                href="https://github.com/Youye39/DND5E-builder"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-stone-500 hover:text-amber-500 transition-colors underline underline-offset-2"
+              >
+                5eDnD 中文社区
+              </a>
+              ，遵循其相应许可条款使用。
+            </p>
+            <p className="mt-1">
+              D&D 5e 为 Wizards of the Coast 的注册商标。本工具为粉丝自制非营利项目，仅供学习交流。
+            </p>
+          </div>
         </div>
       </div>
     </div>

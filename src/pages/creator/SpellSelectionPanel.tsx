@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import spellData from "../../../data/spellData.json";
+import classStructuredData from "../../../5E_Classes_Structured.json";
 
 /** 法术选择面板属性 */
 interface SpellSelectionPanelProps {
@@ -53,23 +54,6 @@ const QUICK_BUILD_SPELLS: Record<string, { cantrips: string[]; level1: string[] 
   "法师": { cantrips: ["法师之手", "光亮术", "火焰箭"], level1: ["燃烧之手", "魅惑人类", "法师护甲", "魔法飞弹", "护盾术", "睡眠术"] },
 };
 
-/** 获取职业可用的最高法术环阶 */
-function getMaxSpellLevel(classId: string, level: number): number {
-  const spellSlotTable: Record<string, Record<number, number[]>> = {
-    "吟游诗人": { 1: [2], 2: [3], 3: [4, 2], 4: [4, 3], 5: [4, 3, 2], 6: [4, 3, 3], 7: [4, 3, 3, 1], 8: [4, 3, 3, 2], 9: [4, 3, 3, 3, 1], 10: [4, 3, 3, 3, 2], 11: [4, 3, 3, 3, 2, 1], 12: [4, 3, 3, 3, 2, 1], 13: [4, 3, 3, 3, 2, 1, 1], 14: [4, 3, 3, 3, 2, 1, 1], 15: [4, 3, 3, 3, 2, 1, 1, 1], 16: [4, 3, 3, 3, 2, 1, 1, 1], 17: [4, 3, 3, 3, 2, 1, 1, 1, 1], 18: [4, 3, 3, 3, 3, 1, 1, 1, 1], 19: [4, 3, 3, 3, 3, 2, 1, 1, 1], 20: [4, 3, 3, 3, 3, 2, 2, 1, 1] },
-    "牧师": { 1: [2], 2: [3], 3: [4, 2], 4: [4, 3], 5: [4, 3, 2], 6: [4, 3, 3], 7: [4, 3, 3, 1], 8: [4, 3, 3, 2], 9: [4, 3, 3, 3, 1], 10: [4, 3, 3, 3, 2], 11: [4, 3, 3, 3, 2, 1], 12: [4, 3, 3, 3, 2, 1], 13: [4, 3, 3, 3, 2, 1, 1], 14: [4, 3, 3, 3, 2, 1, 1], 15: [4, 3, 3, 3, 2, 1, 1, 1], 16: [4, 3, 3, 3, 2, 1, 1, 1], 17: [4, 3, 3, 3, 2, 1, 1, 1, 1], 18: [4, 3, 3, 3, 3, 1, 1, 1, 1], 19: [4, 3, 3, 3, 3, 2, 1, 1, 1], 20: [4, 3, 3, 3, 3, 2, 2, 1, 1] },
-    "德鲁伊": { 1: [2], 2: [3], 3: [4, 2], 4: [4, 3], 5: [4, 3, 2], 6: [4, 3, 3], 7: [4, 3, 3, 1], 8: [4, 3, 3, 2], 9: [4, 3, 3, 3, 1], 10: [4, 3, 3, 3, 2], 11: [4, 3, 3, 3, 2, 1], 12: [4, 3, 3, 3, 2, 1], 13: [4, 3, 3, 3, 2, 1, 1], 14: [4, 3, 3, 3, 2, 1, 1], 15: [4, 3, 3, 3, 2, 1, 1, 1], 16: [4, 3, 3, 3, 2, 1, 1, 1], 17: [4, 3, 3, 3, 2, 1, 1, 1, 1], 18: [4, 3, 3, 3, 3, 1, 1, 1, 1], 19: [4, 3, 3, 3, 3, 2, 1, 1, 1], 20: [4, 3, 3, 3, 3, 2, 2, 1, 1] },
-    "圣武士": { 2: [2], 3: [3], 4: [3], 5: [4, 2], 6: [4, 2], 7: [4, 3], 8: [4, 3], 9: [4, 3, 2], 10: [4, 3, 2], 11: [4, 3, 3], 12: [4, 3, 3], 13: [4, 3, 3, 1], 14: [4, 3, 3, 1], 15: [4, 3, 3, 2], 16: [4, 3, 3, 2], 17: [4, 3, 3, 3, 1], 18: [4, 3, 3, 3, 1], 19: [4, 3, 3, 3, 2], 20: [4, 3, 3, 3, 2] },
-    "游侠": { 2: [2], 3: [3], 4: [3], 5: [4, 2], 6: [4, 2], 7: [4, 3], 8: [4, 3], 9: [4, 3, 2], 10: [4, 3, 2], 11: [4, 3, 3], 12: [4, 3, 3], 13: [4, 3, 3, 1], 14: [4, 3, 3, 1], 15: [4, 3, 3, 2], 16: [4, 3, 3, 2], 17: [4, 3, 3, 3, 1], 18: [4, 3, 3, 3, 1], 19: [4, 3, 3, 3, 2], 20: [4, 3, 3, 3, 2] },
-    "术士": { 1: [2], 2: [3], 3: [4, 2], 4: [4, 3], 5: [4, 3, 2], 6: [4, 3, 3], 7: [4, 3, 3, 1], 8: [4, 3, 3, 2], 9: [4, 3, 3, 3, 1], 10: [4, 3, 3, 3, 2], 11: [4, 3, 3, 3, 2, 1], 12: [4, 3, 3, 3, 2, 1], 13: [4, 3, 3, 3, 2, 1, 1], 14: [4, 3, 3, 3, 2, 1, 1], 15: [4, 3, 3, 3, 2, 1, 1, 1], 16: [4, 3, 3, 3, 2, 1, 1, 1], 17: [4, 3, 3, 3, 2, 1, 1, 1, 1], 18: [4, 3, 3, 3, 3, 1, 1, 1, 1], 19: [4, 3, 3, 3, 3, 2, 1, 1, 1], 20: [4, 3, 3, 3, 3, 2, 2, 1, 1] },
-    "邪术师": { 1: [1], 2: [2], 3: [2, 2], 4: [2, 2], 5: [2, 2, 2], 6: [2, 2, 2], 7: [2, 2, 2, 1], 8: [2, 2, 2, 1], 9: [2, 2, 2, 1, 1], 10: [2, 2, 2, 1, 1], 11: [3, 3, 3, 1, 1], 12: [3, 3, 3, 1, 1], 13: [3, 3, 3, 1, 1, 1], 14: [3, 3, 3, 1, 1, 1], 15: [3, 3, 3, 1, 1, 1, 1], 16: [3, 3, 3, 1, 1, 1, 1], 17: [4, 4, 4, 1, 1, 1, 1], 18: [4, 4, 4, 1, 1, 1, 1], 19: [4, 4, 4, 1, 1, 1, 1, 1], 20: [4, 4, 4, 1, 1, 1, 1, 1] },
-    "法师": { 1: [2], 2: [3], 3: [4, 2], 4: [4, 3], 5: [4, 3, 2], 6: [4, 3, 3], 7: [4, 3, 3, 1], 8: [4, 3, 3, 2], 9: [4, 3, 3, 3, 1], 10: [4, 3, 3, 3, 2], 11: [4, 3, 3, 3, 2, 1], 12: [4, 3, 3, 3, 2, 1], 13: [4, 3, 3, 3, 2, 1, 1], 14: [4, 3, 3, 3, 2, 1, 1], 15: [4, 3, 3, 3, 2, 1, 1, 1], 16: [4, 3, 3, 3, 2, 1, 1, 1], 17: [4, 3, 3, 3, 2, 1, 1, 1, 1], 18: [4, 3, 3, 3, 3, 1, 1, 1, 1], 19: [4, 3, 3, 3, 3, 2, 1, 1, 1], 20: [4, 3, 3, 3, 3, 2, 2, 1, 1] },
-  };
-  const slots = spellSlotTable[classId]?.[level];
-  if (!slots) return 0;
-  return slots.length;
-}
-
 /** 从子职特性描述中提取法术名称 */
 function extractSpellsFromFeature(description: string): string[] {
   const spells: string[] = [];
@@ -92,13 +76,37 @@ export default function SpellSelectionPanel({
   const classKey = CLASS_NAME_MAP[className] || className;
   const classSpells = (spellData as Record<string, Record<string, string[]>>)[classKey];
   
+  // 从5E_Classes_Structured.json获取当前职业当前等级的数据
+  const classLevelData = useMemo(() => {
+    const data = (classStructuredData as Record<string, any[]>)[classKey];
+    if (!data) return null;
+    return data.find((entry: any) => entry["等级"] === level) || null;
+  }, [classKey, level]);
+
+  // 从结构化数据中获取各环法术位
+  const spellSlotsByLevel = useMemo(() => {
+    if (!classLevelData) return {};
+    const slots: Record<string, number> = {};
+    for (let i = 1; i <= 9; i++) {
+      const key = `${i}环`;
+      const val = classLevelData[key];
+      if (val !== null && val !== undefined && val > 0) {
+        slots[String(i)] = val;
+      }
+    }
+    return slots;
+  }, [classLevelData]);
+
   // 获取职业可用的最高法术环阶
-  const maxSpellLevel = getMaxSpellLevel(classKey, level);
-  
+  const maxSpellLevel = useMemo(() => {
+    const levels = Object.keys(spellSlotsByLevel).map(Number);
+    return levels.length > 0 ? Math.max(...levels) : 0;
+  }, [spellSlotsByLevel]);
+
   // 获取职业已知法术/戏法数量
   const spellCounts = CLASS_SPELL_COUNTS[classKey];
-  const maxCantrips = spellCounts?.cantrips[level - 1] ?? 0;
-  const maxSpells = spellCounts?.spells[level] ?? 0;
+  const maxCantrips = classLevelData?.["已知戏法"] ?? spellCounts?.cantrips[level - 1] ?? 0;
+  const maxSpells = classLevelData?.["已知法术"] ?? spellCounts?.spells[level] ?? 0;
   
   // 是否是准备施法职业
   const isPreparedCaster = ["牧师", "德鲁伊", "圣武士", "法师"].includes(classKey);
@@ -158,10 +166,13 @@ export default function SpellSelectionPanel({
     onSpellsChange(newSpells);
   };
   
-  // 获取当前环阶的最大可选数量
-  const getMaxForLevel = (level: string): number => {
-    if (level === "0") return maxCantrips;
-    if (isPreparedCaster) return 999;
+  // 获取当前环阶的最大可选数量（使用法术位数据）
+  const getMaxForLevel = (levelKey: string): number => {
+    if (levelKey === "0") return maxCantrips;
+    // 使用5E_Classes_Structured.json中的法术位数据
+    const slotCount = spellSlotsByLevel[levelKey];
+    if (slotCount !== undefined) return slotCount;
+    // 对于已知法术职业，使用已知法术上限
     return maxSpells;
   };
   
@@ -232,7 +243,7 @@ export default function SpellSelectionPanel({
       <div className="bg-stone-800/50 rounded-lg p-3 border border-stone-700/50">
         <p className="text-stone-400 text-xs leading-relaxed">
           {isPreparedCaster 
-            ? `你是准备施法职业，可以从法术列表中选择任意数量的法术进行准备。`
+            ? `你是准备施法职业，可以从法术列表中选择法术进行准备。`
             : `选择你的已知法术（已选 ${Object.values(selectedSpells).flat().length} 个）`
           }
           {maxCantrips > 0 && ` | 戏法上限: ${maxCantrips}`}
@@ -244,14 +255,14 @@ export default function SpellSelectionPanel({
         const spells = classSpells[levelKey] || [];
         const selected = selectedSpells[levelKey] || [];
         const maxForLevel = getMaxForLevel(levelKey);
-        const isMaxed = !isPreparedCaster && selected.length >= maxForLevel;
+        const isMaxed = selected.length >= maxForLevel;
         
         return (
           <div key={levelKey} className="bg-stone-800/30 rounded-lg border border-stone-700/50 p-4">
             <h3 className="text-amber-300 text-sm font-semibold mb-2">
               {levelKey === "0" ? "戏法" : `${levelKey}环法术`}
               <span className="text-stone-500 text-xs ml-2">
-                ({selected.length}/{isPreparedCaster ? "不限" : maxForLevel})
+                ({selected.length}/{maxForLevel})
               </span>
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1.5">
@@ -264,7 +275,7 @@ export default function SpellSelectionPanel({
                   <button
                     key={spellName}
                     onClick={() => toggleSpell(levelKey, spellName)}
-                    disabled={isExtra || (!isSelected && isMaxed && !isPreparedCaster)}
+                    disabled={isExtra || (!isSelected && isMaxed)}
                     className={`px-2.5 py-1.5 rounded-md text-xs transition-all duration-200 text-left ${
                       isExtra
                         ? "bg-amber-800/20 text-amber-400/60 border border-amber-700/20 cursor-not-allowed"

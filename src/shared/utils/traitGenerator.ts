@@ -1,12 +1,13 @@
 // ============================================================================
 // 特性关键词生成器 - 根据职业、等级、种族自动生成特性关键词
+// 基于5e玩家手册（5e6.txt职业章节、5e7.txt种族章节）
 // ============================================================================
 
 import type { TraitItem } from "../types/types";
 import { createDefaultTrait } from "../types/types";
 
 /**
- * 职业特性关键词映射
+ * 职业特性关键词映射（基于5e6.txt官方数据）
  * 每个职业在不同等级获得的关键特性
  */
 const CLASS_TRAITS: Record<string, Array<{ level: number; name: string }>> = {
@@ -14,38 +15,51 @@ const CLASS_TRAITS: Record<string, Array<{ level: number; name: string }>> = {
     { level: 1, name: "狂暴" },
     { level: 1, name: "无甲防御" },
     { level: 2, name: "鲁莽攻击" },
-    { level: 2, name: "危险感知" },
-    { level: 3, name: " primal 路径" },
+    { level: 2, name: "险境感知" },
+    { level: 3, name: "原初道途" },
     { level: 5, name: "额外攻击" },
     { level: 7, name: "直觉闪避" },
-    { level: 9, name: " brutal 致命一击" },
+    { level: 9, name: "凶蛮重击（1骰）" },
     { level: 11, name: "持久狂暴" },
-    { level: 15, name: "持久狂暴" },
-    { level: 18, name: "不屈意志" },
-    { level: 20, name: " primal 冠军" },
+    { level: 13, name: "凶蛮重击（2骰）" },
+    { level: 15, name: "不屈勇武" },
+    { level: 17, name: "凶蛮重击（3骰）" },
+    { level: 18, name: "不屈勇武" },
+    { level: 20, name: "原初斗士" },
   ],
   bard: [
     { level: 1, name: "施法" },
-    { level: 1, name: "激励骰" },
+    { level: 1, name: "诗人激励（d6）" },
     { level: 2, name: "万事通" },
-    { level: 2, name: "休憩曲" },
+    { level: 2, name: "休憩曲（d6）" },
     { level: 3, name: "吟游诗人学院" },
     { level: 3, name: "专精" },
+    { level: 5, name: "诗人激励（d8）" },
     { level: 5, name: "激励之源" },
     { level: 6, name: "反制魅惑" },
+    { level: 9, name: "休憩曲（d8）" },
+    { level: 10, name: "诗人激励（d10）" },
     { level: 10, name: "魔法奥秘" },
+    { level: 13, name: "休憩曲（d10）" },
     { level: 14, name: "超群技艺" },
+    { level: 15, name: "诗人激励（d12）" },
+    { level: 17, name: "休憩曲（d12）" },
+    { level: 18, name: "魔法奥秘" },
     { level: 20, name: "超凡魅力" },
   ],
   cleric: [
     { level: 1, name: "施法" },
     { level: 1, name: "神圣领域" },
-    { level: 2, name: "引导神力" },
+    { level: 2, name: "引导神力（1/休息）" },
     { level: 3, name: "领域特性" },
     { level: 5, name: "毁灭打击" },
+    { level: 6, name: "引导神力（2/休息）" },
     { level: 6, name: "领域特性" },
+    { level: 8, name: "毁灭打击" },
     { level: 10, name: "神圣干预" },
+    { level: 14, name: "毁灭打击" },
     { level: 17, name: "领域特性" },
+    { level: 18, name: "引导神力（3/休息）" },
     { level: 20, name: "神圣干预" },
   ],
   druid: [
@@ -53,26 +67,23 @@ const CLASS_TRAITS: Record<string, Array<{ level: number; name: string }>> = {
     { level: 1, name: "德鲁伊语" },
     { level: 2, name: "自然变身" },
     { level: 2, name: "德鲁伊结社" },
-    { level: 3, name: "结社特性" },
-    { level: 4, name: "自然变身" },
-    { level: 6, name: "结社特性" },
-    { level: 7, name: "自然变身" },
-    { level: 10, name: "结社特性" },
-    { level: 14, name: "结社特性" },
+    { level: 4, name: "自然变身强化" },
+    { level: 8, name: "自然变身强化" },
     { level: 18, name: "无限变身" },
-    { level: 20, name: " archdruid" },
+    { level: 20, name: "大德鲁伊" },
   ],
   fighter: [
     { level: 1, name: "战斗风格" },
     { level: 1, name: "回气" },
-    { level: 2, name: "动作如潮" },
+    { level: 2, name: "动作如潮（1次）" },
     { level: 3, name: " martial  archetype" },
-    { level: 5, name: "额外攻击" },
-    { level: 9, name: "不屈" },
-    { level: 11, name: "额外攻击" },
-    { level: 13, name: "不屈" },
-    { level: 17, name: "动作如潮" },
-    { level: 20, name: "额外攻击" },
+    { level: 5, name: "额外攻击（1次）" },
+    { level: 9, name: "不屈（1次）" },
+    { level: 11, name: "额外攻击（2次）" },
+    { level: 13, name: "不屈（2次）" },
+    { level: 17, name: "动作如潮（2次）" },
+    { level: 17, name: "不屈（3次）" },
+    { level: 20, name: "额外攻击（3次）" },
   ],
   monk: [
     { level: 1, name: "无甲防御" },
@@ -126,7 +137,7 @@ const CLASS_TRAITS: Record<string, Array<{ level: number; name: string }>> = {
   ],
   rogue: [
     { level: 1, name: "专精" },
-    { level: 1, name: "偷袭" },
+    { level: 1, name: "偷袭（1d6）" },
     { level: 1, name: "盗贼黑话" },
     { level: 2, name: "灵巧动作" },
     { level: 3, name: "盗贼 archetype" },
@@ -144,7 +155,7 @@ const CLASS_TRAITS: Record<string, Array<{ level: number; name: string }>> = {
     { level: 1, name: "术法起源" },
     { level: 2, name: "术法点" },
     { level: 2, name: "超魔法" },
-    { level: 3, name: " metamagic" },
+    { level: 3, name: "超魔法" },
     { level: 6, name: "起源特性" },
     { level: 10, name: "超魔法" },
     { level: 14, name: "起源特性" },
@@ -153,15 +164,18 @@ const CLASS_TRAITS: Record<string, Array<{ level: number; name: string }>> = {
     { level: 20, name: "术法恢复" },
   ],
   warlock: [
-    { level: 1, name: "施法" },
-    { level: 1, name: "魔宠" },
-    { level: 1, name: "其他worldly  patron" },
+    { level: 1, name: "异界宗主" },
+    { level: 1, name: "契约魔法" },
     { level: 2, name: " eldritch  invocations" },
     { level: 3, name: " pact  boon" },
-    { level: 6, name: " patron 特性" },
-    { level: 10, name: " patron 特性" },
-    { level: 11, name: " mystic  arcanum" },
-    { level: 14, name: " patron 特性" },
+    { level: 5, name: " eldritch  invocations" },
+    { level: 7, name: " eldritch  invocations" },
+    { level: 9, name: " eldritch  invocations" },
+    { level: 11, name: " mystic  arcanum（6环）" },
+    { level: 12, name: " eldritch  invocations" },
+    { level: 13, name: " mystic  arcanum（7环）" },
+    { level: 15, name: " mystic  arcanum（8环）" },
+    { level: 17, name: " mystic  arcanum（9环）" },
     { level: 20, name: " eldritch  master" },
   ],
   wizard: [
@@ -205,29 +219,23 @@ const CLASS_TRAITS: Record<string, Array<{ level: number; name: string }>> = {
 };
 
 /**
- * 种族特性关键词
+ * 种族特性关键词（基于5e7.txt官方数据）
  */
 const RACE_TRAITS: Record<string, string[]> = {
-  "矮人": ["黑暗视觉", "矮人韧性", "矮人战斗训练"],
-  "精灵": ["黑暗视觉", "精灵血统", "敏锐感官"],
-  "半精灵": ["黑暗视觉", "精灵血统", "多才多艺"],
+  "矮人": ["黑暗视觉", "矮人韧性", "矮人战斗训练", "石工知识"],
+  "矮人(丘陵)": ["黑暗视觉", "矮人韧性", "矮人战斗训练", "石工知识", "矮人坚韧"],
+  "矮人(山)": ["黑暗视觉", "矮人韧性", "矮人战斗训练", "石工知识", "矮人护甲训练"],
+  "精灵": ["黑暗视觉", "精灵血统", "敏锐感官", "精灵武器训练"],
+  "精灵(高)": ["黑暗视觉", "精灵血统", "敏锐感官", "精灵武器训练", "额外戏法"],
+  "精灵(木)": ["黑暗视觉", "精灵血统", "敏锐感官", "精灵武器训练", "轻灵"],
+  "精灵(海)": ["黑暗视觉", "精灵血统", "敏锐感官", "精灵武器训练", "游泳速度"],
+  "卓尔": ["黑暗视觉", "精灵血统", "敏锐感官", "卓尔武器训练", "日光敏感"],
   "半身人": ["半身人幸运", "勇敢", "灵巧"],
-  "人类": ["额外技能"],
-  "龙裔": ["龙族血统", "吐息武器", "伤害抗性"],
-  "侏儒": ["黑暗视觉", "侏儒狡黠"],
-  "半兽人": ["黑暗视觉", "凶悍", "不屈"],
-  "提夫林": ["黑暗视觉", "地狱抗性", "炼狱遗赠"],
-  "卓尔": ["黑暗视觉", "精灵血统", "日光敏感"],
-  "阿斯莫": ["黑暗视觉", " celestial  resistance", " healing  hands"],
-  "精灵(木)": ["黑暗视觉", "精灵血统", "敏锐感官", "轻灵"],
-  "精灵(高)": ["黑暗视觉", "精灵血统", "敏锐感官", "精灵武器训练"],
-  "精灵(海)": ["黑暗视觉", "精灵血统", "敏锐感官", "游泳速度"],
-  "矮人(山)": ["黑暗视觉", "矮人韧性", "矮人战斗训练", "矮人护甲训练"],
-  "矮人(丘陵)": ["黑暗视觉", "矮人韧性", "矮人战斗训练", "矮人坚韧"],
-  "侏儒(森林)": ["黑暗视觉", "侏儒狡黠", "自然亲和"],
-  "侏儒(岩石)": ["黑暗视觉", "侏儒狡黠", "工匠直觉"],
   "半身人(轻足)": ["半身人幸运", "勇敢", "灵巧", "天生隐匿"],
   "半身人(强心)": ["半身人幸运", "勇敢", "灵巧", "抗毒"],
+  "人类": ["额外技能"],
+  "人类(异)": ["额外技能", "专长"],
+  "龙裔": ["龙族血统", "吐息武器", "伤害抗性"],
   "龙裔(黑)": ["龙族血统", "吐息武器(酸)", "伤害抗性(酸)"],
   "龙裔(蓝)": ["龙族血统", "吐息武器(闪电)", "伤害抗性(闪电)"],
   "龙裔(黄铜)": ["龙族血统", "吐息武器(火)", "伤害抗性(火)"],
@@ -238,10 +246,17 @@ const RACE_TRAITS: Record<string, string[]> = {
   "龙裔(红)": ["龙族血统", "吐息武器(火)", "伤害抗性(火)"],
   "龙裔(银)": ["龙族血统", "吐息武器(冷)", "伤害抗性(冷)"],
   "龙裔(白)": ["龙族血统", "吐息武器(冷)", "伤害抗性(冷)"],
+  "侏儒": ["黑暗视觉", "侏儒狡黠"],
+  "侏儒(森林)": ["黑暗视觉", "侏儒狡黠", "自然亲和", "小把戏"],
+  "侏儒(岩石)": ["黑暗视觉", "侏儒狡黠", "工匠直觉", "钟表知识"],
+  "半精灵": ["黑暗视觉", "精灵血统", "多才多艺"],
+  "半兽人": ["黑暗视觉", "凶悍", "不屈", "强力体格"],
+  "提夫林": ["黑暗视觉", "地狱抗性", "炼狱遗赠"],
+  "阿斯莫": ["黑暗视觉", " celestial  resistance", " healing  hands", "光明使者"],
 };
 
 /**
- * 背景特性关键词
+ * 背景特性关键词（基于5e玩家手册）
  */
 const BACKGROUND_TRAITS: Record<string, string[]> = {
   "侍僧": ["信仰服务", "宗教知识"],

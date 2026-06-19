@@ -1,112 +1,130 @@
 import { WEAPON_CATEGORIES, ARMOR_OPTIONS } from "./types";
 
-/** 各职业官方起始装备选项（基于5e玩家手册） */
+/** 各职业官方起始装备选项（基于5e玩家手册5e6.txt） */
 const CLASS_EQUIPMENT: Record<string, {
   weapons: { label: string; options: string[] }[];
   armor: string[];
   shield: boolean;
   description: string;
+  extraItems: string[];
 }> = {
   "野蛮人": {
     weapons: [
-      { label: "选择武器A", options: ["巨斧", "巨锤"] },
-      { label: "选择武器B", options: ["手斧×2", "标枪×2"] },
+      { label: "选择武器A", options: ["巨斧", "任意军用近战武器"] },
+      { label: "选择武器B", options: ["手斧×2", "任意简易武器"] },
     ],
     armor: ["无护甲"],
     shield: false,
-    description: "起始装备：巨斧或巨锤；两把手斧或两把标枪；探险家套组"
+    description: "起始装备：巨斧或任意军用近战武器；两把手斧或任意简易武器；探索者套组和四支标枪",
+    extraItems: ["探索者套组", "标枪×4"]
   },
   "吟游诗人": {
     weapons: [
-      { label: "选择武器", options: ["长剑", "刺剑", "短剑"] },
+      { label: "选择武器", options: ["刺剑", "长剑", "任意简易武器"] },
     ],
     armor: ["皮甲"],
     shield: false,
-    description: "起始装备：皮甲；长剑或刺剑或短剑；匕首；乐器；外交官套组"
+    description: "起始装备：皮甲；刺剑或长剑或任意简易武器；大使套组或艺人套组；鲁特琴或其他乐器；匕首",
+    extraItems: ["大使套组", "艺人套组", "乐器", "匕首"]
   },
   "牧师": {
     weapons: [
       { label: "选择武器", options: ["硬头锤", "战锤"] },
+      { label: "选择远程武器", options: ["轻弩+20支弩矢", "任意简易武器"] },
     ],
-    armor: ["鳞甲", "链甲衫", "皮甲"],
+    armor: ["鳞甲", "皮甲", "链甲"],
     shield: true,
-    description: "起始装备：鳞甲或链甲衫或皮甲；硬头锤或战锤；盾牌；牧师套组"
+    description: "起始装备：鳞甲或皮甲或链甲；硬头锤或战锤；轻弩+20支弩矢或任意简易武器；祭司套组或探索者套组；盾牌和圣徽",
+    extraItems: ["祭司套组", "探索者套组", "圣徽"]
   },
   "德鲁伊": {
     weapons: [
-      { label: "选择武器", options: ["长棍", "矛", "镰刀", "匕首", "投石索"] },
+      { label: "选择武器A", options: ["木盾", "任意简易武器"] },
+      { label: "选择武器B", options: ["弯刀", "任意简易近战武器"] },
     ],
     armor: ["皮甲"],
     shield: true,
-    description: "起始装备：皮甲；盾牌；长棍或矛或镰刀或匕首或投石索；探索者套组"
+    description: "起始装备：皮甲；木盾或任意简易武器；弯刀或任意简易近战武器；探索者套组和德鲁伊法器",
+    extraItems: ["探索者套组", "德鲁伊法器"]
   },
   "战士": {
     weapons: [
-      { label: "选择武器A", options: ["链甲", "皮甲", "链甲衫"] },
-      { label: "选择武器B", options: ["长剑", "巨剑", "巨斧"] },
-      { label: "选择武器C", options: ["手弩", "短弓"] },
+      { label: "选择护甲", options: ["链甲", "皮甲+长弓+20支箭"] },
+      { label: "选择武器A", options: ["军用武器+盾牌", "两把军用武器"] },
+      { label: "选择武器B", options: ["轻弩+20支弩矢", "手斧×2"] },
     ],
-    armor: ["链甲", "皮甲", "链甲衫"],
+    armor: ["链甲", "皮甲"],
     shield: true,
-    description: "起始装备：链甲或皮甲或链甲衫；长剑或巨剑或巨斧；手弩或短弓；盾牌；地城套组"
+    description: "起始装备：链甲或皮甲+长弓+20支箭；军用武器+盾牌或两把军用武器；轻弩+20支弩矢或两把手斧；地城套组或探索者套组",
+    extraItems: ["地城套组", "探索者套组"]
   },
   "武僧": {
     weapons: [
-      { label: "选择武器", options: ["短剑", "长棍"] },
+      { label: "选择武器", options: ["短剑", "任意简易武器"] },
     ],
     armor: ["无护甲"],
     shield: false,
-    description: "起始装备：短剑或长棍；探索者套组"
+    description: "起始装备：短剑或任意简易武器；地城套组或探索者套组；10支飞镖",
+    extraItems: ["地城套组", "探索者套组", "飞镖×10"]
   },
   "圣武士": {
     weapons: [
-      { label: "选择武器A", options: ["长剑", "巨剑", "战锤"] },
-      { label: "选择武器B", options: ["标枪×5", "标枪×2"] },
+      { label: "选择武器A", options: ["军用武器+盾牌", "两把军用武器"] },
+      { label: "选择武器B", options: ["标枪×5", "任意简易近战武器"] },
     ],
-    armor: ["链甲", "板条甲"],
+    armor: ["链甲"],
     shield: true,
-    description: "起始装备：链甲或板条甲；长剑或巨剑或战锤；五把标枪或两把标枪；盾牌；牧师套组"
+    description: "起始装备：链甲；军用武器+盾牌或两把军用武器；五支标枪或任意简易近战武器；祭司套组或探索者套组；圣徽",
+    extraItems: ["祭司套组", "探索者套组", "圣徽"]
   },
   "游侠": {
     weapons: [
-      { label: "选择武器A", options: ["长剑", "短剑"] },
-      { label: "选择武器B", options: ["长弓", "短弓"] },
+      { label: "选择武器A", options: ["短剑×2", "任意简易武器×2"] },
     ],
     armor: ["鳞甲", "皮甲"],
     shield: false,
-    description: "起始装备：鳞甲或皮甲；长剑或短剑；长弓或短弓；探索者套组"
+    description: "起始装备：鳞甲或皮甲；两把短剑或任意两把简易武器；地城套组或探索者套组；长弓和20支箭",
+    extraItems: ["地城套组", "探索者套组", "长弓", "箭×20"]
   },
   "游荡者": {
     weapons: [
       { label: "选择武器", options: ["刺剑", "短剑"] },
+      { label: "选择远程武器", options: ["短弓+20支箭", "短剑"] },
     ],
     armor: ["皮甲"],
     shield: false,
-    description: "起始装备：皮甲；刺剑或短剑；匕首；盗贼套组"
+    description: "起始装备：皮甲；刺剑或短剑；短弓+20支箭或短剑；窃贼套组或地城套组或探索者套组；两把匕首和盗贼工具",
+    extraItems: ["窃贼套组", "地城套组", "探索者套组", "匕首×2", "盗贼工具"]
   },
   "术士": {
     weapons: [
-      { label: "选择武器", options: ["轻弩", "长棍", "匕首"] },
+      { label: "选择武器", options: ["轻弩+20支弩矢", "任意简易武器"] },
+      { label: "选择法器", options: ["材料包", "奥术法器"] },
     ],
     armor: ["无护甲"],
     shield: false,
-    description: "起始装备：轻弩或长棍或匕首；法师套组"
+    description: "起始装备：轻弩+20支弩矢或任意简易武器；材料包或奥术法器；地城套组或探索者套组；两把匕首",
+    extraItems: ["地城套组", "探索者套组", "匕首×2"]
   },
   "邪术师": {
     weapons: [
-      { label: "选择武器", options: ["长剑", "刺剑", "短剑"] },
+      { label: "选择武器", options: ["轻弩+20支弩矢", "任意简易武器"] },
+      { label: "选择法器", options: ["材料包", "奥术法器"] },
     ],
     armor: ["皮甲"],
     shield: false,
-    description: "起始装备：皮甲；长剑或刺剑或短剑；学者套组"
+    description: "起始装备：皮甲；轻弩+20支弩矢或任意简易武器；材料包或奥术法器；学者套组或地城套组；任意简易武器和两把匕首",
+    extraItems: ["学者套组", "地城套组", "匕首×2"]
   },
   "法师": {
     weapons: [
-      { label: "选择武器", options: ["长棍", "匕首", "轻弩", "短剑"] },
+      { label: "选择武器", options: ["长棍", "匕首"] },
+      { label: "选择法器", options: ["材料包", "奥术法器"] },
     ],
     armor: ["无护甲"],
     shield: false,
-    description: "起始装备：长棍或匕首或轻弩或短剑；法师套组"
+    description: "起始装备：长棍或匕首；材料包或奥术法器；学者套组或探索者套组；法术书",
+    extraItems: ["学者套组", "探索者套组", "法术书"]
   },
   "奇械师": {
     weapons: [
@@ -114,7 +132,8 @@ const CLASS_EQUIPMENT: Record<string, {
     ],
     armor: ["皮甲", "链甲衫"],
     shield: true,
-    description: "起始装备：皮甲或链甲衫；轻弩或长剑或短剑；盾牌；工匠套组"
+    description: "起始装备：皮甲或链甲衫；轻弩或长剑或短剑；盾牌；工匠套组",
+    extraItems: ["工匠套组"]
   },
   "血猎手": {
     weapons: [
@@ -123,14 +142,14 @@ const CLASS_EQUIPMENT: Record<string, {
     ],
     armor: ["皮甲"],
     shield: false,
-    description: "起始装备：皮甲；长剑或巨剑或巨斧；手弩或短弓；地城套组"
+    description: "起始装备：皮甲；长剑或巨剑或巨斧；手弩或短弓；地城套组",
+    extraItems: ["地城套组"]
   },
 };
 
 export default function EquipmentSelectionPanel({ selectedWeapons, onWeaponsChange, selectedArmor, onArmorChange, hasShield, onShieldChange, equipmentText, onEquipmentTextChange, className: propClassName }: {
   selectedWeapons: string[]; onWeaponsChange: (w: string[]) => void; selectedArmor: string; onArmorChange: (a: string) => void; hasShield: boolean; onShieldChange: (s: boolean) => void; equipmentText: string; onEquipmentTextChange: (t: string) => void; className?: string;
 }) {
-  // 从父组件获取 className（通过 props 传入）
   const classEquipment = propClassName ? CLASS_EQUIPMENT[propClassName] : null;
 
   const toggleWeapon = (weapon: string) => {
@@ -142,7 +161,7 @@ export default function EquipmentSelectionPanel({ selectedWeapons, onWeaponsChan
   const weaponCategories = classEquipment
     ? classEquipment.weapons.map(cat => ({
         label: cat.label,
-        options: cat.options.map(w => w.replace(/×\d+$/, "")) // 去掉数量标记
+        options: cat.options.map(w => w.replace(/×\d+$/, "").replace(/\+.*$/, "").trim()) // 去掉数量标记和附加说明
       }))
     : WEAPON_CATEGORIES;
 

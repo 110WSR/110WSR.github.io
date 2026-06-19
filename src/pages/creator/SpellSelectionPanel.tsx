@@ -29,7 +29,7 @@ const CLASS_NAME_MAP: Record<string, string> = {
   "血猎手": "血猎手",
 };
 
-/** 各职业已知法术数量（戏法/法术） */
+/** 各职业已知法术数量（戏法/法术）- 基于5e6.txt官方数据 */
 const CLASS_SPELL_COUNTS: Record<string, { cantrips: number[]; spells: Record<number, number> }> = {
   "吟游诗人": { cantrips: [2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4], spells: { 1: 4, 2: 5, 3: 6, 4: 7, 5: 8, 6: 9, 7: 10, 8: 11, 9: 12, 10: 14, 11: 15, 12: 15, 13: 16, 14: 18, 15: 19, 16: 19, 17: 20, 18: 22, 19: 22, 20: 22 } },
   "牧师": { cantrips: [3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5], spells: {} },
@@ -39,6 +39,18 @@ const CLASS_SPELL_COUNTS: Record<string, { cantrips: number[]; spells: Record<nu
   "术士": { cantrips: [4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6], spells: { 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 11, 11: 12, 12: 12, 13: 13, 14: 13, 15: 14, 16: 14, 17: 15, 18: 15, 19: 15, 20: 15 } },
   "邪术师": { cantrips: [2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4], spells: { 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7, 7: 8, 8: 9, 9: 10, 10: 10, 11: 11, 12: 11, 13: 12, 14: 12, 15: 13, 16: 13, 17: 14, 18: 14, 19: 15, 20: 15 } },
   "法师": { cantrips: [3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5], spells: {} },
+};
+
+/** 各职业快速建卡推荐法术（基于5e6.txt） */
+const QUICK_BUILD_SPELLS: Record<string, { cantrips: string[]; level1: string[] }> = {
+  "吟游诗人": { cantrips: ["舞光术", "恶言相加"], level1: ["魅惑人类", "疗伤术", "睡眠术", "雷鸣波"] },
+  "牧师": { cantrips: ["光亮术", "神导术", "圣火术"], level1: ["祝福术", "疗伤术", "圣焰斩", "命令术"] },
+  "德鲁伊": { cantrips: ["德鲁伊伎俩", "神导术"], level1: ["疗伤术", "纠缠术", "妖火", "橡棍术"] },
+  "圣武士": { cantrips: [], level1: ["祝福术", "疗伤术", "圣焰斩", "防护善恶"] },
+  "游侠": { cantrips: [], level1: ["猎人印记", "疗伤术", "动物交谈术", "云雾术"] },
+  "术士": { cantrips: ["火焰箭", "法师之手", "冰冻射线", "恶言相加"], level1: ["燃烧之手", "魅惑人类", "法师护甲", "魔法飞弹"] },
+  "邪术师": { cantrips: ["魔能爆", "恶言相加"], level1: ["魅惑人类", "地狱叱喝", "法师护甲", "魔石术"] },
+  "法师": { cantrips: ["法师之手", "光亮术", "火焰箭"], level1: ["燃烧之手", "魅惑人类", "法师护甲", "魔法飞弹", "护盾术", "睡眠术"] },
 };
 
 /** 获取职业可用的最高法术环阶 */
@@ -90,6 +102,9 @@ export default function SpellSelectionPanel({
   
   // 是否是准备施法职业
   const isPreparedCaster = ["牧师", "德鲁伊", "圣武士", "法师"].includes(classKey);
+  
+  // 快速建卡推荐法术
+  const quickBuildSpells = QUICK_BUILD_SPELLS[classKey];
   
   // 从子职特性中提取额外法术
   const extraSpells = useMemo(() => {
@@ -176,6 +191,28 @@ export default function SpellSelectionPanel({
   
   return (
     <div className="space-y-6">
+      {/* 快速建卡推荐 */}
+      {quickBuildSpells && level === 1 && (
+        <div className="bg-amber-900/20 rounded-lg border border-amber-700/30 p-4">
+          <h3 className="text-amber-300 text-sm font-semibold mb-2">快速建卡推荐</h3>
+          <p className="text-stone-400 text-xs mb-2">
+            根据玩家手册快速建卡指南，以下法术适合你的角色：
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {quickBuildSpells.cantrips.map((spell) => (
+              <span key={spell} className="text-xs px-2 py-0.5 rounded bg-amber-800/30 text-amber-200 border border-amber-700/30">
+                {spell}（戏法）
+              </span>
+            ))}
+            {quickBuildSpells.level1.map((spell) => (
+              <span key={spell} className="text-xs px-2 py-0.5 rounded bg-amber-800/30 text-amber-200 border border-amber-700/30">
+                {spell}（1环）
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+      
       {allExtraSpells.length > 0 && (
         <div className="bg-amber-900/20 rounded-lg border border-amber-700/30 p-4">
           <h3 className="text-amber-300 text-sm font-semibold mb-2">子职额外法术</h3>
@@ -221,6 +258,8 @@ export default function SpellSelectionPanel({
               {spells.map((spellName) => {
                 const isSelected = selected.includes(spellName);
                 const isExtra = allExtraSpells.includes(spellName);
+                const isRecommended = quickBuildSpells && 
+                  (quickBuildSpells.cantrips.includes(spellName) || quickBuildSpells.level1.includes(spellName));
                 return (
                   <button
                     key={spellName}
@@ -231,12 +270,15 @@ export default function SpellSelectionPanel({
                         ? "bg-amber-800/20 text-amber-400/60 border border-amber-700/20 cursor-not-allowed"
                         : isSelected
                           ? "bg-amber-700/50 text-amber-200 border border-amber-600/50"
-                          : "bg-stone-800/50 text-stone-400 border border-stone-700/50 hover:border-stone-600/50"
+                          : isRecommended
+                            ? "bg-emerald-900/30 text-emerald-300 border border-emerald-700/30 hover:border-emerald-600/50"
+                            : "bg-stone-800/50 text-stone-400 border border-stone-700/50 hover:border-stone-600/50"
                     }`}
-                    title={isExtra ? "子职自动获得" : ""}
+                    title={isExtra ? "子职自动获得" : isRecommended ? "快速建卡推荐" : ""}
                   >
                     {spellName}
                     {isExtra && <span className="text-[9px] ml-1 opacity-60">(自动)</span>}
+                    {isRecommended && !isSelected && <span className="text-[9px] ml-1 opacity-60">(推荐)</span>}
                   </button>
                 );
               })}

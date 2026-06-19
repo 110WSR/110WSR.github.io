@@ -1,25 +1,35 @@
 import { useState, useMemo } from "react";
 
+/** 从5E_Equipment_Structured.json提取的标准武器名称 */
+const SIMPLE_MELEE = ["木棍", "匕首", "巨木棍", "手斧", "标枪", "轻锤", "钉头锤", "长棍", "镰刀", "矛"];
+const SIMPLE_RANGED = ["轻弩", "飞镖", "短弓", "投石索"];
+const MARTIAL_MELEE = ["战斧", "连枷", "宽刃剑", "巨斧", "巨剑", "戟", "骑枪", "长剑", "巨锤", "晨星锤", "长柄枪", "刺剑", "弯刀", "短剑", "三叉戟", "战锤", "军用镐", "鞭"];
+const MARTIAL_RANGED = ["吹箭筒", "手弩", "重弩", "长弓", "网"];
+
+const ALL_SIMPLE = [...SIMPLE_MELEE, ...SIMPLE_RANGED];
+const ALL_MARTIAL = [...MARTIAL_MELEE, ...MARTIAL_RANGED];
+const ALL_WEAPONS = [...ALL_SIMPLE, ...ALL_MARTIAL];
+
 /** 武器类别展开映射 - 将泛型武器类别展开为具体武器列表 */
 const WEAPON_EXPANSIONS: Record<string, string[]> = {
-  "任意军用近战武器": ["长剑", "巨剑", "巨斧", "战锤", "钉头锤", "长矛", "戟", "长棍", "弯刀", "手斧", "战斧", "刺剑", "短剑", "硬头锤", "连枷", "三叉戟"],
-  "任意军用武器": ["长剑", "巨剑", "巨斧", "战锤", "钉头锤", "长矛", "戟", "长棍", "弯刀", "手斧", "战斧", "刺剑", "短剑", "硬头锤", "连枷", "三叉戟", "轻弩", "手弩", "短弓", "长弓"],
-  "任意简易武器": ["短棒", "匕首", "飞镖", "标枪", "硬头锤", "长棍", "弯刀", "投石索", "矛", "手斧", "轻弩", "短弓", "镰刀"],
-  "任意简易近战武器": ["短棒", "匕首", "标枪", "硬头锤", "长棍", "弯刀", "矛", "手斧", "镰刀"],
-  "任意简易武器×2": ["短棒", "匕首", "飞镖", "标枪", "硬头锤", "长棍", "弯刀", "投石索", "矛", "手斧", "轻弩", "短弓", "镰刀"],
+  "任意军用近战武器": MARTIAL_MELEE,
+  "任意军用武器": ALL_MARTIAL,
+  "任意简易武器": ALL_SIMPLE,
+  "任意简易近战武器": SIMPLE_MELEE,
+  "任意简易武器×2": ALL_SIMPLE,
+  "两把军用武器": ALL_MARTIAL,
 };
 
 /** 判断一个选项是否需要二次展开 */
 function needsExpansion(option: string): boolean {
-  return option in WEAPON_EXPANSIONS || option.includes("任意");
+  return option in WEAPON_EXPANSIONS || option.includes("任意") || option.includes("两把");
 }
 
 /** 获取展开后的武器列表 */
 function getExpandedWeapons(option: string): string[] {
   if (WEAPON_EXPANSIONS[option]) return WEAPON_EXPANSIONS[option];
-  if (option.includes("任意")) {
-    return ["长剑", "巨剑", "巨斧", "战锤", "短剑", "刺剑", "匕首", "标枪", "手斧", "长棍", "硬头锤", "弯刀", "轻弩", "短弓", "长弓"];
-  }
+  if (option.includes("任意")) return ALL_WEAPONS;
+  if (option.includes("两把")) return ALL_MARTIAL;
   return [option];
 }
 
@@ -52,7 +62,7 @@ function isCompoundOption(option: string): boolean {
   return option.includes("+");
 }
 
-/** 判断是否为复数武器选项（如"两把军用武器"） */
+/** 判断是否为复数武器选项（如"两把军用武器"、"手斧×2"） */
 function isPluralWeaponOption(option: string): boolean {
   return option.includes("两把") || option.includes("×2");
 }
@@ -104,11 +114,11 @@ const CLASS_EQUIPMENT: Record<string, {
     mandatoryItems: ["圣徽"],
     groups: [
       { label: "护甲", options: ["鳞甲", "皮甲", "链甲"] },
-      { label: "武器", options: ["硬头锤", "战锤"], isWeaponGroup: true },
+      { label: "武器", options: ["钉头锤", "战锤"], isWeaponGroup: true },
       { label: "远程武器", options: ["轻弩+20支弩矢", "任意简易武器"], isWeaponGroup: true },
       { label: "套组", options: ["祭司套组", "探索者套组"] },
     ],
-    description: "起始装备：鳞甲或皮甲或链甲；硬头锤或战锤；轻弩+20支弩矢或任意简易武器；祭司套组或探索者套组；盾牌和圣徽",
+    description: "起始装备：鳞甲或皮甲或链甲；钉头锤或战锤；轻弩+20支弩矢或任意简易武器；祭司套组或探索者套组；盾牌和圣徽",
   },
   "德鲁伊": {
     defaultArmor: "皮甲",
@@ -319,10 +329,6 @@ export default function EquipmentSelectionPanel({
               weapons.push(part);
             }
           }
-        } else if (isPluralWeaponOption(selected)) {
-          // 复数武器选项 - 使用二次选择的具体武器列表
-          const subWeapons = subs[i] || [];
-          weapons.push(...subWeapons);
         } else {
           // 普通武器选项
           const { name, quantity } = parseQuantity(selected);
@@ -426,7 +432,7 @@ export default function EquipmentSelectionPanel({
       {/* 顺序选项组 */}
       {config.groups.map((group, groupIndex) => {
         const selected = groupSelections[groupIndex];
-        const isWeaponExpanded = group.isWeaponGroup && selected && (needsExpansion(selected) || isPluralWeaponOption(selected));
+        const isWeaponExpanded = group.isWeaponGroup && selected && needsExpansion(selected);
         const expandedWeapons = isWeaponExpanded ? getExpandedWeapons(selected) : [];
         const subSelected = weaponSubSelections[groupIndex] || [];
         const pluralCount = selected && isPluralWeaponOption(selected) ? getPluralCount(selected) : 1;

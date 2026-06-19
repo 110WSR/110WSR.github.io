@@ -183,6 +183,36 @@ export default function EquipmentPanel({ className }: EquipmentPanelProps) {
     setContextMenu(null);
   }, [items, character, updateCharacter]);
 
+  // 从库存取回物品到装备栏
+  const handleFetchFromInventory = useCallback(() => {
+    if (!character?.inventory) return;
+    const lines = character.inventory.split("\n").filter(Boolean);
+    if (lines.length === 0) return;
+    // 取回最后一件物品
+    const lastLine = lines[lines.length - 1];
+    const match = lastLine.match(/^(.+?)×(\d+)$/);
+    const name = match ? match[1].trim() : lastLine.trim();
+    const quantity = match ? parseInt(match[2]) : 1;
+    // 从库存移除
+    const newLines = lines.slice(0, -1);
+    updateCharacter({ inventory: newLines.join("\n") });
+    // 添加到装备栏
+    const existingItem = items.find(it => it.name === name);
+    if (existingItem) {
+      const newItems = items.map(it =>
+        it.id === existingItem.id
+          ? { ...it, quantity: it.quantity + quantity }
+          : it
+      );
+      updateCharacter({ items: newItems });
+    } else {
+      const newItem = createDefaultItem(name);
+      newItem.quantity = quantity;
+      updateCharacter({ items: [...items, newItem] });
+    }
+    setContextMenu(null);
+  }, [character, items, updateCharacter]);
+
   return (
     <>
       <SectionContainer title="装备" className={`${className || ""} w-[358px] h-[437px]`}>
@@ -299,7 +329,7 @@ export default function EquipmentPanel({ className }: EquipmentPanelProps) {
         onClose={() => setLibraryOpen(false)}
       />
 
-      {/* 右键删除菜单 */}
+      {/* 右键菜单 */}
       {contextMenu && ReactDOM.createPortal(
         <div
           className="fixed inset-0 z-[9999]"
@@ -333,6 +363,19 @@ export default function EquipmentPanel({ className }: EquipmentPanelProps) {
               onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; }}
             >
               移入库存
+            </div>
+            <div
+              onClick={() => handleFetchFromInventory()}
+              style={{
+                padding: "4px 10px",
+                fontSize: "12px",
+                color: sheetColors.textDark,
+                cursor: "pointer",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = sheetColors.hoverBg; }}
+              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; }}
+            >
+              从库存取回
             </div>
             <div
               onClick={() => handleDeleteItemFromMenu(contextMenu.index)}

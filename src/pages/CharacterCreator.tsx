@@ -19,6 +19,7 @@ import CharacterDetailsPanel from "./creator/CharacterDetailsPanel";
 import { ATTRIBUTE_FIELDS, generateRandomAttributes } from "./creator/types";
 import type { AttributeMethod } from "./creator/types";
 import classIdentifiers from "../../data/classIdentifiers.json";
+import { generateTraits } from "../shared/utils/traitGenerator";
 
 /** 根据职业中文名查找对应的 classId */
 function findClassId(className: string): string {
@@ -181,6 +182,11 @@ export default function CharacterCreator() {
       skillsRecord[skillName] = 1;
     }
     updateCharacter({ skills: skillsRecord });
+    // 自动生成特性关键词
+    const traitList = generateTraits(className, level, race, background);
+    if (traitList.length > 0) {
+      updateCharacter({ traitList });
+    }
     navigate("/sheet");
   }, [charName, className, race, background, level, attributes, currentHP, maxHP, alignment, localPersonality, backstory,
       selectedWeapons, selectedArmor, hasShield, equipmentText, selectedSkills, updateCharacter,

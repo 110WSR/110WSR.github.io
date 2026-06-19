@@ -1,0 +1,97 @@
+{
+  "className": "牧师",
+  "label": "神圣领域",
+  "level": 1,
+  "options": [
+    {
+      "id": "life_domain",
+      "name": "生命领域",
+      "description": "生命领域的牧师掌管正能量，是维持一切生命的力量。",
+      "features": [
+        { "level": 1, "name": "额外熟练项", "description": "获得重甲的熟练项。" },
+        { "level": 1, "name": "生命门徒", "description": "施展恢复生命值的法术后，法术恢复量增加2+法术环位。" },
+        { "level": 2, "name": "引导神力：守护生命", "description": "以30尺范围内的生命能量保护盟友，恢复一定生命值。" },
+        { "level": 6, "name": "祝福治疗者", "description": "当你施展1环或更高的恢复法术时，你可以恢复等同于2+法术环位的额外生命值。" },
+        { "level": 8, "name": "神圣打击", "description": "武器攻击命中时附加1d8光耀伤害。" },
+        { "level": 17, "name": "超凡治疗", "description": "施展恢复法术时使用最大值。" }
+      ]
+    },
+    {
+      "id": "light_domain",
+      "name": "光明领域",
+      "description": "光明领域的牧师用神圣火焰净化邪恶。",
+      "features": [
+        { "level": 1, "name": "额外戏法", "description": "获得光亮术。" },
+        { "level": 1, "name": "光之守护", "description": "可以用反应对攻击者施加劣势，次数等于感知调整值。" },
+        { "level": 2, "name": "引导神力：灼热光辉", "description": "释放神圣能量，对30尺内可见敌人造成2d10+牧师等级的光耀伤害。" },
+        { "level": 6, "name": "强化灼热光辉", "description": "引导神力：灼热光辉的伤害增加你的感知调整值。" },
+        { "level": 8, "name": "神圣打击", "description": "武器攻击命中时附加1d8光耀伤害。" },
+        { "level": 17, "name": "光耀之冠", "description": "可以用动作激活光晕，对30尺内敌人造成光耀伤害。" }
+      ]
+    },
+    {
+      "id": "knowledge_domain",
+      "name": "知识领域",
+      "description": "知识领域的牧师守护着知识和记忆。",
+      "features": [
+        { "level": 1, "name": "额外熟练项", "description": "获得两项自选智力技能熟练项。" },
+        { "level": 1, "name": "远古知识", "description": "选择两项工具或语言获得熟练项。" },
+        { "level": 2, "name": "引导神力：知识回忆", "description": "在1分钟内获得一项技能或工具的熟练项。" },
+        { "level": 6, "name": "神谕的洞察", "description": "可以施展识破隐形和巧言术。" },
+        { "level": 8, "name": "神圣打击", "description": "武器攻击命中时附加1d8心灵伤害。" },
+        { "level": 17, "name": "超凡洞察", "description": "施展预言系法术时无需材料成分。" }
+      ]
+    },
+    {
+      "id": "nature_domain",
+      "name": "自然领域",
+      "description": "自然领域的牧师守护着自然世界。",
+      "features": [
+        { "level": 1, "name": "额外熟练项", "description": "获得重甲熟练项和一项德鲁伊戏法。" },
+        { "level": 1, "name": "自然门徒", "description": "获得与动物和植物相关的技能加成。" },
+        { "level": 2, "name": "引导神力：魅惑动物与植物", "description": "魅惑30尺内的动物和植物。" },
+        { "level": 6, "name": "元素之击", "description": "武器攻击命中时附加1d8寒冷、火焰或闪电伤害。" },
+        { "level": 8, "name": "神圣打击", "description": "武器攻击命中时附加1d8寒冷、火焰或闪电伤害。" },
+        { "level": 17, "name": "自然之怒", "description": "可以召唤元素生物协助战斗。" }
+      ]
+    },
+    {
+      "id": "tempest_domain",
+      "name": "风暴领域",
+      "description": "风暴领域的牧师掌控着风暴和雷电的力量。",
+      "features": [
+        { "level": 1, "name": "额外熟练项", "description": "获得军用武器和重甲的熟练项。" },
+        { "level": 1, "name": "雷霆之怒", "description": "被攻击时可以用反应对攻击者造成2d8雷电伤害。" },
+        { "level": 2, "name": "引导神力：毁灭狂怒", "description": "造成闪电或雷鸣伤害时取最大值。" },
+        { "level": 6, "name": "雷霆之击", "description": "武器攻击命中时附加1d8雷鸣伤害，并击退目标。" },
+        { "level": 8, "name": "神圣打击", "description": "武器攻击命中时附加1d8雷鸣伤害。" },
+        { "level": 17, "name": "风暴之怒", "description": "获得飞行速度，并对周围敌人造成伤害。" }
+      ]
+    },
+    {
+      "id": "trickery_domain",
+      "name": "诡术领域",
+      "description": "诡术领域的牧师是恶作剧和欺骗的大师。",
+      "features": [
+        { "level": 1, "name": "诡术祝福", "description": "可以用动作触碰一个自愿生物使其在隐匿检定上获得优势。" },
+        { "level": 2, "name": "引导神力：召唤分身", "description": "创造一个自己的幻象分身。" },
+        { "level": 6, "name": "诡术之击", "description": "武器攻击命中时附加1d8毒素伤害。" },
+        { "level": 8, "name": "神圣打击", "description": "武器攻击命中时附加1d8毒素伤害。" },
+        { "level": 17, "name": "完美诡术", "description": "施展幻术系法术时获得优势。" }
+      ]
+    },
+    {
+      "id": "war_domain",
+      "name": "战争领域",
+      "description": "战争领域的牧师是战场上的勇士。",
+      "features": [
+        { "level": 1, "name": "额外熟练项", "description": "获得军用武器和重甲的熟练项。" },
+        { "level": 1, "name": "战争祭司", "description": "可以用附赠动作发动一次武器攻击，次数等于感知调整值。" },
+        { "level": 2, "name": "引导神力：战意澎湃", "description": "为盟友的攻击检定增加+10加值。" },
+        { "level": 6, "name": "额外攻击", "description": "你在自己回合内发动攻击动作时可以攻击两次。" },
+        { "level": 8, "name": "神圣打击", "description": "武器攻击命中时附加1d8伤害。" },
+        { "level": 17, "name": "战争之神", "description": "获得对钝击、穿刺和挥砍伤害的抗性。" }
+      ]
+    }
+  ]
+}

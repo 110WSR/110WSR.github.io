@@ -1,0 +1,29 @@
+{
+  "className": "吟游诗人",
+  "label": "吟游学院",
+  "level": 3,
+  "options": [
+    {
+      "id": "college_of_lore",
+      "name": "学识学院",
+      "description": "学识学院的吟游诗人以知识和诗歌为生。",
+      "features": [
+        { "level": 3, "name": "额外熟练项", "description": "获得三项自选技能的熟练项。" },
+        { "level": 3, "name": "话术", "description": "当你的激励骰用于技能检定加值时，你可以额外使用一个反应来尝试削弱目标。" },
+        { "level": 6, "name": "额外魔法奥秘", "description": "从任意职业法术列表中选择两个法术作为已知法术。" },
+        { "level": 14, "name": "超凡话术", "description": "当你进行属性检定时，可以使用一个激励骰并加到检定结果上。" }
+      ]
+    },
+    {
+      "id": "college_of_valor",
+      "name": "勇气学院",
+      "description": "勇气学院的吟游诗人是吟游诗人中的战士。",
+      "features": [
+        { "level": 3, "name": "额外熟练项", "description": "获得中甲、盾牌和军用武器的熟练项。" },
+        { "level": 3, "name": "战斗灵感", "description": "获得激励骰的生物可以将其加到伤害掷骰或AC上。" },
+        { "level": 6, "name": "额外攻击", "description": "你在自己回合内发动攻击动作时可以攻击两次。" },
+        { "level": 14, "name": "战斗魔法", "description": "当你使用动作施展一个吟游诗人法术后，可以用一个附赠动作发动一次武器攻击。" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "className": "术士",
+  "label": "术法起源",
+  "level": 1,
+  "options": [
+    {
+      "id": "draconic_bloodline",
+      "name": "龙族血统",
+      "description": "你的魔法力量源自巨龙的血脉。",
+      "features": [
+        { "level": 1, "name": "龙族先祖", "description": "选择一种龙种，获得对应伤害类型的抗性，AC变为13+敏捷调整值。" },
+        { "level": 6, "name": "龙族威仪", "description": "施展术士法术时可以将魅力调整值加到伤害上。" },
+        { "level": 14, "name": "龙翼", "description": "获得飞行速度。" },
+        { "level": 18, "name": "龙族化身", "description": "可以消耗术法点制造恐惧光环。" }
+      ]
+    },
+    {
+      "id": "wild_magic",
+      "name": "狂野魔法",
+      "description": "你的魔法力量源自混乱的原始魔法之源。",
+      "features": [
+        { "level": 1, "name": "狂野魔法浪涌", "description": "施展术士法术后可能触发狂野魔法浪涌。" },
+        { "level": 1, "name": "混乱之潮", "description": "获得一次优势，使用后触发狂野魔法浪涌。" },
+        { "level": 6, "name": "混乱之潮", "description": "可以用反应让攻击检定获得优势或劣势。" },
+        { "level": 14, "name": "可控狂野", "description": "可以投两次狂野魔法表并选择其一。" },
+        { "level": 18, "name": "狂野之潮", "description": "可以消耗术法点来触发狂野魔法浪涌。" }
+      ]
+    }
+  ]
+}

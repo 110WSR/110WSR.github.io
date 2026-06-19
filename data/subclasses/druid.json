@@ -1,0 +1,30 @@
+{
+  "className": "德鲁伊",
+  "label": "德鲁伊结社",
+  "level": 2,
+  "options": [
+    {
+      "id": "circle_of_the_land",
+      "name": "大地结社",
+      "description": "大地结社的德鲁伊通过古老的仪式和传统与自然相连。",
+      "features": [
+        { "level": 2, "name": "自然恢复", "description": "短休时可以恢复一定数量的法术位。" },
+        { "level": 2, "name": "结社法术", "description": "根据所选地形获得额外的准备法术。" },
+        { "level": 6, "name": "自然行走", "description": "穿越非魔法的困难地形时不受影响。" },
+        { "level": 10, "name": "自然庇护", "description": "对毒素和疾病免疫。" },
+        { "level": 14, "name": "自然守护", "description": "获得对毒素伤害的抗性，免疫疾病。" }
+      ]
+    },
+    {
+      "id": "circle_of_the_moon",
+      "name": "月亮结社",
+      "description": "月亮结社的德鲁伊与月亮的循环紧密相连。",
+      "features": [
+        { "level": 2, "name": "战斗荒野形态", "description": "可以用附赠动作变身为挑战等级不超过德鲁伊等级/3的野兽。" },
+        { "level": 6, "name": "原始打击", "description": "荒野形态下的攻击视为魔法武器攻击。" },
+        { "level": 10, "name": "元素荒野形态", "description": "可以变身为元素生物。" },
+        { "level": 14, "name": "千面之相", "description": "可以随意施展变身术。" }
+      ]
+    }
+  ]
+}

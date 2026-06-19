@@ -1,0 +1,40 @@
+{
+  "className": "邪术师",
+  "label": "邪术师魔契",
+  "level": 1,
+  "options": [
+    {
+      "id": "the_fiend",
+      "name": "魔契：邪魔",
+      "description": "你的力量来自深渊或九层地狱的强大邪魔。",
+      "features": [
+        { "level": 1, "name": "黑暗祝福", "description": "将敌人降至0生命值时获得临时生命值。" },
+        { "level": 6, "name": "黑暗之力", "description": "进行属性检定时可以增加d10。" },
+        { "level": 10, "name": "抗性", "description": "选择一种伤害类型获得抗性。" },
+        { "level": 14, "name": "地狱之门", "description": "可以传送至30尺内可见位置。" }
+      ]
+    },
+    {
+      "id": "the_great_old_one",
+      "name": "魔契：旧日支配者",
+      "description": "你的力量来自宇宙深处的古老存在。",
+      "features": [
+        { "level": 1, "name": "觉醒之智", "description": "可以用心灵感应与30尺内的生物交流。" },
+        { "level": 6, "name": "熵力护盾", "description": "用反应让攻击者承受劣势。" },
+        { "level": 10, "name": "思维护盾", "description": "免疫心灵伤害和读心。" },
+        { "level": 14, "name": "创造仆从", "description": "可以魅惑一个类人生物。" }
+      ]
+    },
+    {
+      "id": "the_archfey",
+      "name": "魔契：妖精",
+      "description": "你的力量来自妖精荒野的神秘存在。",
+      "features": [
+        { "level": 1, "name": "妖精之触", "description": "魅惑或恐慌一个生物。" },
+        { "level": 6, "name": "迷雾步", "description": "受到伤害时可以用反应传送60尺并隐形。" },
+        { "level": 10, "name": "思维护盾", "description": "免疫魅惑，可以反射魅惑。" },
+        { "level": 14, "name": "黑暗之拥", "description": "可以施展催眠图纹。" }
+      ]
+    }
+  ]
+}

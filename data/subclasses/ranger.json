@@ -1,0 +1,19 @@
+{
+  "className": "游侠",
+  "label": "游侠结社",
+  "level": 3,
+  "options": [
+    {
+      "id": "hunter",
+      "name": "猎人结社",
+      "description": "猎人结社的游侠是追踪和猎杀特定敌人的专家。",
+      "features": [
+        { "level": 3, "name": "猎杀目标", "description": "选择一个目标类型获得追踪和伤害加成。" },
+        { "level": 3, "name": "猎人战术", "description": "选择一项战术：巨像杀手、钢铁意志或群体杀手。" },
+        { "level": 7, "name": "防御战术", "description": "选择一项防御战术。" },
+        { "level": 11, "name": "多重攻击", "description": "选择一项多重攻击方式。" },
+        { "level": 15, "name": "超级猎杀", "description": "选择一项终极猎杀能力。" }
+      ]
+    }
+  ]
+}

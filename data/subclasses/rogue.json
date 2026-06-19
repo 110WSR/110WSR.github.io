@@ -1,0 +1,43 @@
+{
+  "className": "游荡者",
+  "label": "游荡者范型",
+  "level": 3,
+  "options": [
+    {
+      "id": "thief",
+      "name": "盗贼范型",
+      "description": "盗贼范型的游荡者专注于盗窃和潜行的技艺。",
+      "features": [
+        { "level": 3, "name": "快手", "description": "可以用附赠动作进行巧手检定或使用盗贼工具。" },
+        { "level": 3, "name": "梁上君子", "description": "获得攀爬速度，跳跃距离增加。" },
+        { "level": 9, "name": "极效潜行", "description": "移动速度不超过一半时隐匿检定获得优势。" },
+        { "level": 13, "name": "使用魔法装置", "description": "可以忽略所有职业、种族和等级限制使用魔法物品。" },
+        { "level": 17, "name": "窃盗本能", "description": "战斗第一轮可以行动两个回合。" }
+      ]
+    },
+    {
+      "id": "assassin",
+      "name": "刺客范型",
+      "description": "刺客范型的游荡者是冷酷的死亡艺术家。",
+      "features": [
+        { "level": 3, "name": "暗杀", "description": "对突袭目标获得优势，命中自动重击。" },
+        { "level": 3, "name": "伪装与毒药", "description": "获得伪装工具熟练项和制毒工具熟练项。" },
+        { "level": 9, "name": "渗透专家", "description": "可以创建假身份。" },
+        { "level": 13, "name": "死亡打击", "description": "暗杀时目标必须进行体质豁免否则即死。" },
+        { "level": 17, "name": "死亡之击", "description": "暗杀时造成双倍伤害。" }
+      ]
+    },
+    {
+      "id": "arcane_trickster",
+      "name": "诡术师范型",
+      "description": "诡术师范型的游荡者将魔法与盗术结合。",
+      "features": [
+        { "level": 3, "name": "施法", "description": "获得施法能力，法术来自法师法术列表，使用智力作为施法属性。" },
+        { "level": 3, "name": "魔手", "description": "获得法师之手戏法，并可以执行额外操作。" },
+        { "level": 9, "name": "魔手潜行", "description": "施展法师之手时获得隐匿优势。" },
+        { "level": 13, "name": "法术窃取", "description": "可以窃取敌人的法术。" },
+        { "level": 17, "name": "诡术大师", "description": "施展幻术或附魔系法术时获得优势。" }
+      ]
+    }
+  ]
+}

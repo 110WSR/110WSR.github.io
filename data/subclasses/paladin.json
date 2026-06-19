@@ -1,0 +1,46 @@
+{
+  "className": "圣武士",
+  "label": "圣誓",
+  "level": 3,
+  "options": [
+    {
+      "id": "oath_of_devotion",
+      "name": "奉献之誓",
+      "description": "奉献之誓的圣武士遵循崇高理想。",
+      "features": [
+        { "level": 3, "name": "圣誓法术", "description": "获得庇护术、圣域术等圣誓法术。" },
+        { "level": 3, "name": "引导神力：神圣武器", "description": "用一个附赠动作让武器发出光芒，攻击检定获得魅力调整值加值。" },
+        { "level": 3, "name": "引导神力：驱逐不洁", "description": "驱逐30尺内的异怪、精类或不死生物。" },
+        { "level": 7, "name": "灵光守护", "description": "10尺内的盟友免疫魅惑。" },
+        { "level": 15, "name": "永恒奉献", "description": "生命值降至0时恢复1点生命值。" },
+        { "level": 20, "name": "神圣化身", "description": "变身神圣形态，获得飞行和光环增益。" }
+      ]
+    },
+    {
+      "id": "oath_of_the_ancients",
+      "name": "远古之誓",
+      "description": "远古之誓的圣武士守护着自然和光明。",
+      "features": [
+        { "level": 3, "name": "圣誓法术", "description": "获得动物交谈术、云雾术等圣誓法术。" },
+        { "level": 3, "name": "引导神力：远古之怒", "description": "束缚30尺内的敌人，造成光耀伤害。" },
+        { "level": 3, "name": "引导神力：驱逐异界", "description": "驱逐精类生物。" },
+        { "level": 7, "name": "远古守护者灵光", "description": "10尺内的盟友获得对法术伤害的抗性。" },
+        { "level": 15, "name": "远古之盾", "description": "获得对法术伤害的抗性。" },
+        { "level": 20, "name": "远古冠军", "description": "变身远古形态，获得再生和施法能力。" }
+      ]
+    },
+    {
+      "id": "oath_of_vengeance",
+      "name": "复仇之誓",
+      "description": "复仇之誓的圣武士以无情的手段惩罚邪恶。",
+      "features": [
+        { "level": 3, "name": "圣誓法术", "description": "获得克敌机先、迷踪步等圣誓法术。" },
+        { "level": 3, "name": "引导神力：仇敌誓言", "description": "对一个敌人宣誓，攻击获得优势。" },
+        { "level": 3, "name": "引导神力：驱逐之令", "description": "驱逐不死生物。" },
+        { "level": 7, "name": "复仇灵光", "description": "对借机攻击获得优势。" },
+        { "level": 15, "name": "无情复仇", "description": "用反应对攻击者发动一次武器攻击。" },
+        { "level": 20, "name": "复仇天使", "description": "变身复仇天使形态，获得飞行和恐惧光环。" }
+      ]
+    }
+  ]
+}

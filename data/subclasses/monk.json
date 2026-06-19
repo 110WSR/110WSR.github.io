@@ -1,0 +1,40 @@
+{
+  "className": "武僧",
+  "label": "修行宗派",
+  "level": 3,
+  "options": [
+    {
+      "id": "way_of_the_open_hand",
+      "name": "散打宗",
+      "description": "散打宗的武僧是终极的战技大师。",
+      "features": [
+        { "level": 3, "name": "散打技巧", "description": "疾风连击命中时可以选择：击倒、推开或阻止反应。" },
+        { "level": 6, "name": "浑体为器", "description": "徒手攻击视为魔法武器攻击，可以消耗1点气来附加伤害。" },
+        { "level": 11, "name": "安宁之躯", "description": "免疫毒素和疾病。" },
+        { "level": 17, "name": "空灵之掌", "description": "可以用气掌攻击，造成力场伤害。" }
+      ]
+    },
+    {
+      "id": "way_of_shadow",
+      "name": "暗影宗",
+      "description": "暗影宗的武僧利用暗影之力。",
+      "features": [
+        { "level": 3, "name": "暗影技艺", "description": "获得黑暗视觉，可以消耗气施展暗影法术。" },
+        { "level": 6, "name": "暗影步", "description": "可以用附赠动作在暗影间传送60尺。" },
+        { "level": 11, "name": "暗影斗篷", "description": "获得对光耀伤害的抗性，在黑暗中隐匿检定获得优势。" },
+        { "level": 17, "name": "暗影大师", "description": "可以消耗气施展魅影杀手或幽影步。" }
+      ]
+    },
+    {
+      "id": "way_of_the_four_elements",
+      "name": "四象宗",
+      "description": "四象宗的武僧操控四大元素的力量。",
+      "features": [
+        { "level": 3, "name": "元素技艺", "description": "消耗气来施展元素法术。" },
+        { "level": 6, "name": "元素之击", "description": "徒手攻击可以造成元素伤害。" },
+        { "level": 11, "name": "元素化身", "description": "获得对一种元素伤害的抗性。" },
+        { "level": 17, "name": "元素大师", "description": "可以消耗气施展更强大的元素法术。" }
+      ]
+    }
+  ]
+}

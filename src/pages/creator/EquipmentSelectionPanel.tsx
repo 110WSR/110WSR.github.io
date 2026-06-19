@@ -18,11 +18,12 @@ const WEAPON_EXPANSIONS: Record<string, string[]> = {
   "任意简易近战武器": SIMPLE_MELEE,
   "任意简易武器×2": ALL_SIMPLE,
   "两把军用武器": ALL_MARTIAL,
+  "军用武器+盾牌": ALL_MARTIAL,
 };
 
 /** 判断一个选项是否需要二次展开 */
 function needsExpansion(option: string): boolean {
-  return option in WEAPON_EXPANSIONS || option.includes("任意") || option.includes("两把");
+  return option in WEAPON_EXPANSIONS || option.includes("任意") || option.includes("两把") || option.includes("+");
 }
 
 /** 获取展开后的武器列表 */
@@ -30,6 +31,7 @@ function getExpandedWeapons(option: string): string[] {
   if (WEAPON_EXPANSIONS[option]) return WEAPON_EXPANSIONS[option];
   if (option.includes("任意")) return ALL_WEAPONS;
   if (option.includes("两把")) return ALL_MARTIAL;
+  if (option.includes("+")) return ALL_MARTIAL;
   return [option];
 }
 
@@ -287,15 +289,33 @@ export default function EquipmentSelectionPanel({
     updateWeaponsFromSelections(newSelections, weaponSubSelections);
   };
 
-  // 处理武器二次选择（支持多选）
+  // 处理武器二次选择（支持多选，复数武器允许选相同武器多次）
   const handleWeaponSubToggle = (groupIndex: number, weapon: string) => {
     const current = weaponSubSelections[groupIndex] || [];
     const newSub = { ...weaponSubSelections };
+    const selected = groupSelections[groupIndex];
+    const isPlural = selected && isPluralWeaponOption(selected);
+    const pluralCount = isPlural ? getPluralCount(selected) : 1;
     
-    if (current.includes(weapon)) {
-      newSub[groupIndex] = current.filter(w => w !== weapon);
+    if (isPlural) {
+      // 复数武器：点击添加一把，再次点击移除一把
+      const idx = current.indexOf(weapon);
+      if (idx !== -1) {
+        // 移除该武器的一个实例
+        const newArr = [...current];
+        newArr.splice(idx, 1);
+        newSub[groupIndex] = newArr;
+      } else {
+        // 添加该武器的一个实例（允许重复）
+        newSub[groupIndex] = [...current, weapon];
+      }
     } else {
-      newSub[groupIndex] = [...current, weapon];
+      // 非复数武器：普通 toggle
+      if (current.includes(weapon)) {
+        newSub[groupIndex] = current.filter(w => w !== weapon);
+      } else {
+        newSub[groupIndex] = [...current, weapon];
+      }
     }
     
     setWeaponSubSelections(newSub);
@@ -310,6 +330,7 @@ export default function EquipmentSelectionPanel({
     if (!config) return;
     
     const weapons: string[] = [];
+    let shouldHaveShield = false;
     
     for (let i = 0; i < config.groups.length; i++) {
       const group = config.groups[i];
@@ -321,8 +342,13 @@ export default function EquipmentSelectionPanel({
           // 展开的武器选项 - 使用二次选择的具体武器列表
           const subWeapons = subs[i] || [];
           weapons.push(...subWeapons);
+          
+          // 如果选项包含"+盾牌"，自动勾选盾牌
+          if (selected.includes("+盾牌")) {
+            shouldHaveShield = true;
+          }
         } else if (isCompoundOption(selected)) {
-          // 复合选项如"军用武器+盾牌" - 只取武器部分
+          // 复合选项如"轻弩+20支弩矢" - 只取武器部分
           const parts = parseCompoundOption(selected);
           for (const part of parts) {
             if (part !== "盾牌") {
@@ -342,6 +368,10 @@ export default function EquipmentSelectionPanel({
     }
     
     onWeaponsChange(weapons);
+    // 如果选择了"军用武器+盾牌"，自动勾选盾牌
+    if (shouldHaveShield && !hasShield) {
+      onShieldChange(true);
+    }
   };
 
   // 获取护甲选项列表

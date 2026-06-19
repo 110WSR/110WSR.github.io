@@ -17,7 +17,6 @@ function needsExpansion(option: string): boolean {
 /** 获取展开后的武器列表 */
 function getExpandedWeapons(option: string): string[] {
   if (WEAPON_EXPANSIONS[option]) return WEAPON_EXPANSIONS[option];
-  // 如果包含"任意"，返回所有常见武器
   if (option.includes("任意")) {
     return ["长剑", "巨剑", "巨斧", "战锤", "短剑", "刺剑", "匕首", "标枪", "手斧", "长棍", "硬头锤", "弯刀", "轻弩", "短弓", "长弓"];
   }
@@ -35,7 +34,6 @@ function parseQuantity(label: string): { name: string; quantity: number } {
 
 /** 解析复合选项，如"军用武器+盾牌"、"皮甲+长弓+20支箭" */
 function parseCompoundOption(option: string): string[] {
-  // 先处理数量标记
   const parts = option.split("+").map(s => s.trim());
   const result: string[] = [];
   for (const part of parts) {
@@ -54,19 +52,28 @@ function isCompoundOption(option: string): boolean {
   return option.includes("+");
 }
 
+/** 判断是否为复数武器选项（如"两把军用武器"） */
+function isPluralWeaponOption(option: string): boolean {
+  return option.includes("两把") || option.includes("×2");
+}
+
+/** 获取复数武器需要选择的数量 */
+function getPluralCount(option: string): number {
+  if (option.includes("两把")) return 2;
+  const match = option.match(/×(\d+)/);
+  if (match) return parseInt(match[1]);
+  return 1;
+}
+
 /** 各职业官方起始装备配置 */
 const CLASS_EQUIPMENT: Record<string, {
-  /** 默认护甲（必选） */
   defaultArmor: string;
-  /** 是否有盾牌选项 */
   hasShield: boolean;
-  /** 必选物品（自动添加） */
   mandatoryItems: string[];
-  /** 顺序选项组列表 - 每个组内是单选（或关系） */
   groups: {
     label: string;
     options: string[];
-    isWeaponGroup?: boolean;  // 是否为武器组（需要二次选择）
+    isWeaponGroup?: boolean;
   }[];
   description: string;
 }> = {
@@ -244,15 +251,14 @@ export default function EquipmentSelectionPanel({
 
   // 每个选项组的选择状态：{ groupIndex: selectedOption }
   const [groupSelections, setGroupSelections] = useState<Record<number, string>>({});
-  // 武器二次展开的选择：{ groupIndex: specificWeapon }
-  const [weaponSubSelections, setWeaponSubSelections] = useState<Record<number, string>>({});
+  // 武器二次展开的选择：{ groupIndex: string[] } - 支持多选
+  const [weaponSubSelections, setWeaponSubSelections] = useState<Record<number, string[]>>({});
 
   // 处理选项组选择
   const handleGroupSelect = (groupIndex: number, option: string) => {
     const newSelections = { ...groupSelections };
     
     if (newSelections[groupIndex] === option) {
-      // 取消选择
       delete newSelections[groupIndex];
     } else {
       newSelections[groupIndex] = option;
@@ -260,7 +266,7 @@ export default function EquipmentSelectionPanel({
     
     setGroupSelections(newSelections);
     
-    // 如果取消选择，也清除二次选择
+    // 如果取消选择或切换选项，清除二次选择
     if (newSelections[groupIndex] !== option) {
       const newSub = { ...weaponSubSelections };
       delete newSub[groupIndex];
@@ -271,9 +277,17 @@ export default function EquipmentSelectionPanel({
     updateWeaponsFromSelections(newSelections, weaponSubSelections);
   };
 
-  // 处理武器二次选择
-  const handleWeaponSubSelect = (groupIndex: number, weapon: string) => {
-    const newSub = { ...weaponSubSelections, [groupIndex]: weapon };
+  // 处理武器二次选择（支持多选）
+  const handleWeaponSubToggle = (groupIndex: number, weapon: string) => {
+    const current = weaponSubSelections[groupIndex] || [];
+    const newSub = { ...weaponSubSelections };
+    
+    if (current.includes(weapon)) {
+      newSub[groupIndex] = current.filter(w => w !== weapon);
+    } else {
+      newSub[groupIndex] = [...current, weapon];
+    }
+    
     setWeaponSubSelections(newSub);
     updateWeaponsFromSelections(groupSelections, newSub);
   };
@@ -281,7 +295,7 @@ export default function EquipmentSelectionPanel({
   // 根据所有选择更新武器列表
   const updateWeaponsFromSelections = (
     groups: Record<number, string>,
-    subs: Record<number, string>
+    subs: Record<number, string[]>
   ) => {
     if (!config) return;
     
@@ -294,11 +308,9 @@ export default function EquipmentSelectionPanel({
       
       if (group.isWeaponGroup) {
         if (needsExpansion(selected)) {
-          // 如果展开了，使用二次选择的具体武器
-          const subWeapon = subs[i];
-          if (subWeapon) {
-            weapons.push(subWeapon);
-          }
+          // 展开的武器选项 - 使用二次选择的具体武器列表
+          const subWeapons = subs[i] || [];
+          weapons.push(...subWeapons);
         } else if (isCompoundOption(selected)) {
           // 复合选项如"军用武器+盾牌" - 只取武器部分
           const parts = parseCompoundOption(selected);
@@ -307,6 +319,10 @@ export default function EquipmentSelectionPanel({
               weapons.push(part);
             }
           }
+        } else if (isPluralWeaponOption(selected)) {
+          // 复数武器选项 - 使用二次选择的具体武器列表
+          const subWeapons = subs[i] || [];
+          weapons.push(...subWeapons);
         } else {
           // 普通武器选项
           const { name, quantity } = parseQuantity(selected);
@@ -344,29 +360,24 @@ export default function EquipmentSelectionPanel({
     if (!config) return "";
     const parts: string[] = [];
     
-    // 护甲
     if (selectedArmor) {
       parts.push(`护甲: ${selectedArmor}`);
     } else if (config.defaultArmor && config.defaultArmor !== "无护甲") {
       parts.push(`护甲: ${config.defaultArmor}`);
     }
     
-    // 武器
     if (selectedWeapons.length > 0) {
       parts.push(`武器: ${selectedWeapons.join(", ")}`);
     }
     
-    // 盾牌
     if (hasShield) {
       parts.push("盾牌");
     }
     
-    // 必选物品
     if (config.mandatoryItems.length > 0) {
       parts.push(config.mandatoryItems.join(", "));
     }
     
-    // 套组选择
     for (let i = 0; i < config.groups.length; i++) {
       const group = config.groups[i];
       if (group.label === "套组" || group.label === "法器" || group.label === "乐器") {
@@ -377,7 +388,6 @@ export default function EquipmentSelectionPanel({
       }
     }
     
-    // 自定义文本
     if (equipmentText.trim()) {
       parts.push(equipmentText.trim());
     }
@@ -416,15 +426,22 @@ export default function EquipmentSelectionPanel({
       {/* 顺序选项组 */}
       {config.groups.map((group, groupIndex) => {
         const selected = groupSelections[groupIndex];
-        const isWeaponExpanded = group.isWeaponGroup && selected && needsExpansion(selected);
+        const isWeaponExpanded = group.isWeaponGroup && selected && (needsExpansion(selected) || isPluralWeaponOption(selected));
         const expandedWeapons = isWeaponExpanded ? getExpandedWeapons(selected) : [];
-        const subSelected = weaponSubSelections[groupIndex];
+        const subSelected = weaponSubSelections[groupIndex] || [];
+        const pluralCount = selected && isPluralWeaponOption(selected) ? getPluralCount(selected) : 1;
+        const isPlural = selected && isPluralWeaponOption(selected);
 
         return (
           <div key={groupIndex}>
             <h3 className="text-amber-300 text-sm font-semibold mb-2">
               {group.label}
               {selected && <span className="text-stone-500 text-xs ml-2">(已选: {selected})</span>}
+              {isPlural && subSelected.length > 0 && (
+                <span className={`text-xs ml-2 ${subSelected.length >= pluralCount ? 'text-emerald-400' : 'text-amber-400'}`}>
+                  ({subSelected.length}/{pluralCount})
+                </span>
+              )}
             </h3>
             
             {/* 选项按钮（单选） */}
@@ -447,17 +464,22 @@ export default function EquipmentSelectionPanel({
               })}
             </div>
 
-            {/* 武器二次展开选择 */}
+            {/* 武器二次展开选择（支持多选） */}
             {isWeaponExpanded && expandedWeapons.length > 0 && (
               <div className="ml-4 p-3 bg-stone-800/30 rounded-lg border border-stone-700/30">
-                <p className="text-stone-500 text-xs mb-2">请选择具体武器：</p>
+                <p className="text-stone-500 text-xs mb-2">
+                  {isPlural 
+                    ? `请选择 ${pluralCount} 把武器（点击选择/取消，已选 ${subSelected.length}/${pluralCount}）`
+                    : "请选择具体武器："
+                  }
+                </p>
                 <div className="flex flex-wrap gap-1.5">
                   {expandedWeapons.map((weapon) => {
-                    const isSubSelected = subSelected === weapon;
+                    const isSubSelected = subSelected.includes(weapon);
                     return (
                       <button
                         key={weapon}
-                        onClick={() => handleWeaponSubSelect(groupIndex, weapon)}
+                        onClick={() => handleWeaponSubToggle(groupIndex, weapon)}
                         className={`px-2.5 py-1 rounded-md text-xs transition-all duration-200 ${
                           isSubSelected
                             ? "bg-amber-700/50 text-amber-200 border border-amber-600/50"
@@ -475,7 +497,7 @@ export default function EquipmentSelectionPanel({
         );
       })}
 
-      {/* 护甲选择（如果护甲在选项组中） */}
+      {/* 护甲选择 */}
       {armorOptions.length > 0 && (
         <div>
           <h3 className="text-amber-300 text-sm font-semibold mb-2">护甲选择</h3>

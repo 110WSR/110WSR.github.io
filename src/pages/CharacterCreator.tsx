@@ -70,6 +70,20 @@ const SUBCLASS_LEVELS: Record<string, number> = {
 /** 施法职业列表 */
 const SPELLCASTING_CLASSES = ["吟游诗人", "牧师", "德鲁伊", "圣武士", "游侠", "术士", "邪术师", "法师"];
 
+/** 将种族属性加成应用到基础属性上 */
+function applyRaceBonuses(baseAttrs: Attributes, race: string): Attributes {
+  const raceBonus = RACE_ABILITY_BONUSES[race];
+  if (!raceBonus) return { ...baseAttrs };
+  const result = { ...baseAttrs };
+  for (const key of Object.keys(raceBonus.bonuses) as (keyof Attributes)[]) {
+    const bonus = raceBonus.bonuses[key];
+    if (bonus) {
+      result[key] = Math.min(20, result[key] + bonus);
+    }
+  }
+  return result;
+}
+
 export default function CharacterCreator() {
   const navigate = useNavigate();
   const { newCharacter, setAttributes, setBasicInfo, setLevel, setPersonality, setEquipment, setBackstory, updateCharacter } = useCharacter();
@@ -117,8 +131,10 @@ export default function CharacterCreator() {
   }, []);
 
   const handleSelectBuild = useCallback((attrs: Attributes) => {
-    setLocalAttributes(attrs);
-  }, []);
+    // 选择推荐属性后，自动加上种族属性加成
+    const attrsWithRace = applyRaceBonuses(attrs, race);
+    setLocalAttributes(attrsWithRace);
+  }, [race]);
 
   const handleMethodChange = useCallback((m: AttributeMethod) => {
     setMethod(m);
@@ -337,7 +353,7 @@ export default function CharacterCreator() {
                   <span className="text-emerald-300 text-sm font-medium">种族属性加成：{race}</span>
                 </div>
                 <p className="text-emerald-200/70 text-xs ml-6">
-                  {RACE_ABILITY_BONUSES[race].description} — 请记得在最终属性中加上这些加成！
+                  {RACE_ABILITY_BONUSES[race].description} — 选择推荐属性后会自动应用此加成
                 </p>
               </div>
             )}

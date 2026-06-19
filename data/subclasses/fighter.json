@@ -5,38 +5,41 @@
   "options": [
     {
       "id": "champion",
-      "name": "勇士范型",
-      "description": "勇士范型的战士专注于磨练战斗技巧。",
+      "name": "勇士之道",
+      "description": "勇士专注于磨练战斗技巧，将武艺锤炼至完美境界。",
       "features": [
-        { "level": 3, "name": "强化重击", "description": "攻击骰掷出19或20时即可造成重击。" },
-        { "level": 7, "name": "卓越运动员", "description": "进行力量、敏捷或体质检定时获得半熟练加值。" },
-        { "level": 10, "name": "额外战斗风格", "description": "再获得一项战斗风格。" },
-        { "level": 15, "name": "卓越重击", "description": "攻击骰掷出18-20时即可造成重击。" },
-        { "level": 18, "name": "不屈勇士", "description": "生命值降至0时，你可以进行一次DC15的体质豁免，成功则保留1点生命值。" }
+        { "level": 3, "name": "强化重击", "description": "攻击检定掷出19或20时即可造成重击。" },
+        { "level": 3, "name": "卓越运动员", "description": "进行攀爬、游泳等运动检定时获得半熟练加值。" },
+        { "level": 7, "name": "额外战斗风格", "description": "再选择一种战斗风格。" },
+        { "level": 10, "name": "卓越运动员", "description": "进行力量、敏捷或体质检定时获得半熟练加值。" },
+        { "level": 15, "name": "卓越重击", "description": "攻击检定掷出18-20时即可造成重击。" },
+        { "level": 18, "name": "生存本能", "description": "生命值降至一半以下时，在豁免检定上获得优势。" }
       ]
     },
     {
       "id": "battle_master",
-      "name": "战斗大师范型",
-      "description": "战斗大师范型的战士使用战术优势和特殊战技。",
+      "name": "战斗大师",
+      "description": "战斗大师运用战术技巧在战斗中取得优势。",
       "features": [
-        { "level": 3, "name": "战技", "description": "获得三项自选战技和4颗d8的 superiority dice。" },
+        { "level": 3, "name": "战斗优势", "description": "获得4个d8的卓越骰（长休后恢复），学习3个战技。" },
+        { "level": 3, "name": "学生 of 战争", "description": "获得一项工匠工具的熟练项。" },
         { "level": 7, "name": "知己知彼", "description": "可以用附赠动作了解一个生物的能力。" },
-        { "level": 10, "name": "额外战技", "description": "再获得两项战技，superiority dice变为d10。" },
-        { "level": 15, "name": "额外战技", "description": "再获得两项战技，superiority dice变为d12。" },
-        { "level": 18, "name": "战技大师", "description": "superiority dice耗尽时，获得一颗d6 superiority dice。" }
+        { "level": 10, "name": "额外战技", "description": "再学习2个战技，卓越骰变为d10。" },
+        { "level": 15, "name": "卓越骰提升", "description": "卓越骰变为d12。" },
+        { "level": 18, "name": "卓越骰恢复", "description": "战斗开始时获得1个已消耗的卓越骰。" }
       ]
     },
     {
       "id": "eldritch_knight",
-      "name": "奥法骑士范型",
-      "description": "奥法骑士范型的战士将魔法与武艺结合。",
+      "name": "奥法骑士",
+      "description": "奥法骑士将魔法与武艺结合，成为战场上的全能战士。",
       "features": [
-        { "level": 3, "name": "施法", "description": "获得施法能力，法术来自法师法术列表，使用智力作为施法属性。" },
-        { "level": 7, "name": "武法结合", "description": "施展戏法后可以用附赠动作发动一次武器攻击。" },
-        { "level": 10, "name": "魔法打击", "description": "武器攻击命中时，目标在下次豁免上承受劣势。" },
-        { "level": 15, "name": "奥术冲锋", "description": "使用动作施法后可以立即传送30尺。" },
-        { "level": 18, "name": "武法精通", "description": "施展1环或更高法术时可以用附赠动作发动一次武器攻击。" }
+        { "level": 3, "name": "施法", "description": "获得施法能力，使用智力作为施法关键属性，法术来自法师法术列表。" },
+        { "level": 3, "name": "武器联结", "description": "可以用附赠动作召唤一把已联结的武器到手。" },
+        { "level": 7, "name": "战争魔法", "description": "使用动作施展一个戏法后，可以用附赠动作发动一次武器攻击。" },
+        { "level": 10, "name": "奥法护盾", "description": "施展防护系法术时获得临时生命值。" },
+        { "level": 15, "name": "奥法打击", "description": "武器攻击命中时，可以消耗法术位造成额外力场伤害。" },
+        { "level": 18, "name": "战争魔法", "description": "使用动作施展一个1环或更高环阶的法术后，可以用附赠动作发动一次武器攻击。" }
       ]
     }
   ]

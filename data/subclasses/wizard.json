@@ -6,13 +6,13 @@
     {
       "id": "school_of_abjuration",
       "name": "防护学派",
-      "description": "防护学派的法师专注于保护性的魔法。",
+      "description": "防护学派的法师专注于保护性的魔法，是防御大师。",
       "features": [
         { "level": 2, "name": "防护学者", "description": "抄写防护系法术的时间和金钱减半。" },
-        { "level": 2, "name": "奥术护盾", "description": "施展防护系法术后创造护盾吸收伤害。" },
-        { "level": 6, "name": "护盾投射", "description": "可以用反应让30尺内的盟友获得护盾。" },
+        { "level": 2, "name": "奥术护盾", "description": "施展防护系法术后创造护盾吸收伤害，护盾生命值等于法师等级×2+智力调整值。" },
+        { "level": 6, "name": "护盾投射", "description": "可以用反应让30尺内的盟友获得奥术护盾。" },
         { "level": 10, "name": "强化防护", "description": "施展防护系法术时获得优势。" },
-        { "level": 14, "name": "法术抗力", "description": "对法术的豁免获得优势。" }
+        { "level": 14, "name": "法术抗力", "description": "对法术的豁免获得优势，且可以转移法术护盾给盟友。" }
       ]
     },
     {
@@ -21,31 +21,31 @@
       "description": "咒法学派的法师精通召唤和传送魔法。",
       "features": [
         { "level": 2, "name": "咒法学者", "description": "抄写咒法系法术的时间和金钱减半。" },
-        { "level": 2, "name": "微光造物", "description": "可以用动作创造一个小型物体。" },
-        { "level": 6, "name": "传送置换", "description": "受到攻击时可以用反应与盟友交换位置。" },
-        { "level": 10, "name": "专注造物", "description": "创造的物体可以持续更久。" },
-        { "level": 14, "name": "专注召唤", "description": "召唤生物获得临时生命值。" }
+        { "level": 2, "name": "微光造物", "description": "可以用动作创造一个小型非魔法物体，持续至多1小时。" },
+        { "level": 6, "name": "传送置换", "description": "受到攻击时可以用反应与30尺内的盟友交换位置。" },
+        { "level": 10, "name": "专注造物", "description": "创造的物体可以持续更久，且可以创造更复杂的物体。" },
+        { "level": 14, "name": "专注召唤", "description": "召唤生物获得30点临时生命值，且专注不会被伤害打断。" }
       ]
     },
     {
       "id": "school_of_divination",
       "name": "预言学派",
-      "description": "预言学派的法师能够窥见未来。",
+      "description": "预言学派的法师能够窥见未来，预知即将发生的事件。",
       "features": [
         { "level": 2, "name": "预言学者", "description": "抄写预言系法术的时间和金钱减半。" },
         { "level": 2, "name": "预兆", "description": "获得两个预兆骰，可以替换攻击、豁免或检定结果。" },
         { "level": 6, "name": "预兆专家", "description": "预兆骰变为三个。" },
-        { "level": 10, "name": "第三只眼", "description": "可以用动作获得一种特殊感官。" },
+        { "level": 10, "name": "第三只眼", "description": "可以用动作获得一种特殊感官（黑暗视觉、看穿隐形、看穿幻术等），持续1小时。" },
         { "level": 14, "name": "预兆大师", "description": "预兆骰变为四个。" }
       ]
     },
     {
       "id": "school_of_enchantment",
       "name": "附魔学派",
-      "description": "附魔学派的法师精通魅惑和操控心智。",
+      "description": "附魔学派的法师精通魅惑和操控心智的魔法。",
       "features": [
         { "level": 2, "name": "附魔学者", "description": "抄写附魔系法术的时间和金钱减半。" },
-        { "level": 2, "name": "催眠凝视", "description": "可以用动作催眠5尺内的生物。" },
+        { "level": 2, "name": "催眠凝视", "description": "可以用动作催眠5尺内的生物，使其陷入失能状态。" },
         { "level": 6, "name": "魅惑本能", "description": "施展附魔系法术后可以用附赠动作魅惑另一个生物。" },
         { "level": 10, "name": "分裂附魔", "description": "附魔系法术可以额外影响一个目标。" },
         { "level": 14, "name": "意志之击", "description": "魅惑的生物受到伤害时伤害加倍。" }
@@ -54,10 +54,10 @@
     {
       "id": "school_of_evocation",
       "name": "塑能学派",
-      "description": "塑能学派的法师操控强大的元素能量。",
+      "description": "塑能学派的法师操控强大的元素能量，是破坏大师。",
       "features": [
         { "level": 2, "name": "塑能学者", "description": "抄写塑能系法术的时间和金钱减半。" },
-        { "level": 2, "name": "法术塑形", "description": "塑能系法术可以保护盟友不受伤害。" },
+        { "level": 2, "name": "法术塑形", "description": "塑能系法术可以保护最多1+法术环阶个盟友不受伤害。" },
         { "level": 6, "name": "强力戏法", "description": "塑能系戏法伤害增加智力调整值。" },
         { "level": 10, "name": "强化塑能", "description": "塑能系法术伤害增加智力调整值。" },
         { "level": 14, "name": "超魔塑能", "description": "塑能系法术可以调整伤害类型。" }
@@ -66,25 +66,25 @@
     {
       "id": "school_of_necromancy",
       "name": "死灵学派",
-      "description": "死灵学派的法师操控死亡和生命能量。",
+      "description": "死灵学派的法师操控死亡和生命能量，研究不死生物。",
       "features": [
         { "level": 2, "name": "死灵学者", "description": "抄写死灵系法术的时间和金钱减半。" },
-        { "level": 2, "name": "收割者", "description": "杀死生物时恢复法术位等级的生命值。" },
-        { "level": 6, "name": "亡灵之仆", "description": "施展唤起亡灵时创造额外的不死生物。" },
-        { "level": 10, "name": "亡灵抗性", "description": "获得对死灵伤害的抗性，免疫生命值上限降低。" },
-        { "level": 14, "name": "亡灵掌控", "description": "可以控制不死生物。" }
+        { "level": 2, "name": "惧怖收割", "description": "用法术杀死生物时恢复等于法术环阶两倍的生命值（死灵系三倍）。" },
+        { "level": 6, "name": "不死奴仆", "description": "施展操纵死尸时创造额外的不死生物，不死生物获得生命值上限提升和熟练加值。" },
+        { "level": 10, "name": "不死适应", "description": "获得对黯蚀伤害的抗性，免疫生命值上限降低。" },
+        { "level": 14, "name": "亡灵掌控", "description": "可以控制不死生物，智力低于8的不死生物无法抵抗。" }
       ]
     },
     {
       "id": "school_of_illusion",
       "name": "幻术学派",
-      "description": "幻术学派的法师精通欺骗感官的魔法。",
+      "description": "幻术学派的法师精通欺骗感官的魔法，创造以假乱真的幻象。",
       "features": [
         { "level": 2, "name": "幻术学者", "description": "抄写幻术系法术的时间和金钱减半。" },
-        { "level": 2, "name": "强化幻术", "description": "施展幻术系法术时获得优势。" },
-        { "level": 6, "name": "幻影转移", "description": "受到攻击时可以用反应创造幻象分身。" },
-        { "level": 10, "name": "幻影大师", "description": "可以施展无声幻影。" },
-        { "level": 14, "name": "幻影现实", "description": "幻术可以变为现实。" }
+        { "level": 2, "name": "精通次级幻影", "description": "习得次级幻影戏法，且可以同时创造声音和影像。" },
+        { "level": 6, "name": "易变幻象", "description": "施展持续时间不少于1分钟的幻术系法术时，可以用动作改变幻象的外形。" },
+        { "level": 10, "name": "幻影化形", "description": "受到攻击时可以用反应创造幻象分身，使攻击自动未命中。" },
+        { "level": 14, "name": "亦真亦幻", "description": "施展幻术系法术时，可以选择幻象中一个非活化物件化作真实，持续1分钟。" }
       ]
     },
     {
@@ -93,10 +93,10 @@
       "description": "变化学派的法师精通改变物质和能量的魔法。",
       "features": [
         { "level": 2, "name": "变化学者", "description": "抄写变化系法术的时间和金钱减半。" },
-        { "level": 2, "name": "炼金术", "description": "可以用动作将一种材料转化为另一种。" },
-        { "level": 6, "name": "变化之石", "description": "可以用动作创造一枚变化石，赋予持有者增益。" },
+        { "level": 2, "name": "炼金术", "description": "可以用动作将一种材料转化为另一种，持续至多1小时。" },
+        { "level": 6, "name": "变化之石", "description": "可以用动作创造一枚变化石，赋予持有者增益（速度提升、黑暗视觉、水中呼吸等）。" },
         { "level": 10, "name": "变形大师", "description": "施展变形类法术时持续时间加倍。" },
-        { "level": 14, "name": "变化大师", "description": "可以施展变形万物。" }
+        { "level": 14, "name": "变化大师", "description": "可以施展变形万物，每长休一次。" }
       ]
     }
   ]

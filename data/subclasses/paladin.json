@@ -1,45 +1,42 @@
 {
   "className": "圣武士",
-  "label": "圣誓",
+  "label": "神圣誓言",
   "level": 3,
   "options": [
     {
       "id": "oath_of_devotion",
       "name": "奉献之誓",
-      "description": "奉献之誓的圣武士遵循崇高理想。",
+      "description": "奉献之誓的圣武士遵循正义与荣誉的准则，是光明与善良的捍卫者。",
       "features": [
-        { "level": 3, "name": "圣誓法术", "description": "获得庇护术、圣域术等圣誓法术。" },
-        { "level": 3, "name": "引导神力：神圣武器", "description": "用一个附赠动作让武器发出光芒，攻击检定获得魅力调整值加值。" },
-        { "level": 3, "name": "引导神力：驱逐不洁", "description": "驱逐30尺内的异怪、精类或不死生物。" },
-        { "level": 7, "name": "灵光守护", "description": "10尺内的盟友免疫魅惑。" },
-        { "level": 15, "name": "永恒奉献", "description": "生命值降至0时恢复1点生命值。" },
-        { "level": 20, "name": "神圣化身", "description": "变身神圣形态，获得飞行和光环增益。" }
+        { "level": 3, "name": "誓言法术", "description": "获得庇护术、圣域术（3级）；次级复原术、诚实之域（5级）；希望信标、解除魔法（9级）；守护之链、自由行动（13级）；高等复原术、通晓传奇（17级）。" },
+        { "level": 3, "name": "引导神力", "description": "获得神圣武器（让一把武器发光，攻击检定获得魅力调整值加值）和驱散不死生物。" },
+        { "level": 7, "name": "圣洁光环", "description": "你与身边10尺内的友方生物不会被魅惑。" },
+        { "level": 15, "name": "永恒守护", "description": "生命值降至0时，你可以恢复1点生命值，每长休一次。" },
+        { "level": 20, "name": "神圣化身", "description": "可以用动作变为神圣形态，获得飞行、光环和额外伤害，持续1分钟。" }
       ]
     },
     {
       "id": "oath_of_the_ancients",
       "name": "远古之誓",
-      "description": "远古之誓的圣武士守护着自然和光明。",
+      "description": "远古之誓的圣武士守护自然与光明，是古老誓言的捍卫者。",
       "features": [
-        { "level": 3, "name": "圣誓法术", "description": "获得动物交谈术、云雾术等圣誓法术。" },
-        { "level": 3, "name": "引导神力：远古之怒", "description": "束缚30尺内的敌人，造成光耀伤害。" },
-        { "level": 3, "name": "引导神力：驱逐异界", "description": "驱逐精类生物。" },
-        { "level": 7, "name": "远古守护者灵光", "description": "10尺内的盟友获得对法术伤害的抗性。" },
-        { "level": 15, "name": "远古之盾", "description": "获得对法术伤害的抗性。" },
-        { "level": 20, "name": "远古冠军", "description": "变身远古形态，获得再生和施法能力。" }
+        { "level": 3, "name": "誓言法术", "description": "获得纠缠术、动物交谈（3级）；月华之光、蛛行术（5级）；植物生长术、昼明术（9级）；变形术、冰风暴（13级）；化兽为形、高等复原术（17级）。" },
+        { "level": 3, "name": "引导神力", "description": "获得远古之怒（束缚30尺内敌人）和驱散不死生物。" },
+        { "level": 7, "name": "远古守护", "description": "你与身边10尺内的友方生物对法术伤害有抗性。" },
+        { "level": 15, "name": "不灭长者", "description": "生命值降至0时，你可以恢复1点生命值，每长休一次。" },
+        { "level": 20, "name": "远古冠军", "description": "可以用动作变为自然形态，获得再生、施法和光环，持续1分钟。" }
       ]
     },
     {
       "id": "oath_of_vengeance",
       "name": "复仇之誓",
-      "description": "复仇之誓的圣武士以无情的手段惩罚邪恶。",
+      "description": "复仇之誓的圣武士以正义之名追猎邪恶，绝不放过任何敌人。",
       "features": [
-        { "level": 3, "name": "圣誓法术", "description": "获得克敌机先、迷踪步等圣誓法术。" },
-        { "level": 3, "name": "引导神力：仇敌誓言", "description": "对一个敌人宣誓，攻击获得优势。" },
-        { "level": 3, "name": "引导神力：驱逐之令", "description": "驱逐不死生物。" },
-        { "level": 7, "name": "复仇灵光", "description": "对借机攻击获得优势。" },
-        { "level": 15, "name": "无情复仇", "description": "用反应对攻击者发动一次武器攻击。" },
-        { "level": 20, "name": "复仇天使", "description": "变身复仇天使形态，获得飞行和恐惧光环。" }
+        { "level": 3, "name": "誓言法术", "description": "获得猎人标记、大步奔行（3级）；迷踪步、人类定身术（5级）；加速术、防护能量（9级）；放逐术、死亡守卫（13级）；高等传送术、异界誓缚（17级）。" },
+        { "level": 3, "name": "引导神力", "description": "获得复仇誓言（对目标攻击获得优势）和驱逐敌手（恐惧30尺内敌人）。" },
+        { "level": 7, "name": "无情追击", "description": "可以用反应移动至多等于你速度的距离以追击敌人。" },
+        { "level": 15, "name": "复仇之魂", "description": "对敌人发动借机攻击时，可以移动至多等于你速度的距离。" },
+        { "level": 20, "name": "复仇天使", "description": "可以用动作变为复仇形态，获得飞行、恐惧光环和额外攻击，持续1分钟。" }
       ]
     }
   ]

@@ -1,0 +1,522 @@
+{
+  "barbarian": {
+    "className": "野蛮人",
+    "label": "原初道途",
+    "level": 3,
+    "options": [
+      {
+        "id": "berserker",
+        "name": "狂战士道途",
+        "description": "对某些野蛮人而言，狂暴是通往狂怒的途径，其愤怒如此强烈，以至于让他们超越了战斗的极限。",
+        "features": [
+          { "level": 3, "name": "狂乱", "description": "狂暴期间，你可以用一个附赠动作发动一次近战武器攻击。狂暴结束后，你承受一级力竭。" },
+          { "level": 6, "name": "无谋", "description": "狂暴期间，你可以免疫魅惑和恐慌状态。" },
+          { "level": 10, "name": "威吓狂笑", "description": "狂暴期间，你可以用一个动作威吓30尺内一个可见生物，使其恐慌1分钟。" },
+          { "level": 14, "name": "回击", "description": "狂暴期间，当敌人对你造成伤害时，你可以用反应对该敌人发动一次近战武器攻击。" }
+        ]
+      },
+      {
+        "id": "totem_warrior",
+        "name": "图腾武士道途",
+        "description": "图腾武士之道是一种充满灵性的追寻，它赋予野蛮人超自然的祝福。",
+        "features": [
+          { "level": 3, "name": "兽魂之灵", "description": "选择一种动物图腾获得其祝福：熊（抗性）、鹰（视野）、狼（追踪）。" },
+          { "level": 6, "name": "兽魂化身", "description": "选择一种动物获得其特性：熊（负重）、鹰（视野）、狼（追踪）。" },
+          { "level": 10, "name": "兽魂信使", "description": "你可以施展『动物信使』和『动物交谈术』，但只能以仪式方式施展。" },
+          { "level": 14, "name": "兽魂同调", "description": "选择一种动物获得其战斗特性：熊（近战伤害）、鹰（飞行）、狼（附赠动作擒抱）。" }
+        ]
+      }
+    ]
+  },
+  "bard": {
+    "className": "吟游诗人",
+    "label": "吟游学院",
+    "level": 3,
+    "options": [
+      {
+        "id": "college_of_lore",
+        "name": "学识学院",
+        "description": "学识学院的吟游诗人以知识和诗歌为生。",
+        "features": [
+          { "level": 3, "name": "额外熟练项", "description": "获得三项自选技能的熟练项。" },
+          { "level": 3, "name": "话术", "description": "当你的『激励骰』用于技能检定加值时，你可以额外使用一个反应来尝试削弱目标。" },
+          { "level": 6, "name": "额外魔法奥秘", "description": "从任意职业法术列表中选择两个法术作为已知法术。" },
+          { "level": 14, "name": "超凡话术", "description": "当你进行属性检定时，可以使用一个『激励骰』并加到检定结果上。" }
+        ]
+      },
+      {
+        "id": "college_of_valor",
+        "name": "勇气学院",
+        "description": "勇气学院的吟游诗人是吟游诗人中的战士。",
+        "features": [
+          { "level": 3, "name": "额外熟练项", "description": "获得中甲、盾牌和军用武器的熟练项。" },
+          { "level": 3, "name": "战斗灵感", "description": "获得『激励骰』的生物可以将其加到伤害掷骰或AC上。" },
+          { "level": 6, "name": "额外攻击", "description": "你在自己回合内发动攻击动作时可以攻击两次。" },
+          { "level": 14, "name": "战斗魔法", "description": "当你使用动作施展一个吟游诗人法术后，可以用一个附赠动作发动一次武器攻击。" }
+        ]
+      }
+    ]
+  },
+  "cleric": {
+    "className": "牧师",
+    "label": "神圣领域",
+    "level": 1,
+    "options": [
+      {
+        "id": "life_domain",
+        "name": "生命领域",
+        "description": "生命领域的牧师掌管正能量，是维持一切生命的力量。",
+        "features": [
+          { "level": 1, "name": "额外熟练项", "description": "获得重甲的熟练项。" },
+          { "level": 1, "name": "生命门徒", "description": "施展恢复生命值的法术后，法术恢复量增加2+法术环位。" },
+          { "level": 2, "name": "引导神力：守护生命", "description": "以30尺范围内的生命能量保护盟友，恢复一定生命值。" },
+          { "level": 6, "name": "祝福治疗者", "description": "当你施展1环或更高的恢复法术时，你可以恢复等同于2+法术环位的额外生命值。" },
+          { "level": 8, "name": "神圣打击", "description": "武器攻击命中时附加1d8光耀伤害。" },
+          { "level": 17, "name": "超凡治疗", "description": "施展恢复法术时使用最大值。" }
+        ]
+      },
+      {
+        "id": "light_domain",
+        "name": "光明领域",
+        "description": "光明领域的牧师用神圣火焰净化邪恶。",
+        "features": [
+          { "level": 1, "name": "额外戏法", "description": "获得『光亮术』。" },
+          { "level": 1, "name": "光之守护", "description": "可以用反应对攻击者施加劣势，次数等于感知调整值。" },
+          { "level": 2, "name": "引导神力：灼热光辉", "description": "释放神圣能量，对30尺内可见敌人造成2d10+牧师等级的光耀伤害。" },
+          { "level": 6, "name": "强化灼热光辉", "description": "引导神力：灼热光辉的伤害增加你的感知调整值。" },
+          { "level": 8, "name": "神圣打击", "description": "武器攻击命中时附加1d8光耀伤害。" },
+          { "level": 17, "name": "光耀之冠", "description": "可以用动作激活光晕，对30尺内敌人造成光耀伤害。" }
+        ]
+      },
+      {
+        "id": "knowledge_domain",
+        "name": "知识领域",
+        "description": "知识领域的牧师守护着知识和记忆。",
+        "features": [
+          { "level": 1, "name": "额外熟练项", "description": "获得两项自选智力技能熟练项。" },
+          { "level": 1, "name": "远古知识", "description": "选择两项工具或语言获得熟练项。" },
+          { "level": 2, "name": "引导神力：知识回忆", "description": "在1分钟内获得一项技能或工具的熟练项。" },
+          { "level": 6, "name": "神谕的洞察", "description": "可以施展『识破隐形』和『巧言术』。" },
+          { "level": 8, "name": "神圣打击", "description": "武器攻击命中时附加1d8心灵伤害。" },
+          { "level": 17, "name": "超凡洞察", "description": "施展预言系法术时无需材料成分。" }
+        ]
+      },
+      {
+        "id": "nature_domain",
+        "name": "自然领域",
+        "description": "自然领域的牧师守护着自然世界。",
+        "features": [
+          { "level": 1, "name": "额外熟练项", "description": "获得重甲熟练项和一项德鲁伊戏法。" },
+          { "level": 1, "name": "自然门徒", "description": "获得与动物和植物相关的技能加成。" },
+          { "level": 2, "name": "引导神力：魅惑动物与植物", "description": "魅惑30尺内的动物和植物。" },
+          { "level": 6, "name": "元素之击", "description": "武器攻击命中时附加1d8寒冷、火焰或闪电伤害。" },
+          { "level": 8, "name": "神圣打击", "description": "武器攻击命中时附加1d8寒冷、火焰或闪电伤害。" },
+          { "level": 17, "name": "自然之怒", "description": "可以召唤元素生物协助战斗。" }
+        ]
+      },
+      {
+        "id": "tempest_domain",
+        "name": "风暴领域",
+        "description": "风暴领域的牧师掌控着风暴和雷电的力量。",
+        "features": [
+          { "level": 1, "name": "额外熟练项", "description": "获得军用武器和重甲的熟练项。" },
+          { "level": 1, "name": "雷霆之怒", "description": "被攻击时可以用反应对攻击者造成2d8雷电伤害。" },
+          { "level": 2, "name": "引导神力：毁灭狂怒", "description": "造成闪电或雷鸣伤害时取最大值。" },
+          { "level": 6, "name": "雷霆之击", "description": "武器攻击命中时附加1d8雷鸣伤害，并击退目标。" },
+          { "level": 8, "name": "神圣打击", "description": "武器攻击命中时附加1d8雷鸣伤害。" },
+          { "level": 17, "name": "风暴之怒", "description": "获得飞行速度，并对周围敌人造成伤害。" }
+        ]
+      },
+      {
+        "id": "trickery_domain",
+        "name": "诡术领域",
+        "description": "诡术领域的牧师是恶作剧和欺骗的大师。",
+        "features": [
+          { "level": 1, "name": "诡术祝福", "description": "可以用动作触碰一个自愿生物使其在隐匿检定上获得优势。" },
+          { "level": 2, "name": "引导神力：召唤分身", "description": "创造一个自己的幻象分身。" },
+          { "level": 6, "name": "诡术之击", "description": "武器攻击命中时附加1d8毒素伤害。" },
+          { "level": 8, "name": "神圣打击", "description": "武器攻击命中时附加1d8毒素伤害。" },
+          { "level": 17, "name": "完美诡术", "description": "施展幻术系法术时获得优势。" }
+        ]
+      },
+      {
+        "id": "war_domain",
+        "name": "战争领域",
+        "description": "战争领域的牧师是战场上的勇士。",
+        "features": [
+          { "level": 1, "name": "额外熟练项", "description": "获得军用武器和重甲的熟练项。" },
+          { "level": 1, "name": "战争祭司", "description": "可以用附赠动作发动一次武器攻击，次数等于感知调整值。" },
+          { "level": 2, "name": "引导神力：战意澎湃", "description": "为盟友的攻击检定增加+10加值。" },
+          { "level": 6, "name": "额外攻击", "description": "你在自己回合内发动攻击动作时可以攻击两次。" },
+          { "level": 8, "name": "神圣打击", "description": "武器攻击命中时附加1d8伤害。" },
+          { "level": 17, "name": "战争之神", "description": "获得对钝击、穿刺和挥砍伤害的抗性。" }
+        ]
+      }
+    ]
+  },
+  "druid": {
+    "className": "德鲁伊",
+    "label": "德鲁伊结社",
+    "level": 2,
+    "options": [
+      {
+        "id": "circle_of_the_land",
+        "name": "大地结社",
+        "description": "大地结社的德鲁伊通过古老的仪式和传统与自然相连。",
+        "features": [
+          { "level": 2, "name": "自然恢复", "description": "短休时可以恢复一定数量的法术位。" },
+          { "level": 2, "name": "结社法术", "description": "根据所选地形获得额外的准备法术。" },
+          { "level": 6, "name": "自然行走", "description": "穿越非魔法的困难地形时不受影响。" },
+          { "level": 10, "name": "自然庇护", "description": "对毒素和疾病免疫。" },
+          { "level": 14, "name": "自然守护", "description": "获得对毒素伤害的抗性，免疫疾病。" }
+        ]
+      },
+      {
+        "id": "circle_of_the_moon",
+        "name": "月亮结社",
+        "description": "月亮结社的德鲁伊与月亮的循环紧密相连。",
+        "features": [
+          { "level": 2, "name": "战斗荒野形态", "description": "可以用附赠动作变身为挑战等级不超过德鲁伊等级/3的野兽。" },
+          { "level": 6, "name": "原始打击", "description": "荒野形态下的攻击视为魔法武器攻击。" },
+          { "level": 10, "name": "元素荒野形态", "description": "可以变身为元素生物。" },
+          { "level": 14, "name": "千面之相", "description": "可以随意施展『变身术』。" }
+        ]
+      }
+    ]
+  },
+  "fighter": {
+    "className": "战士",
+    "label": "武术范型",
+    "level": 3,
+    "options": [
+      {
+        "id": "champion",
+        "name": "勇士范型",
+        "description": "勇士范型的战士专注于磨练战斗技巧。",
+        "features": [
+          { "level": 3, "name": "强化重击", "description": "攻击骰掷出19或20时即可造成重击。" },
+          { "level": 7, "name": "卓越运动员", "description": "进行力量、敏捷或体质检定时获得半熟练加值。" },
+          { "level": 10, "name": "额外战斗风格", "description": "再获得一项战斗风格。" },
+          { "level": 15, "name": "卓越重击", "description": "攻击骰掷出18-20时即可造成重击。" },
+          { "level": 18, "name": "不屈勇士", "description": "生命值降至0时，你可以进行一次DC15的体质豁免，成功则保留1点生命值。" }
+        ]
+      },
+      {
+        "id": "battle_master",
+        "name": "战斗大师范型",
+        "description": "战斗大师范型的战士使用战术优势和特殊战技。",
+        "features": [
+          { "level": 3, "name": "战技", "description": "获得三项自选战技和4颗d8的 superiority dice。" },
+          { "level": 7, "name": "知己知彼", "description": "可以用附赠动作了解一个生物的能力。" },
+          { "level": 10, "name": "额外战技", "description": "再获得两项战技，superiority dice变为d10。" },
+          { "level": 15, "name": "额外战技", "description": "再获得两项战技，superiority dice变为d12。" },
+          { "level": 18, "name": "战技大师", "description": "superiority dice耗尽时，获得一颗d6 superiority dice。" }
+        ]
+      },
+      {
+        "id": "eldritch_knight",
+        "name": "奥法骑士范型",
+        "description": "奥法骑士范型的战士将魔法与武艺结合。",
+        "features": [
+          { "level": 3, "name": "施法", "description": "获得施法能力，法术来自法师法术列表，使用智力作为施法属性。" },
+          { "level": 7, "name": "武法结合", "description": "施展戏法后可以用附赠动作发动一次武器攻击。" },
+          { "level": 10, "name": "魔法打击", "description": "武器攻击命中时，目标在下次豁免上承受劣势。" },
+          { "level": 15, "name": "奥术冲锋", "description": "使用动作施法后可以立即传送30尺。" },
+          { "level": 18, "name": "武法精通", "description": "施展1环或更高法术时可以用附赠动作发动一次武器攻击。" }
+        ]
+      }
+    ]
+  },
+  "monk": {
+    "className": "武僧",
+    "label": "修行宗派",
+    "level": 3,
+    "options": [
+      {
+        "id": "way_of_the_open_hand",
+        "name": "散打宗",
+        "description": "散打宗的武僧是终极的战技大师。",
+        "features": [
+          { "level": 3, "name": "散打技巧", "description": "疾风连击命中时可以选择：击倒、推开或阻止反应。" },
+          { "level": 6, "name": "浑体为器", "description": "徒手攻击视为魔法武器攻击，可以消耗1点气来附加伤害。" },
+          { "level": 11, "name": "安宁之躯", "description": "免疫毒素和疾病。" },
+          { "level": 17, "name": "空灵之掌", "description": "可以用气掌攻击，造成力场伤害。" }
+        ]
+      },
+      {
+        "id": "way_of_shadow",
+        "name": "暗影宗",
+        "description": "暗影宗的武僧利用暗影之力。",
+        "features": [
+          { "level": 3, "name": "暗影技艺", "description": "获得『黑暗视觉』，可以消耗气施展暗影法术。" },
+          { "level": 6, "name": "暗影步", "description": "可以用附赠动作在暗影间传送60尺。" },
+          { "level": 11, "name": "暗影斗篷", "description": "获得对光耀伤害的抗性，在黑暗中隐匿检定获得优势。" },
+          { "level": 17, "name": "暗影大师", "description": "可以消耗气施展『魅影杀手』或『幽影步』。" }
+        ]
+      },
+      {
+        "id": "way_of_the_four_elements",
+        "name": "四象宗",
+        "description": "四象宗的武僧操控四大元素的力量。",
+        "features": [
+          { "level": 3, "name": "元素技艺", "description": "消耗气来施展元素法术。" },
+          { "level": 6, "name": "元素之击", "description": "徒手攻击可以造成元素伤害。" },
+          { "level": 11, "name": "元素化身", "description": "获得对一种元素伤害的抗性。" },
+          { "level": 17, "name": "元素大师", "description": "可以消耗气施展更强大的元素法术。" }
+        ]
+      }
+    ]
+  },
+  "paladin": {
+    "className": "圣武士",
+    "label": "圣誓",
+    "level": 3,
+    "options": [
+      {
+        "id": "oath_of_devotion",
+        "name": "奉献之誓",
+        "description": "奉献之誓的圣武士遵循崇高理想。",
+        "features": [
+          { "level": 3, "name": "圣誓法术", "description": "获得『庇护术』、『圣域术』等圣誓法术。" },
+          { "level": 3, "name": "引导神力：神圣武器", "description": "用一个附赠动作让武器发出光芒，攻击检定获得魅力调整值加值。" },
+          { "level": 3, "name": "引导神力：驱逐不洁", "description": "驱逐30尺内的异怪、精类或不死生物。" },
+          { "level": 7, "name": "灵光守护", "description": "10尺内的盟友免疫魅惑。" },
+          { "level": 15, "name": "永恒奉献", "description": "生命值降至0时恢复1点生命值。" },
+          { "level": 20, "name": "神圣化身", "description": "变身神圣形态，获得飞行和光环增益。" }
+        ]
+      },
+      {
+        "id": "oath_of_the_ancients",
+        "name": "远古之誓",
+        "description": "远古之誓的圣武士守护着自然和光明。",
+        "features": [
+          { "level": 3, "name": "圣誓法术", "description": "获得『动物交谈术』、『云雾术』等圣誓法术。" },
+          { "level": 3, "name": "引导神力：远古之怒", "description": "束缚30尺内的敌人，造成光耀伤害。" },
+          { "level": 3, "name": "引导神力：驱逐异界", "description": "驱逐精类生物。" },
+          { "level": 7, "name": "远古守护者灵光", "description": "10尺内的盟友获得对法术伤害的抗性。" },
+          { "level": 15, "name": "远古之盾", "description": "获得对法术伤害的抗性。" },
+          { "level": 20, "name": "远古冠军", "description": "变身远古形态，获得再生和施法能力。" }
+        ]
+      },
+      {
+        "id": "oath_of_vengeance",
+        "name": "复仇之誓",
+        "description": "复仇之誓的圣武士以无情的手段惩罚邪恶。",
+        "features": [
+          { "level": 3, "name": "圣誓法术", "description": "获得『克敌机先』、『迷踪步』等圣誓法术。" },
+          { "level": 3, "name": "引导神力：仇敌誓言", "description": "对一个敌人宣誓，攻击获得优势。" },
+          { "level": 3, "name": "引导神力：驱逐之令", "description": "驱逐不死生物。" },
+          { "level": 7, "name": "复仇灵光", "description": "对借机攻击获得优势。" },
+          { "level": 15, "name": "无情复仇", "description": "用反应对攻击者发动一次武器攻击。" },
+          { "level": 20, "name": "复仇天使", "description": "变身复仇天使形态，获得飞行和恐惧光环。" }
+        ]
+      }
+    ]
+  },
+  "ranger": {
+    "className": "游侠",
+    "label": "游侠结社",
+    "level": 3,
+    "options": [
+      {
+        "id": "hunter",
+        "name": "猎人结社",
+        "description": "猎人结社的游侠是追踪和猎杀特定敌人的专家。",
+        "features": [
+          { "level": 3, "name": "猎杀目标", "description": "选择一个目标类型获得追踪和伤害加成。" },
+          { "level": 3, "name": "猎人战术", "description": "选择一项战术：巨像杀手、钢铁意志或群体杀手。" },
+          { "level": 7, "name": "防御战术", "description": "选择一项防御战术。" },
+          { "level": 11, "name": "多重攻击", "description": "选择一项多重攻击方式。" },
+          { "level": 15, "name": "超级猎杀", "description": "选择一项终极猎杀能力。" }
+        ]
+      }
+    ]
+  },
+  "rogue": {
+    "className": "游荡者",
+    "label": "游荡者范型",
+    "level": 3,
+    "options": [
+      {
+        "id": "thief",
+        "name": "盗贼范型",
+        "description": "盗贼范型的游荡者专注于盗窃和潜行的技艺。",
+        "features": [
+          { "level": 3, "name": "快手", "description": "可以用附赠动作进行巧手检定或使用盗贼工具。" },
+          { "level": 3, "name": "梁上君子", "description": "获得攀爬速度，跳跃距离增加。" },
+          { "level": 9, "name": "极效潜行", "description": "移动速度不超过一半时隐匿检定获得优势。" },
+          { "level": 13, "name": "使用魔法装置", "description": "可以忽略所有职业、种族和等级限制使用魔法物品。" },
+          { "level": 17, "name": "窃盗本能", "description": "战斗第一轮可以行动两个回合。" }
+        ]
+      },
+      {
+        "id": "assassin",
+        "name": "刺客范型",
+        "description": "刺客范型的游荡者是冷酷的死亡艺术家。",
+        "features": [
+          { "level": 3, "name": "暗杀", "description": "对突袭目标获得优势，命中自动重击。" },
+          { "level": 3, "name": "伪装与毒药", "description": "获得伪装工具熟练项和制毒工具熟练项。" },
+          { "level": 9, "name": "渗透专家", "description": "可以创建假身份。" },
+          { "level": 13, "name": "死亡打击", "description": "暗杀时目标必须进行体质豁免否则即死。" },
+          { "level": 17, "name": "死亡之击", "description": "暗杀时造成双倍伤害。" }
+        ]
+      },
+      {
+        "id": "arcane_trickster",
+        "name": "诡术师范型",
+        "description": "诡术师范型的游荡者将魔法与盗术结合。",
+        "features": [
+          { "level": 3, "name": "施法", "description": "获得施法能力，法术来自法师法术列表，使用智力作为施法属性。" },
+          { "level": 3, "name": "魔手", "description": "获得『法师之手』戏法，并可以执行额外操作。" },
+          { "level": 9, "name": "魔手潜行", "description": "施展『法师之手』时获得隐匿优势。" },
+          { "level": 13, "name": "法术窃取", "description": "可以窃取敌人的法术。" },
+          { "level": 17, "name": "诡术大师", "description": "施展幻术或附魔系法术时获得优势。" }
+        ]
+      }
+    ]
+  },
+  "sorcerer": {
+    "className": "术士",
+    "label": "术法起源",
+    "level": 1,
+    "options": [
+      {
+        "id": "draconic_bloodline",
+        "name": "龙族血统",
+        "description": "你的魔法力量源自巨龙的血脉。",
+        "features": [
+          { "level": 1, "name": "龙族先祖", "description": "选择一种龙种，获得对应伤害类型的抗性，AC变为13+敏捷调整值。" },
+          { "level": 6, "name": "龙族威仪", "description": "施展术士法术时可以将魅力调整值加到伤害上。" },
+          { "level": 14, "name": "龙翼", "description": "获得飞行速度。" },
+          { "level": 18, "name": "龙族化身", "description": "可以消耗术法点制造恐惧光环。" }
+        ]
+      },
+      {
+        "id": "wild_magic",
+        "name": "狂野魔法",
+        "description": "你的魔法力量源自混乱的原始魔法之源。",
+        "features": [
+          { "level": 1, "name": "狂野魔法浪涌", "description": "施展术士法术后可能触发狂野魔法浪涌。" },
+          { "level": 1, "name": "混乱之潮", "description": "获得一次优势，使用后触发狂野魔法浪涌。" },
+          { "level": 6, "name": "混乱之潮", "description": "可以用反应让攻击检定获得优势或劣势。" },
+          { "level": 14, "name": "可控狂野", "description": "可以投两次狂野魔法表并选择其一。" },
+          { "level": 18, "name": "狂野之潮", "description": "可以消耗术法点来触发狂野魔法浪涌。" }
+        ]
+      }
+    ]
+  },
+  "warlock": {
+    "className": "邪术师",
+    "label": "邪术师魔契",
+    "level": 1,
+    "options": [
+      {
+        "id": "the_fiend",
+        "name": "魔契：邪魔",
+        "description": "你的力量来自深渊或九层地狱的强大邪魔。",
+        "features": [
+          { "level": 1, "name": "黑暗祝福", "description": "将敌人降至0生命值时获得临时生命值。" },
+          { "level": 6, "name": "黑暗之力", "description": "进行属性检定时可以增加d10。" },
+          { "level": 10, "name": "抗性", "description": "选择一种伤害类型获得抗性。" },
+          { "level": 14, "name": "地狱之门", "description": "可以传送至30尺内可见位置。" }
+        ]
+      },
+      {
+        "id": "the_great_old_one",
+        "name": "魔契：旧日支配者",
+        "description": "你的力量来自宇宙深处的古老存在。",
+        "features": [
+          { "level": 1, "name": "觉醒之智", "description": "可以用心灵感应与30尺内的生物交流。" },
+          { "level": 6, "name": "熵力护盾", "description": "用反应让攻击者承受劣势。" },
+          { "level": 10, "name": "思维护盾", "description": "免疫心灵伤害和读心。" },
+          { "level": 14, "name": "创造仆从", "description": "可以魅惑一个类人生物。" }
+        ]
+      },
+      {
+        "id": "the_archfey",
+        "name": "魔契：妖精",
+        "description": "你的力量来自妖精荒野的神秘存在。",
+        "features": [
+          { "level": 1, "name": "妖精之触", "description": "魅惑或恐慌一个生物。" },
+          { "level": 6, "name": "迷雾步", "description": "受到伤害时可以用反应传送60尺并隐形。" },
+          { "level": 10, "name": "思维护盾", "description": "免疫魅惑，可以反射魅惑。" },
+          { "level": 14, "name": "黑暗之拥", "description": "可以施展『催眠图纹』。" }
+        ]
+      }
+    ]
+  },
+  "wizard": {
+    "className": "法师",
+    "label": "奥术传承",
+    "level": 2,
+    "options": [
+      {
+        "id": "school_of_abjuration",
+        "name": "防护学派",
+        "description": "防护学派的法师专注于保护性的魔法。",
+        "features": [
+          { "level": 2, "name": "防护学者", "description": "抄写防护系法术的时间和金钱减半。" },
+          { "level": 2, "name": "奥术护盾", "description": "施展防护系法术后创造护盾吸收伤害。" },
+          { "level": 6, "name": "护盾投射", "description": "可以用反应让30尺内的盟友获得护盾。" },
+          { "level": 10, "name": "强化防护", "description": "施展防护系法术时获得优势。" },
+          { "level": 14, "name": "法术抗力", "description": "对法术的豁免获得优势。" }
+        ]
+      },
+      {
+        "id": "school_of_conjuration",
+        "name": "咒法学派",
+        "description": "咒法学派的法师精通召唤和传送魔法。",
+        "features": [
+          { "level": 2, "name": "咒法学者", "description": "抄写咒法系法术的时间和金钱减半。" },
+          { "level": 2, "name": "微光造物", "description": "可以用动作创造一个小型物体。" },
+          { "level": 6, "name": "传送置换", "description": "受到攻击时可以用反应与盟友交换位置。" },
+          { "level": 10, "name": "专注造物", "description": "创造的物体可以持续更久。" },
+          { "level": 14, "name": "专注召唤", "description": "召唤生物获得临时生命值。" }
+        ]
+      },
+      {
+        "id": "school_of_divination",
+        "name": "预言学派",
+        "description": "预言学派的法师能够窥见未来。",
+        "features": [
+          { "level": 2, "name": "预言学者", "description": "抄写预言系法术的时间和金钱减半。" },
+          { "level": 2, "name": "预兆", "description": "获得两个预兆骰，可以替换攻击、豁免或检定结果。" },
+          { "level": 6, "name": "预兆专家", "description": "预兆骰变为三个。" },
+          { "level": 10, "name": "第三只眼", "description": "可以用动作获得一种特殊感官。" },
+          { "level": 14, "name": "预兆大师", "description": "预兆骰变为四个。" }
+        ]
+      },
+      {
+        "id": "school_of_enchantment",
+        "name": "附魔学派",
+        "description": "附魔学派的法师精通魅惑和操控心智。",
+        "features": [
+          { "level": 2, "name": "附魔学者", "description": "抄写附魔系法术的时间和金钱减半。" },
+          { "level": 2, "name": "催眠凝视", "description": "可以用动作催眠5尺内的生物。" },
+          { "level": 6, "name": "魅惑本能", "description": "施展附魔系法术后可以用附赠动作魅惑另一个生物。" },
+          { "level": 10, "name": "分裂附魔", "description": "附魔系法术可以额外影响一个目标。" },
+          { "level": 14, "name": "意志之击", "description": "魅惑的生物受到伤害时伤害加倍。" }
+        ]
+      },
+      {
+        "id": "school_of_evocation",
+        "name": "塑能学派",
+        "description": "塑能学派的法师操控强大的元素能量。",
+        "features": [
+          { "level": 2, "name": "塑能学者", "description": "抄写塑能系法术的时间和金钱减半。" },
+          { "level": 2, "name": "法术塑形", "description": "塑能系法术可以保护盟友不受伤害。" },
+          { "level": 6, "name": "强力戏法", "description": "塑能系戏法伤害增加智力调整值。" },
+          { "level": 10, "name": "强化塑能", "description": "塑能系法术伤害增加智力调整值。" },
+          { "level": 14, "name": "超魔塑能", "description": "塑能系法术可以调整伤害类型。" }
+        ]
+      },
+      {
+        "id": "school_of_necromancy",
+        "name": "死灵学派",
+        "description": "死灵学派的法师操控死亡和生命能量。",
+        "features": [
+          { "level": 2, "name": "死灵学者", "description": "抄写死灵系法术的时间和金钱减半。" },
+          { "level": 2, "name": "收割者", "description": "杀死生物时恢复法术位等级的生命值。" },
+          { "level": 6, "name": "亡灵之仆", "description": "施展『唤起亡灵』时创造额外的不死生物。" },
+          { "level": 10, "name": "亡灵抗性", "description": "获得对死灵伤害的抗性，免疫生命值上限降低。" },
+          { "level": 14, "name":

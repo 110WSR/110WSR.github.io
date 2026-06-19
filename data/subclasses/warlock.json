@@ -6,34 +6,37 @@
     {
       "id": "the_fiend",
       "name": "魔契：邪魔",
-      "description": "你的力量来自深渊或九层地狱的强大邪魔。",
+      "description": "你的力量来自深渊或九层地狱的强大邪魔，以灵魂换取黑暗之力。",
       "features": [
-        { "level": 1, "name": "黑暗祝福", "description": "将敌人降至0生命值时获得临时生命值。" },
-        { "level": 6, "name": "黑暗之力", "description": "进行属性检定时可以增加d10。" },
+        { "level": 1, "name": "黑暗祝福", "description": "将敌人降至0生命值时获得等于邪术师等级+魅力调整值的临时生命值。" },
+        { "level": 1, "name": "扩展法术列表", "description": "获得燃烧之手、命令术（1级）；灼热射线、暗示术（3级）；火球术、妖火（5级）；火焰护盾、放逐术（7级）；焰击术、异界誓缚（9级）。" },
+        { "level": 6, "name": "黑暗之力", "description": "进行属性检定时可以增加d10，每短休一次。" },
         { "level": 10, "name": "抗性", "description": "选择一种伤害类型获得抗性。" },
-        { "level": 14, "name": "地狱之门", "description": "可以传送至30尺内可见位置。" }
+        { "level": 14, "name": "地狱之门", "description": "可以传送至30尺内可见位置，每短休一次。" }
       ]
     },
     {
       "id": "the_great_old_one",
       "name": "魔契：旧日支配者",
-      "description": "你的力量来自宇宙深处的古老存在。",
+      "description": "你的力量来自宇宙深处的古老存在，其智慧超越人类理解。",
       "features": [
         { "level": 1, "name": "觉醒之智", "description": "可以用心灵感应与30尺内的生物交流。" },
-        { "level": 6, "name": "熵力护盾", "description": "用反应让攻击者承受劣势。" },
-        { "level": 10, "name": "思维护盾", "description": "免疫心灵伤害和读心。" },
-        { "level": 14, "name": "创造仆从", "description": "可以魅惑一个类人生物。" }
+        { "level": 1, "name": "扩展法术列表", "description": "获得魅惑人类、 dissonant whispers（1级）；侦测思想、 phantasmal force（3级）；暗示术、 clairvoyance（5级）；困惑术、支配野兽（7级）；支配人类、 telekinesis（9级）。" },
+        { "level": 6, "name": "熵力护盾", "description": "用反应让攻击者承受劣势，每短休一次。" },
+        { "level": 10, "name": "思维护盾", "description": "免疫心灵伤害和读心，可以用反应反射心灵伤害。" },
+        { "level": 14, "name": "创造仆从", "description": "可以魅惑一个类人生物，持续24小时。" }
       ]
     },
     {
       "id": "the_archfey",
       "name": "魔契：妖精",
-      "description": "你的力量来自妖精荒野的神秘存在。",
+      "description": "你的力量来自妖精荒野的神秘存在，充满魅惑与幻术。",
       "features": [
-        { "level": 1, "name": "妖精之触", "description": "魅惑或恐慌一个生物。" },
-        { "level": 6, "name": "迷雾步", "description": "受到伤害时可以用反应传送60尺并隐形。" },
+        { "level": 1, "name": "妖精之触", "description": "魅惑或恐慌一个生物，每短休一次。" },
+        { "level": 1, "name": "扩展法术列表", "description": "获得妖火、 sleep（1级）；迷踪步、 phantasmal force（3级）； blink、植物生长术（5级）；高等隐形术、支配野兽（7级）；支配人类、变形术（9级）。" },
+        { "level": 6, "name": "迷雾步", "description": "受到伤害时可以用反应传送60尺并变为隐形，持续至下回合开始。" },
         { "level": 10, "name": "思维护盾", "description": "免疫魅惑，可以反射魅惑。" },
-        { "level": 14, "name": "黑暗之拥", "description": "可以施展催眠图纹。" }
+        { "level": 14, "name": "黑暗之拥", "description": "可以施展催眠图纹，每短休一次。" }
       ]
     }
   ]

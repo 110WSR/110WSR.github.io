@@ -7,6 +7,7 @@ import type { Item } from "../../shared/types/types";
 import { createDefaultItem } from "../../shared/types/types";
 import { EquipmentLibraryDialog } from "../character/EquipmentLibraryDialog";
 import { sheetColors } from "../../shared/tokens/colors";
+import { resolveWeaponByName } from "../../shared/utils/weaponResolver";
 
 interface InventorySectionProps {
   value: string;
@@ -33,7 +34,7 @@ export default function InventorySection({ value, onChange }: InventorySectionPr
       return { id: `inv_${i}_${line}`, name: line, quantity: 1, line };
     });
 
-  // 从库存移回装备栏
+  // 从库存移回装备栏（恢复武器属性）
   const handleMoveToEquipment = useCallback((_invId: string, name: string, quantity: number) => {
     // 从库存文本中移除该行
     const lines = value.split("\n").filter(Boolean);
@@ -55,9 +56,18 @@ export default function InventorySection({ value, onChange }: InventorySectionPr
       );
       updateCharacter({ items: newItems });
     } else {
-      // 创建新物品
+      // 创建新物品，尝试恢复武器属性
       const newItem = createDefaultItem(name);
       newItem.quantity = quantity;
+      const weaponInfo = resolveWeaponByName(name);
+      if (weaponInfo) {
+        newItem.isWeapon = weaponInfo.isWeapon;
+        newItem.damageDice = weaponInfo.damageDice;
+        newItem.damageType = weaponInfo.damageType;
+        newItem.attackAttr = weaponInfo.attackAttr as "str" | "dex" | "con" | "int" | "wis" | "cha" | "custom" | undefined;
+        newItem.tags = weaponInfo.tags;
+        newItem.proficient = true;
+      }
       updateCharacter({ items: [...items, newItem] });
     }
   }, [value, onChange, items, updateCharacter]);

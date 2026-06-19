@@ -23,22 +23,6 @@ export interface SubclassData {
   options: SubclassOption[];
 }
 
-/** 职业ID到中文名的映射 */
-const CLASS_ID_MAP: Record<string, string> = {
-  barbarian: "野蛮人",
-  bard: "吟游诗人",
-  cleric: "牧师",
-  druid: "德鲁伊",
-  fighter: "战士",
-  monk: "武僧",
-  paladin: "圣武士",
-  ranger: "游侠",
-  rogue: "游荡者",
-  sorcerer: "术士",
-  warlock: "邪术师",
-  wizard: "法师",
-};
-
 /** 中文职业名到文件名的映射 */
 const CLASS_FILE_MAP: Record<string, string> = {
   "野蛮人": "barbarian",

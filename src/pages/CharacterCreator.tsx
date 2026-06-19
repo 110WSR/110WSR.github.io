@@ -245,16 +245,6 @@ export default function CharacterCreator() {
   const attributeSummary = useMemo(() => ATTRIBUTE_FIELDS.reduce((sum, f) => sum + attributes[f.key], 0), [attributes]);
   const classId = useMemo(() => findClassId(className), [className]);
 
-  // 计算实际步骤索引（根据是否需要子职页面调整）
-  const getActualStep = useCallback((logicalStep: number) => {
-    // 逻辑步骤：0=基本信息, 1=选择方法, 2=确认属性, 3=生命值与技能, 4=子职, 5=装备, 6=细节, 7=完成
-    // 如果不需要子职页面，则跳过步骤4
-    if (!needsSubclassPage && logicalStep >= 4) {
-      return logicalStep + 1;
-    }
-    return logicalStep;
-  }, [needsSubclassPage]);
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-stone-900 via-stone-800 to-stone-900">
       <div className="border-b border-stone-700/50">

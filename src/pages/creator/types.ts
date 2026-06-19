@@ -41,6 +41,85 @@ export const ARMOR_OPTIONS = [
   { label: "重甲（锁子甲）", value: "锁子甲" }, { label: "重甲（板条甲）", value: "板条甲" }, { label: "重甲（全身板甲）", value: "全身板甲" },
 ];
 
+/** 种族属性加成数据（基于5e PHB标准规则） */
+export const RACE_ABILITY_BONUSES: Record<string, { label: string; bonuses: Partial<Attributes>; description: string }> = {
+  "人类": {
+    label: "人类",
+    bonuses: { str_value: 1, dex_value: 1, con_value: 1, int_value: 1, wis_value: 1, cha_value: 1 },
+    description: "所有属性值各+1"
+  },
+  "精灵": {
+    label: "精灵",
+    bonuses: { dex_value: 2 },
+    description: "敏捷+2"
+  },
+  "矮人": {
+    label: "矮人",
+    bonuses: { con_value: 2 },
+    description: "体质+2"
+  },
+  "半身人": {
+    label: "半身人",
+    bonuses: { dex_value: 2 },
+    description: "敏捷+2"
+  },
+  "侏儒": {
+    label: "侏儒",
+    bonuses: { int_value: 2 },
+    description: "智力+2"
+  },
+  "半精灵": {
+    label: "半精灵",
+    bonuses: { cha_value: 2 },
+    description: "魅力+2，自选两项各+1"
+  },
+  "半兽人": {
+    label: "半兽人",
+    bonuses: { str_value: 2, con_value: 1 },
+    description: "力量+2，体质+1"
+  },
+  "龙裔": {
+    label: "龙裔",
+    bonuses: { str_value: 2, cha_value: 1 },
+    description: "力量+2，魅力+1"
+  },
+  "提夫林": {
+    label: "提夫林",
+    bonuses: { cha_value: 2, int_value: 1 },
+    description: "魅力+2，智力+1"
+  },
+};
+
+/** 精灵亚种属性加成 */
+export const SUBRACE_ABILITY_BONUSES: Record<string, { label: string; bonuses: Partial<Attributes>; description: string }> = {
+  "高等精灵": { label: "高等精灵", bonuses: { int_value: 1 }, description: "智力+1" },
+  "木精灵": { label: "木精灵", bonuses: { wis_value: 1 }, description: "感知+1" },
+  "黑暗精灵(卓尔)": { label: "黑暗精灵(卓尔)", bonuses: { cha_value: 1 }, description: "魅力+1" },
+  "丘陵矮人": { label: "丘陵矮人", bonuses: { wis_value: 1 }, description: "感知+1" },
+  "山地矮人": { label: "山地矮人", bonuses: { str_value: 2 }, description: "力量+2" },
+  "轻足半身人": { label: "轻足半身人", bonuses: { cha_value: 1 }, description: "魅力+1" },
+  "敦实半身人": { label: "敦实半身人", bonuses: { con_value: 1 }, description: "体质+1" },
+  "森林侏儒": { label: "森林侏儒", bonuses: { dex_value: 1 }, description: "敏捷+1" },
+  "岩石侏儒": { label: "岩石侏儒", bonuses: { con_value: 1 }, description: "体质+1" },
+};
+
+/** 职业推荐主属性（用于在属性页面提示玩家） */
+export const CLASS_PRIMARY_ATTRIBUTES: Record<string, { primary: string; secondary: string; description: string }> = {
+  "野蛮人": { primary: "力量", secondary: "体质", description: "主属性：力量（近战攻击），次属性：体质（狂暴维持）" },
+  "战士": { primary: "力量或敏捷", secondary: "体质", description: "主属性：力量（近战）或敏捷（远程），次属性：体质" },
+  "圣武士": { primary: "力量", secondary: "魅力", description: "主属性：力量（近战攻击），次属性：魅力（法术DC）" },
+  "游侠": { primary: "敏捷", secondary: "感知", description: "主属性：敏捷（远程攻击），次属性：感知（法术）" },
+  "武僧": { primary: "敏捷", secondary: "感知", description: "主属性：敏捷（攻击），次属性：感知（AC和DC）" },
+  "游荡者": { primary: "敏捷", secondary: "智力", description: "主属性：敏捷（偷袭），次属性：智力（技能）" },
+  "法师": { primary: "智力", secondary: "敏捷", description: "主属性：智力（法术DC），次属性：敏捷（AC）" },
+  "术士": { primary: "魅力", secondary: "体质", description: "主属性：魅力（法术DC），次属性：体质（专注）" },
+  "邪术师": { primary: "魅力", secondary: "体质", description: "主属性：魅力（法术DC），次属性：体质（专注）" },
+  "牧师": { primary: "感知", secondary: "力量或敏捷", description: "主属性：感知（法术DC），次属性：力量或敏捷（攻击）" },
+  "德鲁伊": { primary: "感知", secondary: "敏捷", description: "主属性：感知（法术DC），次属性：敏捷（AC）" },
+  "诗人": { primary: "魅力", secondary: "敏捷", description: "主属性：魅力（法术DC），次属性：敏捷（AC）" },
+  "契术师": { primary: "魅力", secondary: "体质", description: "主属性：魅力（法术DC），次属性：体质（专注）" },
+};
+
 export function roll4d6DropLowest(): number {
   const rolls = Array.from({ length: 4 }, () => Math.floor(Math.random() * 6) + 1);
   rolls.sort((a, b) => a - b);

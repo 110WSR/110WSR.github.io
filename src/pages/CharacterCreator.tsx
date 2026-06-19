@@ -19,7 +19,7 @@ import CharacterDetailsPanel from "./creator/CharacterDetailsPanel";
 import SubclassSelectionPanel from "./creator/SubclassSelectionPanel";
 import SpellSelectionPanel from "./creator/SpellSelectionPanel";
 import type { SubclassFeature } from "./creator/SubclassSelectionPanel";
-import { ATTRIBUTE_FIELDS, generateRandomAttributes } from "./creator/types";
+import { ATTRIBUTE_FIELDS, generateRandomAttributes, RACE_ABILITY_BONUSES, CLASS_PRIMARY_ATTRIBUTES } from "./creator/types";
 import type { AttributeMethod } from "./creator/types";
 import classIdentifiers from "../../data/classIdentifiers.json";
 import { generateTraits } from "../shared/utils/traitGenerator";
@@ -326,6 +326,37 @@ export default function CharacterCreator() {
           <div className="bg-stone-800/30 rounded-lg border border-stone-700/50 p-6">
             <h2 className="text-amber-300 text-lg font-semibold mb-4">确认属性值</h2>
             <div className="text-stone-500 text-xs mb-4">当前使用方式: {method === "standard" ? "官方购点法" : method === "random" ? "随机生成" : method === "recommended" ? "推荐属性" : "自行填数"}</div>
+
+            {/* 种族属性加成提示 */}
+            {race && RACE_ABILITY_BONUSES[race] && (
+              <div className="mb-4 p-3 rounded-lg bg-emerald-900/20 border border-emerald-700/30">
+                <div className="flex items-center gap-2 mb-1">
+                  <svg className="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="text-emerald-300 text-sm font-medium">种族属性加成：{race}</span>
+                </div>
+                <p className="text-emerald-200/70 text-xs ml-6">
+                  {RACE_ABILITY_BONUSES[race].description} — 请记得在最终属性中加上这些加成！
+                </p>
+              </div>
+            )}
+
+            {/* 职业推荐属性提示 */}
+            {className && CLASS_PRIMARY_ATTRIBUTES[className] && (
+              <div className="mb-4 p-3 rounded-lg bg-amber-900/20 border border-amber-700/30">
+                <div className="flex items-center gap-2 mb-1">
+                  <svg className="w-4 h-4 text-amber-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                  <span className="text-amber-300 text-sm font-medium">职业推荐属性：{className}</span>
+                </div>
+                <p className="text-amber-200/70 text-xs ml-6">
+                  {CLASS_PRIMARY_ATTRIBUTES[className].description}
+                </p>
+              </div>
+            )}
+
             {method === "standard" && <PointBuyPanel attributes={attributes} onAttributeChange={handleAttributeChange} />}
             {method === "random" && <RandomRollPanel attributes={attributes} onAttributeChange={handleAttributeChange} onReroll={handleReroll} />}
             {method === "recommended" && <RecommendedPanel onSelectBuild={handleSelectBuild} />}

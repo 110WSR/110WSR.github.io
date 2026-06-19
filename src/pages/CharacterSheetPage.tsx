@@ -6,7 +6,7 @@ import CharacterSheet from "./PageFront";
 import CharacterBackSide from "./PageBack";
 import SpellSheet from "./PageSpell";
 import ArchiveDialog from "../dialogs/ArchiveDialog";
-import ExportDialog from "../dialogs/ExportPdfDialog";
+import ExportImportDialog from "../dialogs/ExportImportDialog";
 import CustomItemDialog from "../dialogs/CustomItemDialog";
 import DiceRoller from "../features/character/DiceRoller";
 
@@ -236,9 +236,9 @@ export default function CharacterSheetPage() {
       {/* 底部工具栏 */}
       <BottomToolbar
         onExportFileClick={() => setActiveDialog("export")}
-        onBuildGuideClick={() => setActiveDialog("guide")}
+        onBuildGuideClick={() => {}}
         onArchiveManageClick={() => setActiveDialog("archive")}
-        onCustomItemClick={() => setActiveDialog("custom")}
+        onCustomItemClick={() => setActiveDialog("customItem")}
       />
 
       {/* 掷骰器按钮 - 悬浮在右下角 */}
@@ -261,8 +261,8 @@ export default function CharacterSheetPage() {
 
       {/* 对话框 */}
       <ArchiveDialog open={activeDialog === "archive"} onOpenChange={(open) => { if (!open) closeDialog(); }} />
-      <ExportDialog open={activeDialog === "export"} onOpenChange={(open) => { if (!open) closeDialog(); }} />
-      <CustomItemDialog open={activeDialog === "custom"} onOpenChange={(open) => { if (!open) closeDialog(); }} />
+      <ExportImportDialog open={activeDialog === "export"} onOpenChange={(open) => { if (!open) closeDialog(); }} />
+      <CustomItemDialog open={activeDialog === "customItem"} onOpenChange={(open) => { if (!open) closeDialog(); }} />
     </div>
   );
 }

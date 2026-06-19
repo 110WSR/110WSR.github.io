@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback } from "react";
 import ReactDOM from "react-dom";
 import SectionContainer from "../../shared/ui/SectionContainer";
 import ScrollArea from "../../shared/ui/ScrollArea";
@@ -33,18 +33,8 @@ export default function InventorySection({ value, onChange }: InventorySectionPr
       return { id: `inv_${i}_${line}`, name: line, quantity: 1, line };
     });
 
-  // 从装备栏移入库存
-  const handleMoveToInventory = useCallback((item: Item) => {
-    const label = item.quantity > 1 ? `${item.name}×${item.quantity}` : item.name;
-    const prefix = value ? `${value}\n` : "";
-    onChange(`${prefix}${label}`);
-    // 从装备栏移除
-    const newItems = items.filter(it => it.id !== item.id);
-    updateCharacter({ items: newItems });
-  }, [value, onChange, items, updateCharacter]);
-
   // 从库存移回装备栏
-  const handleMoveToEquipment = useCallback((invId: string, name: string, quantity: number) => {
+  const handleMoveToEquipment = useCallback((_invId: string, name: string, quantity: number) => {
     // 从库存文本中移除该行
     const lines = value.split("\n").filter(Boolean);
     const newLines = lines.filter(line => {

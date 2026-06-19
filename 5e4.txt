@@ -1,0 +1,965 @@
+吟游诗人法术Bard Spells
+0环戏法
+·剑刃防护Blade Ward
+·舞光术Dancing Lights
+·交友术Friends
+·光亮术Light
+·法师之手Mage Hand
+·修复术Mending
+·传讯术Message
+·次级幻影Minor Illusion
+·魔法伎俩Prestidigitation
+·克敌机先True Strike
+·恶言相加Vicious Mockery
+1环
+·化兽为友Animal Friendship
+·灾祸术Bane
+·魅惑人类Charm Person
+·通晓语言Comprehend Languages
+·疗伤术Cure Wounds
+·侦测魔法Detect Magic
+·易容术Disguise Self
+·不谐低语Dissonant Whispers
+·妖火Faerie Fire
+·羽落术Feather Fall
+·治愈真言Healing Word
+·英雄气概Heroism
+·鉴定术Identify
+·迷幻手稿Illusory Script
+·大步奔行Longstrider
+·无声幻影Silent Image
+·睡眠术Sleep
+·动物交谈术Speak With Animal
+·塔莎狂笑术Tasha’s Hideous Laughter
+·雷鸣波Thunderwave
+·隐形仆役Unseen Servant
+2环
+·动物信使Animal Messenger
+·目盲/耳聋术Blindness/Deafness
+·安定心神Calm Emotions
+·匕首之云Cloud of Daggers
+·疯狂冠冕Crown of Madness
+·侦测思想Detect Thoughts
+·强化属性Enhance Ability
+·注目术Enthrall
+·灼热金属Heat MetalPage 1 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+·人类定身术Hold Person
+·隐形术Invisibility
+·敲击术Knock
+·次级复原术Lesser Restoration
+·动植物定位术Locate Animals or Plants
+·物件定位术Locate Object
+·魔嘴术Magic Mouth
+·魅影之力Phantasmal Force
+·识破隐形See Invisibility
+·粉碎音波Shatter
+·沉默术Silence
+·暗示术Suggestion
+·诚实之域Zone of Truth
+3环
+·降咒Bestow Curse
+·鹰眼术Clairvoyance
+·解除魔法Dispel Magic
+·恐惧术Fear
+·假死术Feign Death
+·守卫刻文Glyph of Warding
+·催眠图纹Hypnotic Pattern
+·李欧蒙小屋Leomund’s Tiny Hut
+·高等幻影Major Image
+·回避侦测Nondetection
+·植物滋长Plant Growth
+·短讯术Sending
+·死者交谈Speak With Dead
+·植物交谈Speak With Plants
+·臭云术Stinking Cloud
+·巧言术Tongues
+4环
+·强迫术Compulsion
+·困惑术Confusion
+·任意门Dimension Door
+·行动自如Freedom of Movement
+·高等隐形术Greater Invisibility
+·幻景Hallucinatory Terrain
+·生物定位术Locate Creature
+·变形术Polymorph
+5环
+·活化物件Animate Objects
+·启蒙术Awaken
+·支配人类Dominate Person
+·托梦术Dream
+·指使术Geas
+·高等复原术Greater RestorationPage 2 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+·怪物定身术Hold Monster
+·通晓传奇Legend Lore
+·群体疗伤术Mass Cure Wounds
+·假象术Mislead
+·篡改记忆Modify Memory
+·异界誓缚Planar Binding
+·死者复活Raise Dead
+·探知Scrying
+·伪装术Seeming
+·传送法阵Teleportation Circle
+6环
+·摄心目光Eyebite
+·寻路术Find the Path
+·铜墙铁壁Guards and Wards
+·群体暗示术Mass Suggestion
+·奥图迷舞Otto’s Irresistible Dance
+·预置幻影Programmed Illusion
+·真知术True Seeing
+7环
+·以太化Etherealness
+·魔力监牢Forcecage
+·海市蜃楼Mirage Arcane
+·摩登肯豪宅术Mordenkainen's Magnificent Mansion
+·摩登肯之剑Mordenkainen’s Sword
+·投影术Project Image
+·再生术Regenerate
+·复生术Resurrection
+·魔法徽记Symbol
+·传送术Teleport
+8环
+·支配怪物Dominate Monster
+·弱智术Feeblemind
+·花言巧语Glibness
+·心灵屏障Mind Blank
+·律令震慑Power Word Stun
+9环
+·预警术Foresight
+·律令医疗Power Word Heal
+·律令死亡Power Word Kill
+·完全变形术True Polymorph
+牧师法术Cleric SpellsPage 3 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+0环戏法
+l神导术Guidance
+l光亮术Light
+l修复术Mending
+l提升抗性Resistance
+l圣火术Sacred Flame
+l维生术Spare the Dying
+l奇术Thaumaturgy
+1环
+l灾祸术Bane
+l祝福术Bless
+l命令术Command
+l造水/枯水术Create or Destroy Water
+l疗伤术Cure Wounds
+l侦测善恶Detect Evil and Good
+l侦测魔法Detect Magic
+l侦测毒性和疾病Detect Poison and Disease
+l曳光弹Guiding Bolt
+l治愈真言Healing Word
+l致伤术Inflict Wounds
+l防护善恶Protection from Evil and Good
+l净化食粮Purify Food and Drink
+l庇护术Sanctuary
+l虔诚护盾Shield of Faith
+2环
+l援助术Aid
+l卜筮术Augury
+l目盲/耳聋术Blindness/Deafness
+l安定心神Calm Emotions
+l不灭明焰Continual Flame
+l强化属性Enhance Ability
+l寻找陷阱Find Traps
+l遗体防腐Gentle Repose
+l人类定身术Hold Person
+l次级复原术Lesser Restoration
+l物件定位术Locate Object
+l治疗祷言Prayer of Healing
+l防护毒素Protection from Poison
+l沉默术Silence
+l灵体武器Spiritual Weapon
+l守护之链Warding Bond
+l诚实之域Zone of Truth
+3环
+l操纵死尸Animate Dead
+l希望信标Beacon of HopePage 4 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+l降咒Bestow Curse
+l鹰眼术Clairvoyance
+l造粮术Create Food and Water
+l昼明术Daylight
+l解除魔法Dispel Magic
+l假死术Feign Death
+l守卫刻文Glyph of Warding
+l防护法阵Magic Circle
+l群体治愈真言Mass Healing Word
+l融身入石Meld into Stone
+l防护能量伤害Protection from Energy
+l移除诅咒Remove Curse
+l回生术Revivify
+l短讯术Sending
+l死者交谈Speak With Dead
+l灵体卫士Spirit Guardians
+l巧言术Tongues
+l水上行走Water Walk
+4环
+l放逐术Banishment
+l操控水体Control Water
+l防死结界Death Ward
+l预言术Divination
+l行动自如Freedom of Movement
+l信仰守卫Guardian of Faith
+l生物定位术Locate Creature
+l塑石术Stone Shape
+5环
+l通神术Commune
+l疫病术Contagion
+l反制善恶Dispel Evil and Good
+l焰击术Flame Strike
+l指使术Geas
+l高等复原术Greater Restoration
+l圣居Hallow
+l疫病虫群Insect Plague
+l通晓传奇Legend Lore
+l群体疗伤术Mass Cure Wounds
+l异界誓缚Planar Binding
+l死者复活Raise Dead
+l探知Scrying
+6环
+l剑刃护壁Blade Barrier
+l唤起死灵Create Undead
+l寻路术Find the Path
+l禁制术ForbiddancePage 5 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+l重伤术Harm
+l医疗术Heal
+l英雄宴Heroes' Feast
+l异界盟誓Planar Ally
+l真知术True Seeing
+l回返真言Word of Recall
+7环
+l召唤天界生物Conjure Celestial
+l圣言术Divine Word
+l以太化Etherealness
+l火焰风暴Fire Storm
+l异界传送Plane Shift
+l再生术Regenerate
+l复生术Resurrection
+l魔法徽记Symbol
+8环
+l反魔法力场Antimagic Field
+l操控天气Control Weather
+l地震术Earthquake
+l圣洁灵光Holy Aura
+9环
+l星界投影Astral Projection
+l异界之门Gate
+l群体医疗术Mass Heal
+l完全复生术True Resurrection
+德鲁伊法术Druid Spells
+0环戏法
+l德鲁伊伎俩Druidcraft
+l神导术Guidance
+l修复术Mending
+l毒气喷溅Poison Spray
+l燃火术Produce Flame
+l提升抗性Resistance
+l橡棍术Shillelagh
+l荆棘之鞭Thorn Whip
+1环
+l化兽为友Animal Friendship
+l魅惑人类Charm Person
+l造水/枯水术Create or Destroy Water
+l疗伤术Cure WoundsPage 6 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+l侦测魔法Detect Magic
+l侦测毒性和疾病Detect Poison and Disease
+l纠缠术Entangle
+l妖火Faerie Fire
+l云雾术Fog Cloud
+l神莓术Goodberry
+l治愈真言Healing Word
+l跳跃术Jump
+l大步奔行Longstrider
+l净化食粮Purify Food and Drink
+l动物交谈术Speak With Animals
+l雷鸣波Thunderwave
+2环
+l动物信使Animal Messenger
+l树肤术Barkskin
+l野兽知觉Beast Sense
+l黑暗视觉Darkvision
+l强化属性Enhance Ability
+l寻找陷阱Find Traps
+l火焰刀Flame Blade
+l炽焰法球Flaming Sphere
+l造风术Gust of Wind
+l灼热金属Heat Metal
+l人类定身术Hold Person
+l次级复原术Lesser Restoration
+l动植物定位术Locate Animals or Plants
+l物件定位术Locate Object
+l月华之光Moonbeam
+l行动无踪Pass without Trace
+l防护毒素Protection from Poison
+l荆棘丛生Spike Growth
+3环
+l召雷术Call Lightning
+l召唤动物Conjure Animals
+l昼明术Daylight
+l解除魔法Dispel Magic
+l假死术Feign Death
+l融身入石Meld into Stone
+l植物滋长Plant Growth
+l防护能量伤害Protection from Energy
+l雪雨暴Sleet Storm
+l植物交谈术Speak With Plants
+l水下呼吸Water Breathing
+l水上行走Water Walk
+l风墙术Wind Wall
+4环Page 7 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+l枯萎术Blight
+l困惑术Confusion
+l召唤次级元素生物Conjure Minor Elementals
+l召唤林地之精Conjure Woodland Beings
+l操控水体Control Water
+l支配野兽Dominate Beast
+l行动自如Freedom of Movement
+l巨虫术Giant Insect
+l擒抱藤Grasping Vine
+l幻景Hallucinatory Terrain
+l冰风暴Ice Storm
+l生物定位术Locate Creature
+l变形术Polymorph
+l塑石术Stone Shape
+l石肤术Stoneskin
+l火墙术Wall of Fire
+5环
+l防活物护罩Antilife Shell
+l启蒙术Awaken
+l问道自然Commune with Nature
+l召唤元素生物Conjure Elemental
+l疫病术Contagion
+l指使术Geas
+l高等复原术Greater Restoration
+l疫病虫群Insect Plague
+l群体疗伤术Mass Cure Wounds
+l异界誓缚Planar Binding
+l转生术Reincarnate
+l探知Scrying
+l树跃术Tree Stride
+l石墙术Wall of Stone
+6环
+l召唤精类生物Conjure Fey
+l寻路术Find the Path
+l医疗术Heal
+l英雄宴Heroes' Feast
+l地动术Move Earth
+l阳炎射线Sunbeam
+l木遁术Transport via Plants
+l棘墙术Wall of Throns
+l御风而行Wind Walk
+7环
+l火焰风暴Fire Storm
+l海市蜃楼Mirage Arcane
+l异界传送Plane Shift
+l再生术RegeneratePage 8 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+l反重力Reverse Gravity
+8环
+l动物形态Animal Shapes
+l嫌恶/关怀术Antipathy/Sympathy
+l操控天气Control Weather
+l地震术Earthquake
+l弱智术Feeblemind
+l阳炎爆Sunburst
+l海啸术Tsunami
+9环
+l预警术Foresight
+l形体变化Shapechange
+l复仇风暴Storm of Vengeance
+l完全复生术True Resurrection
+圣武士法术Paladin Spells
+1环
+l祝福术Bless
+l命令术Command
+l强令对决Compelled Duel
+l疗伤术Cure Wounds
+l侦测善恶Detect Evil and Good
+l侦测魔法Detect Magic
+l侦测毒性和疾病Detect Poison and Disease
+l神恩Divine Favor
+l英雄气概Heroism
+l防护善恶Protection from Evil and Good
+l净化食粮Purify Food and Drink
+l炽焰斩Searing Smite
+l虔诚护盾Shield of Faith
+l雷鸣斩Thunderous Smite
+l激愤斩Wrathful Smite
+2环
+l援助术Aid
+l印记斩Branding Smite
+l召唤坐骑Find Steed
+l次级复原术Lesser Restoration
+l物件定位术Locate Object
+l魔化武器Magic Weapon
+l防护毒素Protection from Poison
+l诚实之域Zone of Truth
+3环Page 9 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+l活力灵光Aura of Vitality
+l致盲斩Blinding Smite
+l造粮术Create Food and Water
+l十字军披风Crusader’s Mantle
+l昼明术Daylight
+l解除魔法Dispel Magic
+l元素武器Elemental Weapon
+l防护法阵Magic Circle
+l移除诅咒Remove Curse
+l回生术Revivify
+4环
+l生命灵光Aura of Life
+l净化灵光Aura of Purity
+l放逐术Banishment
+l防死结界Death Ward
+l生物定位术Locate Creature
+l惊惧斩Staggering Smite
+5环
+l放逐斩Banishing Smite
+l原力法阵Circle of Power
+l湮灭波Destructive Wave
+l反制善恶Dispel Evil and Good
+l指使术Geas
+l死者复活Raise Dead
+游侠法术Ranger Spells
+1环
+l警报术Alarm
+l化兽为友Animal Friendship
+l疗伤术Cure Wounds
+l侦测魔法Detect Magic
+l侦测毒性和疾病Detect Poison and Disease
+l诱捕打击Ensnaring Strike
+l云雾术Fog Cloud
+l神莓术Goodberry
+l棘雹术Hail of Thorns
+l猎人印记Hunter’s Mark
+l跳跃术Jump
+l大步奔行Longstrider
+l动物交谈术Speak With Animals
+2环
+l动物信使Animal MessengerPage 10 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+l树肤术Barkskin
+l野兽知觉Beast Sense
+l警戒之箭Cordon of Arrows
+l黑暗视觉Darkvision
+l寻找陷阱Find Traps
+l次级复原术Lesser Restoration
+l动植物定位术Locate Animals or Plants
+l物件定位术Locate Object
+l行动无踪Pass without Trace
+l防护毒素Protection from Poison
+l沉默术Silence
+l荆棘丛生Spike Growth
+3环
+l召唤动物Conjure Animals
+l召唤箭雨Conjure Barrage
+l昼明术Daylight
+l闪电箭Lightning Arrow
+l回避侦测Nondetection
+l植物滋长Plant Growth
+l防护能量伤害Protection from Energy
+l植物交谈术Speak With Plants
+l水下呼吸Water Breathing
+l水上行走Water Walk
+l风墙术Wind Wall
+4环
+l召唤林地之精Conjure Woodland Beings
+l行动自如Freedom of Movement
+l擒抱藤Grasping Vine
+l生物定位术Locate Creature
+l石肤术Stoneskin
+5环
+l问道自然Commune with Nature
+l万箭齐发Conjure Volley
+l迅捷箭袋Swift Quiver
+l树跃术Tree Stride
+术士法术Sorcerer Spells
+0环戏法
+l酸液飞溅Acid Splash
+l剑刃防护Blade Ward
+l冻寒之触Chill Touch
+l舞光术Dancing LightsPage 11 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+l火焰箭Fire Bolt
+l交友术Friends
+l光亮术Light
+l法师之手Mage Hand
+l修复术Mending
+l传讯术Message
+l次级幻影Minor Illusion
+l毒气喷溅Poison Spray
+l魔法伎俩Prestidigitation
+l冷冻射线Ray of Frost
+l电爪Shocking Grasp
+l克敌机先True Strike
+1环
+l燃烧之手Burning Hands
+l魅惑人类Charm Person
+l繁彩球Chromatic Orb
+l七彩喷射Color Spray
+l通晓语言Comprehend Languages
+l侦测魔法Detect Magic
+l易容术Disguise Self
+l脚底抹油Expeditious Retreat
+l虚假生命False Life
+l羽落术Feather Fall
+l云雾术Fog Cloud
+l跳跃术Jump
+l法师护甲Mage Armor
+l魔法飞弹Magic Missile
+l致病射线Ray of Sickness
+l护盾术Shield
+l无声幻影Silent Image
+l睡眠术Sleep
+l雷鸣波Thunderwave
+l巫术箭Witch Bolt
+2环
+l变身术Alter Self
+l目盲/耳聋术Blindness/Deafness
+l朦胧术Blur
+l匕首之云Cloud of Daggers
+l疯狂冠冕Crown of Madness
+l黑暗术Darkness
+l黑暗视觉Darkvision
+l侦测思想Detect Thoughts
+l强化属性Enhance Ability
+l变巨/缩小术Enlarge/Reduce
+l造风术Gust of Wind
+l人类定身术Hold Person
+l隐形术Invisibility
+l敲击术KnockPage 12 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+l浮空术Levitate
+l镜影术Mirror Image
+l迷踪步Misty Step
+l魅影之力Phantasmal Force
+l灼热射线Scorching Ray
+l识破隐形See Invisibility
+l粉碎音波Shatter
+l蛛行术Spider Climb
+l暗示术Suggestion
+l蛛网术Web
+3环
+l闪现术Blink
+l鹰眼术Clairvoyance
+l法术反制Counterspell
+l昼明术Daylight
+l解除魔法Dispel Magic
+l恐惧术Fear
+l火球术Fireball
+l飞行术Fly
+l气化形体Gaseous Form
+l加速术Haste
+l催眠图纹Hypnotic Pattern
+l闪电束Lightning Bolt
+l高等幻影Major Image
+l防护能量伤害Protection from Energy
+l雪雨暴Sleet Storm
+l缓慢术Slow
+l臭云术Stinking Cloud
+l巧言术Tongues
+l水下呼吸Water Breathing
+l水上行走Water Walk
+4环
+l放逐术Banishment
+l枯萎术Blight
+l困惑术Confusion
+l任意门Dimension Door
+l支配野兽Dominate Beast
+l高等隐形术Greater Invisibility
+l冰风暴Ice Storm
+l变形术Polymorph
+l石肤术Stoneskin
+l火墙术Wall of Fire
+5环
+l活化物件Animate Objects
+l死云术Cloudkill
+l寒冰锥Cone of ColdPage 13 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+l造物术Creation
+l支配人类Dominate Person
+l怪物定身术Hold Monster
+l疫病虫群Insect Plague
+l伪装术Seeming
+l心灵遥控Telekinesis
+l传送法阵Teleportation Circle
+l石墙术Wall of Stone
+6环
+l秘法门Arcane Gate
+l连锁闪电Chain Lightning
+l死亡法阵Circle of Death
+l解离术Disintegrate
+l摄心目光Eyebite
+l法术无效结界Globe of Invulnerability
+l群体暗示术Mass Suggestion
+l地动术Move Earth
+l阳炎射线Sunbeam
+l真知术True Seeing
+7环
+l延迟爆裂火球Delayed Blast Fireball
+l以太化Etherealness
+l死亡一指Finger of Death
+l火焰风暴Fire Storm
+l异界传送Plane Shift
+l虹光喷射Prismatic Spray
+l反重力Reverse Gravity
+l传送术Teleport
+8环
+l支配怪物Dominate Monster
+l地震术Earthquake
+l焚云术Incendiary Cloud
+l律令震慑Power Word Stun   
+l阳炎爆Sunburst
+9环
+l异界之门Gate
+l流星爆Meteor Swarm
+l律令死亡Power Word Kill
+l时间停止Time Stop
+l祈愿术Wish
+法师法术Wizard SpellsPage 14 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+0环戏法
+l酸液飞溅Acid Splash
+l剑刃防护Blade Ward
+l冻寒之触Chill Touch
+l舞光术Dancing Lights
+l火焰箭Fire Bolt
+l交友术Friends
+l光亮术Light
+l法师之手Mage Hand
+l修复术Mending
+l传讯术Message
+l次级幻影Minor Illusion
+l毒气喷溅Poison Spray
+l魔法伎俩Prestidigitation
+l冷冻射线Ray of Frost
+l电爪Shocking Grasp
+l克敌机先True Strike
+1环
+l警报术Alarm
+l燃烧之手Burning Hands
+l魅惑人类Charm Person
+l繁彩球Chromatic Orb
+l七彩喷射Color Spray
+l通晓语言Comprehend Languages
+l侦测魔法Detect Magic
+l易容术Disguise Self
+l脚底抹油Expeditious Retreat
+l虚假生命False Life
+l羽落术Feather Fall
+l获得魔宠Find Familiar
+l云雾术Fog Cloud
+l油腻术Grease
+l鉴定术Identify
+l迷幻手稿Illusory Script
+l跳跃术Jump
+l大步奔行Longstrider
+l法师护甲Mage Armor
+l魔法飞弹Magic Missile
+l防护善恶Protection from Evil and Good
+l致病射线Ray of Sickness
+l护盾术Shield
+l无声幻影Silent Image
+l睡眠术Sleep
+l塔莎狂笑术Tasha’s Hideous Laughter
+l谭森浮碟术Tenser’s Floating Disk
+l雷鸣波Thunderwave
+l隐形仆役Unseen Servant
+l巫术箭Witch BoltPage 15 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+2环
+l变身术Alter Self
+l秘法锁Arcane Lock
+l目盲/耳聋术Blindness/Deafness
+l朦胧术Blur
+l匕首之云Cloud of Daggers
+l不灭明焰Continual Flame
+l疯狂冠冕Crown of Madness
+l黑暗术Darkness
+l黑暗视觉Darkvision
+l侦测思想Detect Thoughts
+l变巨/缩小术Enlarge/Reduce
+l炽焰法球Flaming Sphere
+l遗体防腐Gentle Repose
+l造风术Gust of Wind
+l人类定身术Hold Person
+l隐形术Invisibility
+l敲击术Knock
+l浮空术Levitate
+l物件定位术Locate Object
+l魔嘴术Magic Mouth
+l魔化武器Magic Weapon
+l马友夫强酸箭Melf’s Acid Arrow
+l镜影术Mirror Image
+l迷踪步Misty Step
+l涅斯图魔法灵光Nystul’s Magic Aura
+l魅影之力Phantasmal Force
+l衰弱射线Ray of Enfeeblement
+l魔绳术Rope Trick
+l灼热射线Scorching Ray
+l识破隐形See Invisibility
+l粉碎音波Shatter
+l蛛行术Spider Climb
+l暗示术Suggestion
+l蛛网术Web
+3环
+l操纵死尸Animate Dead
+l降咒Bestow Curse
+l闪现术Blink
+l鹰眼术Clairvoyance
+l法术反制Counterspell
+l解除魔法Dispel Magic
+l恐惧术Fear
+l假死术Feign Death
+l火球术Fireball
+l飞行术Fly
+l气化形体Gaseous Form
+l守卫刻文Glyph of Warding
+l加速术HastePage 16 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+l催眠图纹Hypnotic Pattern
+l李欧蒙小屋Leomund’s Tiny Hut
+l闪电束Lightning Bolt
+l防护法阵Magic Circle
+l高等幻影Major Image
+l回避侦测Nondetection
+l魅影驹Phantom Steed
+l防护能量伤害Protection from Energy
+l移除诅咒Remove Curse
+l短讯术Sending
+l雪雨暴Sleet Storm
+l缓慢术Slow
+l臭云术Stinking Cloud
+l巧言术Tongues
+l吸血鬼之触Vampiric Touch
+l水下呼吸Water Breathing
+4环
+l秘法眼Arcane Eye
+l放逐术Banishment
+l枯萎术Blight
+l困惑术Confusion
+l召唤次级元素生物Conjure Minor Elementals
+l操控水体Control Water
+l任意门Dimension Door
+l艾伐黑触手Evard’s Black Tentacles
+l鬼斧神工Fabricate
+l火焰护盾Fire Shield
+l高等隐形术Greater Invisibility
+l幻景Hallucinatory Terrain
+l冰风暴Ice Storm
+l李欧蒙秘藏箱Leomund’s Secret Chest
+l生物定位术Locate Creature
+l摩登肯忠犬Mordenkainen’s Faithful Hound
+l摩登肯私人密室Mordenkainen’s Private Sanctum
+l欧提路克弹力法球Otiluke’s Resilient Sphere
+l魅影杀手Phantasmal Killer
+l变形术Polymorph
+l塑石术Stone Shape
+l石肤术Stoneskin
+l火墙术Wall of Fire
+5环
+l活化物件Animate Objects
+l毕格比之手Bigby’s Hand
+l死云术Cloudkill
+l寒冰锥Cone of Cold
+l召唤元素生物Conjure Elemental
+l异界探知Contact Other Plane
+l造物术CreationPage 17 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+l支配人类Dominate Person
+l托梦术Dream
+l指使术Geas
+l怪物定身术Hold Monster
+l通晓传奇Legend Lore
+l假象术Mislead
+l篡改记忆Modify Memory
+l穿墙术Passwall
+l异界誓缚Planar Binding
+l拉瑞心灵联结Rary’s Telepathic Bond
+l探知Scrying
+l伪装术Seeming
+l心灵遥控Telekinesis
+l传送法阵Teleportation Circle
+l力场墙Wall of Force
+l石墙术Wall of Stone
+6环
+l秘法门Arcane Gate
+l连锁闪电Chain Lightning
+l死亡法阵Circle of Death
+l触发术Contingency
+l唤起死灵Create Undead
+l解离术Disintegrate
+l卓姆吉瞬间召唤Drawmij’s Instant Summons
+l摄心目光Eyebite
+l石化术Flesh to Stone
+l法术无效结界Globe of Invulnerability
+l铜墙铁壁Guards and Wards
+l魔魂壶Magic Jar
+l群体暗示术Mass Suggestion
+l地动术Move Earth
+l欧提路克冰封法球Otiluke’s Freezing Sphere
+l奥图迷舞Otto’s Irresistible Dance
+l预置幻影Programmed Illusion
+l阳炎射线Sunbeam
+l真知术True Seeing
+l冰墙术Wall of Ice
+7环
+l延迟爆裂火球Delayed Blast Fireball
+l以太化Etherealness
+l死亡一指Finger of Death
+l魔力监牢Forcecage
+l海市蜃楼Mirage Arcane
+l摩登肯豪宅术Mordenkainen’s Magnificent Mansion
+l摩登肯之剑Mordenkainen’s Sword
+l异界传送Plane Shift
+l虹光喷射Prismatic Spray
+l投影术Project ImagePage 18 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+l反重力Reverse Gravity
+l隔离术Sequester
+l拟像术Simulacrum
+l魔法徽记Symbol
+l传送术Teleport
+8环
+l反魔法力场Antimagic Field
+l嫌恶/关怀术Antipathy/Sympathy
+l克隆术Clone
+l操控天气Control Weather
+l创造半位面Demiplane
+l支配怪物Dominate Monster
+l弱智术Feeblemind
+l焚云术Incendiary Cloud
+l迷宫术Maze
+l心灵屏障Mind Blank
+l律令震慑Power Word Stun
+l阳炎爆Sunburst
+l心灵感应Telepathy
+9环
+l星界投影Astral Projection
+l预警术Foresight
+l异界之门Gate
+l禁锢术Imprisonment
+l流星爆Meteor Swarm
+l律令死亡Power Word Kill
+l虹光法墙Prismatic Wall
+l形体变化Shapechange
+l时间停止Time Stop
+l完全变形术True Polymorph
+l怪影杀手Weird
+l祈愿术Wish
+邪术师法术Warlock Spells
+0环戏法
+l剑刃防护Blade Ward
+l冻寒之触Chill Touch
+l魔能爆Eldritch Blast
+l交友术Friends
+l法师之手Mage Hand
+l次级幻影Minor Illusion
+l毒气喷溅Poison Spray
+l魔法伎俩Prestidigitation
+l克敌机先True StrikePage 19 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+1环
+l艾嘉西斯之铠Armor of Agathys
+l哈达之臂Arms of Hadar
+l魅惑人类Charm Person
+l通晓语言Comprehend Languages
+l脚底抹油Expeditious Retreat
+l炼狱叱喝Hellish Rebuke
+l脆弱诅咒Hex
+l迷幻手稿Illusory Script
+l防护善恶Protection from Evil and Good
+l隐形仆役Unseen Servant
+l巫术箭Witch Bolt
+2环
+l匕首之云Cloud of Daggers
+l疯狂冠冕Crown of Madness
+l黑暗术Darkness
+l注目术Enthrall
+l人类定身术Hold Person
+l隐形术Invisibility
+l镜影术Mirror Image
+l迷踪步Misty Step
+l衰弱射线Ray of Enfeeblement
+l粉碎音波Shatter
+l蛛行术Spider Climb
+l暗示术Suggestion
+3环
+l法术反制Counterspell
+l解除魔法Dispel Magic
+l恐惧术Fear
+l飞行术Fly
+l气化形体Gaseous Form
+l哈达之欲Hunger of Hadar
+l催眠图纹Hypnotic Pattern
+l防护法阵Magic Circle
+l高等幻影Major Image
+l移除诅咒Remove Curse
+l巧言术Tongues
+l吸血鬼之触Vampiric Touch
+4环
+l放逐术Banishment
+l枯萎术Blight
+l任意门Dimension Door
+l幻景Hallucinatory TerrainPage 20 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+
+5环
+l异界探知Contact Other Plane
+l托梦术Dream
+l怪物定身术Hold Monster
+l探知Scrying
+6环
+l秘法门Arcane Gate
+l死亡法阵Circle of Death
+l召唤精类生物Conjure Fey
+l唤起死灵Create Undead
+l摄心目光Eyebite
+l石化术Flesh to Stone
+l群体暗示术Mass Suggestion
+l真知术True Seeing
+7环
+l以太化Etherealness
+l死亡一指Finger of Death
+l魔力监牢Forcecage
+l异界传送Plane Shift
+8环
+l创造半位面Demiplane
+l支配怪物Dominate Monster
+l弱智术Feeblemind
+l花言巧语Glibness
+l律令震慑Power Word Stun
+9环
+l星界投影Astral Projection
+l预警术Foresight
+l禁锢术Imprisonment
+l律令死亡Power Word Kill
+l完全变形术True PolymorphPage 21 of 21 吟游诗人
+2026/6/19 file:///C:/Users/HUAWEI/AppData/Local/Temp/~hh1F88.htm
+

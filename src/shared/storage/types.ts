@@ -112,6 +112,7 @@ export interface CharacterData {
 
     // ---- 法术页 ----
   spellBoxes: SpellBoxData[];
+  spells: Record<string, string[]>;  // 创建角色时选择的法术 { "0": ["法术1"], "1": ["法术2"] }
   customHeights: Record<number, number>;
   customSpellSlots: Record<number, number>;  // 自定义法术位覆写 { spellLevel: slotCount }
   spellcastingAbility: "int" | "wis" | "cha"; // 施法关键属性（SpellSheet 抬头设定）
@@ -238,6 +239,7 @@ export function createDefaultCharacter(name = "新角色"): CharacterData {
       { level: 8, spellCount: 7, filledSlots: 1, isCantrip: false, col: 2, row: 2, spells: [] },
       { level: 9, spellCount: 6, filledSlots: 0, isCantrip: false, col: 2, row: 3, spells: [] },
     ],
+    spells: {},
     customHeights: {},
     customSpellSlots: {},
     spellcastingAbility: "int",

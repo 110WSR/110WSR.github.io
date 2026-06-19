@@ -4,6 +4,8 @@ import { sheetColors } from "../../shared/tokens/colors";
 import { createDefaultItem } from "../../shared/types/types";
 import type { Item } from "../../shared/types/types";
 import magicItems from "../../../data/magicItems.json";
+import adventuringGear from "../../../data/adventuringGear.json";
+import weaponPresets from "../../../data/weaponPresets.json";
 import ScrollArea from "../../shared/ui/ScrollArea";
 
 const FVAR = "'CTGR' 0, 'wdth' 100";
@@ -23,9 +25,30 @@ interface MagicItemEntry {
   en: string;
 }
 
-const ALL_ITEMS = magicItems as MagicItemEntry[];
+interface GearEntry {
+  cn: string;
+  en: string;
+  cost: string;
+  weight: string;
+  category: string;
+}
+
+interface WeaponEntry {
+  id: string;
+  label: string;
+  damageDice: string;
+  damageType: string;
+  tags: string[];
+  attackAttr: string;
+}
+
+type TabType = "magic" | "gear" | "weapon";
+
+const ALL_MAGIC_ITEMS = magicItems as MagicItemEntry[];
+const ALL_GEAR = adventuringGear as GearEntry[];
 
 export function EquipmentLibraryDialog({ open, onSelect, onClose }: EquipmentLibraryDialogProps) {
+  const [activeTab, setActiveTab] = useState<TabType>("magic");
   const [searchText, setSearchText] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("全部");
   const searchRef = useRef<HTMLInputElement>(null);
@@ -34,15 +57,16 @@ export function EquipmentLibraryDialog({ open, onSelect, onClose }: EquipmentLib
     if (open) {
       setSearchText("");
       setSelectedCategory("全部");
+      setActiveTab("magic");
       setTimeout(() => searchRef.current?.focus(), 100);
     }
   }, [open]);
 
-  // 提取分类
-  const categories = useMemo(() => {
+  // ── 魔法物品分类 ──
+  const magicCategories = useMemo(() => {
     const cats = new Set<string>();
     cats.add("全部");
-    for (const item of ALL_ITEMS) {
+    for (const item of ALL_MAGIC_ITEMS) {
       const en = item.en;
       if (en.includes("Armor") || en.includes("Shield")) cats.add("护甲");
       else if (en.includes("Weapon") || en.includes("Ammunition") || en.includes("Arrow")) cats.add("武器");
@@ -56,9 +80,38 @@ export function EquipmentLibraryDialog({ open, onSelect, onClose }: EquipmentLib
     return Array.from(cats).sort();
   }, []);
 
-  // 过滤物品
-  const filteredItems = useMemo(() => {
-    let items = ALL_ITEMS;
+  // ── 通用物品分类 ──
+  const gearCategories = useMemo(() => {
+    const cats = new Set<string>();
+    cats.add("全部");
+    for (const item of ALL_GEAR) {
+      cats.add(item.category);
+    }
+    return Array.from(cats).sort();
+  }, []);
+
+  // ── 武器分类 ──
+  const weaponCategories = useMemo(() => {
+    return ["全部", "简易近战", "简易远程", "军用近战", "军用远程"];
+  }, []);
+
+  // 判断武器类型
+  const getWeaponCategory = (w: WeaponEntry): string => {
+    const isRanged = w.tags.includes("ammunition") || w.tags.includes("thrown");
+    // 简易武器（轻/简单标签）
+    const isSimple = w.tags.includes("light") || ["club", "dagger", "greatclub", "handaxe", "javelin", "lighthammer", "mace", "quarterstaff", "sickle", "spear", "dart", "sling", "shortbow", "lightcrossbow"].includes(w.id);
+    // 军用武器
+    const isMartial = !isSimple;
+    if (isSimple && !isRanged) return "简易近战";
+    if (isSimple && isRanged) return "简易远程";
+    if (isMartial && !isRanged) return "军用近战";
+    if (isMartial && isRanged) return "军用远程";
+    return "其他";
+  };
+
+  // ── 过滤 ──
+  const filteredMagicItems = useMemo(() => {
+    let items = ALL_MAGIC_ITEMS;
     if (searchText.trim()) {
       const q = searchText.trim().toLowerCase();
       items = items.filter(item =>
@@ -84,7 +137,38 @@ export function EquipmentLibraryDialog({ open, onSelect, onClose }: EquipmentLib
     return items;
   }, [searchText, selectedCategory]);
 
-  const handleSelect = useCallback((entry: MagicItemEntry) => {
+  const filteredGear = useMemo(() => {
+    let items = ALL_GEAR;
+    if (searchText.trim()) {
+      const q = searchText.trim().toLowerCase();
+      items = items.filter(item =>
+        item.cn.toLowerCase().includes(q) ||
+        item.en.toLowerCase().includes(q)
+      );
+    }
+    if (selectedCategory !== "全部") {
+      items = items.filter(item => item.category === selectedCategory);
+    }
+    return items;
+  }, [searchText, selectedCategory]);
+
+  const filteredWeapons = useMemo(() => {
+    let items = weaponPresets as WeaponEntry[];
+    if (searchText.trim()) {
+      const q = searchText.trim().toLowerCase();
+      items = items.filter(item =>
+        item.label.toLowerCase().includes(q) ||
+        item.id.toLowerCase().includes(q)
+      );
+    }
+    if (selectedCategory !== "全部") {
+      items = items.filter(item => getWeaponCategory(item) === selectedCategory);
+    }
+    return items;
+  }, [searchText, selectedCategory]);
+
+  // ── 选择处理 ──
+  const handleSelectMagic = useCallback((entry: MagicItemEntry) => {
     const item = createDefaultItem(entry.cn);
     item.description = entry.en;
     // 根据英文名判断是否为武器
@@ -96,7 +180,28 @@ export function EquipmentLibraryDialog({ open, onSelect, onClose }: EquipmentLib
     onClose();
   }, [onSelect, onClose]);
 
+  const handleSelectGear = useCallback((entry: GearEntry) => {
+    const item = createDefaultItem(entry.cn);
+    item.description = `${entry.en} | 价格: ${entry.cost} | 重量: ${entry.weight}`;
+    onSelect(item);
+    onClose();
+  }, [onSelect, onClose]);
+
+  const handleSelectWeapon = useCallback((entry: WeaponEntry) => {
+    const item = createDefaultItem(entry.label);
+    item.isWeapon = true;
+    item.proficient = true;
+    item.damageDice = entry.damageDice;
+    item.damageType = entry.damageType;
+    item.description = `伤害: ${entry.damageDice} ${entry.damageType} | 属性: ${entry.attackAttr.toUpperCase()} | 特性: ${entry.tags.join(", ") || "无"}`;
+    onSelect(item);
+    onClose();
+  }, [onSelect, onClose]);
+
   if (!open) return null;
+
+  const categories = activeTab === "magic" ? magicCategories : activeTab === "gear" ? gearCategories : weaponCategories;
+  const totalCount = activeTab === "magic" ? filteredMagicItems.length : activeTab === "gear" ? filteredGear.length : filteredWeapons.length;
 
   return ReactDOM.createPortal(
     <div
@@ -106,7 +211,7 @@ export function EquipmentLibraryDialog({ open, onSelect, onClose }: EquipmentLib
     >
       <div
         style={{
-          width: "600px", maxHeight: "600px", display: "flex", flexDirection: "column",
+          width: "620px", maxHeight: "620px", display: "flex", flexDirection: "column",
           backgroundColor: sheetColors.cardBg, borderRadius: "10px",
           border: "1px solid var(--color-border)",
           boxShadow: "0 8px 32px rgba(0,0,0,0.11), 0 2px 8px rgba(0,0,0,0.07)",
@@ -129,6 +234,30 @@ export function EquipmentLibraryDialog({ open, onSelect, onClose }: EquipmentLib
           </button>
         </div>
 
+        {/* Tabs */}
+        <div style={{ display: "flex", gap: 0, borderBottom: `1px solid ${sheetColors.hoverBg}`, flexShrink: 0 }}>
+          {[
+            { key: "magic" as TabType, label: "魔法物品" },
+            { key: "gear" as TabType, label: "通用物品" },
+            { key: "weapon" as TabType, label: "武器库" },
+          ].map(tab => (
+            <button
+              key={tab.key}
+              onClick={() => { setActiveTab(tab.key); setSelectedCategory("全部"); setSearchText(""); }}
+              style={{
+                flex: 1, padding: "8px 0", border: "none", cursor: "pointer",
+                fontSize: "13px", fontFamily: "var(--font-serif-medium)",
+                backgroundColor: activeTab === tab.key ? sheetColors.cardBg : sheetColors.hoverBg,
+                color: activeTab === tab.key ? sheetColors.textPrimary : sheetColors.textSecondary,
+                borderBottom: activeTab === tab.key ? `2px solid ${sheetColors.accentBlue}` : "2px solid transparent",
+                transition: "all 0.15s",
+              }}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
         {/* Search + Category */}
         <div style={{ padding: "12px 16px", borderBottom: `1px solid ${sheetColors.hoverBg}`, flexShrink: 0 }}>
           <input
@@ -136,7 +265,7 @@ export function EquipmentLibraryDialog({ open, onSelect, onClose }: EquipmentLib
             type="text"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
-            placeholder="搜索装备名称（中文/英文）..."
+            placeholder={`搜索${activeTab === "magic" ? "魔法装备" : activeTab === "gear" ? "通用物品" : "武器"}名称...`}
             style={{
               ...T, width: "100%", boxSizing: "border-box",
               border: `1px solid ${sheetColors.borderLight}`, borderRadius: "4px",
@@ -164,39 +293,92 @@ export function EquipmentLibraryDialog({ open, onSelect, onClose }: EquipmentLib
             ))}
           </div>
           <div style={{ marginTop: 6, ...T, fontSize: "11px", color: sheetColors.textPlaceholder }}>
-            共 {filteredItems.length} 件装备
+            共 {totalCount} 件{activeTab === "magic" ? "魔法物品" : activeTab === "gear" ? "通用物品" : "武器"}
           </div>
         </div>
 
         {/* Item List */}
         <ScrollArea style={{ flex: 1, minHeight: 0 }}>
           <div style={{ padding: "8px 16px" }}>
-            {filteredItems.length === 0 ? (
+            {totalCount === 0 ? (
               <div style={{ textAlign: "center", padding: "40px 0", ...T, color: sheetColors.textPlaceholder }}>
                 未找到匹配的装备
               </div>
             ) : (
-              filteredItems.map((entry, i) => (
-                <div
-                  key={entry.cn + i}
-                  onClick={() => handleSelect(entry)}
-                  style={{
-                    padding: "8px 12px", cursor: "pointer", borderRadius: "4px",
-                    display: "flex", justifyContent: "space-between", alignItems: "center",
-                    borderBottom: i < filteredItems.length - 1 ? `1px solid ${sheetColors.hoverBg}` : "none",
-                  }}
-                  onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = sheetColors.hoverBg; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; }}
-                >
-                  <div>
-                    <div style={{ ...T, fontSize: "14px", fontWeight: 500 }}>{entry.cn}</div>
-                    <div style={{ ...T, fontSize: "11px", color: sheetColors.textPlaceholder, marginTop: 2 }}>{entry.en}</div>
+              <>
+                {/* 魔法物品列表 */}
+                {activeTab === "magic" && filteredMagicItems.map((entry, i) => (
+                  <div
+                    key={entry.cn + i}
+                    onClick={() => handleSelectMagic(entry)}
+                    style={{
+                      padding: "8px 12px", cursor: "pointer", borderRadius: "4px",
+                      display: "flex", justifyContent: "space-between", alignItems: "center",
+                      borderBottom: i < filteredMagicItems.length - 1 ? `1px solid ${sheetColors.hoverBg}` : "none",
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = sheetColors.hoverBg; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; }}
+                  >
+                    <div>
+                      <div style={{ ...T, fontSize: "14px", fontWeight: 500 }}>{entry.cn}</div>
+                      <div style={{ ...T, fontSize: "11px", color: sheetColors.textPlaceholder, marginTop: 2 }}>{entry.en}</div>
+                    </div>
+                    <div style={{ ...T, fontSize: "11px", color: sheetColors.textLighter, whiteSpace: "nowrap" }}>
+                      + 添加
+                    </div>
                   </div>
-                  <div style={{ ...T, fontSize: "11px", color: sheetColors.textLighter, whiteSpace: "nowrap" }}>
-                    + 添加
+                ))}
+
+                {/* 通用物品列表 */}
+                {activeTab === "gear" && filteredGear.map((entry, i) => (
+                  <div
+                    key={entry.cn + i}
+                    onClick={() => handleSelectGear(entry)}
+                    style={{
+                      padding: "8px 12px", cursor: "pointer", borderRadius: "4px",
+                      display: "flex", justifyContent: "space-between", alignItems: "center",
+                      borderBottom: i < filteredGear.length - 1 ? `1px solid ${sheetColors.hoverBg}` : "none",
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = sheetColors.hoverBg; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; }}
+                  >
+                    <div>
+                      <div style={{ ...T, fontSize: "14px", fontWeight: 500 }}>{entry.cn}</div>
+                      <div style={{ ...T, fontSize: "11px", color: sheetColors.textPlaceholder, marginTop: 2 }}>
+                        {entry.en} | {entry.cost} | {entry.weight}
+                      </div>
+                    </div>
+                    <div style={{ ...T, fontSize: "11px", color: sheetColors.textLighter, whiteSpace: "nowrap" }}>
+                      + 添加
+                    </div>
                   </div>
-                </div>
-              ))
+                ))}
+
+                {/* 武器列表 */}
+                {activeTab === "weapon" && filteredWeapons.map((entry, i) => (
+                  <div
+                    key={entry.id + i}
+                    onClick={() => handleSelectWeapon(entry)}
+                    style={{
+                      padding: "8px 12px", cursor: "pointer", borderRadius: "4px",
+                      display: "flex", justifyContent: "space-between", alignItems: "center",
+                      borderBottom: i < filteredWeapons.length - 1 ? `1px solid ${sheetColors.hoverBg}` : "none",
+                    }}
+                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = sheetColors.hoverBg; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; }}
+                  >
+                    <div>
+                      <div style={{ ...T, fontSize: "14px", fontWeight: 500 }}>{entry.label}</div>
+                      <div style={{ ...T, fontSize: "11px", color: sheetColors.textPlaceholder, marginTop: 2 }}>
+                        {entry.damageDice} {entry.damageType} | {entry.tags.join(", ") || "无特性"}
+                      </div>
+                    </div>
+                    <div style={{ ...T, fontSize: "11px", color: sheetColors.textLighter, whiteSpace: "nowrap" }}>
+                      + 添加
+                    </div>
+                  </div>
+                ))}
+              </>
             )}
           </div>
         </ScrollArea>

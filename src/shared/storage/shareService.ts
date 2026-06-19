@@ -32,7 +32,17 @@ export interface ShareData {
     max: number;
   };
   skills: string[];
-  items: string[];
+  items: Array<{
+    name: string;
+    quantity?: number;
+    isWeapon?: boolean;
+    damageDice?: string;
+    damageType?: string;
+    attackAttr?: string;
+    proficient?: boolean;
+    tags?: string[];
+    description?: string;
+  }>;
   traits: string[];
   spells: string[];
   /** 扩展字段 - 可选，用于保留更多数据 */
@@ -91,7 +101,17 @@ export function toShareJSON(character: CharacterData): string {
     skills: Object.entries(character.skills ?? {})
       .filter(([, v]) => v >= 1)
       .map(([k]) => k),
-    items: (character.items ?? []).map(i => i.name),
+    items: (character.items ?? []).map(i => ({
+      name: i.name,
+      quantity: i.quantity > 1 ? i.quantity : undefined,
+      isWeapon: i.isWeapon || undefined,
+      damageDice: i.damageDice || undefined,
+      damageType: i.damageType || undefined,
+      attackAttr: i.attackAttr || undefined,
+      proficient: i.proficient || undefined,
+      tags: i.tags?.length ? i.tags : undefined,
+      description: i.description || undefined,
+    })),
     traits: (character.traitList ?? []).map(t => t.name),
     spells: (character.spellBoxes ?? [])
       .flatMap(b => (b.spells ?? []).filter(s => s.name).map(s => s.name)),
@@ -158,14 +178,26 @@ export function fromShareJSON(json: string): Partial<CharacterData> | null {
       skills[skill] = 1;
     }
 
-    // 构建物品列表
-    const items = (data.items ?? []).map(name => ({
-      id: `item_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`,
-      name,
-      quantity: 1,
-      features: [],
-      isWeapon: false,
-    }));
+    // 构建物品列表（兼容旧格式 string[] 和新格式 object[]）
+    const rawItems = data.items ?? [];
+    const items = rawItems.map((entry: any) => {
+      const name = typeof entry === "string" ? entry : entry.name;
+      return {
+        id: `item_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`,
+        name,
+        quantity: typeof entry === "object" && entry.quantity ? entry.quantity : 1,
+        features: [],
+        isWeapon: typeof entry === "object" && entry.isWeapon ? true : false,
+        ...(typeof entry === "object" ? {
+          damageDice: entry.damageDice || undefined,
+          damageType: entry.damageType || undefined,
+          attackAttr: entry.attackAttr || undefined,
+          proficient: entry.proficient || undefined,
+          tags: entry.tags || undefined,
+          description: entry.description || undefined,
+        } : {}),
+      };
+    });
 
     // 构建特性列表
     const traitList = (data.traits ?? []).map(name => ({

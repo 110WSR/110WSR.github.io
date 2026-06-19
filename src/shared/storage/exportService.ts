@@ -33,8 +33,9 @@ for (const group of languagesData) {
 // 工具 ID → 中文名
 import toolsData from "../../../data/tools.json";
 const TOOL_CN: Record<string, string> = {};
-for (const group of toolsData) {
-  for (const opt of group.options) TOOL_CN[opt.id] = opt.label;
+for (const item of toolsData as Array<{name: string; fullName: string; price: string; weight: string}>) {
+  // 使用 name 作为 key 和 label
+  TOOL_CN[item.name] = item.name;
 }
 
 // 学派 ID → 中文名

@@ -26,15 +26,13 @@ interface MagicItemEntry {
 }
 
 interface GearEntry {
-  cn: string;
-  en: string;
-  cost: string;
+  name: string;
+  fullName: string;
+  price: string;
   weight: string;
-  category: string;
 }
 
 interface WeaponEntry {
-  id: string;
   label: string;
   damageDice: string;
   damageType: string;
@@ -82,12 +80,7 @@ export function EquipmentLibraryDialog({ open, onSelect, onClose }: EquipmentLib
 
   // ── 通用物品分类 ──
   const gearCategories = useMemo(() => {
-    const cats = new Set<string>();
-    cats.add("全部");
-    for (const item of ALL_GEAR) {
-      cats.add(item.category);
-    }
-    return Array.from(cats).sort();
+    return ["全部"];
   }, []);
 
   // ── 武器分类 ──
@@ -97,10 +90,8 @@ export function EquipmentLibraryDialog({ open, onSelect, onClose }: EquipmentLib
 
   // 判断武器类型
   const getWeaponCategory = (w: WeaponEntry): string => {
-    const isRanged = w.tags.includes("ammunition") || w.tags.includes("thrown");
-    // 简易武器（轻/简单标签）
-    const isSimple = w.tags.includes("light") || ["club", "dagger", "greatclub", "handaxe", "javelin", "lighthammer", "mace", "quarterstaff", "sickle", "spear", "dart", "sling", "shortbow", "lightcrossbow"].includes(w.id);
-    // 军用武器
+    const isRanged = w.tags.some(t => t.includes("弹药") || t.includes("投掷"));
+    const isSimple = ["木棍", "匕首", "巨木棍", "手斧", "标枪", "轻锤", "钉头锤", "长棍", "镰刀", "矛", "轻弩", "飞镖", "短弓", "投石索"].includes(w.label);
     const isMartial = !isSimple;
     if (isSimple && !isRanged) return "简易近战";
     if (isSimple && isRanged) return "简易远程";
@@ -142,23 +133,19 @@ export function EquipmentLibraryDialog({ open, onSelect, onClose }: EquipmentLib
     if (searchText.trim()) {
       const q = searchText.trim().toLowerCase();
       items = items.filter(item =>
-        item.cn.toLowerCase().includes(q) ||
-        item.en.toLowerCase().includes(q)
+        item.name.toLowerCase().includes(q) ||
+        item.fullName.toLowerCase().includes(q)
       );
     }
-    if (selectedCategory !== "全部") {
-      items = items.filter(item => item.category === selectedCategory);
-    }
     return items;
-  }, [searchText, selectedCategory]);
+  }, [searchText]);
 
   const filteredWeapons = useMemo(() => {
     let items = weaponPresets as WeaponEntry[];
     if (searchText.trim()) {
       const q = searchText.trim().toLowerCase();
       items = items.filter(item =>
-        item.label.toLowerCase().includes(q) ||
-        item.id.toLowerCase().includes(q)
+        item.label.toLowerCase().includes(q)
       );
     }
     if (selectedCategory !== "全部") {
@@ -171,7 +158,6 @@ export function EquipmentLibraryDialog({ open, onSelect, onClose }: EquipmentLib
   const handleSelectMagic = useCallback((entry: MagicItemEntry) => {
     const item = createDefaultItem(entry.cn);
     item.description = entry.en;
-    // 根据英文名判断是否为武器
     if (entry.en.includes("Weapon") || entry.en.includes("Ammunition") || entry.en.includes("Arrow")) {
       item.isWeapon = true;
       item.proficient = true;
@@ -181,8 +167,8 @@ export function EquipmentLibraryDialog({ open, onSelect, onClose }: EquipmentLib
   }, [onSelect, onClose]);
 
   const handleSelectGear = useCallback((entry: GearEntry) => {
-    const item = createDefaultItem(entry.cn);
-    item.description = `${entry.en} | 价格: ${entry.cost} | 重量: ${entry.weight}`;
+    const item = createDefaultItem(entry.name);
+    item.description = `${entry.fullName} | 价格: ${entry.price} | 重量: ${entry.weight}`;
     onSelect(item);
     onClose();
   }, [onSelect, onClose]);
@@ -332,7 +318,7 @@ export function EquipmentLibraryDialog({ open, onSelect, onClose }: EquipmentLib
                 {/* 通用物品列表 */}
                 {activeTab === "gear" && filteredGear.map((entry, i) => (
                   <div
-                    key={entry.cn + i}
+                    key={entry.name + i}
                     onClick={() => handleSelectGear(entry)}
                     style={{
                       padding: "8px 12px", cursor: "pointer", borderRadius: "4px",
@@ -343,9 +329,9 @@ export function EquipmentLibraryDialog({ open, onSelect, onClose }: EquipmentLib
                     onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; }}
                   >
                     <div>
-                      <div style={{ ...T, fontSize: "14px", fontWeight: 500 }}>{entry.cn}</div>
+                      <div style={{ ...T, fontSize: "14px", fontWeight: 500 }}>{entry.name}</div>
                       <div style={{ ...T, fontSize: "11px", color: sheetColors.textPlaceholder, marginTop: 2 }}>
-                        {entry.en} | {entry.cost} | {entry.weight}
+                        {entry.fullName} | {entry.price} | {entry.weight}
                       </div>
                     </div>
                     <div style={{ ...T, fontSize: "11px", color: sheetColors.textLighter, whiteSpace: "nowrap" }}>
@@ -357,7 +343,7 @@ export function EquipmentLibraryDialog({ open, onSelect, onClose }: EquipmentLib
                 {/* 武器列表 */}
                 {activeTab === "weapon" && filteredWeapons.map((entry, i) => (
                   <div
-                    key={entry.id + i}
+                    key={entry.label + i}
                     onClick={() => handleSelectWeapon(entry)}
                     style={{
                       padding: "8px 12px", cursor: "pointer", borderRadius: "4px",

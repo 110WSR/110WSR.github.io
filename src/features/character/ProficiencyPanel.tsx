@@ -9,10 +9,27 @@ import weaponsData  from "../../../data/weapons.json";
 import toolsData    from "../../../data/tools.json";
 import languagesData from "../../../data/languages.json";
 
-const ARMOR_GROUPS    = armorData    as OptionGroup[];
-const WEAPON_GROUPS   = weaponsData  as OptionGroup[];
-const TOOL_GROUPS     = toolsData    as OptionGroup[];
-const LANGUAGE_GROUPS = languagesData as OptionGroup[];
+// 将扁平数组转换为 OptionGroup[] 格式
+function toOptionGroup(items: Array<{name: string; fullName?: string; price?: string; weight?: string}>): OptionGroup[] {
+  return [{
+    label: "全部",
+    options: items.map(item => ({
+      id: item.name,
+      label: item.name,
+    })),
+  }];
+}
+
+const ARMOR_GROUPS: OptionGroup[] = Array.isArray(armorData) && !('options' in (armorData[0] || {}))
+  ? toOptionGroup(armorData as Array<{name: string; fullName?: string; price?: string; weight?: string}>)
+  : (armorData as unknown as OptionGroup[]);
+const WEAPON_GROUPS: OptionGroup[] = Array.isArray(weaponsData) && !('options' in (weaponsData[0] || {}))
+  ? toOptionGroup(weaponsData as Array<{name: string; fullName?: string; price?: string; weight?: string}>)
+  : (weaponsData as unknown as OptionGroup[]);
+const TOOL_GROUPS: OptionGroup[] = Array.isArray(toolsData) && !('options' in (toolsData[0] || {}))
+  ? toOptionGroup(toolsData as Array<{name: string; fullName?: string; price?: string; weight?: string}>)
+  : (toolsData as unknown as OptionGroup[]);
+const LANGUAGE_GROUPS = languagesData as unknown as OptionGroup[];
 
 interface ProficiencyPanelProps {
   className?: string;

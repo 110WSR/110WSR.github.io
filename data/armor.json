@@ -1,16 +1,132 @@
 [
   {
-    "label": "全部护甲",
-    "options": [
-      { "id": "light",  "label": "轻甲" },
-      { "id": "medium", "label": "中甲" },
-      { "id": "heavy",  "label": "重甲" }
-    ]
+    "name": "布甲",
+    "fullName": "布甲 (Padded)",
+    "category": "轻甲 (Light Armor)",
+    "price": "5 gp",
+    "ac": "11 + 敏捷调整值",
+    "strength": null,
+    "stealth": "劣势",
+    "weight": "8 磅"
   },
   {
-    "label": "盾牌",
-    "options": [
-      { "id": "shield", "label": "盾牌" }
-    ]
+    "name": "皮甲",
+    "fullName": "皮甲 (Leather)",
+    "category": "轻甲 (Light Armor)",
+    "price": "10 gp",
+    "ac": "11 + 敏捷调整值",
+    "strength": null,
+    "stealth": "正常",
+    "weight": "10 磅"
+  },
+  {
+    "name": "镶钉皮甲",
+    "fullName": "镶钉皮甲 (Studded leather)",
+    "category": "轻甲 (Light Armor)",
+    "price": "45 gp",
+    "ac": "12 + 敏捷调整值",
+    "strength": null,
+    "stealth": "正常",
+    "weight": "13 磅"
+  },
+  {
+    "name": "兽皮甲",
+    "fullName": "兽皮甲 (Hide)",
+    "category": "中甲 (Medium Armor)",
+    "price": "10 gp",
+    "ac": "12 + 敏捷调整值 (最大+2)",
+    "strength": null,
+    "stealth": "正常",
+    "weight": "12 磅"
+  },
+  {
+    "name": "链甲衫",
+    "fullName": "链甲衫 (Chain shirt)",
+    "category": "中甲 (Medium Armor)",
+    "price": "50 gp",
+    "ac": "13 + 敏捷调整值 (最大+2)",
+    "strength": null,
+    "stealth": "正常",
+    "weight": "20 磅"
+  },
+  {
+    "name": "鳞甲",
+    "fullName": "鳞甲 (Scale mail)",
+    "category": "中甲 (Medium Armor)",
+    "price": "50 gp",
+    "ac": "14 + 敏捷调整值 (最大+2)",
+    "strength": null,
+    "stealth": "劣势",
+    "weight": "45 磅"
+  },
+  {
+    "name": "胸甲",
+    "fullName": "胸甲 (Breastplate)",
+    "category": "中甲 (Medium Armor)",
+    "price": "400 gp",
+    "ac": "14 + 敏捷调整值 (最大+2)",
+    "strength": null,
+    "stealth": "正常",
+    "weight": "20 磅"
+  },
+  {
+    "name": "半身板甲",
+    "fullName": "半身板甲 (Half plate)",
+    "category": "中甲 (Medium Armor)",
+    "price": "750 gp",
+    "ac": "15 + 敏捷调整值 (最大+2)",
+    "strength": null,
+    "stealth": "劣势",
+    "weight": "40 磅"
+  },
+  {
+    "name": "环甲",
+    "fullName": "环甲 (Ring mail)",
+    "category": "重甲 (Heavy Armor)",
+    "price": "30 gp",
+    "ac": "14",
+    "strength": null,
+    "stealth": "劣势",
+    "weight": "40 磅"
+  },
+  {
+    "name": "链甲",
+    "fullName": "链甲 (Chain mail)",
+    "category": "重甲 (Heavy Armor)",
+    "price": "75 gp",
+    "ac": "16",
+    "strength": "力量 13",
+    "stealth": "劣势",
+    "weight": "55 磅"
+  },
+  {
+    "name": "板条甲",
+    "fullName": "板条甲 (Splint)",
+    "category": "重甲 (Heavy Armor)",
+    "price": "200 gp",
+    "ac": "17",
+    "strength": "力量 15",
+    "stealth": "劣势",
+    "weight": "60 磅"
+  },
+  {
+    "name": "板甲",
+    "fullName": "板甲 (Plate)",
+    "category": "重甲 (Heavy Armor)",
+    "price": "1500 gp",
+    "ac": "18",
+    "strength": "力量 15",
+    "stealth": "劣势",
+    "weight": "65 磅"
+  },
+  {
+    "name": "盾牌",
+    "fullName": "盾牌 (Shield)",
+    "category": "盾牌 (Shield)",
+    "price": "10 gp",
+    "ac": "+2",
+    "strength": null,
+    "stealth": "正常",
+    "weight": "6 磅"
   }
 ]

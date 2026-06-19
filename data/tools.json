@@ -1,67 +1,224 @@
 [
-  
   {
-    "label": "特殊工具",
-    "options": [
-      { "id": "disguise",  "label": "易容工具" },
-      { "id": "forgery",   "label": "文书伪造工具" },
-      { "id": "herbalism", "label": "草药工具"   },
-      { "id": "navigator", "label": "领航工具" },
-      { "id": "poisoner",  "label": "制毒工具"   },
-      { "id": "thieves",   "label": "盗贼工具" }
-    ]
+    "name": "炼金工具alchemist’s supplies",
+    "fullName": "炼金工具alchemist’s supplies",
+    "price": "50 gp",
+    "weight": "8磅"
   },
   {
-    "label": "工匠工具",
-    "options": [
-      { "id": "alchemist",     "label": "炼金工具" },
-      { "id": "brewer",        "label": "酿酒工具" },
-      { "id": "calligrapher",  "label": "书法工具" },
-      { "id": "carpenter",     "label": "木匠工具" },
-      { "id": "cartographer",  "label": "制图工具" },
-      { "id": "cobbler",       "label": "鞋匠工具" },
-      { "id": "cook",          "label": "厨师工具" },
-      { "id": "glassblower",   "label": "玻璃匠工具" },
-      { "id": "jeweler",       "label": "珠宝匠工具" },
-      { "id": "leatherworker", "label": "皮匠工具" },
-      { "id": "mason",         "label": "石匠工具" },
-      { "id": "painter",       "label": "画家工具" },
-      { "id": "potter",        "label": "陶匠工具" },
-      { "id": "smith",         "label": "铁匠工具" },
-      { "id": "tinker",        "label": "修补工具" },
-      { "id": "weaver",        "label": "织布工具" },
-      { "id": "woodcarver",    "label": "木雕工具" }
-    ]
+    "name": "酿酒工具brewer’s supplies",
+    "fullName": "酿酒工具brewer’s supplies",
+    "price": "20 gp",
+    "weight": "9磅"
   },
   {
-    "label": "乐器",
-    "options": [
-      { "id": "bagpipes", "label": "风笛"   },
-      { "id": "drum",     "label": "鼓"     },
-      { "id": "dulcimer", "label": "扬琴"   },
-      { "id": "flute",    "label": "长笛"   },
-      { "id": "lute",     "label": "鲁特琴" },
-      { "id": "lyre",     "label": "里拉琴" },
-      { "id": "horn",     "label": "角号"   },
-      { "id": "panflute", "label": "排箫"   },
-      { "id": "shawm",    "label": "芦笛" },
-      { "id": "viol",     "label": "提琴" }
-    ]
+    "name": "书法工具calligrapher’s supplies",
+    "fullName": "书法工具calligrapher’s supplies",
+    "price": "10 gp",
+    "weight": "5磅"
   },
   {
-    "label": "赌具",
-    "options": [
-      { "id": "dice",        "label": "骰子" },
-      { "id": "dragonchess", "label": "龙棋"     },
-      { "id": "card",       "label": "纸牌"   },
-      { "id": "threedragon", "label": "三龙牌" }
-    ]
+    "name": "木匠工具carpenter’s tools",
+    "fullName": "木匠工具carpenter’s tools",
+    "price": "8 gp",
+    "weight": "6磅"
   },
   {
-    "label": "载具",
-    "options": [
-      { "id": "land_vehicle",  "label": "陆地载具" },
-      { "id": "water_vehicle", "label": "水上载具" }
-    ]
+    "name": "制图工具cartographer’s tools",
+    "fullName": "制图工具cartographer’s tools",
+    "price": "15 gp",
+    "weight": "6磅"
+  },
+  {
+    "name": "鞋匠工具cobbler’s tools",
+    "fullName": "鞋匠工具cobbler’s tools",
+    "price": "5 gp",
+    "weight": "5磅"
+  },
+  {
+    "name": "厨师工具cook’s utensils",
+    "fullName": "厨师工具cook’s utensils",
+    "price": "1 gp",
+    "weight": "8磅"
+  },
+  {
+    "name": "玻璃匠工具glassblower’s tools",
+    "fullName": "玻璃匠工具glassblower’s tools",
+    "price": "30 gp",
+    "weight": "5磅"
+  },
+  {
+    "name": "珠宝匠工具jeweler’s tools",
+    "fullName": "珠宝匠工具jeweler’s tools",
+    "price": "25 gp",
+    "weight": "2磅"
+  },
+  {
+    "name": "皮匠工具leatherworker’s tools",
+    "fullName": "皮匠工具leatherworker’s tools",
+    "price": "5 gp",
+    "weight": "5磅"
+  },
+  {
+    "name": "泥瓦匠工具mason’s tools",
+    "fullName": "泥瓦匠工具mason’s tools",
+    "price": "10 gp",
+    "weight": "8磅"
+  },
+  {
+    "name": "画家工具painter’s supplies",
+    "fullName": "画家工具painter’s supplies",
+    "price": "10 gp",
+    "weight": "5磅"
+  },
+  {
+    "name": "陶匠工具potter’s tools",
+    "fullName": "陶匠工具potter’s tools",
+    "price": "10 gp",
+    "weight": "3磅"
+  },
+  {
+    "name": "铁匠工具smith’s tools",
+    "fullName": "铁匠工具smith’s tools",
+    "price": "20 gp",
+    "weight": "8磅"
+  },
+  {
+    "name": "修补工具tinker’s tools",
+    "fullName": "修补工具tinker’s tools",
+    "price": "50 gp",
+    "weight": "10磅"
+  },
+  {
+    "name": "织布工具weaver’s tools",
+    "fullName": "织布工具weaver’s tools",
+    "price": "1 gp",
+    "weight": "5磅"
+  },
+  {
+    "name": "木雕工具woodcarver’s tools",
+    "fullName": "木雕工具woodcarver’s tools",
+    "price": "1 gp",
+    "weight": "5磅"
+  },
+  {
+    "name": "伪造套件forgery kit",
+    "fullName": "伪造套件forgery kit",
+    "price": "15 gp",
+    "weight": "5磅"
+  },
+  {
+    "name": "骰子套装dice set",
+    "fullName": "骰子套装dice set",
+    "price": "1 sp",
+    "weight": "0 磅"
+  },
+  {
+    "name": "龙棋套装dragon ante set",
+    "fullName": "龙棋套装dragon ante set",
+    "price": "1 gp",
+    "weight": "0 磅"
+  },
+  {
+    "name": "法师棋套装three-dragon ante set",
+    "fullName": "法师棋套装three-dragon ante set",
+    "price": "1 gp",
+    "weight": "0 磅"
+  },
+  {
+    "name": "草药工具herbalism kit",
+    "fullName": "草药工具herbalism kit",
+    "price": "5 gp",
+    "weight": "3磅"
+  },
+  {
+    "name": "风笛bagpipes",
+    "fullName": "风笛bagpipes",
+    "price": "30 gp",
+    "weight": "6磅"
+  },
+  {
+    "name": "鼓drum",
+    "fullName": "鼓drum",
+    "price": "6 gp",
+    "weight": "3磅"
+  },
+  {
+    "name": "扬琴dulcimer",
+    "fullName": "扬琴dulcimer",
+    "price": "25 gp",
+    "weight": "10磅"
+  },
+  {
+    "name": "长笛flute",
+    "fullName": "长笛flute",
+    "price": "2 gp",
+    "weight": "1磅"
+  },
+  {
+    "name": "鲁特琴lute",
+    "fullName": "鲁特琴lute",
+    "price": "35 gp",
+    "weight": "2磅"
+  },
+  {
+    "name": "里拉琴lyre",
+    "fullName": "里拉琴lyre",
+    "price": "30 gp",
+    "weight": "2磅"
+  },
+  {
+    "name": "圆号horn",
+    "fullName": "圆号horn",
+    "price": "3 gp",
+    "weight": "2磅"
+  },
+  {
+    "name": "排箫pan flute",
+    "fullName": "排箫pan flute",
+    "price": "12 gp",
+    "weight": "2磅"
+  },
+  {
+    "name": "肖姆管shawm",
+    "fullName": "肖姆管shawm",
+    "price": "2 gp",
+    "weight": "1磅"
+  },
+  {
+    "name": "维奥尔琴viol",
+    "fullName": "维奥尔琴viol",
+    "price": "30 gp",
+    "weight": "1磅"
+  },
+  {
+    "name": "领航工具navigator’s tools",
+    "fullName": "领航工具navigator’s tools",
+    "price": "25 gp",
+    "weight": "2磅"
+  },
+  {
+    "name": "中毒套件poisoner’s kit",
+    "fullName": "中毒套件poisoner’s kit",
+    "price": "50 gp",
+    "weight": "2磅"
+  },
+  {
+    "name": "盗贼工具thieves’ tools",
+    "fullName": "盗贼工具thieves’ tools",
+    "price": "25 gp",
+    "weight": "1磅"
+  },
+  {
+    "name": "水运载具vehicles",
+    "fullName": "水运载具vehicles",
+    "price": "(water) -",
+    "weight": "0 磅"
+  },
+  {
+    "name": "陆运载具vehicles",
+    "fullName": "陆运载具vehicles",
+    "price": "(land) -",
+    "weight": "0 磅"
   }
 ]

@@ -1,842 +1,338 @@
 [
   {
-    "cn": "算盘",
-    "en": "abacus",
-    "cost": "2 gp",
-    "weight": "2磅",
-    "category": "通用物品"
+    "name": "算盘abacus",
+    "fullName": "算盘abacus",
+    "price": "2 gp",
+    "weight": "2磅"
   },
   {
-    "cn": "水晶",
-    "en": "crystal",
-    "cost": "10 gp",
-    "weight": "1磅",
-    "category": "法器"
+    "name": "强酸acid（小瓶vial）",
+    "fullName": "强酸acid（小瓶vial）",
+    "price": "25 gp",
+    "weight": "1磅"
   },
   {
-    "cn": "法球",
-    "en": "orb",
-    "cost": "20 gp",
-    "weight": "3磅",
-    "category": "法器"
+    "name": "炽火胶alchemist’s fire",
+    "fullName": "炽火胶alchemist’s fire(扁瓶flask)",
+    "price": "50 gp",
+    "weight": "1磅"
   },
   {
-    "cn": "权杖",
-    "en": "rod",
-    "cost": "10 gp",
-    "weight": "2磅",
-    "category": "法器"
+    "name": "箭arrows",
+    "fullName": "箭arrows(20)",
+    "price": "1 gp",
+    "weight": "1磅"
   },
   {
-    "cn": "法杖",
-    "en": "staff",
-    "cost": "5 gp",
-    "weight": "4磅",
-    "category": "法器"
+    "name": "吹矢blowgun needles",
+    "fullName": "吹矢blowgun needles(50)",
+    "price": "1 gp",
+    "weight": "1磅"
   },
   {
-    "cn": "魔杖",
-    "en": "wand",
-    "cost": "10 gp",
-    "weight": "1磅",
-    "category": "法器"
+    "name": "弩矢crossbow bolts",
+    "fullName": "弩矢crossbow bolts(20)",
+    "price": "1 gp",
+    "weight": "1.5磅"
   },
   {
-    "cn": "背包",
-    "en": "backpack",
-    "cost": "2 gp",
-    "weight": "5磅",
-    "category": "法器"
+    "name": "投石索弹丸sling bullets",
+    "fullName": "投石索弹丸sling bullets(20)",
+    "price": "4 cp",
+    "weight": "1.5磅"
   },
   {
-    "cn": "粗腰桶",
-    "en": "barrel",
-    "cost": "2 gp",
-    "weight": "70磅",
-    "category": "法器"
+    "name": "抗毒剂antitoxin（小瓶vial）",
+    "fullName": "抗毒剂antitoxin（小瓶vial）",
+    "price": "50 gp",
+    "weight": "0 磅"
   },
   {
-    "cn": "篮子",
-    "en": "basket",
-    "cost": "4 sp",
-    "weight": "2磅",
-    "category": "法器"
+    "name": "水晶crystal",
+    "fullName": "水晶crystal",
+    "price": "10 gp",
+    "weight": "1磅"
   },
   {
-    "cn": "铺盖",
-    "en": "bedroll",
-    "cost": "1 gp",
-    "weight": "7磅",
-    "category": "法器"
+    "name": "法球orb",
+    "fullName": "法球orb",
+    "price": "20 gp",
+    "weight": "3磅"
   },
   {
-    "cn": "铃铛",
-    "en": "bell",
-    "cost": "1 gp",
-    "weight": "－",
-    "category": "法器"
+    "name": "权杖rod",
+    "fullName": "权杖rod",
+    "price": "10 gp",
+    "weight": "2磅"
   },
   {
-    "cn": "毯子",
-    "en": "blanket",
-    "cost": "5 sp",
-    "weight": "3磅",
-    "category": "法器"
+    "name": "法杖staff",
+    "fullName": "法杖staff",
+    "price": "5 gp",
+    "weight": "4磅"
   },
   {
-    "cn": "滑轮组",
-    "en": "block and tackle",
-    "cost": "5 gp",
-    "weight": "5磅",
-    "category": "法器"
+    "name": "魔杖wand",
+    "fullName": "魔杖wand",
+    "price": "10 gp",
+    "weight": "1磅"
   },
   {
-    "cn": "书本",
-    "en": "book",
-    "cost": "28 gp",
-    "weight": "5磅",
-    "category": "法器"
+    "name": "背包backpack",
+    "fullName": "背包backpack",
+    "price": "2 gp",
+    "weight": "5磅"
   },
   {
-    "cn": "玻璃瓶",
-    "en": "bottle, glass",
-    "cost": "2 gp",
-    "weight": "2磅",
-    "category": "法器"
+    "name": "滚珠ball bearings（1,000个小袋装）",
+    "fullName": "滚珠ball bearings（1,000个小袋装）",
+    "price": "1 gp",
+    "weight": "2磅"
   },
   {
-    "cn": "吊桶",
-    "en": "bucket",
-    "cost": "5 cp",
-    "weight": "2磅",
-    "category": "法器"
+    "name": "粗腰桶barrel",
+    "fullName": "粗腰桶barrel",
+    "price": "2 gp",
+    "weight": "70磅"
   },
   {
-    "cn": "蜡烛",
-    "en": "candle",
-    "cost": "1 cp",
-    "weight": "－",
-    "category": "法器"
+    "name": "篮子basket",
+    "fullName": "篮子basket",
+    "price": "4 sp",
+    "weight": "2磅"
   },
   {
-    "cn": "弩矢匣",
-    "en": "crossbow bolt case",
-    "cost": "1 gp",
-    "weight": "1磅",
-    "category": "法器"
+    "name": "睡袋bedroll",
+    "fullName": "睡袋bedroll",
+    "price": "1 gp",
+    "weight": "7磅"
   },
   {
-    "cn": "地图或卷轴匣",
-    "en": "map or scroll case",
-    "cost": "1 gp",
-    "weight": "1磅",
-    "category": "法器"
+    "name": "铃铛bell",
+    "fullName": "铃铛bell",
+    "price": "1 gp",
+    "weight": "0 磅"
   },
   {
-    "cn": "箱子",
-    "en": "chest",
-    "cost": "5 gp",
-    "weight": "25磅",
-    "category": "法器"
+    "name": "毯子blanket",
+    "fullName": "毯子blanket",
+    "price": "5 sp",
+    "weight": "3磅"
   },
   {
-    "cn": "攀爬工具",
-    "en": "climber’s kit",
-    "cost": "25 gp",
-    "weight": "12磅",
-    "category": "法器"
+    "name": "滑轮组block and tackle",
+    "fullName": "滑轮组block and tackle",
+    "price": "1 gp",
+    "weight": "5磅"
   },
   {
-    "cn": "普通服装",
-    "en": "clothes, common",
-    "cost": "5 sp",
-    "weight": "3磅",
-    "category": "法器"
+    "name": "书book",
+    "fullName": "书book",
+    "price": "25 gp",
+    "weight": "5磅"
   },
   {
-    "cn": "表演服装",
-    "en": "clothes, costume",
-    "cost": "5 gp",
-    "weight": "4磅",
-    "category": "法器"
+    "name": "玻璃瓶bottle, glass",
+    "fullName": "玻璃瓶bottle, glass",
+    "price": "2 gp",
+    "weight": "2磅"
   },
   {
-    "cn": "高档服装",
-    "en": "clothes, fine",
-    "cost": "15 gp",
-    "weight": "6磅",
-    "category": "法器"
+    "name": "铃铛bell",
+    "fullName": "铃铛bell",
+    "price": "1 gp",
+    "weight": "0 磅"
   },
   {
-    "cn": "旅行者服装",
-    "en": "clothes, traveler’s",
-    "cost": "2 gp",
-    "weight": "4磅",
-    "category": "法器"
+    "name": "毯子blanket",
+    "fullName": "毯子blanket",
+    "price": "5 sp",
+    "weight": "3磅"
   },
   {
-    "cn": "材料包",
-    "en": "component pouch",
-    "cost": "25 gp",
-    "weight": "2磅",
-    "category": "法器"
+    "name": "滑轮组block and tackle",
+    "fullName": "滑轮组block and tackle",
+    "price": "1 gp",
+    "weight": "5磅"
   },
   {
-    "cn": "撬棍",
-    "en": "crowbar",
-    "cost": "2 gp",
-    "weight": "5磅",
-    "category": "法器"
+    "name": "书book",
+    "fullName": "书book",
+    "price": "25 gp",
+    "weight": "5磅"
   },
   {
-    "cn": "槲寄生枝条",
-    "en": "sprig of mistletoe",
-    "cost": "1 gp",
-    "weight": "－",
-    "category": "法器"
+    "name": "玻璃瓶bottle, glass",
+    "fullName": "玻璃瓶bottle, glass",
+    "price": "2 gp",
+    "weight": "2磅"
   },
   {
-    "cn": "图腾",
-    "en": "totem",
-    "cost": "1 gp",
-    "weight": "－",
-    "category": "法器"
+    "name": "木桶bucket",
+    "fullName": "木桶bucket",
+    "price": "5 cp",
+    "weight": "2磅"
   },
   {
-    "cn": "木质法杖",
-    "en": "wooden staff",
-    "cost": "5 gp",
-    "weight": "4磅",
-    "category": "法器"
+    "name": "铁蒺藜caltrops（20个小袋装）",
+    "fullName": "铁蒺藜caltrops（20个小袋装）",
+    "price": "1 gp",
+    "weight": "2磅"
   },
   {
-    "cn": "紫杉魔杖",
-    "en": "yew wand",
-    "cost": "10 gp",
-    "weight": "1磅",
-    "category": "法器"
+    "name": "蜡烛candle",
+    "fullName": "蜡烛candle",
+    "price": "1 cp",
+    "weight": "0 磅"
   },
   {
-    "cn": "渔具",
-    "en": "fishing tackle",
-    "cost": "1 gp",
-    "weight": "4磅",
-    "category": "法器"
+    "name": "弩矢匣case, crossbow bolt",
+    "fullName": "弩矢匣case, crossbow bolt",
+    "price": "1 gp",
+    "weight": "1磅"
   },
   {
-    "cn": "扁瓶",
-    "en": "flask或大杯tankard",
-    "cost": "2 cp",
-    "weight": "1磅",
-    "category": "法器"
+    "name": "地图/卷轴匣case, map or scroll",
+    "fullName": "地图/卷轴匣case, map or scroll",
+    "price": "1 gp",
+    "weight": "1磅"
   },
   {
-    "cn": "爪钩",
-    "en": "grappling hook",
-    "cost": "2 gp",
-    "weight": "4磅",
-    "category": "法器"
+    "name": "链条chain（10尺）",
+    "fullName": "链条chain（10尺）",
+    "price": "5 gp",
+    "weight": "10磅"
   },
   {
-    "cn": "锤子",
-    "en": "hammer",
-    "cost": "1 gp",
-    "weight": "3磅",
-    "category": "法器"
+    "name": "粉笔chalk（1块）",
+    "fullName": "粉笔chalk（1块）",
+    "price": "1 cp",
+    "weight": "0 磅"
   },
   {
-    "cn": "大锤",
-    "en": "sledge hammer",
-    "cost": "2 gp",
-    "weight": "10磅",
-    "category": "法器"
+    "name": "箱子chest",
+    "fullName": "箱子chest",
+    "price": "5 gp",
+    "weight": "25磅"
   },
   {
-    "cn": "医疗包",
-    "en": "healer’s kit",
-    "cost": "5 gp",
-    "weight": "3磅",
-    "category": "法器"
+    "name": "攀爬套件climber’s kit",
+    "fullName": "攀爬套件climber’s kit",
+    "price": "25 gp",
+    "weight": "12磅"
   },
   {
-    "cn": "护符",
-    "en": "amulet",
-    "cost": "5 gp",
-    "weight": "1磅",
-    "category": "通用物品"
+    "name": "普通衣服clothes, common",
+    "fullName": "普通衣服clothes, common",
+    "price": "5 sp",
+    "weight": "3磅"
   },
   {
-    "cn": "徽章",
-    "en": "emblem",
-    "cost": "5 gp",
-    "weight": "－",
-    "category": "通用物品"
+    "name": "演出服clothes, costume",
+    "fullName": "演出服clothes, costume",
+    "price": "5 gp",
+    "weight": "4磅"
   },
   {
-    "cn": "圣物匣",
-    "en": "reliquary",
-    "cost": "5 gp",
-    "weight": "2磅",
-    "category": "通用物品"
+    "name": "高级衣服clothes, fine",
+    "fullName": "高级衣服clothes, fine",
+    "price": "15 gp",
+    "weight": "6磅"
   },
   {
-    "cn": "狩猎陷阱",
-    "en": "hunting trap",
-    "cost": "5 gp",
-    "weight": "25磅",
-    "category": "通用物品"
+    "name": "旅行者衣服clothes, traveler’s",
+    "fullName": "旅行者衣服clothes, traveler’s",
+    "price": "2 gp",
+    "weight": "4磅"
   },
   {
-    "cn": "墨水笔",
-    "en": "ink pen",
-    "cost": "2 cp",
-    "weight": "－",
-    "category": "通用物品"
+    "name": "杂物箱component pouch",
+    "fullName": "杂物箱component pouch",
+    "price": "25 gp",
+    "weight": "2磅"
   },
   {
-    "cn": "壶",
-    "en": "jug或罐pitcher",
-    "cost": "2 cp",
-    "weight": "4磅",
-    "category": "通用物品"
+    "name": "撬棍crowbar",
+    "fullName": "撬棍crowbar",
+    "price": "2 gp",
+    "weight": "5磅"
   },
   {
-    "cn": "油灯",
-    "en": "lamp",
-    "cost": "5 sp",
-    "weight": "1磅",
-    "category": "通用物品"
+    "name": "护符amulet",
+    "fullName": "护符amulet",
+    "price": "5 gp",
+    "weight": "1磅"
   },
   {
-    "cn": "牛眼提灯",
-    "en": "bullseye lantern",
-    "cost": "10 gp",
-    "weight": "2磅",
-    "category": "通用物品"
+    "name": "圣徽emblem",
+    "fullName": "圣徽emblem",
+    "price": "5 gp",
+    "weight": "0 磅"
   },
   {
-    "cn": "附盖提灯",
-    "en": "hooded lantern",
-    "cost": "5 gp",
-    "weight": "2磅",
-    "category": "通用物品"
+    "name": "圣物匣reliquary",
+    "fullName": "圣物匣reliquary",
+    "price": "5 gp",
+    "weight": "2磅"
   },
   {
-    "cn": "锁",
-    "en": "lock",
-    "cost": "10 gp",
-    "weight": "1磅",
-    "category": "通用物品"
+    "name": "槲寄生枝sprig of mistletoe",
+    "fullName": "槲寄生枝sprig of mistletoe",
+    "price": "1 gp",
+    "weight": "0 磅"
   },
   {
-    "cn": "放大镜",
-    "en": "magnifying glass",
-    "cost": "100 gp",
-    "weight": "－",
-    "category": "通用物品"
+    "name": "图腾totem",
+    "fullName": "图腾totem",
+    "price": "1 gp",
+    "weight": "0 磅"
   },
   {
-    "cn": "镣铐",
-    "en": "manacles",
-    "cost": "2 gp",
-    "weight": "6磅",
-    "category": "通用物品"
+    "name": "木杖wooden staff",
+    "fullName": "木杖wooden staff",
+    "price": "5 gp",
+    "weight": "4磅"
   },
   {
-    "cn": "野炊工具",
-    "en": "mess kit",
-    "cost": "2 sp",
-    "weight": "1磅",
-    "category": "通用物品"
+    "name": "紫衫木魔杖yew wand",
+    "fullName": "紫衫木魔杖yew wand",
+    "price": "10 gp",
+    "weight": "1磅"
   },
   {
-    "cn": "钢面镜",
-    "en": "steel mirror",
-    "cost": "5 gp",
-    "weight": "1/2磅",
-    "category": "通用物品"
+    "name": "地牢探险套件dungeoneer’s pack",
+    "fullName": "地牢探险套件dungeoneer’s pack",
+    "price": "12 gp",
+    "weight": "61.5磅"
   },
   {
-    "cn": "矿工镐",
-    "en": "miner’s pick",
-    "cost": "2 gp",
-    "weight": "10磅",
-    "category": "通用物品"
+    "name": "帐篷tent, two-person",
+    "fullName": "帐篷tent, two-person",
+    "price": "2 gp",
+    "weight": "20磅"
   },
   {
-    "cn": "岩钉",
-    "en": "piton",
-    "cost": "5 cp",
-    "weight": "1/4磅",
-    "category": "通用物品"
+    "name": "火把torch",
+    "fullName": "火把torch",
+    "price": "1 cp",
+    "weight": "1磅"
   },
   {
-    "cn": "铁壶",
-    "en": "iron pot",
-    "cost": "2 gp",
-    "weight": "10磅",
-    "category": "通用物品"
+    "name": "火柴tinderbox",
+    "fullName": "火柴tinderbox",
+    "price": "5 sp",
+    "weight": "1磅"
   },
   {
-    "cn": "治疗药水",
-    "en": "potion of healing",
-    "cost": "50 gp",
-    "weight": "1/2磅",
-    "category": "通用物品"
+    "name": "水袋waterskin",
+    "fullName": "水袋waterskin",
+    "price": "2 sp",
+    "weight": "5磅"
   },
   {
-    "cn": "小包",
-    "en": "pouch",
-    "cost": "5 sp",
-    "weight": "1磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "箭袋",
-    "en": "quiver",
-    "cost": "1 gp",
-    "weight": "1磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "便携式攻城锤",
-    "en": "portable ram",
-    "cost": "4 gp",
-    "weight": "35磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "长袍",
-    "en": "robes",
-    "cost": "1 gp",
-    "weight": "4磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "大袋子",
-    "en": "sack",
-    "cost": "1 cp",
-    "weight": "1/2磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "商用天平",
-    "en": "merchant’s scale",
-    "cost": "5 gp",
-    "weight": "3磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "封蜡",
-    "en": "sealing wax",
-    "cost": "5 sp",
-    "weight": "－",
-    "category": "通用物品"
-  },
-  {
-    "cn": "铲子",
-    "en": "shovel",
-    "cost": "2 gp",
-    "weight": "5磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "信号笛",
-    "en": "signal whistle",
-    "cost": "5 cp",
-    "weight": "－",
-    "category": "通用物品"
-  },
-  {
-    "cn": "玺戒",
-    "en": "signet ring",
-    "cost": "5 gp",
-    "weight": "－",
-    "category": "通用物品"
-  },
-  {
-    "cn": "肥皂",
-    "en": "soap",
-    "cost": "2 cp",
-    "weight": "－",
-    "category": "通用物品"
-  },
-  {
-    "cn": "法术书",
-    "en": "spellbook",
-    "cost": "50 gp",
-    "weight": "3磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "双人帐篷two-",
-    "en": "person tent",
-    "cost": "2 gp",
-    "weight": "20磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "火绒盒",
-    "en": "tinderbox",
-    "cost": "5 sp",
-    "weight": "1磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "火把",
-    "en": "torch",
-    "cost": "1 cp",
-    "weight": "1磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "小瓶",
-    "en": "vial",
-    "cost": "1 gp",
-    "weight": "－",
-    "category": "通用物品"
-  },
-  {
-    "cn": "水袋",
-    "en": "waterskin",
-    "cost": "2 sp",
-    "weight": "5磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "磨刀石",
-    "en": "whetstone",
-    "cost": "1 cp",
-    "weight": "1磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "炼金工具",
-    "en": "alchemist’s supplies",
-    "cost": "50 gp",
-    "weight": "8磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "酿酒工具",
-    "en": "brewer’s supplies",
-    "cost": "20 gp",
-    "weight": "9磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "书法工具",
-    "en": "calligrapher’s supplies",
-    "cost": "10 gp",
-    "weight": "5磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "木匠工具",
-    "en": "carpenter’s tools",
-    "cost": "8 gp",
-    "weight": "6磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "制图工具",
-    "en": "cartographer’s tools",
-    "cost": "15 gp",
-    "weight": "6磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "鞋匠工具",
-    "en": "cobbler’s tools",
-    "cost": "5 gp",
-    "weight": "5磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "厨师工具",
-    "en": "cook’s utensils",
-    "cost": "1 gp",
-    "weight": "8磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "玻璃匠工具",
-    "en": "glassblower’s tools",
-    "cost": "30 gp",
-    "weight": "5磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "珠宝匠工具",
-    "en": "jeweler’s tools",
-    "cost": "25 gp",
-    "weight": "2磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "皮匠工具",
-    "en": "leatherworker’s tools",
-    "cost": "5 gp",
-    "weight": "5磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "泥瓦匠工具",
-    "en": "mason’s tools",
-    "cost": "10 gp",
-    "weight": "8磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "画家工具",
-    "en": "painter’s supplies",
-    "cost": "10 gp",
-    "weight": "5磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "陶匠工具",
-    "en": "potter’s tools",
-    "cost": "10 gp",
-    "weight": "3磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "铁匠工具",
-    "en": "smith’s tools",
-    "cost": "20 gp",
-    "weight": "8磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "修补工具",
-    "en": "tinker’s tools",
-    "cost": "50 gp",
-    "weight": "10磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "织布工具",
-    "en": "weaver’s tools",
-    "cost": "1 gp",
-    "weight": "5磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "木雕工具",
-    "en": "woodcarver’s tools",
-    "cost": "1 gp",
-    "weight": "5磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "易容工具",
-    "en": "disguise kit",
-    "cost": "25 gp",
-    "weight": "3磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "文书伪造工具",
-    "en": "forgery kit",
-    "cost": "15 gp",
-    "weight": "5磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "整副骰子",
-    "en": "dice set",
-    "cost": "1 sp",
-    "weight": "－",
-    "category": "通用物品"
-  },
-  {
-    "cn": "整副纸牌",
-    "en": "playing card set",
-    "cost": "5 sp",
-    "weight": "－",
-    "category": "通用物品"
-  },
-  {
-    "cn": "整副三龙牌Three-",
-    "en": "Dragon Ante set",
-    "cost": "5 gp",
-    "weight": "3磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "草药工具",
-    "en": "herbalism kit",
-    "cost": "5 gp",
-    "weight": "3磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "风笛",
-    "en": "bagpipes",
-    "cost": "30 gp",
-    "weight": "6磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "鼓",
-    "en": "drum",
-    "cost": "6 gp",
-    "weight": "3磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "扬琴",
-    "en": "dulcimer",
-    "cost": "25 gp",
-    "weight": "10磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "长笛",
-    "en": "flute",
-    "cost": "2 gp",
-    "weight": "1磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "鲁特琴",
-    "en": "lute",
-    "cost": "35 gp",
-    "weight": "2磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "里拉琴",
-    "en": "lyre",
-    "cost": "30 gp",
-    "weight": "2磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "角号",
-    "en": "horn",
-    "cost": "3 gp",
-    "weight": "2磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "排箫",
-    "en": "pan flute",
-    "cost": "12 gp",
-    "weight": "2磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "芦笛",
-    "en": "shawm",
-    "cost": "2 gp",
-    "weight": "1磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "提琴",
-    "en": "viol",
-    "cost": "30 gp",
-    "weight": "1磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "领航工具",
-    "en": "navigator’s tools",
-    "cost": "25 gp",
-    "weight": "2磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "制毒工具",
-    "en": "poisoner’s kit",
-    "cost": "50 gp",
-    "weight": "2磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "盗贼工具",
-    "en": "thieve’s tools",
-    "cost": "25 gp",
-    "weight": "1磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "辔具",
-    "en": "bit and bridle",
-    "cost": "2 gp",
-    "weight": "1磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "四轮客车",
-    "en": "carriage",
-    "cost": "100 gp",
-    "weight": "600磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "二轮货车",
-    "en": "cart",
-    "cost": "15 gp",
-    "weight": "200磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "二轮战车",
-    "en": "chariot",
-    "cost": "250 gp",
-    "weight": "100磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "特制",
-    "en": "exotic",
-    "cost": "60 gp",
-    "weight": "40磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "军用",
-    "en": "military",
-    "cost": "20 gp",
-    "weight": "30磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "驮役",
-    "en": "pack",
-    "cost": "5 gp",
-    "weight": "15磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "骑乘",
-    "en": "riding",
-    "cost": "10 gp",
-    "weight": "25磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "鞍囊",
-    "en": "saddlebags",
-    "cost": "4 gp",
-    "weight": "8磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "木橇",
-    "en": "sled",
-    "cost": "20 gp",
-    "weight": "300磅",
-    "category": "通用物品"
-  },
-  {
-    "cn": "四轮货车",
-    "en": "wagon",
-    "cost": "35 gp",
-    "weight": "400磅",
-    "category": "通用物品"
+    "name": "磨刀石whetstone",
+    "fullName": "磨刀石whetstone",
+    "price": "1 cp",
+    "weight": "1磅"
   }
 ]

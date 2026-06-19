@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import SectionContainer from "../../shared/ui/SectionContainer";
 import ScrollArea from "../../shared/ui/ScrollArea";
 import { useCharacter } from "../../shared/storage/CharacterContext";
-import type { Item } from "../../shared/types/types";
+import type { Item, AttackEntry } from "../../shared/types/types";
 import { createDefaultItem } from "../../shared/types/types";
 import { ItemDialog } from "./ItemDialog";
 import { ItemTooltip } from "./ItemTooltip";
@@ -170,7 +170,7 @@ export default function EquipmentPanel({ className }: EquipmentPanelProps) {
     items[hoveredIndex].features.length > 0 || !!items[hoveredIndex].description
   );
 
-  // 移入库存
+  // ── 移入库存（装备栏 → 库存） ──
   const handleMoveToInventory = useCallback((index: number) => {
     const item = items[index];
     if (!item) return;
@@ -183,7 +183,7 @@ export default function EquipmentPanel({ className }: EquipmentPanelProps) {
     setContextMenu(null);
   }, [items, character, updateCharacter]);
 
-  // 从库存取回物品到装备栏
+  // ── 从库存取回指定物品（库存 → 装备栏） ──
   const handleFetchFromInventory = useCallback(() => {
     if (!character?.inventory) return;
     const lines = character.inventory.split("\n").filter(Boolean);
@@ -212,6 +212,25 @@ export default function EquipmentPanel({ className }: EquipmentPanelProps) {
     }
     setContextMenu(null);
   }, [character, items, updateCharacter]);
+
+  // ── 移入攻击栏（装备栏 → 攻击栏，仅武器） ──
+  const handleMoveToAttack = useCallback((index: number) => {
+    const item = items[index];
+    if (!item || !item.isWeapon) return;
+    const attackEntries = character?.attackEntries ?? [];
+    // 检查是否已在攻击栏
+    if (attackEntries.some(e => e.type === "weapon" && e.refId === item.id)) return;
+    const newEntry: AttackEntry = {
+      id: `attack_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`,
+      type: "weapon",
+      refId: item.id,
+    };
+    updateCharacter({ attackEntries: [...attackEntries, newEntry] });
+    setContextMenu(null);
+  }, [items, character, updateCharacter]);
+
+  // ── 从攻击栏取回（攻击栏 → 装备栏） ──
+  // 这个功能在攻击栏的右键菜单中实现，这里不需要
 
   return (
     <>
@@ -377,6 +396,22 @@ export default function EquipmentPanel({ className }: EquipmentPanelProps) {
             >
               从库存取回
             </div>
+            {/* 武器专属：移入攻击栏 */}
+            {items[contextMenu.index]?.isWeapon && (
+              <div
+                onClick={() => handleMoveToAttack(contextMenu.index)}
+                style={{
+                  padding: "4px 10px",
+                  fontSize: "12px",
+                  color: sheetColors.textDark,
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = sheetColors.hoverBg; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; }}
+              >
+                移入攻击栏
+              </div>
+            )}
             <div
               onClick={() => handleDeleteItemFromMenu(contextMenu.index)}
               style={{

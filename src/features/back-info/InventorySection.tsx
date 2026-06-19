@@ -62,6 +62,20 @@ export default function InventorySection({ value, onChange }: InventorySectionPr
     }
   }, [value, onChange, items, updateCharacter]);
 
+  // 从装备栏取回（装备栏 → 库存）
+  const handleFetchFromEquipment = useCallback(() => {
+    if (!items || items.length === 0) return;
+    // 取回最后一件装备
+    const lastItem = items[items.length - 1];
+    const label = lastItem.quantity > 1 ? `${lastItem.name}×${lastItem.quantity}` : lastItem.name;
+    const prefix = value ? `${value}\n` : "";
+    onChange(`${prefix}${label}`);
+    // 从装备栏移除
+    const newItems = items.filter((_, i) => i !== items.length - 1);
+    updateCharacter({ items: newItems });
+    setContextMenu(null);
+  }, [items, value, onChange, updateCharacter]);
+
   // 从装备库选择后添加到库存
   const handleLibrarySelect = useCallback((item: Item) => {
     const label = item.quantity > 1 ? `${item.name}×${item.quantity}` : item.name;
@@ -176,6 +190,19 @@ export default function InventorySection({ value, onChange }: InventorySectionPr
               onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; }}
             >
               移入装备栏
+            </div>
+            <div
+              onClick={handleFetchFromEquipment}
+              style={{
+                padding: "4px 10px",
+                fontSize: "12px",
+                color: sheetColors.textDark,
+                cursor: "pointer",
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = sheetColors.hoverBg; }}
+              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; }}
+            >
+              从装备栏取回
             </div>
             <div
               onClick={() => {

@@ -12,6 +12,7 @@ import type { Item, AttackEntry, SpellData, ExtraBonus } from "../../shared/type
 import { ItemDialog } from "./ItemDialog";
 import { SpellDialog } from "../spells/SpellDialog";
 import SpellTip from "../spells/SpellTip";
+import AttackContextMenu from "./AttackContextMenu";
 
 interface AttackPanelProps {
   className?: string;
@@ -405,7 +406,7 @@ export default function AttackPanel({ className }: AttackPanelProps) {
     return 'none';
   };
 
-  // ── 右键删除 ──
+  // ── 右键菜单 ──
   const handleContextMenu = useCallback((e: React.MouseEvent, index: number) => {
     e.preventDefault();
     if (index < safeEntries.length) {
@@ -418,6 +419,30 @@ export default function AttackPanel({ className }: AttackPanelProps) {
     setAttackEntries(newEntries);
     setContextMenu(null);
   }, [safeEntries, setAttackEntries]);
+
+  // ── 从攻击栏移入装备栏（仅武器） ──
+  const handleMoveToEquipment = useCallback((index: number) => {
+    const entry = safeEntries[index];
+    if (!entry || entry.type !== "weapon") return;
+    // 攻击栏条目只是引用，物品已在装备栏中，只需删除攻击条目
+    const newEntries = safeEntries.filter((_, i) => i !== index);
+    setAttackEntries(newEntries);
+    setContextMenu(null);
+  }, [safeEntries, setAttackEntries]);
+
+  // ── 从攻击栏移入库存（仅武器） ──
+  const handleMoveToInventory = useCallback((index: number) => {
+    const entry = safeEntries[index];
+    if (!entry || entry.type !== "weapon") return;
+    const item = items.find(it => it.id === entry.refId);
+    if (!item) return;
+    const label = item.quantity > 1 ? `${item.name}×${item.quantity}` : item.name;
+    const prefix = character?.inventory ? `${character.inventory}\n` : "";
+    const newItems = items.filter(it => it.id !== item.id);
+    const newEntries = safeEntries.filter((_, i) => i !== index);
+    updateCharacter({ inventory: `${prefix}${label}`, items: newItems, attackEntries: newEntries });
+    setContextMenu(null);
+  }, [safeEntries, items, character, updateCharacter]);
 
   const currentDisplay = hover ? displayList[hover.index] : null;
 
@@ -685,44 +710,19 @@ export default function AttackPanel({ className }: AttackPanelProps) {
         document.body
       )}
 
-      {/* 右键删除菜单 */}
-      {contextMenu && ReactDOM.createPortal(
-        <div
-          className="fixed inset-0 z-[9999]"
-          onClick={() => setContextMenu(null)}
-          onContextMenu={(e) => { e.preventDefault(); setContextMenu(null); }}
-        >
-          <div
-            style={{
-              position: "fixed",
-              left: contextMenu.x,
-              top: contextMenu.y,
-              backgroundColor: sheetColors.cardBg,
-              border: "1px solid var(--color-border)",
-              borderRadius: "4px",
-              boxShadow: "0 4px 16px rgba(0,0,0,0.10)",
-              minWidth: "100px",
-              zIndex: 10000,
-              padding: 0,
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div
-              onClick={() => handleDeleteEntry(contextMenu.index)}
-              style={{
-                padding: "4px 10px",
-                fontSize: "12px",
-                color: sheetColors.textDark,
-                cursor: "pointer",
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = sheetColors.hoverBg; }}
-              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; }}
-            >
-              删除
-            </div>
-          </div>
-        </div>,
-        document.body
+      {/* 右键菜单（使用独立组件） */}
+      {contextMenu && (
+        <AttackContextMenu
+          index={contextMenu.index}
+          x={contextMenu.x}
+          y={contextMenu.y}
+          entry={safeEntries[contextMenu.index]}
+          item={items.find(it => it.id === safeEntries[contextMenu.index]?.refId)}
+          onClose={() => setContextMenu(null)}
+          onDelete={handleDeleteEntry}
+          onMoveToEquipment={handleMoveToEquipment}
+          onMoveToInventory={handleMoveToInventory}
+        />
       )}
 
       {/* Dialog: 物品/武器编辑 */}

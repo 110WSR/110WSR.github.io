@@ -297,7 +297,7 @@ export default function EquipmentSelectionPanel({
     const current = weaponSubSelections[groupIndex] || [];
     const newSub = { ...weaponSubSelections };
     const selected = groupSelections[groupIndex];
-    const isPlural = selected && isPluralWeaponOption(selected);
+        const isPlural = !!(selected && isPluralWeaponOption(selected));
     const pluralCount = isPlural ? getPluralCount(selected) : 1;
     
     if (isPlural) {
@@ -466,7 +466,7 @@ export default function EquipmentSelectionPanel({
         const expandedWeapons = isWeaponExpanded ? getExpandedWeapons(selected) : [];
         const subSelected = weaponSubSelections[groupIndex] || [];
         const pluralCount = selected && isPluralWeaponOption(selected) ? getPluralCount(selected) : 1;
-        const isPlural = selected && isPluralWeaponOption(selected);
+        const isPlural = !!(selected && isPluralWeaponOption(selected));
 
         return (
           <div key={groupIndex}>

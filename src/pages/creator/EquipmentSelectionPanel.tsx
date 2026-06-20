@@ -503,12 +503,27 @@ export default function EquipmentSelectionPanel({
             {/* 武器二次展开选择（所有武器内联显示，复数武器支持重复选择） */}
             {isWeaponExpanded && expandedWeapons.length > 0 && (
               <div className="ml-4 p-3 bg-stone-800/30 rounded-lg border border-stone-700/30">
-                <p className="text-stone-500 text-xs mb-2">
-                  {isPlural 
-                    ? `请选择 ${pluralCount} 把武器（点击添加，已选 ${subSelected.length}/${pluralCount}）`
-                    : "请选择具体武器："
-                  }
-                </p>
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-stone-500 text-xs">
+                    {isPlural 
+                      ? `请选择 ${pluralCount} 把武器（点击添加，已选 ${subSelected.length}/${pluralCount}）`
+                      : "请选择具体武器："
+                    }
+                  </p>
+                  {isPlural && subSelected.length > 0 && (
+                    <button
+                      onClick={() => {
+                        const newSub = { ...weaponSubSelections };
+                        delete newSub[groupIndex];
+                        setWeaponSubSelections(newSub);
+                        updateWeaponsFromSelections(groupSelections, newSub);
+                      }}
+                      className="text-xs px-2 py-0.5 rounded bg-red-900/30 text-red-400 border border-red-800/30 hover:bg-red-900/50 transition-colors"
+                    >
+                      清空
+                    </button>
+                  )}
+                </div>
                 <div className="flex flex-wrap gap-1.5">
                   {expandedWeapons.map((weapon) => {
                     const isSubSelected = subSelected.includes(weapon);

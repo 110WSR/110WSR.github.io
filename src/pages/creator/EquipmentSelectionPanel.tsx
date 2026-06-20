@@ -21,9 +21,9 @@ const WEAPON_EXPANSIONS: Record<string, string[]> = {
   "军用武器+盾牌": ALL_MARTIAL,
 };
 
-/** 判断一个选项是否需要二次展开 */
+/** 判断一个选项是否需要二次展开（仅限泛型武器类别，不含复合选项） */
 function needsExpansion(option: string): boolean {
-  return option in WEAPON_EXPANSIONS || option.includes("任意") || option.includes("两把") || option.includes("+");
+  return option in WEAPON_EXPANSIONS || option.includes("任意") || option.includes("两把");
 }
 
 /** 获取展开后的武器列表 */
@@ -31,7 +31,6 @@ function getExpandedWeapons(option: string): string[] {
   if (WEAPON_EXPANSIONS[option]) return WEAPON_EXPANSIONS[option];
   if (option.includes("任意")) return ALL_WEAPONS;
   if (option.includes("两把")) return ALL_MARTIAL;
-  if (option.includes("+")) return ALL_MARTIAL;
   return [option];
 }
 
@@ -289,15 +288,20 @@ export default function EquipmentSelectionPanel({
     updateWeaponsFromSelections(newSelections, weaponSubSelections);
   };
 
-  // 处理武器二次选择（支持多选，复数武器允许选相同武器多次）
+  // 处理武器二次选择
   const handleWeaponSubToggle = (groupIndex: number, weapon: string) => {
     const current = weaponSubSelections[groupIndex] || [];
     const newSub = { ...weaponSubSelections };
     const selected = groupSelections[groupIndex];
     const isPlural = selected && isPluralWeaponOption(selected);
+    const pluralCount = isPlural ? getPluralCount(selected) : 1;
     
     if (isPlural) {
-      // 复数武器：点击添加一把，再次点击移除一把
+      // 复数武器（如"两把军用武器"）：顺序选择，选满为止
+      // 如果已选满，不能再选
+      if (current.length >= pluralCount && !current.includes(weapon)) {
+        return;
+      }
       const idx = current.indexOf(weapon);
       if (idx !== -1) {
         // 移除该武器的一个实例
@@ -309,11 +313,11 @@ export default function EquipmentSelectionPanel({
         newSub[groupIndex] = [...current, weapon];
       }
     } else {
-      // 非复数武器：普通 toggle
+      // 非复数武器：普通 toggle（单选）
       if (current.includes(weapon)) {
         newSub[groupIndex] = current.filter(w => w !== weapon);
       } else {
-        newSub[groupIndex] = [...current, weapon];
+        newSub[groupIndex] = [weapon];
       }
     }
     
@@ -458,8 +462,11 @@ export default function EquipmentSelectionPanel({
         </div>
       )}
 
-      {/* 顺序选项组 */}
+      {/* 顺序选项组（跳过护甲组，护甲在下方单独显示） */}
       {config.groups.map((group, groupIndex) => {
+        // 跳过护甲组，护甲在下方单独显示
+        if (group.label === "护甲") return null;
+        
         const selected = groupSelections[groupIndex];
         const isWeaponExpanded = group.isWeaponGroup && selected && needsExpansion(selected);
         const expandedWeapons = isWeaponExpanded ? getExpandedWeapons(selected) : [];

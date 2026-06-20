@@ -274,22 +274,32 @@ export default function EquipmentSelectionPanel({
     const newSelections = { ...groupSelections };
     
     if (newSelections[groupIndex] === option) {
+      // 取消选择
       delete newSelections[groupIndex];
-    } else {
-      newSelections[groupIndex] = option;
-    }
-    
-    setGroupSelections(newSelections);
-    
-    // 如果取消选择或切换选项，清除二次选择
-    if (newSelections[groupIndex] !== option) {
+      setGroupSelections(newSelections);
       const newSub = { ...weaponSubSelections };
       delete newSub[groupIndex];
       setWeaponSubSelections(newSub);
+      updateWeaponsFromSelections(newSelections, newSub);
+      return;
+    }
+    
+    newSelections[groupIndex] = option;
+    setGroupSelections(newSelections);
+    
+    // 清除之前的二次选择
+    const newSub = { ...weaponSubSelections };
+    delete newSub[groupIndex];
+    setWeaponSubSelections(newSub);
+    
+    // 如果是复数武器选项（如"两把军用武器"），立即打开弹窗
+    if (isPluralWeaponOption(option)) {
+      setPluralSelectionStep(prev => ({ ...prev, [groupIndex]: 1 }));
+      setPluralDialogVisible(prev => ({ ...prev, [groupIndex]: true }));
     }
     
     // 更新武器列表
-    updateWeaponsFromSelections(newSelections, weaponSubSelections);
+    updateWeaponsFromSelections(newSelections, newSub);
   };
 
   // 打开复数武器选择弹窗

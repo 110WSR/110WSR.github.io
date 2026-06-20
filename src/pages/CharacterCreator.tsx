@@ -89,8 +89,6 @@ export default function CharacterCreator() {
   const { newCharacter, setAttributes, setBasicInfo, setLevel, setPersonality, setEquipment, setBackstory, updateCharacter } = useCharacter();
 
   const [step, setStep] = useState(0);
-  const steps = ["基本信息", "选择方法", "确认属性", "生命值与技能", "选择子职", "选择法术", "选择装备", "角色细节", "完成"];
-
   const [method, setMethod] = useState<AttributeMethod>("standard");
 
   const [charName, setCharName] = useState("");
@@ -170,6 +168,15 @@ export default function CharacterCreator() {
     if (!className) return false;
     return SPELLCASTING_CLASSES.includes(className);
   }, [className]);
+
+  // 动态步骤列表
+  const steps = useMemo(() => {
+    const base = ["基本信息", "选择方法", "确认属性", "生命值与技能"];
+    if (needsSubclassPage) base.push("选择子职");
+    if (needsSpellPage) base.push("选择法术");
+    base.push("选择装备", "角色细节", "完成");
+    return base;
+  }, [needsSubclassPage, needsSpellPage]);
 
   const handleFinish = useCallback(() => {
     const finalName = charName.trim() || "未命名角色";

@@ -295,7 +295,6 @@ export default function EquipmentSelectionPanel({
     const newSub = { ...weaponSubSelections };
     const selected = groupSelections[groupIndex];
     const isPlural = selected && isPluralWeaponOption(selected);
-    const pluralCount = isPlural ? getPluralCount(selected) : 1;
     
     if (isPlural) {
       // 复数武器：点击添加一把，再次点击移除一把

@@ -264,10 +264,6 @@ export default function EquipmentSelectionPanel({
   const [groupSelections, setGroupSelections] = useState<Record<number, string>>({});
   // 武器二次展开的选择：{ groupIndex: string[] } - 支持多选
   const [weaponSubSelections, setWeaponSubSelections] = useState<Record<number, string[]>>({});
-  // 复数武器选择步骤：{ groupIndex: currentStep } - 用于"两把军用武器"分步选择
-  const [pluralSelectionStep, setPluralSelectionStep] = useState<Record<number, number>>({});
-  // 复数武器选择弹窗可见性：{ groupIndex: boolean }
-  const [pluralDialogVisible, setPluralDialogVisible] = useState<Record<number, boolean>>({});
 
   // 处理选项组选择
   const handleGroupSelect = (groupIndex: number, option: string) => {
@@ -292,68 +288,31 @@ export default function EquipmentSelectionPanel({
     delete newSub[groupIndex];
     setWeaponSubSelections(newSub);
     
-    // 如果是复数武器选项（如"两把军用武器"），立即打开弹窗
-    if (isPluralWeaponOption(option)) {
-      setPluralSelectionStep(prev => ({ ...prev, [groupIndex]: 1 }));
-      setPluralDialogVisible(prev => ({ ...prev, [groupIndex]: true }));
-    }
-    
     // 更新武器列表
     updateWeaponsFromSelections(newSelections, newSub);
   };
 
-  // 打开复数武器选择弹窗
-  const openPluralDialog = (groupIndex: number) => {
-    setPluralSelectionStep(prev => ({ ...prev, [groupIndex]: 1 }));
-    setPluralDialogVisible(prev => ({ ...prev, [groupIndex]: true }));
-  };
-
-  // 关闭复数武器选择弹窗
-  const closePluralDialog = (groupIndex: number) => {
-    setPluralDialogVisible(prev => ({ ...prev, [groupIndex]: false }));
-    setPluralSelectionStep(prev => ({ ...prev, [groupIndex]: 0 }));
-  };
-
-  // 复数武器弹窗选择武器
-  const handlePluralSelect = (groupIndex: number, weapon: string) => {
-    const current = weaponSubSelections[groupIndex] || [];
-    const newSub = { ...weaponSubSelections };
-    const step = pluralSelectionStep[groupIndex] || 1;
-    const pluralCount = getPluralCount(groupSelections[groupIndex] || "两把军用武器");
-    
-    // 添加选择的武器
-    newSub[groupIndex] = [...current, weapon];
-    setWeaponSubSelections(newSub);
-    
-    if (step >= pluralCount) {
-      // 选完了，关闭弹窗
-      closePluralDialog(groupIndex);
-    } else {
-      // 进入下一步
-      setPluralSelectionStep(prev => ({ ...prev, [groupIndex]: step + 1 }));
-    }
-    
-    updateWeaponsFromSelections(groupSelections, newSub);
-  };
-
-  // 处理武器二次选择（非复数武器）
+  // 处理武器二次选择（支持多选，复数武器允许重复选择同一把武器）
   const handleWeaponSubToggle = (groupIndex: number, weapon: string) => {
     const current = weaponSubSelections[groupIndex] || [];
     const newSub = { ...weaponSubSelections };
     const selected = groupSelections[groupIndex];
     const isPlural = selected && isPluralWeaponOption(selected);
+    const pluralCount = isPlural ? getPluralCount(selected) : 1;
     
     if (isPlural) {
-      // 复数武器（如"两把军用武器"）：打开弹窗分步选择
-      openPluralDialog(groupIndex);
-      return;
-    }
-    
-    // 非复数武器：普通 toggle（单选）
-    if (current.includes(weapon)) {
-      newSub[groupIndex] = current.filter(w => w !== weapon);
+      // 复数武器：点击添加一个实例（允许重复），选满后不能再选
+      if (current.length >= pluralCount) {
+        return;
+      }
+      newSub[groupIndex] = [...current, weapon];
     } else {
-      newSub[groupIndex] = [weapon];
+      // 非复数武器：普通 toggle（单选）
+      if (current.includes(weapon)) {
+        newSub[groupIndex] = current.filter(w => w !== weapon);
+      } else {
+        newSub[groupIndex] = [weapon];
+      }
     }
     
     setWeaponSubSelections(newSub);
@@ -541,68 +500,39 @@ export default function EquipmentSelectionPanel({
               })}
             </div>
 
-            {/* 武器二次展开选择（非复数武器内联显示，复数武器用弹窗） */}
-            {isWeaponExpanded && expandedWeapons.length > 0 && !isPlural && (
+            {/* 武器二次展开选择（所有武器内联显示，复数武器支持重复选择） */}
+            {isWeaponExpanded && expandedWeapons.length > 0 && (
               <div className="ml-4 p-3 bg-stone-800/30 rounded-lg border border-stone-700/30">
-                <p className="text-stone-500 text-xs mb-2">请选择具体武器：</p>
+                <p className="text-stone-500 text-xs mb-2">
+                  {isPlural 
+                    ? `请选择 ${pluralCount} 把武器（点击添加，已选 ${subSelected.length}/${pluralCount}）`
+                    : "请选择具体武器："
+                  }
+                </p>
                 <div className="flex flex-wrap gap-1.5">
                   {expandedWeapons.map((weapon) => {
                     const isSubSelected = subSelected.includes(weapon);
+                    const isFull = isPlural && subSelected.length >= pluralCount;
                     return (
                       <button
                         key={weapon}
                         onClick={() => handleWeaponSubToggle(groupIndex, weapon)}
+                        disabled={isPlural && isFull && !isSubSelected}
                         className={`px-2.5 py-1 rounded-md text-xs transition-all duration-200 ${
                           isSubSelected
                             ? "bg-amber-700/50 text-amber-200 border border-amber-600/50"
-                            : "bg-stone-900/50 text-stone-400 border border-stone-700/30 hover:border-stone-600/50"
+                            : isFull
+                              ? "bg-stone-900/30 text-stone-600 border border-stone-700/20 cursor-not-allowed"
+                              : "bg-stone-900/50 text-stone-400 border border-stone-700/30 hover:border-stone-600/50"
                         }`}
                       >
                         {weapon}
+                        {isPlural && isSubSelected && (
+                          <span className="ml-1 text-amber-400/70">×{subSelected.filter(w => w === weapon).length}</span>
+                        )}
                       </button>
                     );
                   })}
-                </div>
-              </div>
-            )}
-
-            {/* 复数武器弹窗 */}
-            {isPlural && pluralDialogVisible[groupIndex] && (
-              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60" onClick={() => closePluralDialog(groupIndex)}>
-                <div className="bg-stone-800 rounded-xl border border-stone-600 p-6 max-w-lg w-full mx-4 shadow-2xl" onClick={e => e.stopPropagation()}>
-                  <h3 className="text-amber-300 text-base font-semibold mb-1">
-                    选择第 {pluralSelectionStep[groupIndex] || 1} 把武器
-                  </h3>
-                  <p className="text-stone-400 text-xs mb-4">
-                    （共需选择 {pluralCount} 把，已选 {subSelected.length} 把）
-                  </p>
-                  <div className="flex flex-wrap gap-2 max-h-60 overflow-y-auto">
-                    {expandedWeapons.map((weapon) => {
-                      const alreadySelected = subSelected.includes(weapon);
-                      return (
-                        <button
-                          key={weapon}
-                          onClick={() => handlePluralSelect(groupIndex, weapon)}
-                          disabled={alreadySelected}
-                          className={`px-3 py-2 rounded-md text-sm transition-all duration-200 ${
-                            alreadySelected
-                              ? "bg-stone-700/50 text-stone-500 border border-stone-600/30 cursor-not-allowed"
-                              : "bg-stone-700 text-stone-200 border border-stone-600 hover:border-amber-600/50 hover:bg-stone-700/80"
-                          }`}
-                        >
-                          {weapon}
-                        </button>
-                      );
-                    })}
-                  </div>
-                  <div className="flex justify-end mt-4">
-                    <button
-                      onClick={() => closePluralDialog(groupIndex)}
-                      className="px-4 py-2 rounded-md text-sm bg-stone-700 text-stone-300 border border-stone-600 hover:bg-stone-600 transition-colors"
-                    >
-                      取消
-                    </button>
-                  </div>
                 </div>
               </div>
             )}

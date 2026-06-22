@@ -77,7 +77,7 @@ export default function CustomItemDialog({ open, onOpenChange }: CustomItemDialo
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
         className="!rounded-[10px] !p-5"
-        style={{ borderColor: sheetColors.borderPlaceholder, maxWidth: "640px" }}
+        style={{ borderColor: sheetColors.borderPlaceholder, maxWidth: "min(640px, calc(100vw - 32px))" }}
       >
         <DialogHeader>
           <DialogTitle
@@ -88,10 +88,10 @@ export default function CustomItemDialog({ open, onOpenChange }: CustomItemDialo
           </DialogTitle>
         </DialogHeader>
 
-        <div className="flex gap-4" style={{ minHeight: "300px" }}>
+        <div className="flex flex-col sm:flex-row gap-4" style={{ minHeight: "300px" }}>
           {/* 左侧文件列表 */}
           <div
-            className="w-[160px] shrink-0 space-y-1 overflow-y-auto max-h-[55vh] group/scroll"
+            className="w-full sm:w-[160px] shrink-0 space-y-1 overflow-y-auto max-h-[30vh] sm:max-h-[55vh] group/scroll"
             style={{ scrollbarWidth: "thin", scrollbarColor: "transparent transparent" }}
           >
             <style>{`

@@ -10,9 +10,78 @@
   box-sizing: border-box;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
   font-family: 'Noto Sans', 'Noto Sans SC', 'Noto Sans JP', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ===== 手机端适配 ===== */
+
+/* 角色卡页面 - 手机端水平滚动 */
+@media (max-width: 768px) {
+  .sheet-mobile-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 80px;
+  }
+  
+  .sheet-mobile-wrapper .canvas-scale-wrapper {
+    transform-origin: left top !important;
+  }
+}
+
+/* 手机端按钮和输入框优化 */
+@media (max-width: 640px) {
+  .mobile-full-width {
+    width: 100% !important;
+  }
+  
+  .mobile-stack {
+    flex-direction: column !important;
+  }
+  
+  .mobile-text-sm {
+    font-size: 0.875rem !important;
+  }
+  
+  .mobile-p-3 {
+    padding: 0.75rem !important;
+  }
+  
+  .mobile-gap-2 {
+    gap: 0.5rem !important;
+  }
+  
+  /* 防止内容溢出 */
+  .mobile-no-overflow {
+    overflow-x: hidden !important;
+  }
+  
+  /* 手机端底部安全区 */
+  .mobile-safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+  }
+}
+
+/* 触摸设备优化 - 增大点击区域 */
+@media (hover: none) and (pointer: coarse) {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  button, 
+  [role="button"],
+  input[type="checkbox"],
+  input[type="radio"] {
+    cursor: default;
+  }
 }

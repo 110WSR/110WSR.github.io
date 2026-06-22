@@ -556,7 +556,7 @@ export default function AttackPanel({ className }: AttackPanelProps) {
           onClick={(e) => e.target === e.currentTarget && setSelectMode(false)}
         >
           <div style={{
-            width: "320px", backgroundColor: sheetColors.cardBg, borderRadius: "10px",
+            width: "min(320px, calc(100vw - 32px))", backgroundColor: sheetColors.cardBg, borderRadius: "10px",
             border: "1px solid var(--color-border)", padding: "20px",
             boxShadow: "0 8px 32px rgba(0,0,0,0.11)", fontVariationSettings: FVAR,
           }}>
@@ -614,7 +614,7 @@ export default function AttackPanel({ className }: AttackPanelProps) {
           onClick={(e) => e.target === e.currentTarget && setSpellPickerOpen(false)}
         >
           <div style={{
-            width: "360px", maxHeight: "480px", display: "flex", flexDirection: "column",
+            width: "min(360px, calc(100vw - 32px))", maxHeight: "min(480px, 90vh)", display: "flex", flexDirection: "column",
             backgroundColor: sheetColors.cardBg, borderRadius: "10px",
             border: "1px solid var(--color-border)", overflow: "hidden",
             boxShadow: "0 8px 32px rgba(0,0,0,0.11)", fontVariationSettings: FVAR,
@@ -666,7 +666,7 @@ export default function AttackPanel({ className }: AttackPanelProps) {
           onClick={(e) => e.target === e.currentTarget && setEquipmentPickerOpen(false)}
         >
           <div style={{
-            width: "360px", maxHeight: "480px", display: "flex", flexDirection: "column",
+            width: "min(360px, calc(100vw - 32px))", maxHeight: "min(480px, 90vh)", display: "flex", flexDirection: "column",
             backgroundColor: sheetColors.cardBg, borderRadius: "10px",
             border: "1px solid var(--color-border)", overflow: "hidden",
             boxShadow: "0 8px 32px rgba(0,0,0,0.11)", fontVariationSettings: FVAR,

@@ -91,7 +91,7 @@ export default function ArchiveDialog({ open, onOpenChange }: ArchiveDialogProps
 
         {/* 滚动区域：右侧留出空间避免挤压 */}
         <div
-          className="w-[485px] space-y-2 pr-1 max-h-[55vh] overflow-y-scroll group/scroll"
+          className="w-full sm:w-[485px] space-y-2 pr-1 max-h-[55vh] overflow-y-scroll group/scroll"
         >
           {saveList.length === 0 && (
             <p

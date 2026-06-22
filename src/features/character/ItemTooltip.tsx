@@ -9,7 +9,7 @@ const T: React.CSSProperties = {
 };
 const TOOLTIP_W = 220;
 const tooltipBase: React.CSSProperties = {
-  position: "fixed", width: TOOLTIP_W,
+  position: "fixed", width: `min(${TOOLTIP_W}px, calc(100vw - 32px))`,
   backgroundColor: sheetColors.cardBg, borderRadius: "8px",
   border: "1px solid var(--color-border)",
   boxShadow: "0 6px 24px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06)",
@@ -48,7 +48,7 @@ export const ItemTooltip = React.memo(function ItemTooltip({
     const height = tooltipRef.current.offsetHeight;
     setPos({
       left: Math.max(8, Math.min(initLeft, window.innerWidth - TOOLTIP_W - 8)),
-      top: initY - height - 2,
+      top: Math.max(4, Math.min(initY - height - 2, window.innerHeight - height - 4)),
     });
   }, [initY, initLeft, hasOverride]);
   const [localNotes, setLocalNotes] = useState<Record<string, string>>({});

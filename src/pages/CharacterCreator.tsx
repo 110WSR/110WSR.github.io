@@ -317,18 +317,18 @@ export default function CharacterCreator() {
   const currentPage = getPageForStep(step);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-stone-900 via-stone-800 to-stone-900">
+    <div className="min-h-screen bg-gradient-to-b from-stone-900 via-stone-800 to-stone-900 mobile-no-overflow">
       <div className="border-b border-stone-700/50">
-        <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
-          <button onClick={() => navigate("/")} className="text-stone-400 hover:text-amber-300 transition-colors flex items-center gap-1.5 text-sm">
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-            返回主菜单
+        <div className="max-w-4xl mx-auto px-3 sm:px-4 py-3 flex items-center justify-between">
+          <button onClick={() => navigate("/")} className="text-stone-400 hover:text-amber-300 transition-colors flex items-center gap-1.5 text-xs sm:text-sm">
+            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+            返回
           </button>
-          <div className="text-stone-500 text-sm">创建新角色</div>
+          <div className="text-stone-500 text-xs sm:text-sm">创建新角色</div>
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
         <StepIndicator currentStep={step} steps={steps} />
 
         {currentPage === "basic" && (

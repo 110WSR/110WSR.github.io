@@ -34,7 +34,7 @@ interface SpellTipProps {
 
 export default function SpellTip({ spell, mouseY: initY, cardLeft: initLeft, onMouseEnter, onMouseLeave, onChange }: SpellTipProps) {
   const [pos] = useState(() => ({
-    left: initLeft - TOOLTIP_W - 8,
+    left: Math.max(4, Math.min(initLeft - TOOLTIP_W - 8, window.innerWidth - TOOLTIP_W - 4)),
     top: Math.max(4, Math.min(initY - 10, window.innerHeight - 200)),
   }));
   const [localUsage, setLocalUsage] = useState<string | null>(null);

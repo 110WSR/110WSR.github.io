@@ -13,7 +13,7 @@ const LABEL: React.CSSProperties = { ...SMALL, fontFamily: "var(--font-serif-med
 
 const TOOLTIP_W = 220;
 const tooltipBase: React.CSSProperties = {
-  position: "fixed", width: TOOLTIP_W,
+  position: "fixed", width: `min(${TOOLTIP_W}px, calc(100vw - 32px))`,
   backgroundColor: sheetColors.cardBg, borderRadius: "8px",
   border: "1px solid var(--color-border)",
   boxShadow: "0 6px 24px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06)",
@@ -39,7 +39,7 @@ interface DamageTooltipProps extends TooltipProps {
 const ATTRIBUTE_LABELS: Record<string, string> = { str: "力量", dex: "敏捷", custom: "自定义" };
 
 export function HitTooltip({ weapon, mouseY: initY, cardLeft: initLeft, onMouseEnter, onMouseLeave }: TooltipProps) {
-  const [pos] = useState(() => ({ left: initLeft - 20, top: initY + 12 }));
+  const [pos] = useState(() => ({ left: Math.max(4, Math.min(initLeft - 20, window.innerWidth - TOOLTIP_W - 4)), top: Math.min(initY + 12, window.innerHeight - 120) }));
   return ReactDOM.createPortal(
     <div
       style={{ ...tooltipBase, left: pos.left, top: pos.top }}
@@ -69,7 +69,7 @@ export function HitTooltip({ weapon, mouseY: initY, cardLeft: initLeft, onMouseE
 // ─── Damage Tooltip ───────────────────────────────────────────────────────────
 
 export function DamageTooltip({ weapon, mouseY: initY, cardLeft: initLeft, onMouseEnter, onMouseLeave, computedMod }: DamageTooltipProps) {
-  const [pos] = useState(() => ({ left: initLeft - 20, top: initY + 12 }));
+  const [pos] = useState(() => ({ left: Math.max(4, Math.min(initLeft - 20, window.innerWidth - TOOLTIP_W - 4)), top: Math.min(initY + 12, window.innerHeight - 120) }));
   return ReactDOM.createPortal(
     <div
       style={{ ...tooltipBase, left: pos.left, top: pos.top }}

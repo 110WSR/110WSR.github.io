@@ -300,9 +300,10 @@ ${stylesHTML}
           onClick={(e) => e.target === e.currentTarget && onOpenChange(false)}
         >
           <div style={{
-            width: "360px", backgroundColor: sheetColors.cardBg, borderRadius: "10px",
+            width: "min(360px, calc(100vw - 32px))", backgroundColor: sheetColors.cardBg, borderRadius: "10px",
             border: "1px solid var(--color-border)", padding: "20px",
             boxShadow: "0 8px 32px rgba(0,0,0,0.11)", fontVariationSettings: FVAR,
+            maxHeight: "90vh", overflowY: "auto",
           }}>
             {/* 标题 + 切换标签 */}
             <div style={{ display: "flex", gap: 12, marginBottom: 16, borderBottom: `1px solid ${sheetColors.borderLight}`, paddingBottom: 8 }}>

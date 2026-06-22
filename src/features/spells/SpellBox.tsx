@@ -375,7 +375,7 @@ export default function SpellBox({
               position: 'fixed',
               left: boxRef.current?.getBoundingClientRect().left ?? 0,
               top: dragClientPos.y - 12,
-              width: 358,
+              width: `min(358px, calc(100vw - 32px))`,
               height: ITEM_H,
               zIndex: 9999,
               pointerEvents: 'none',

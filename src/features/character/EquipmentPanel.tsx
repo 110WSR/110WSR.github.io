@@ -329,8 +329,8 @@ export default function EquipmentPanel({ className }: EquipmentPanelProps) {
           <div
             style={{
               position: "fixed",
-              left: contextMenu.x,
-              top: contextMenu.y,
+              left: Math.min(contextMenu.x, window.innerWidth - 120),
+              top: Math.min(contextMenu.y, window.innerHeight - 160),
               backgroundColor: sheetColors.cardBg,
               border: "1px solid var(--color-border)",
               borderRadius: "4px",

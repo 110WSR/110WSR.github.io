@@ -101,7 +101,7 @@ export function SpellDialog({
         >
           <div
             style={{
-              width: "460px", maxHeight: "520px", display: "flex", flexDirection: "column",
+              width: "min(460px, calc(100vw - 32px))", maxHeight: "min(520px, 90vh)", display: "flex", flexDirection: "column",
               backgroundColor: sheetColors.cardBg, borderRadius: "10px",
               border: "1px solid var(--color-border)",
               boxShadow: "0 8px 32px rgba(0,0,0,0.11), 0 2px 8px rgba(0,0,0,0.07)",

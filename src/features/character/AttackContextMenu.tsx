@@ -48,8 +48,8 @@ export default function AttackContextMenu({
       <div
         style={{
           position: "fixed",
-          left: x,
-          top: y,
+          left: Math.min(x, window.innerWidth - 120),
+          top: Math.min(y, window.innerHeight - 120),
           backgroundColor: sheetColors.cardBg,
           border: "1px solid var(--color-border)",
           borderRadius: "4px",

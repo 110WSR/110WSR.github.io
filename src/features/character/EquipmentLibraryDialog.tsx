@@ -197,7 +197,7 @@ export function EquipmentLibraryDialog({ open, onSelect, onClose }: EquipmentLib
     >
       <div
         style={{
-          width: "620px", maxHeight: "620px", display: "flex", flexDirection: "column",
+          width: "min(620px, calc(100vw - 32px))", maxHeight: "min(620px, 90vh)", display: "flex", flexDirection: "column",
           backgroundColor: sheetColors.cardBg, borderRadius: "10px",
           border: "1px solid var(--color-border)",
           boxShadow: "0 8px 32px rgba(0,0,0,0.11), 0 2px 8px rgba(0,0,0,0.07)",

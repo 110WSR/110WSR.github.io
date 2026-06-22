@@ -41,7 +41,7 @@ export default function MainMenu() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-stone-900 via-stone-800 to-stone-900 flex flex-col items-center justify-center p-8">
+    <div className="min-h-screen bg-gradient-to-b from-stone-900 via-stone-800 to-stone-900 flex flex-col items-center justify-center p-4 sm:p-8 mobile-safe-bottom">
       {/* 装饰性背景纹理 */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
         style={{
@@ -56,7 +56,7 @@ export default function MainMenu() {
         {/* 标题区域 */}
         <div className="text-center mb-12">
           <DragonIcon />
-          <h1 className="text-5xl font-bold text-amber-100 tracking-wider mb-2"
+          <h1 className="text-3xl sm:text-5xl font-bold text-amber-100 tracking-wider mb-2"
             style={{ fontFamily: "'Noto Serif', 'Noto Serif SC', serif" }}>
             D&D 5e
           </h1>

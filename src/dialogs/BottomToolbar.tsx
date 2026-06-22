@@ -14,7 +14,7 @@ export default function BottomToolbar({
   onCustomItemClick,
 }: BottomToolbarProps) {
   return (
-    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-center gap-6 z-50">
+    <div className="fixed bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 flex items-center justify-center gap-2 sm:gap-6 z-50 px-2 w-full max-w-lg">
       <FunctionButton label="导出文件" onClick={onExportFileClick} />
       {/* <FunctionButton label="车卡指引" onClick={onBuildGuideClick} /> */}
       <FunctionButton label="存档管理" onClick={onArchiveManageClick} />

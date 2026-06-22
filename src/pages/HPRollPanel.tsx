@@ -152,7 +152,7 @@ export default function HPRollPanel({ classId, level, conValue, onHPChange }: HP
           <p className="text-stone-400 text-sm">
             第1级取最大值 d{hitDieSize}（{hitDieSize}），之后每级可选择固定值或投掷骰子
           </p>
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-4 flex-wrap">
             <button
               onClick={handleRollAll}
               className="px-6 py-3 bg-amber-700 hover:bg-amber-600 text-amber-50 rounded-lg transition-colors font-medium"

@@ -32,7 +32,7 @@ export default function DiceRoller({ onClose }: DiceRollerProps) {
   });
   const [results, setResults] = useState<Record<string, number[]>>({});
   const [rolling, setRolling] = useState(false);
-  const [position, setPosition] = useState({ x: window.innerWidth - 280, y: 120 });
+  const [position, setPosition] = useState({ x: Math.min(window.innerWidth - 280, Math.max(0, window.innerWidth - 280)), y: Math.min(120, window.innerHeight - 400) });
   const [dragging, setDragging] = useState(false);
   const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
   const rollerRef = useRef<HTMLDivElement>(null);
@@ -99,9 +99,9 @@ export default function DiceRoller({ onClose }: DiceRollerProps) {
       ref={rollerRef}
       className="fixed z-[9999] select-none"
       style={{
-        left: position.x,
+        left: Math.min(position.x, window.innerWidth - 260),
         top: position.y,
-        width: "250px",
+        width: "min(250px, calc(100vw - 32px))",
       }}
     >
       {/* 主面板 */}

@@ -28,7 +28,8 @@ body {
 /* 角色卡页面 - 手机端适配 */
 @media (max-width: 768px) {
   .sheet-mobile-wrapper {
-    overflow: hidden;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
     padding-bottom: 80px;
   }
   

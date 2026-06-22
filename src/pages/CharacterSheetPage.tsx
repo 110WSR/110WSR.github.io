@@ -101,8 +101,8 @@ export default function CharacterSheetPage() {
       </div>
 
       {/* 主内容区域 */}
-      <div className="flex-1 overflow-hidden p-2 sm:p-4 sheet-mobile-wrapper">
-        <div className="flex items-start justify-center size-full">
+      <div className="flex-1 overflow-y-auto overflow-x-hidden p-2 sm:p-4 sheet-mobile-wrapper">
+        <div className="flex items-start justify-center min-h-full">
           {/* 画布缩放容器 */}
           <div className="canvas-scale-wrapper" style={{ transform: `scale(${Math.min(1, (window.innerWidth - 32) / 1224)})`, transformOrigin: 'center top' }}>
             <div className="canvas-content" style={{ width: '1224px', height: '1410px' }}>

@@ -25,16 +25,15 @@ body {
 
 /* ===== 手机端适配 ===== */
 
-/* 角色卡页面 - 手机端水平滚动 */
+/* 角色卡页面 - 手机端适配 */
 @media (max-width: 768px) {
   .sheet-mobile-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
     padding-bottom: 80px;
   }
   
   .sheet-mobile-wrapper .canvas-scale-wrapper {
-    transform-origin: left top !important;
+    transform-origin: center top !important;
   }
 }
 

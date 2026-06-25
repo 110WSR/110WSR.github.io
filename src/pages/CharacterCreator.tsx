@@ -2,7 +2,7 @@ import { useState, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCharacter } from "../shared/storage/CharacterContext";
 import type { Attributes, Personality, SavingThrows } from "../shared/storage/types";
-import type { Item, AttackEntry } from "../shared/types/types";
+import type { Item, AttackEntry, SpellData } from "../shared/types/types";
 import { createDefaultItem } from "../shared/types/types";
 import weaponPresets from "../../data/weaponPresets.json";
 import HPRollPanel from "./HPRollPanel";
@@ -86,7 +86,7 @@ function applyRaceBonuses(baseAttrs: Attributes, race: string): Attributes {
 
 export default function CharacterCreator() {
   const navigate = useNavigate();
-  const { newCharacter, setAttributes, setBasicInfo, setLevel, setPersonality, setEquipment, setBackstory, updateCharacter } = useCharacter();
+  const { character, newCharacter, setAttributes, setBasicInfo, setLevel, setPersonality, setEquipment, setBackstory, updateCharacter } = useCharacter();
 
   const [step, setStep] = useState(0);
   const [method, setMethod] = useState<AttributeMethod>("standard");
@@ -272,15 +272,38 @@ export default function CharacterCreator() {
     if (traitList.length > 0) {
       updateCharacter({ traitList });
     }
-    // 保存法术选择
+    // 保存法术选择 - 将 selectedSpells 转换为 spellBoxes 格式
     if (Object.keys(selectedSpells).length > 0) {
+      // 先保存原始格式到 spells 字段
       updateCharacter({ spells: selectedSpells as any });
+      
+      // 同时将法术填充到 spellBoxes 中
+      const nextBoxes = [...(character?.spellBoxes ?? [])];
+      for (const [levelKey, spellNames] of Object.entries(selectedSpells)) {
+        const level = parseInt(levelKey, 10);
+        const boxIndex = nextBoxes.findIndex(b => b.level === level);
+        if (boxIndex !== -1 && spellNames.length > 0) {
+          const spells: SpellData[] = spellNames.map(name => ({
+            id: `spell_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`,
+            name,
+            description: "",
+            isInnate: false,
+            prepared: true,
+          }));
+          nextBoxes[boxIndex] = {
+            ...nextBoxes[boxIndex],
+            spells,
+            spellCount: Math.max(nextBoxes[boxIndex].spellCount, spells.length),
+          };
+        }
+      }
+      updateCharacter({ spellBoxes: nextBoxes });
     }
     navigate("/sheet");
   }, [charName, className, race, background, level, attributes, currentHP, maxHP, alignment, localPersonality, backstory,
       selectedWeapons, selectedArmor, hasShield, equipmentText, selectedSkills, updateCharacter,
       newCharacter, setAttributes, setBasicInfo, setLevel, setPersonality, setEquipment, setBackstory, navigate,
-      selectedSubclass, subclassFeatures, selectedSpells]);
+      selectedSubclass, subclassFeatures, selectedSpells, character]);
 
   const attributeSummary = useMemo(() => ATTRIBUTE_FIELDS.reduce((sum, f) => sum + attributes[f.key], 0), [attributes]);
   const classId = useMemo(() => findClassId(className), [className]);

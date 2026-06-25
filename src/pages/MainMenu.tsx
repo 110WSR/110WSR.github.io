@@ -69,18 +69,49 @@ export default function MainMenu() {
 
         {/* 主菜单按钮 */}
         <div className="space-y-4 mb-12">
-          <button
-            onClick={() => navigate("/create")}
-            className="w-full py-4 px-6 bg-amber-700 hover:bg-amber-600 text-amber-50 rounded-lg
-                       transition-all duration-200 shadow-lg hover:shadow-amber-700/30
-                       text-lg font-semibold tracking-wider border border-amber-600/50
-                       hover:border-amber-500/50 flex items-center justify-center gap-3"
-          >
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-            </svg>
-            创建新角色
-          </button>
+          {/* 创建新角色 - 展开选择 */}
+          <div className="space-y-2">
+            <button
+              onClick={() => navigate("/create")}
+              className="w-full py-4 px-6 bg-amber-700 hover:bg-amber-600 text-amber-50 rounded-lg
+                         transition-all duration-200 shadow-lg hover:shadow-amber-700/30
+                         text-lg font-semibold tracking-wider border border-amber-600/50
+                         hover:border-amber-500/50 flex items-center justify-center gap-3"
+            >
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+              </svg>
+              创建新角色
+            </button>
+            
+            {/* 建卡方式选择 */}
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                onClick={() => navigate("/create")}
+                className="py-3 px-4 bg-stone-700/80 hover:bg-stone-600 text-stone-200 rounded-lg
+                           transition-all duration-200 border border-stone-600/50 hover:border-amber-600/50
+                           text-sm font-medium flex flex-col items-center gap-1 group"
+              >
+                <svg className="w-5 h-5 text-stone-400 group-hover:text-amber-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <span>通用快速建卡</span>
+                <span className="text-[10px] text-stone-500">分步引导 · 手动配置</span>
+              </button>
+              <button
+                onClick={() => navigate("/profile-create")}
+                className="py-3 px-4 bg-stone-700/80 hover:bg-stone-600 text-stone-200 rounded-lg
+                           transition-all duration-200 border border-stone-600/50 hover:border-amber-600/50
+                           text-sm font-medium flex flex-col items-center gap-1 group"
+              >
+                <svg className="w-5 h-5 text-stone-400 group-hover:text-amber-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                <span>玩家画像式建卡</span>
+                <span className="text-[10px] text-stone-500">问卷匹配 · 智能推荐</span>
+              </button>
+            </div>
+          </div>
 
           <button
             onClick={handleContinue}

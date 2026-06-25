@@ -175,6 +175,34 @@ export default function MainMenu() {
               D&D 5e 为 Wizards of the Coast 的注册商标。本工具为粉丝自制非营利项目，仅供学习交流。
             </p>
           </div>
+
+          {/* 联系方式 */}
+          <div className="mt-4 pt-3 border-t border-stone-700/30">
+            <p className="text-stone-500 text-[11px] tracking-wider mb-2">问题反馈 / 建议</p>
+            <div className="flex items-center justify-center gap-4 text-[11px]">
+              <a
+                href="https://qm.qq.com/q/1184103915"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-stone-400 hover:text-amber-400 transition-colors flex items-center gap-1.5"
+              >
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                </svg>
+                QQ：1184103915
+              </a>
+              <span className="text-stone-600">|</span>
+              <a
+                href="mailto:19995124189@163.com"
+                className="text-stone-400 hover:text-amber-400 transition-colors flex items-center gap-1.5"
+              >
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                19995124189@163.com
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { useRef, useCallback, useState, useLayoutEffect } from "react";
 import ReactDOM from "react-dom";
+import { useCharacter } from "../../shared/storage/CharacterContext";
 import svgPaths from "../../assets/flag";
 import Cantrip from "./Cantrip";
 import SpellRow from "./Spell";
@@ -57,6 +58,9 @@ export default function SpellBox({
   onAddSpell,
 }: SpellBoxProps) {
   // 内部 spells 状态（用于未受控模式）
+  const { character } = useCharacter();
+  const characterClass = character?.basicInfo?.["职业"];
+
   const safeSpells = externalSpells ?? [];
   
   // 添加法术对话框
@@ -399,6 +403,7 @@ export default function SpellBox({
       <SpellDialog
         open={addDialogOpen}
         initialSpell={createDefaultSpell()}
+        characterClass={characterClass}
         isCantrip={isCantrip}
         onSave={handleAddSpell}
         onClose={handleCloseAddDialog}

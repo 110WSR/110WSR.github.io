@@ -4,6 +4,7 @@ import { sheetColors } from "../../shared/tokens/colors";
 import ScrollArea from "../../shared/ui/ScrollArea";
 import spellData from "../../../data/spellData.json";
 import type { SpellData } from "../../shared/types/types";
+import { getSpellDetailByName, createSpellDataFromDetail } from "../../shared/utils/spellDetailsResolver";
 
 const FVAR = "'CTGR' 0, 'wdth' 100";
 
@@ -121,16 +122,24 @@ export default function SpellLibraryDialog({
   }, [searchText, filterLevel, showClassOnly, classSpellNames]);
 
   const handleSelect = (spellName: string, level: number) => {
-    const spell: SpellData = {
-      id: `spell_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
-      name: spellName,
-      description: "",
-      isInnate: false,
-      prepared: level > 0,
-      ritual: false,
-      concentration: false,
-      school: "abjuration",
-    };
+    // 尝试从 spellDetails.json 中获取详细信息
+    const detail = getSpellDetailByName(spellName);
+    let spell: SpellData;
+    
+    if (detail) {
+      spell = createSpellDataFromDetail(detail);
+    } else {
+      spell = {
+        id: `spell_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+        name: spellName,
+        description: "",
+        isInnate: false,
+        prepared: level > 0,
+        ritual: false,
+        concentration: false,
+        school: "abjuration",
+      };
+    }
     onSelect(spell);
     onClose();
   };
@@ -295,43 +304,80 @@ export default function SpellLibraryDialog({
           </div>
 
           {/* 右侧详情预览 */}
-          {selectedSpell && (
-            <div style={{ width: "50%", display: "flex", flexDirection: "column" }}>
-              <ScrollArea style={{ flex: 1, minHeight: 0 }}>
-                <div style={{ padding: "12px 16px" }}>
-                  <h3 style={{ ...T, fontSize: "15px", fontWeight: 600, marginBottom: "8px" }}>
-                    {selectedSpell.name}
-                  </h3>
-                  <div style={{ ...T, fontSize: "12px", color: sheetColors.textPlaceholder, marginBottom: "12px" }}>
-                    {LEVEL_LABELS[selectedSpell.level]}
-                    {classSpellNames.has(selectedSpell.name) && characterClass && (
-                      <span style={{ marginLeft: "8px", color: "#d4a574" }}>
-                        · {characterClass}法术
-                      </span>
+          {selectedSpell && (() => {
+            const detail = getSpellDetailByName(selectedSpell.name);
+            return (
+              <div style={{ width: "50%", display: "flex", flexDirection: "column" }}>
+                <ScrollArea style={{ flex: 1, minHeight: 0 }}>
+                  <div style={{ padding: "12px 16px" }}>
+                    <h3 style={{ ...T, fontSize: "15px", fontWeight: 600, marginBottom: "8px" }}>
+                      {selectedSpell.name}
+                    </h3>
+                    <div style={{ ...T, fontSize: "12px", color: sheetColors.textPlaceholder, marginBottom: "12px" }}>
+                      {LEVEL_LABELS[selectedSpell.level]}
+                      {classSpellNames.has(selectedSpell.name) && characterClass && (
+                        <span style={{ marginLeft: "8px", color: "#d4a574" }}>
+                          · {characterClass}法术
+                        </span>
+                      )}
+                    </div>
+                    
+                    {detail ? (
+                      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                        {/* 环阶与学派 */}
+                        <div style={{ display: "flex", flexWrap: "wrap", gap: "4px" }}>
+                          <span style={{
+                            display: "inline-flex", alignItems: "center", gap: 2,
+                            padding: "1px 6px", borderRadius: "2px",
+                            backgroundColor: sheetColors.hoverBg, color: sheetColors.textDark,
+                            fontSize: "11px", fontFamily: "var(--font-serif-regular)", lineHeight: 1.4,
+                          }}>
+                            {detail["环阶与学派"]}
+                          </span>
+                        </div>
+                        
+                        {/* 法术元信息 */}
+                        <div style={{ ...T, fontSize: "11px", color: sheetColors.textMedium, lineHeight: 1.8 }}>
+                          <div><span style={{ color: sheetColors.textPlaceholder }}>施法时间：</span>{detail["施法时间"]}</div>
+                          <div><span style={{ color: sheetColors.textPlaceholder }}>施法距离：</span>{detail["施法距离"]}</div>
+                          <div><span style={{ color: sheetColors.textPlaceholder }}>法术成分：</span>{detail["法术成分"]}</div>
+                          <div><span style={{ color: sheetColors.textPlaceholder }}>持续时间：</span>{detail["持续时间"]}</div>
+                        </div>
+                        
+                        {/* 分隔线 */}
+                        <div style={{ height: 1, backgroundColor: sheetColors.hoverBg }} />
+                        
+                        {/* 描述 */}
+                        <div style={{ ...T, fontSize: "12px", color: sheetColors.textLighter, lineHeight: 1.6, whiteSpace: "pre-wrap" }}>
+                          {detail["描述"]}
+                        </div>
+                      </div>
+                    ) : (
+                      <div style={{ ...T, fontSize: "12px", color: sheetColors.textLighter, lineHeight: 1.6, whiteSpace: "pre-wrap" }}>
+                        点击"选择此法术"按钮将其添加到角色卡。
+                        添加后可在法术编辑对话框中填写详细描述。
+                      </div>
                     )}
+                    
+                    <button
+                      onClick={handleConfirmSelect}
+                      style={{
+                        marginTop: "16px", width: "100%", padding: "8px 16px",
+                        border: `1px solid ${sheetColors.buttonDarkBg}`, borderRadius: "2px",
+                        fontFamily: "var(--font-serif-medium)", fontSize: "13px",
+                        backgroundColor: sheetColors.buttonDarkBg, color: sheetColors.textWhite,
+                        cursor: "pointer", transition: "background 0.1s",
+                      }}
+                      onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = sheetColors.buttonDarkHover)}
+                      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = sheetColors.buttonDarkBg)}
+                    >
+                      选择此法术
+                    </button>
                   </div>
-                  <div style={{ ...T, fontSize: "12px", color: sheetColors.textLighter, lineHeight: 1.6, whiteSpace: "pre-wrap" }}>
-                    点击"选择此法术"按钮将其添加到角色卡。
-                    添加后可在法术编辑对话框中填写详细描述。
-                  </div>
-                  <button
-                    onClick={handleConfirmSelect}
-                    style={{
-                      marginTop: "16px", width: "100%", padding: "8px 16px",
-                      border: `1px solid ${sheetColors.buttonDarkBg}`, borderRadius: "2px",
-                      fontFamily: "var(--font-serif-medium)", fontSize: "13px",
-                      backgroundColor: sheetColors.buttonDarkBg, color: sheetColors.textWhite,
-                      cursor: "pointer", transition: "background 0.1s",
-                    }}
-                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = sheetColors.buttonDarkHover)}
-                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = sheetColors.buttonDarkBg)}
-                  >
-                    选择此法术
-                  </button>
-                </div>
-              </ScrollArea>
-            </div>
-          )}
+                </ScrollArea>
+              </div>
+            );
+          })()}
         </div>
 
         {/* 底部统计 */}

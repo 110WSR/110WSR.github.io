@@ -741,6 +741,7 @@ export default function AttackPanel({ className }: AttackPanelProps) {
         <SpellDialog
           open={spellDialogOpen}
           initialSpell={editingSpell}
+          characterClass={character.basicInfo["职业"]}
           isCantrip={false}
           onSave={(s) => {
             const newBoxes = character.spellBoxes.map(box => ({

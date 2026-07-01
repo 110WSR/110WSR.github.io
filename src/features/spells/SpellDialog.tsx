@@ -26,6 +26,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 interface SpellDialogProps {
   open: boolean;
   initialSpell?: SpellData;
+  characterClass?: string;
   isCantrip?: boolean;
   onSave: (spell: SpellData) => void;
   onDelete?: (spell: SpellData) => void;
@@ -49,7 +50,7 @@ const SCHOOLS: { id: string; label: string }[] = [
 ];
 
 export function SpellDialog({
-  open, initialSpell, isCantrip = false,
+  open, initialSpell, characterClass, isCantrip = false,
   onSave, onDelete, onClose,
 }: SpellDialogProps) {
   const { character, updateCharacter } = useCharacter();
@@ -460,8 +461,9 @@ export function SpellDialog({
       <SpellLibraryDialog
         open={showLibrary}
         onClose={() => setShowLibrary(false)}
-        onSelect={(spell) => {
-          set("name", spell.name);
+        characterClass={characterClass}
+        onSelect={(spell: SpellData) => {
+          setData(spell);
         }}
       />
     </>

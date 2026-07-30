@@ -54,7 +54,12 @@ export function SpellDialog({
   onSave, onDelete, onClose,
 }: SpellDialogProps) {
   const { character, updateCharacter } = useCharacter();
-  const [data, setData] = useState<SpellData>(initialSpell ?? createDefaultSpell());
+  // AttackPanel 调用点为条件挂载（open=true 时才挂载），初始化器需包含
+  // 原 useEffect 挂载期的 school 归一化（缺省补 "abjuration"）
+  const [data, setData] = useState<SpellData>(() => {
+    const init = initialSpell ?? createDefaultSpell();
+    return init.school ? init : { ...init, school: "abjuration" };
+  });
   const [showAbilityPicker, setShowAbilityPicker] = useState(false);
   const [showSchoolPicker, setShowSchoolPicker] = useState(false);
   const [showLibrary, setShowLibrary] = useState(false);

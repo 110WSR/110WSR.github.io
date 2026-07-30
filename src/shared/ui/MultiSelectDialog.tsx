@@ -30,9 +30,11 @@ export function MultiSelectDialog({
   onSave,
   onClose,
 }: MultiSelectDialogProps) {
-  const [draft, setDraft] = useState<string[]>([]);
+  // 调用点为条件挂载（open=true 时才挂载），初始值需直接取自 selected，
+  // 与原 useEffect 挂载期同步行为一致
+  const [draft, setDraft] = useState<string[]>(selected);
 
-  // Sync draft when dialog opens（渲染期重置：open 变 true 时同步 draft）
+  // Sync draft when dialog opens（渲染期重置：常挂载用法下 open 变 true 时同步 draft）
   const [prevOpen, setPrevOpen] = useState(open);
   if (open !== prevOpen) {
     setPrevOpen(open);

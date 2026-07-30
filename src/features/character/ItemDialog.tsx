@@ -336,7 +336,12 @@ interface ItemDialogProps {
 
 export function ItemDialog({ open, initialItem, onSave, onDelete, onClose }: ItemDialogProps) {
   const { character, updateCharacter } = useCharacter();
-  const [data, setData] = useState<Item>(initialItem ?? createDefaultItem());
+  // 调用点为条件挂载（open=true 时才挂载），初始化器需包含原 useEffect
+  // 挂载期的 proficient 归一化，否则新建武器保存后攻击加值漏算熟练
+  const [data, setData] = useState<Item>(() => {
+    const base = initialItem ?? createDefaultItem();
+    return { ...base, proficient: base.proficient ?? true };
+  });
 
   // 打开或初始项变化时同步表单数据（渲染期重置）
   const [prevOpen, setPrevOpen] = useState(open);

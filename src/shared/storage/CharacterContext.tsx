@@ -7,7 +7,6 @@ import {
   useContext,
   useState,
   useCallback,
-  useEffect,
   type ReactNode,
 } from "react";
 import type {
@@ -240,11 +239,8 @@ export function CharacterProvider({ children }: { children: ReactNode }) {
     [refreshSaveList]
   );
 
-  // 当 localStorage 外部变更时刷新（理论上仅当前 tab）
-  useEffect(() => {
-    refreshSaveList();
-  }, [refreshSaveList]);
-
+  // saveList 已在 useState 惰性初始化时通过 getSaveList() 读取，
+  // 无需挂载后再次同步刷新
   const value: CharacterContextValue = {
     character,
     saveList,

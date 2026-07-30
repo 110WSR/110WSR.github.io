@@ -26,12 +26,16 @@ const LABEL: React.CSSProperties = {
 export default function TraitDialog({ open, initialTrait, onSave, onDelete, onClose }: TraitDialogProps) {
   const [data, setData] = useState<TraitItem>(() => initialTrait ?? { id: "", name: "", usage: "", description: "", tags: [] });
 
-  // 当 initialTrait 变化时同步
-  React.useEffect(() => {
+  // 当 initialTrait 变化时同步（渲染期重置）
+  const [prevOpen, setPrevOpen] = useState(open);
+  const [prevInitialTrait, setPrevInitialTrait] = useState(initialTrait);
+  if (open !== prevOpen || initialTrait !== prevInitialTrait) {
+    setPrevOpen(open);
+    setPrevInitialTrait(initialTrait);
     if (open) {
       setData(initialTrait ?? { id: "", name: "", usage: "", description: "", tags: [] });
     }
-  }, [initialTrait, open]);
+  }
 
   const set = (field: keyof TraitItem, val: string) => setData(prev => ({ ...prev, [field]: val }));
 

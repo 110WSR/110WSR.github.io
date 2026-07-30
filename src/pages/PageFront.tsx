@@ -21,7 +21,7 @@ import BasicInfo from "../features/character/BasicInfo.tsx";
 import CombatStatBox from "../features/character/CombatStatBox.tsx";
 import HeaderBrand from "../shared/ui/logo";
 import { useCharacter } from "../shared/storage/CharacterContext";
-import type { Attributes } from "../shared/storage/types";
+import type { Attributes, CharacterData } from "../shared/storage/types";
 import classData from "../../data/classData.json";
 import { ARMOR_OPTIONS } from "../../data/armorOptions.ts";
 import type { ArmorOption } from "../../data/armorOptions.ts";
@@ -462,9 +462,12 @@ function AutoFontInput({ value, onChange, className, style, maxSize = 48 }: {
   const [fontSize, setFontSize] = useState(maxSize);
   const [editValue, setEditValue] = useState(String(value));
 
-  useEffect(() => {
+  // 外部 value 变化时同步本地编辑值（渲染期调整）
+  const [prevValue, setPrevValue] = useState(value);
+  if (value !== prevValue) {
+    setPrevValue(value);
     setEditValue(String(value));
-  }, [value]);
+  }
 
   const commit = useCallback((raw: string) => {
     onChange(raw);
@@ -1079,8 +1082,17 @@ function SkillsPanel({
 }
 
 function CharacterCardContent() {
-  const { character, setAttributes, setLevel, setProficiencyBonus, updateCharacter } = useCharacter();
+  const { character } = useCharacter();
   if (!character) return null;
+  return <CharacterCardContentInner character={character} />;
+}
+
+interface CharacterCardContentInnerProps {
+  character: CharacterData;
+}
+
+function CharacterCardContentInner({ character }: CharacterCardContentInnerProps) {
+  const { setAttributes, setLevel, setProficiencyBonus, updateCharacter } = useCharacter();
 
   const { attributes, level, proficiencyBonus } = character;
   const wisdomMod = Math.floor(((attributes?.wis_value ?? 10) - 10) / 2);

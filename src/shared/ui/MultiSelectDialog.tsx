@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ReactDOM from "react-dom";
 import { sheetColors } from "../../shared/tokens/colors";
 import ScrollArea from "../ui/ScrollArea";
@@ -32,10 +32,12 @@ export function MultiSelectDialog({
 }: MultiSelectDialogProps) {
   const [draft, setDraft] = useState<string[]>([]);
 
-  // Sync draft when dialog opens
-  useEffect(() => {
+  // Sync draft when dialog opens（渲染期重置：open 变 true 时同步 draft）
+  const [prevOpen, setPrevOpen] = useState(open);
+  if (open !== prevOpen) {
+    setPrevOpen(open);
     if (open) setDraft(selected);
-  }, [open, selected]);
+  }
 
   const toggle = (id: string) => {
     setDraft((prev) =>

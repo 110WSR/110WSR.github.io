@@ -338,12 +338,17 @@ export function ItemDialog({ open, initialItem, onSave, onDelete, onClose }: Ite
   const { character, updateCharacter } = useCharacter();
   const [data, setData] = useState<Item>(initialItem ?? createDefaultItem());
 
-  useEffect(() => {
+  // 打开或初始项变化时同步表单数据（渲染期重置）
+  const [prevOpen, setPrevOpen] = useState(open);
+  const [prevInitialItem, setPrevInitialItem] = useState(initialItem);
+  if (open !== prevOpen || initialItem !== prevInitialItem) {
+    setPrevOpen(open);
+    setPrevInitialItem(initialItem);
     if (open) {
       const base = initialItem ?? createDefaultItem();
       setData({ ...base, proficient: base.proficient ?? true });
     }
-  }, [open, initialItem]);
+  }
 
   const set = <K extends keyof Item>(key: K, val: Item[K]) =>
     setData((d) => ({ ...d, [key]: val }));

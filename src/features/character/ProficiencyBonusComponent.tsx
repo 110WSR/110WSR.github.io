@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 interface ProficiencyBonusComponentProps {
   className?: string;
@@ -33,20 +33,24 @@ export default function ProficiencyBonusComponent({
   const [diceActive, setDiceActive] = useState(false);
   const [pop, setPop] = useState(false);
 
-  // 当 externalValue 变化时同步内部状态
-  useEffect(() => {
+  // 当 externalValue 变化时同步内部状态（渲染期调整）
+  const [prevInitialValue, setPrevInitialValue] = useState(initialValue);
+  if (initialValue !== prevInitialValue) {
+    setPrevInitialValue(initialValue);
     if (initialValue !== undefined) {
       setValue(initialValue);
     }
-  }, [initialValue]);
+  }
 
-  // 未提供 initialValue 时，跟随等级自动计算
-  useEffect(() => {
+  // 未提供 initialValue 时，跟随等级自动计算（渲染期调整）
+  const [prevCalculatedBonus, setPrevCalculatedBonus] = useState(calculatedBonus);
+  if (calculatedBonus !== prevCalculatedBonus) {
+    setPrevCalculatedBonus(calculatedBonus);
     if (initialValue === undefined) {
       setValue(calculatedBonus);
       onValueChange?.(calculatedBonus);
     }
-  }, [calculatedBonus]);
+  }
 
   const formatValue = (val: number | ""): string => {
     if (val === "") return "";

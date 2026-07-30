@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { useCharacter } from "../shared/storage/CharacterContext";
-import { useEffect, useState } from "react";
 
 // ============================================================================
 // D&D 5e 主菜单页面
@@ -23,11 +22,8 @@ function DragonIcon() {
 export default function MainMenu() {
   const navigate = useNavigate();
   const { saveList, switchCharacter, character } = useCharacter();
-  const [recentSaves, setRecentSaves] = useState(saveList.slice(0, 5));
-
-  useEffect(() => {
-    setRecentSaves(saveList.slice(0, 5));
-  }, [saveList]);
+  // recentSaves 为 saveList 的纯派生数据，渲染期直接计算
+  const recentSaves = saveList.slice(0, 5);
 
   const handleContinue = () => {
     if (character) {

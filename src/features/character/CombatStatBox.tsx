@@ -14,9 +14,12 @@ export default function CombatStatBox({ label, value, editable, hoverable, onCli
   const [editValue, setEditValue] = useState(String(value));
   const inputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
+  // 外部 value 变化时同步本地编辑值（仅非编辑状态，渲染期调整）
+  const [prevValue, setPrevValue] = useState(value);
+  if (value !== prevValue) {
+    setPrevValue(value);
     if (!editing) setEditValue(String(value));
-  }, [value, editing]);
+  }
 
   useEffect(() => {
     if (editing && inputRef.current) {

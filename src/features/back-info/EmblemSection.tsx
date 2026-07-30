@@ -19,6 +19,13 @@ export default function EmblemSection({
   const [emblemImageUrl, setEmblemImageUrl] = useState<string | null>(null);
 
   // 加载已持久化的图片
+  // emblem 清空时在渲染期同步重置；非空时由下方 effect 异步加载
+  const [prevEmblem, setPrevEmblem] = useState(emblem);
+  if (emblem !== prevEmblem) {
+    setPrevEmblem(emblem);
+    if (!emblem) setEmblemImageUrl(null);
+  }
+
   useEffect(() => {
     let url: string | null = null;
     if (emblem) {
@@ -26,8 +33,6 @@ export default function EmblemSection({
         url = u;
         setEmblemImageUrl(u);
       }).catch(() => setEmblemImageUrl(null));
-    } else {
-      setEmblemImageUrl(null);
     }
     return () => { if (url) URL.revokeObjectURL(url); };
   }, [emblem]);

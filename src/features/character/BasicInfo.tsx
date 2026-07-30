@@ -23,12 +23,12 @@ function InlineInfoField({
   const [editValue, setEditValue] = useState(value);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // 当外部 value 变化时（如切换存档），同步本地编辑值
-  useEffect(() => {
-    if (!editing) {
-      setEditValue(value);
-    }
-  }, [value, editing]);
+  // 当外部 value 变化时（如切换存档），同步本地编辑值（渲染期调整）
+  const [prevValue, setPrevValue] = useState(value);
+  if (value !== prevValue) {
+    setPrevValue(value);
+    if (!editing) setEditValue(value);
+  }
 
   useEffect(() => {
     if (editing && inputRef.current) {

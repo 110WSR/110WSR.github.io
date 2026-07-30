@@ -2,7 +2,7 @@
 // 自定义项管理对话框
 // ============================================================================
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -29,16 +29,6 @@ export default function CustomItemDialog({ open, onOpenChange }: CustomItemDialo
   const [content, setContent] = useState("");
   const [saved, setSaved] = useState(false);
 
-  // 打开时选中第一个并加载内容
-  useEffect(() => {
-    if (open) {
-      const first = EDITABLE_FILES[0]?.key ?? null;
-      setSelected(first);
-      setSaved(false);
-      if (first) loadFile(first);
-    }
-  }, [open]);
-
   const loadFile = (key: string) => {
     const custom = loadCustomRaw(key);
     if (custom !== null) {
@@ -47,6 +37,18 @@ export default function CustomItemDialog({ open, onOpenChange }: CustomItemDialo
       setContent(getDefaultRaw(key));
     }
   };
+
+  // 打开时选中第一个并加载内容（渲染期重置：open 变 true 时同步）
+  const [prevOpen, setPrevOpen] = useState(open);
+  if (open !== prevOpen) {
+    setPrevOpen(open);
+    if (open) {
+      const first = EDITABLE_FILES[0]?.key ?? null;
+      setSelected(first);
+      setSaved(false);
+      if (first) loadFile(first);
+    }
+  }
 
   const handleSelect = (key: string) => {
     setSelected(key);

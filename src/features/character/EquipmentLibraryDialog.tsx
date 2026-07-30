@@ -51,11 +51,20 @@ export function EquipmentLibraryDialog({ open, onSelect, onClose }: EquipmentLib
   const [selectedCategory, setSelectedCategory] = useState<string>("全部");
   const searchRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
+  // 打开时重置搜索/分类/页签（渲染期重置）
+  const [prevOpen, setPrevOpen] = useState(open);
+  if (open !== prevOpen) {
+    setPrevOpen(open);
     if (open) {
       setSearchText("");
       setSelectedCategory("全部");
       setActiveTab("magic");
+    }
+  }
+
+  // 打开后聚焦搜索框
+  useEffect(() => {
+    if (open) {
       setTimeout(() => searchRef.current?.focus(), 100);
     }
   }, [open]);

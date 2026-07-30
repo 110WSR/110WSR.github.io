@@ -18,10 +18,12 @@ export default function CharacterName({ value = "", onChange }: CharacterNamePro
     }
   }, [editing]);
 
-  // 外部 value 变化时同步到编辑值（仅非编辑状态）
-  useEffect(() => {
+  // 外部 value 变化时同步到编辑值（仅非编辑状态，渲染期调整）
+  const [prevValue, setPrevValue] = useState(value);
+  if (value !== prevValue) {
+    setPrevValue(value);
     if (!editing) setEditValue(value);
-  }, [value, editing]);
+  }
 
   const handleStartEdit = () => {
     setEditValue(value);

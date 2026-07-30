@@ -12,6 +12,13 @@ export default function AppearanceSection({ imageId = "", onImageChange }: Appea
   const [isHovered, setIsHovered] = useState(false);
 
   // 加载已持久化的图片
+  // imageId 清空时在渲染期同步重置；非空时由下方 effect 异步加载
+  const [prevImageId, setPrevImageId] = useState(imageId);
+  if (imageId !== prevImageId) {
+    setPrevImageId(imageId);
+    if (!imageId) setImageUrl(null);
+  }
+
   useEffect(() => {
     let url: string | null = null;
     if (imageId) {
@@ -19,8 +26,6 @@ export default function AppearanceSection({ imageId = "", onImageChange }: Appea
         url = u;
         setImageUrl(u);
       }).catch(() => setImageUrl(null));
-    } else {
-      setImageUrl(null);
     }
     return () => { if (url) URL.revokeObjectURL(url); };
   }, [imageId]);

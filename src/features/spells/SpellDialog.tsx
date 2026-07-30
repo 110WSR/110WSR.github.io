@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { sheetColors } from "../../shared/tokens/colors";
 import { createDefaultSpell } from "../../shared/types/types";
@@ -59,7 +59,12 @@ export function SpellDialog({
   const [showSchoolPicker, setShowSchoolPicker] = useState(false);
   const [showLibrary, setShowLibrary] = useState(false);
 
-  useEffect(() => {
+  // 打开或初始法术变化时同步表单数据（渲染期重置）
+  const [prevOpen, setPrevOpen] = useState(open);
+  const [prevInitialSpell, setPrevInitialSpell] = useState(initialSpell);
+  if (open !== prevOpen || initialSpell !== prevInitialSpell) {
+    setPrevOpen(open);
+    setPrevInitialSpell(initialSpell);
     if (open) {
       const init = initialSpell ?? createDefaultSpell();
       if (!init.school) init.school = "abjuration";
@@ -67,7 +72,7 @@ export function SpellDialog({
       setShowAbilityPicker(false);
       setShowSchoolPicker(false);
     }
-  }, [open, initialSpell]);
+  }
 
   const set = <K extends keyof SpellData>(key: K, val: SpellData[K]) =>
     setData((d) => ({ ...d, [key]: val }));

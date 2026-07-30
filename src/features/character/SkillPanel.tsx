@@ -1,6 +1,6 @@
 import SkillComponent from "./SkillComponent";
 import SectionContainer from "../../shared/ui/SectionContainer";
-import { useCharacter } from "../../shared/storage/CharacterContext";
+import { useCharacter } from "../../shared/storage/characterHooks";
 
 interface Attributes {
   str_value: number;

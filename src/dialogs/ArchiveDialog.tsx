@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "../shared/dialogs/dialog";
-import { useCharacter } from "../shared/storage/CharacterContext";
+import { useCharacter } from "../shared/storage/characterHooks";
 import {
   deleteCharacter as deleteStorageCharacter,
   renameCharacter,

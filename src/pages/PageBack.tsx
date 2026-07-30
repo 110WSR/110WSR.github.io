@@ -5,7 +5,7 @@ import HeaderSection from "../features/back-info/HeaderSection";
 import AppearanceSection from "../features/back-info/AppearanceSection";
 import DateDisplay from "../features/back-info/DateDisplay";
 import CharacterInfoSection, { type CharacterInfoData } from "../features/back-info/CharacterInfoSection";
-import { useCharacter } from "../shared/storage/CharacterContext";
+import { useCharacter } from "../shared/storage/characterHooks";
 
 export default function CharacterBackSide() {
   const { character, updateCharacter } = useCharacter();

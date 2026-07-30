@@ -1,6 +1,6 @@
 import { useRef, useCallback, useState, useLayoutEffect } from "react";
 import ReactDOM from "react-dom";
-import { useCharacter } from "../../shared/storage/CharacterContext";
+import { useCharacter } from "../../shared/storage/characterHooks";
 import svgPaths from "../../assets/flag";
 import Cantrip from "./Cantrip";
 import SpellRow from "./Spell";
@@ -104,6 +104,8 @@ export default function SpellBox({
   const [placeholderIndex, setPlaceholderIndex] = useState<number | null>(null);
   const [dragY, setDragY] = useState(0);
   const [dragClientPos, setDragClientPos] = useState({ x: 0, y: 0 });
+  // 拖拽开始时捕获的容器左缘（避免渲染期读取 ref）
+  const [dragLeft, setDragLeft] = useState(0);
   const dragStartYRef = useRef(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const dragIndexRef = useRef<number | null>(null);
@@ -126,6 +128,7 @@ export default function SpellBox({
       dragStartYRef.current = e.clientY;
       setDragY(0);
       setDragClientPos({ x: e.clientX, y: e.clientY });
+      setDragLeft(boxRef.current?.getBoundingClientRect().left ?? 0);
     }, 100);
 
     const onMouseMove = (ev: MouseEvent) => {
@@ -377,7 +380,7 @@ export default function SpellBox({
           <div
             style={{
               position: 'fixed',
-              left: boxRef.current?.getBoundingClientRect().left ?? 0,
+              left: dragLeft,
               top: dragClientPos.y - 12,
               width: `min(358px, calc(100vw - 32px))`,
               height: ITEM_H,

@@ -20,7 +20,7 @@ import CharacterName from "../features/character/CharacterName.tsx";
 import BasicInfo from "../features/character/BasicInfo.tsx";
 import CombatStatBox from "../features/character/CombatStatBox.tsx";
 import HeaderBrand from "../shared/ui/logo";
-import { useCharacter } from "../shared/storage/CharacterContext";
+import { useCharacter } from "../shared/storage/characterHooks";
 import type { Attributes, CharacterData } from "../shared/storage/types";
 import type { ClassDataEntry } from "../shared/types/types";
 import classData from "../../data/classData.json";
@@ -95,9 +95,11 @@ function CombatStatsRow({ attributes }: { attributes?: Attributes }) {
   const defaultInitiative = dexMod;
   const defaultSpeed = 30;
 
-  const selectedArmor = useMemo(() => character?.selectedArmorId
-    ? ARMOR_OPTIONS.find(a => a.id === character.selectedArmorId) ?? null
-    : null, [character?.selectedArmorId]);
+  const selectedArmorId = character?.selectedArmorId;
+  const customACFormula = character?.customACFormula;
+  const selectedArmor = useMemo(() => selectedArmorId
+    ? ARMOR_OPTIONS.find(a => a.id === selectedArmorId) ?? null
+    : null, [selectedArmorId]);
   const shieldBonus = character?.hasShield ? 2 : 0;
   const armorExtra = parseInt(character?.armorExtraBonus ?? "", 10) || 0;
   const shieldExtra = parseInt(character?.shieldExtraBonus ?? "", 10) || 0;
@@ -105,7 +107,7 @@ function CombatStatsRow({ attributes }: { attributes?: Attributes }) {
 
   // 解析自定义公式：支持数字、+/-、xx调整值（必须在 acValue 之前定义）
   const evalFormula = useCallback((formula: string): number => {
-    let expr = formula
+    const expr = formula
       .replace(/力量调整值/g, String(strMod))
       .replace(/敏捷调整值/g, String(dexMod))
       .replace(/体质调整值/g, String(conMod))
@@ -121,15 +123,15 @@ function CombatStatsRow({ attributes }: { attributes?: Attributes }) {
   }, [strMod, dexMod, conMod, intMod, wisMod, chaMod]);
 
   const acValue = useMemo(() => {
-    const isCustom = character?.selectedArmorId === "custom";
-    const formula = character?.customACFormula;
+    const isCustom = selectedArmorId === "custom";
+    const formula = customACFormula;
     const extras = acExtrasBonus;
     if (isCustom && formula) {
       try { return evalFormula(formula) + shieldBonus + armorExtra + shieldExtra + extras; } catch { /* fall through */ }
     }
     const base = selectedArmor ? selectedArmor.calcAC(dexMod, conMod, wisMod) : 10 + dexMod;
     return base + shieldBonus + armorExtra + shieldExtra + extras;
-  }, [selectedArmor, dexMod, conMod, wisMod, shieldBonus, armorExtra, shieldExtra, acExtrasBonus, character?.selectedArmorId, character?.customACFormula, evalFormula]);
+  }, [selectedArmor, dexMod, conMod, wisMod, shieldBonus, armorExtra, shieldExtra, acExtrasBonus, selectedArmorId, customACFormula, evalFormula]);
 
   const initValue = character?.customInitiative ?? defaultInitiative;
   const speedValue = character?.customSpeed ?? defaultSpeed;

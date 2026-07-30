@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 /** 子职特性接口 */
 export interface SubclassFeature {
@@ -52,30 +52,34 @@ export default function SubclassSelectionPanel({
   selectedSubclass,
   onSubclassChange,
 }: SubclassSelectionPanelProps) {
-  const [subclassData, setSubclassData] = useState<SubclassData | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  // 已加载的数据与来源职业绑定，loading/error 全部由之派生（避免 effect 中同步 setState）
+  const [loaded, setLoaded] = useState<{ className: string; data: SubclassData } | null>(null);
+  const [loadError, setLoadError] = useState<{ className: string; message: string } | null>(null);
 
   // 加载子职数据
-  useMemo(() => {
+  useEffect(() => {
     if (!className) return;
     const fileName = CLASS_FILE_MAP[className];
     if (!fileName) return;
 
-    setLoading(true);
-    setError(null);
-
+    let cancelled = false;
     import(`../../../data/subclasses/${fileName}.json`)
       .then((module) => {
-        setSubclassData(module.default as SubclassData);
-        setLoading(false);
+        if (cancelled) return;
+        setLoaded({ className, data: module.default as SubclassData });
+        setLoadError(null);
       })
       .catch((err) => {
+        if (cancelled) return;
         console.error("加载子职数据失败:", err);
-        setError("加载子职数据失败");
-        setLoading(false);
+        setLoadError({ className, message: "加载子职数据失败" });
       });
+    return () => { cancelled = true; };
   }, [className]);
+
+  const subclassData = loaded?.className === className ? loaded.data : null;
+  const error = loadError?.className === className ? loadError.message : null;
+  const loading = !!className && !!CLASS_FILE_MAP[className] && !subclassData && !error;
 
   // 检查是否达到子职等级
   const subclassLevel = subclassData?.level ?? 99;

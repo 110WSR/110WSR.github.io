@@ -2,7 +2,7 @@ import { useState, useCallback, useMemo } from "react";
 import ReactDOM from "react-dom";
 import SectionContainer from "../../shared/ui/SectionContainer";
 import ScrollArea from "../../shared/ui/ScrollArea";
-import { useCharacter } from "../../shared/storage/CharacterContext";
+import { useCharacter } from "../../shared/storage/characterHooks";
 import type { Item } from "../../shared/types/types";
 import { createDefaultItem } from "../../shared/types/types";
 import { EquipmentLibraryDialog } from "../character/EquipmentLibraryDialog";

@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCharacter } from "../shared/storage/CharacterContext";
+import { useCharacter } from "../shared/storage/characterHooks";
 import type { Attributes } from "../shared/storage/types";
 import type { Item, AttackEntry, WeaponPreset } from "../shared/types/types";
 import { createDefaultItem } from "../shared/types/types";

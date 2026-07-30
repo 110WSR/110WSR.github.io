@@ -1,4 +1,4 @@
-import { useCharacter } from "../shared/storage/CharacterContext";
+import { useCharacter } from "../shared/storage/characterHooks";
 import SpellBox from "../features/spells/SpellBox";
 import Header from "../features/spells/Header";
 import type { SpellData, ClassDataEntry } from "../shared/types/types";

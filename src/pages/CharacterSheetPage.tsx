@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCharacter } from "../shared/storage/CharacterContext";
+import { useCharacter } from "../shared/storage/characterHooks";
 import BottomToolbar from "../dialogs/BottomToolbar";
 import CharacterSheet from "./PageFront";
 import CharacterBackSide from "./PageBack";

@@ -4,6 +4,7 @@ import { sheetColors } from "../../shared/tokens/colors";
 import ScrollArea from "../../shared/ui/ScrollArea";
 import spellData from "../../../data/spellData.json";
 import type { SpellData } from "../../shared/types/types";
+import { createDefaultSpell } from "../../shared/types/types";
 import { getSpellDetailByName, createSpellDataFromDetail } from "../../shared/utils/spellDetailsResolver";
 
 const FVAR = "'CTGR' 0, 'wdth' 100";
@@ -130,10 +131,8 @@ export default function SpellLibraryDialog({
       spell = createSpellDataFromDetail(detail);
     } else {
       spell = {
-        id: `spell_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+        ...createDefaultSpell(),
         name: spellName,
-        description: "",
-        isInnate: false,
         prepared: level > 0,
         ritual: false,
         concentration: false,

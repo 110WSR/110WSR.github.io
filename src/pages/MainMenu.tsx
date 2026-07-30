@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useCharacter } from "../shared/storage/CharacterContext";
+import { useCharacter } from "../shared/storage/characterHooks";
 
 // ============================================================================
 // D&D 5e 主菜单页面

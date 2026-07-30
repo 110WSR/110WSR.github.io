@@ -7,7 +7,7 @@ import SectionContainer from "../../shared/ui/SectionContainer";
 import { ItemTooltip } from "./ItemTooltip";
 import { HitTooltip, DamageTooltip } from "./WeaponTip";
 import ScrollArea from "../../shared/ui/ScrollArea";
-import { useCharacter } from "../../shared/storage/CharacterContext";
+import { useCharacter } from "../../shared/storage/characterHooks";
 import type { CharacterData } from "../../shared/storage/types";
 import type { Item, AttackEntry, SpellData, ExtraBonus } from "../../shared/types/types";
 import { ItemDialog } from "./ItemDialog";

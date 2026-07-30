@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import ReactDOM from "react-dom";
 import HeaderBrand from "../../shared/ui/logo";
-import { useCharacter } from "../../shared/storage/CharacterContext";
+import { useCharacter } from "../../shared/storage/characterHooks";
 import type { ExtraBonus, ClassDataEntry } from "../../shared/types/types";
 import SpellBonusTooltip from "./SpellBonusTip";
 import { sheetColors } from "../../shared/tokens/colors";

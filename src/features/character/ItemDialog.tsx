@@ -5,7 +5,7 @@ import { createDefaultItem } from "../../shared/types/types";
 import type { Item, Feature } from "../../shared/types/types";
 import ScrollArea from "../../shared/ui/ScrollArea";
 import ButtonComponent from "../../shared/ui/ButtonComponent";
-import { useCharacter } from "../../shared/storage/CharacterContext";
+import { useCharacter } from "../../shared/storage/characterHooks";
 import type { Attributes } from "../../shared/storage/types";
 
 // ── 攻击属性 → 角色属性字段映射 ──

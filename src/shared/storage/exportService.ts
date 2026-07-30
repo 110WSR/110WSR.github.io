@@ -142,7 +142,7 @@ export function toOwlbearJSON(character: CharacterData): string {
   const isCustom = character.selectedArmorId === "custom";
   if (isCustom && character.customACFormula) {
     try {
-      let expr = character.customACFormula
+      const expr = character.customACFormula
         .replace(/力量调整值/g, String(strMod))
         .replace(/敏捷调整值/g, String(dexMod))
         .replace(/体质调整值/g, String(conMod))
@@ -456,7 +456,7 @@ export function toFVTTJSON(character: CharacterData): string {
   if (isCustom && character.customACFormula) {
     // 解析自定义公式（支持中文调整值替换）
     try {
-      let expr = character.customACFormula
+      const expr = character.customACFormula
         .replace(/力量调整值/g, String(strMod))
         .replace(/敏捷调整值/g, String(dexMod))
         .replace(/体质调整值/g, String(conMod))

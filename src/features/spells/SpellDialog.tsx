@@ -5,7 +5,7 @@ import { createDefaultSpell } from "../../shared/types/types";
 import type { SpellData, ExtraBonus } from "../../shared/types/types";
 import ScrollArea from "../../shared/ui/ScrollArea";
 import ButtonComponent from "../../shared/ui/ButtonComponent";
-import { useCharacter } from "../../shared/storage/CharacterContext";
+import { useCharacter } from "../../shared/storage/characterHooks";
 import SpellLibraryDialog from "./SpellLibraryDialog";
 
 const FVAR = "'CTGR' 0, 'wdth' 100";
@@ -72,8 +72,7 @@ export function SpellDialog({
     setPrevInitialSpell(initialSpell);
     if (open) {
       const init = initialSpell ?? createDefaultSpell();
-      if (!init.school) init.school = "abjuration";
-      setData(init);
+      setData(init.school ? init : { ...init, school: "abjuration" });
       setShowAbilityPicker(false);
       setShowSchoolPicker(false);
     }

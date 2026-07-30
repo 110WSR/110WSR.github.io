@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { useCharacter } from "../../shared/storage/CharacterContext";
+import { useCharacter } from "../../shared/storage/characterHooks";
 import classIdentifiers from "../../../data/classIdentifiers.json";
 
 interface BasicInfoProps {

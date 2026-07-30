@@ -1,6 +1,6 @@
 import SavingThrowComponent from "./SavingThrowComponent";
 import SectionContainer from "../../shared/ui/SectionContainer";
-import { useCharacter } from "../../shared/storage/CharacterContext";
+import { useCharacter } from "../../shared/storage/characterHooks";
 import type { Attributes, SavingThrowKey, SavingThrows } from "../../shared/storage/types";
 
 interface SavingThrowPanelProps {

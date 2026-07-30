@@ -3,7 +3,7 @@ import { MultiSelectDialog } from "../../shared/ui/MultiSelectDialog";
 import type { OptionGroup } from "../../shared/ui/MultiSelectDialog";
 import ScrollArea from "../../shared/ui/ScrollArea";
 import SectionContainer from "../../shared/ui/SectionContainer";
-import { useCharacter } from "../../shared/storage/CharacterContext";
+import { useCharacter } from "../../shared/storage/characterHooks";
 import armorData    from "../../../data/armor.json";
 import weaponsData  from "../../../data/weapons.json";
 import toolsData    from "../../../data/tools.json";

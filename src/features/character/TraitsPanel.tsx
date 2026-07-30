@@ -2,7 +2,7 @@ import { useState, useCallback, useRef, useEffect, useMemo } from "react";
 import ReactDOM from "react-dom";
 import SectionContainer from "../../shared/ui/SectionContainer";
 import ScrollArea from "../../shared/ui/ScrollArea";
-import { useCharacter } from "../../shared/storage/CharacterContext";
+import { useCharacter } from "../../shared/storage/characterHooks";
 import { createDefaultTrait } from "../../shared/types/types";
 import type { TraitItem } from "../../shared/types/types";
 import { sheetColors } from "../../shared/tokens/colors";
@@ -11,6 +11,22 @@ import { TraitTooltip } from "./TraitTooltip";
 
 interface TraitsPanelProps {
   className?: string;
+}
+
+// ── 文本宽度测量（模块级共享 canvas，无需随组件生命周期管理）──
+let measureCanvas: HTMLCanvasElement | null = null;
+
+/** 用 Canvas 精确测量文本宽度 */
+function getTextPixelWidth(text: string): number {
+  if (!text) return 24;
+  if (!measureCanvas) {
+    measureCanvas = document.createElement('canvas');
+  }
+  const ctx = measureCanvas.getContext('2d');
+  if (!ctx) return text.length * 12 + 8;
+  // 匹配实际 CSS font-family 以得到准确的测量结果
+  ctx.font = '18px "Noto Serif", "Noto Sans SC", "Noto Sans CJK SC", serif';
+  return Math.max(24, Math.ceil(ctx.measureText(text).width) + 6);
 }
 
 export default function TraitsPanel({ className }: TraitsPanelProps) {
@@ -27,20 +43,6 @@ export default function TraitsPanel({ className }: TraitsPanelProps) {
   const [focusedUsageIndex, setFocusedUsageIndex] = useState<number | null>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const measureRef = useRef<HTMLCanvasElement | null>(null);
-
-  // 用 Canvas 精确测量文本宽度
-  const getTextPixelWidth = useCallback((text: string): number => {
-    if (!text) return 24;
-    if (!measureRef.current) {
-      measureRef.current = document.createElement('canvas');
-    }
-    const ctx = measureRef.current.getContext('2d');
-    if (!ctx) return text.length * 12 + 8;
-    // 匹配实际 CSS font-family 以得到准确的测量结果
-    ctx.font = '18px "Noto Serif", "Noto Sans SC", "Noto Sans CJK SC", serif';
-    return Math.max(24, Math.ceil(ctx.measureText(text).width) + 6);
-  }, []);
 
   // 迁移：旧的 traits 字符串 → traitList
   useEffect(() => {

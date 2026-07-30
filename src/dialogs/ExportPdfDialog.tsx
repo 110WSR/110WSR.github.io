@@ -5,7 +5,7 @@
 import { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { sheetColors } from "../shared/tokens/colors";
-import { useCharacter } from "../shared/storage/CharacterContext";
+import { useCharacter } from "../shared/storage/characterHooks";
 import { toOwlbearJSON, toFVTTJSON } from "../shared/storage/exportService";
 import CharacterSheet from "../pages/PageFront";
 import CharacterBackSide from "../pages/PageBack";
@@ -225,7 +225,7 @@ ${stylesHTML}
       document.querySelector(\`.page-tab[data-i="\${i}"]\`).classList.add("active");
     }
     switchPage(0);
-  <\/script>
+  </script>
 </body>
 </html>`;
 

@@ -8,6 +8,7 @@ import { ItemTooltip } from "./ItemTooltip";
 import { HitTooltip, DamageTooltip } from "./WeaponTip";
 import ScrollArea from "../../shared/ui/ScrollArea";
 import { useCharacter } from "../../shared/storage/CharacterContext";
+import type { CharacterData } from "../../shared/storage/types";
 import type { Item, AttackEntry, SpellData, ExtraBonus } from "../../shared/types/types";
 import { ItemDialog } from "./ItemDialog";
 import { SpellDialog } from "../spells/SpellDialog";
@@ -151,9 +152,12 @@ interface HoverState {
 
 // ═══ 主组件 ═════════════════════════════════════════════════════════════
 
-export default function AttackPanel({ className }: AttackPanelProps) {
-  const { character, updateCharacter } = useCharacter();
-  if (!character) return null;
+interface AttackPanelInnerProps extends AttackPanelProps {
+  character: CharacterData;
+}
+
+function AttackPanelInner({ className, character }: AttackPanelInnerProps) {
+  const { updateCharacter } = useCharacter();
 
   const { items, attackEntries, attributes, proficiencyBonus, spellcastingAbility, spellBoxes, spellAttackExtras, spellSaveDCExtras } = character;
 
@@ -758,4 +762,10 @@ export default function AttackPanel({ className }: AttackPanelProps) {
       )}
     </>
   );
+}
+
+export default function AttackPanel({ className }: AttackPanelProps) {
+  const { character } = useCharacter();
+  if (!character) return null;
+  return <AttackPanelInner className={className} character={character} />;
 }

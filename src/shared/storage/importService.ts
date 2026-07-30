@@ -2,8 +2,68 @@
 // 导入服务 - 支持从多种格式导入角色数据
 // ============================================================================
 
-import type { CharacterData } from "./types";
+import type { CharacterData, Attributes, SavingThrows, SavingThrowKey } from "./types";
+import type { Item, TraitItem } from "../types/types";
 import { fromShareJSON, isShareFormat } from "./shareService";
+
+// ─── 外部导入 JSON 的最小结构描述（仅声明解析时用到的字段）────────────────────
+
+/** 枭熊（Owlbear Rodeo）格式 */
+interface OwlbearImport {
+  abilities?: Record<string, { total?: number; save?: { proficient?: boolean } }>;
+  identity?: {
+    character_name?: string;
+    player?: string;
+    race?: { name?: string };
+    alignment?: string;
+  };
+  core_stats?: { hp?: { current?: number; max?: number } };
+  classes?: { name?: string; level?: number }[];
+  background?: {
+    background_name?: string;
+    story?: string;
+    personality?: string;
+    ideals?: string;
+    bonds?: string;
+    flaws?: string;
+  };
+  skills?: { name?: string; proficiency?: string }[];
+  combat?: {
+    weapons?: { name?: string; damage?: string; damage_type?: string; proficient?: boolean }[];
+    armor?: { name?: string };
+    shield?: { equipped?: boolean };
+  };
+  features?: {
+    class_features?: { name?: string }[];
+    race_features?: { name?: string }[];
+    feats?: { name?: string }[];
+  };
+  inventory?: { currency?: { wallet?: { gp?: number } } };
+  total_level?: number;
+}
+
+/** Foundry VTT 格式 */
+interface FVTTImport {
+  name?: string;
+  system?: {
+    abilities?: Record<string, { value?: number; proficient?: number | boolean }>;
+    details?: {
+      level?: number;
+      class?: string;
+      race?: string;
+      background?: string;
+      alignment?: string;
+      xp?: { value?: number | string };
+      biography?: { value?: string };
+      trait?: string;
+      ideal?: string;
+      bond?: string;
+      flaw?: string;
+    };
+    attributes?: { hp?: { value?: number; max?: number } };
+    skills?: Record<string, { value?: number }>;
+  };
+}
 
 /**
  * 导入结果
@@ -56,7 +116,7 @@ export function importCharacter(json: string): ImportResult {
 /**
  * 从枭熊格式解析
  */
-function fromOwlbearJSON(parsed: any): Partial<CharacterData> | null {
+function fromOwlbearJSON(parsed: OwlbearImport): Partial<CharacterData> | null {
   try {
     const abilities = parsed.abilities || {};
     const identity = parsed.identity || {};
@@ -66,12 +126,12 @@ function fromOwlbearJSON(parsed: any): Partial<CharacterData> | null {
     const background = parsed.background || {};
 
     // 属性
-    const attrMap: Record<string, string> = { str: "str_value", dex: "dex_value", con: "con_value", int: "int_value", wis: "wis_value", cha: "cha_value" };
-    const attrs: any = {};
+    const attrMap: Record<string, keyof Attributes> = { str: "str_value", dex: "dex_value", con: "con_value", int: "int_value", wis: "wis_value", cha: "cha_value" };
+    const attrs: Partial<Attributes> = {};
     for (const [k, v] of Object.entries(abilities)) {
       const targetKey = attrMap[k];
       if (targetKey && typeof v === "object" && v !== null) {
-        attrs[targetKey] = (v as any).total ?? 10;
+        attrs[targetKey] = v.total ?? 10;
       }
     }
 
@@ -89,7 +149,7 @@ function fromOwlbearJSON(parsed: any): Partial<CharacterData> | null {
 
     // 物品
     const combat = parsed.combat || {};
-    const items: any[] = [];
+    const items: Item[] = [];
     if (Array.isArray(combat.weapons)) {
       for (const w of combat.weapons) {
         if (w.name) {
@@ -118,7 +178,7 @@ function fromOwlbearJSON(parsed: any): Partial<CharacterData> | null {
 
     // 特性
     const features = parsed.features || {};
-    const traitList: any[] = [];
+    const traitList: TraitItem[] = [];
     for (const f of [...(features.class_features || []), ...(features.race_features || []), ...(features.feats || [])]) {
       if (f.name) {
         traitList.push({
@@ -130,13 +190,13 @@ function fromOwlbearJSON(parsed: any): Partial<CharacterData> | null {
     }
 
     // 豁免
-    const savingThrows: Record<string, boolean> = {};
+    const savingThrows: Partial<SavingThrows> = {};
     const saveMap: Record<string, string> = { strength: "str", dexterity: "dex", constitution: "con", intelligence: "int", wisdom: "wis", charisma: "cha" };
     for (const [k, v] of Object.entries(abilities)) {
       if (typeof v === "object" && v !== null) {
-        const save = (v as any).save;
+        const save = v.save;
         if (save?.proficient) {
-          const saveKey = Object.entries(saveMap).find(([, val]) => val === k)?.[0];
+          const saveKey = Object.entries(saveMap).find(([, val]) => val === k)?.[0] as SavingThrowKey | undefined;
           if (saveKey) savingThrows[saveKey] = true;
         }
       }
@@ -144,7 +204,7 @@ function fromOwlbearJSON(parsed: any): Partial<CharacterData> | null {
 
     return {
       name: identity.character_name || "",
-      attributes: attrs as any,
+      attributes: attrs as Attributes,
       level: parsed.total_level ?? mainClass.level ?? 1,
       basicInfo: {
         职业: mainClass.name || "",
@@ -170,7 +230,7 @@ function fromOwlbearJSON(parsed: any): Partial<CharacterData> | null {
         ? `金币: ${parsed.inventory.currency.wallet.gp || 0}`
         : "",
       hasShield: combat.shield?.equipped || false,
-      savingThrows: savingThrows as any,
+      savingThrows: savingThrows as SavingThrows,
     };
   } catch (e) {
     console.error("枭熊格式解析失败:", e);
@@ -181,7 +241,7 @@ function fromOwlbearJSON(parsed: any): Partial<CharacterData> | null {
 /**
  * 从 FVTT 格式解析
  */
-function fromFVTTJSON(parsed: any): Partial<CharacterData> | null {
+function fromFVTTJSON(parsed: FVTTImport): Partial<CharacterData> | null {
   try {
     const system = parsed.system || {};
     const abilities = system.abilities || {};
@@ -189,12 +249,12 @@ function fromFVTTJSON(parsed: any): Partial<CharacterData> | null {
     const attributes = system.attributes || {};
 
     // 属性
-    const attrMap: Record<string, string> = { str: "str_value", dex: "dex_value", con: "con_value", int: "int_value", wis: "wis_value", cha: "cha_value" };
-    const attrs: any = {};
+    const attrMap: Record<string, keyof Attributes> = { str: "str_value", dex: "dex_value", con: "con_value", int: "int_value", wis: "wis_value", cha: "cha_value" };
+    const attrs: Partial<Attributes> = {};
     for (const [k, v] of Object.entries(abilities)) {
       const targetKey = attrMap[k];
       if (targetKey && typeof v === "object" && v !== null) {
-        attrs[targetKey] = (v as any).value ?? 10;
+        attrs[targetKey] = v.value ?? 10;
       }
     }
 
@@ -210,25 +270,25 @@ function fromFVTTJSON(parsed: any): Partial<CharacterData> | null {
     for (const [key, val] of Object.entries(sysSkills)) {
       const cnName = skillReverseMap[key];
       if (cnName && typeof val === "object" && val !== null) {
-        const state = (val as any).value ?? 0;
+        const state = val.value ?? 0;
         if (state >= 1) skills[cnName] = state as 0 | 1 | 2;
       }
     }
 
     // 豁免
-    const savingThrows: Record<string, boolean> = {};
+    const savingThrows: Partial<SavingThrows> = {};
     const saveKeys = ["str", "dex", "con", "int", "wis", "cha"];
-    const saveNameMap: Record<string, string> = { str: "strength", dex: "dexterity", con: "constitution", int: "intelligence", wis: "wisdom", cha: "charisma" };
+    const saveNameMap: Record<string, SavingThrowKey> = { str: "strength", dex: "dexterity", con: "constitution", int: "intelligence", wis: "wisdom", cha: "charisma" };
     for (const k of saveKeys) {
       const abil = abilities[k];
-      if (abil && (abil as any).proficient) {
+      if (abil && abil.proficient) {
         savingThrows[saveNameMap[k]] = true;
       }
     }
 
     return {
       name: parsed.name || "",
-      attributes: attrs as any,
+      attributes: attrs as Attributes,
       level: details.level || 1,
       basicInfo: {
         职业: details.class || "",
@@ -241,7 +301,7 @@ function fromFVTTJSON(parsed: any): Partial<CharacterData> | null {
       currentHP: attributes.hp?.value ?? 0,
       customMaxHP: attributes.hp?.max ?? 0,
       skills,
-      savingThrows: savingThrows as any,
+      savingThrows: savingThrows as SavingThrows,
       backstory: details.biography?.value || "",
       personality: {
         个性特点: details.trait || "",

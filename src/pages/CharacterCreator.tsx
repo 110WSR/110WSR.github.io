@@ -2,7 +2,7 @@ import { useState, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCharacter } from "../shared/storage/CharacterContext";
 import type { Attributes, Personality, SavingThrows } from "../shared/storage/types";
-import type { Item, AttackEntry, SpellData } from "../shared/types/types";
+import type { Item, AttackEntry, SpellData, WeaponPreset } from "../shared/types/types";
 import { createDefaultItem } from "../shared/types/types";
 import weaponPresets from "../../data/weaponPresets.json";
 import HPRollPanel from "./HPRollPanel";
@@ -27,7 +27,7 @@ import { generateTraits } from "../shared/utils/traitGenerator";
 /** 根据职业中文名查找对应的 classId */
 function findClassId(className: string): string {
   if (!className) return "";
-  const entry = classIdentifiers.find((c: any) =>
+  const entry = classIdentifiers.find((c) =>
     c.labels.some((l: string) => l === className)
   );
   return entry?.id ?? "";
@@ -193,9 +193,9 @@ export default function CharacterCreator() {
     const newAttackEntries: AttackEntry[] = [];
 
     // 根据选择的武器名称查找预设
-    const weaponPresetList = weaponPresets as any[];
+    const weaponPresetList = weaponPresets as WeaponPreset[];
     for (const weaponName of selectedWeapons) {
-      const preset = weaponPresetList.find((w: any) => w.label === weaponName);
+      const preset = weaponPresetList.find((w) => w.label === weaponName);
       if (preset) {
         const item = createDefaultItem(preset.label);
         item.isWeapon = true;
@@ -275,7 +275,7 @@ export default function CharacterCreator() {
     // 保存法术选择 - 将 selectedSpells 转换为 spellBoxes 格式
     if (Object.keys(selectedSpells).length > 0) {
       // 先保存原始格式到 spells 字段
-      updateCharacter({ spells: selectedSpells as any });
+      updateCharacter({ spells: selectedSpells });
       
       // 同时将法术填充到 spellBoxes 中
       const nextBoxes = [...(character?.spellBoxes ?? [])];

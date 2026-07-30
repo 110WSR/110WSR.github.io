@@ -2,6 +2,41 @@
 // Finalized type definitions for the new data model
 // ============================================================================
 
+// ─── 职业数据（data/classData.json，按职业 id 索引）─────────────────────────
+export interface ClassDataEntry {
+  /** [生命骰面数, 每级固定成长值] */
+  hitpoints: number[];
+  /** 预设法术位表（非施法职业为 null） */
+  spellSlots: { level: number; slots: number[] }[] | null;
+}
+
+// ─── 武器预设（data/weaponPresets.json）─────────────────────────────────────
+export interface WeaponPreset {
+  label: string;
+  damageDice: string;
+  damageType: string;
+  attackAttr: "str" | "dex";
+  tags: string[];
+}
+
+// ─── 职业等级数据（data/5E_Classes_Structured.json，按职业中文名索引）─────────
+export interface ClassLevelEntry {
+  "等级": number;
+  "熟练加值"?: string;
+  "职业特性"?: string;
+  "已知戏法"?: number | null;
+  "已知法术"?: number | null;
+  "1环"?: number | null;
+  "2环"?: number | null;
+  "3环"?: number | null;
+  "4环"?: number | null;
+  "5环"?: number | null;
+  "6环"?: number | null;
+  "7环"?: number | null;
+  "8环"?: number | null;
+  "9环"?: number | null;
+}
+
 // ─── 特性（物品/武器的特性描述）─────────────────────────────────────────────
 export interface Feature {
   id: string;

@@ -19,6 +19,7 @@ import type {
   SpellBoxData,
 } from "./types";
 import type { Item, AttackEntry } from "../types/types";
+import type { CharacterInfoData } from "../../features/back-info/CharacterInfoSection";
 import {
   getCurrentCharacter,
   getSaveList,
@@ -57,10 +58,10 @@ interface CharacterContextValue {
   setCoins: (coins: Coins) => void;
   setEquipment: (text: string) => void;
   setTraits: (text: string) => void;
-  setWeapons: (weapons: any[]) => void;
+  setWeapons: (weapons: never[]) => void;
   setProficiencies: (p: Proficiencies) => void;
   setDeathSaves: (d: DeathSaves) => void;
-  setCharacterInfo: (info: any) => void;
+  setCharacterInfo: (info: CharacterInfoData) => void;
   setBackstory: (text: string) => void;
   setInventory: (text: string) => void;
   setAdventureLog: (text: string) => void;
@@ -156,7 +157,7 @@ export function CharacterProvider({ children }: { children: ReactNode }) {
     [updateCharacter]
   );
   const setWeapons = useCallback(
-    (weapons: any[]) => updateCharacter({ weapons: weapons as never[] }),
+    (weapons: never[]) => updateCharacter({ weapons }),
     [updateCharacter]
   );
   const setProficiencies = useCallback(
@@ -168,7 +169,7 @@ export function CharacterProvider({ children }: { children: ReactNode }) {
     [updateCharacter]
   );
   const setCharacterInfo = useCallback(
-    (characterInfo: any) => updateCharacter({ characterInfo }),
+    (characterInfo: CharacterInfoData) => updateCharacter({ characterInfo }),
     [updateCharacter]
   );
   const setBackstory = useCallback(

@@ -2,7 +2,8 @@
 // 5eShare 分享格式 - 精简 JSON 格式，用于快速在不同端导入/导出角色卡
 // ============================================================================
 
-import type { CharacterData, Attributes } from "./types";
+import type { CharacterData, Attributes, SavingThrows, SavingThrowKey } from "./types";
+import type { Item } from "../types/types";
 
 /**
  * 5eShare 格式版本
@@ -179,8 +180,8 @@ export function fromShareJSON(json: string): Partial<CharacterData> | null {
     }
 
     // 构建物品列表（兼容旧格式 string[] 和新格式 object[]）
-    const rawItems = data.items ?? [];
-    const items = rawItems.map((entry: any) => {
+    const rawItems: Array<string | ShareData["items"][number]> = data.items ?? [];
+    const items = rawItems.map((entry) => {
       const name = typeof entry === "string" ? entry : entry.name;
       return {
         id: `item_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`,
@@ -191,7 +192,7 @@ export function fromShareJSON(json: string): Partial<CharacterData> | null {
         ...(typeof entry === "object" ? {
           damageDice: entry.damageDice || undefined,
           damageType: entry.damageType || undefined,
-          attackAttr: entry.attackAttr || undefined,
+          attackAttr: (entry.attackAttr || undefined) as Item["attackAttr"],
           proficient: entry.proficient || undefined,
           tags: entry.tags || undefined,
           description: entry.description || undefined,
@@ -207,9 +208,9 @@ export function fromShareJSON(json: string): Partial<CharacterData> | null {
     }));
 
     // 构建豁免
-    const savingThrows: Record<string, boolean> = {};
+    const savingThrows: Partial<SavingThrows> = {};
     for (const key of data.savingThrows ?? []) {
-      savingThrows[key] = true;
+      savingThrows[key as SavingThrowKey] = true;
     }
 
     return {
@@ -252,8 +253,8 @@ export function fromShareJSON(json: string): Partial<CharacterData> | null {
         tool: data.proficiencies.tool ?? [],
         language: data.proficiencies.language ?? [],
       } : { armor: [], weapon: [], tool: [], language: [] },
-      savingThrows: savingThrows as any,
-      spellcastingAbility: (data.spellcastingAbility as any) || "int",
+      savingThrows: savingThrows as SavingThrows,
+      spellcastingAbility: (data.spellcastingAbility as CharacterData["spellcastingAbility"]) || "int",
     };
   } catch (e) {
     console.error("解析分享格式失败:", e);

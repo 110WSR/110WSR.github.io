@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import spellData from "../../../data/spellData.json";
 import classStructuredData from "../../../data/5E_Classes_Structured.json";
+import type { ClassLevelEntry } from "../../shared/types/types";
 
 /** 法术选择面板属性 */
 interface SpellSelectionPanelProps {
@@ -78,9 +79,9 @@ export default function SpellSelectionPanel({
   
   // 从5E_Classes_Structured.json获取当前职业当前等级的数据
   const classLevelData = useMemo(() => {
-    const data = (classStructuredData as Record<string, any[]>)[classKey];
+    const data = (classStructuredData as unknown as Record<string, ClassLevelEntry[]>)[classKey];
     if (!data) return null;
-    return data.find((entry: any) => entry["等级"] === level) || null;
+    return data.find((entry) => entry["等级"] === level) || null;
   }, [classKey, level]);
 
   // 从结构化数据中获取各环法术位
@@ -88,7 +89,7 @@ export default function SpellSelectionPanel({
     if (!classLevelData) return {};
     const slots: Record<string, number> = {};
     for (let i = 1; i <= 9; i++) {
-      const key = `${i}环`;
+      const key = `${i}环` as "1环" | "2环" | "3环" | "4环" | "5环" | "6环" | "7环" | "8环" | "9环";
       const val = classLevelData[key];
       if (val !== null && val !== undefined && val > 0) {
         slots[String(i)] = val;

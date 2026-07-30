@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import ReactDOM from "react-dom";
 import HeaderBrand from "../../shared/ui/logo";
 import { useCharacter } from "../../shared/storage/CharacterContext";
-import type { ExtraBonus } from "../../shared/types/types";
+import type { ExtraBonus, ClassDataEntry } from "../../shared/types/types";
 import SpellBonusTooltip from "./SpellBonusTip";
 import { sheetColors } from "../../shared/tokens/colors";
 import ScrollArea from "../../shared/ui/ScrollArea";
@@ -155,12 +155,12 @@ export default function Header() {
   // 从 classData 读取预设法术位
   const classId = character?.basicInfo?.["职业_id"];
   const charLevel = typeof character?.level === "number" ? character.level : 1;
-  const classSpellData = classId ? (classData as Record<string, any>)[classId] : null;
+  const classSpellData = classId ? (classData as Record<string, ClassDataEntry>)[classId] : null;
   const spellSlotsData = classSpellData?.spellSlots ?? null;
 
   const getDefaultSlots = (spellLevel: number): number => {
     if (!spellSlotsData || !Array.isArray(spellSlotsData)) return 0;
-    const levelEntry = spellSlotsData.find((entry: any) => entry.level === charLevel);
+    const levelEntry = spellSlotsData.find((entry) => entry.level === charLevel);
     if (!levelEntry) return 0;
     return levelEntry.slots[spellLevel - 1] ?? 0;
   };

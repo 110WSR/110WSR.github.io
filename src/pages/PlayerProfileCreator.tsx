@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCharacter } from "../shared/storage/CharacterContext";
 import type { Attributes } from "../shared/storage/types";
-import type { Item, AttackEntry } from "../shared/types/types";
+import type { Item, AttackEntry, WeaponPreset } from "../shared/types/types";
 import { createDefaultItem } from "../shared/types/types";
 import weaponPresets from "../../data/weaponPresets.json";
 
@@ -296,9 +296,9 @@ export default function PlayerProfileCreator() {
     const newItems: Item[] = [];
     const newAttackEntries: AttackEntry[] = [];
 
-    const weaponPresetList = weaponPresets as any[];
+    const weaponPresetList = weaponPresets as WeaponPreset[];
     for (const weaponName of weapons) {
-      const preset = weaponPresetList.find((w: any) => w.label === weaponName);
+      const preset = weaponPresetList.find((w) => w.label === weaponName);
       if (preset) {
         const item = createDefaultItem(preset.label);
         item.isWeapon = true;

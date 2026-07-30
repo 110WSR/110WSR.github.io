@@ -1,5 +1,6 @@
 import { useState, useCallback, useMemo } from "react";
 import classData from "../../data/classData.json";
+import type { ClassDataEntry } from "../shared/types/types";
 
 interface HPRollPanelProps {
   classId: string;
@@ -10,13 +11,13 @@ interface HPRollPanelProps {
 
 /** 根据职业ID获取生命骰面数 */
 function getHitDieSize(classId: string): number {
-  const entry = (classData as Record<string, any>)[classId];
+  const entry = (classData as Record<string, ClassDataEntry>)[classId];
   return entry?.hitpoints?.[0] ?? 8;
 }
 
 /** 根据职业ID获取每级固定成长值（平均值向上取整） */
 function getFixedGrowth(classId: string): number {
-  const entry = (classData as Record<string, any>)[classId];
+  const entry = (classData as Record<string, ClassDataEntry>)[classId];
   return entry?.hitpoints?.[1] ?? 5;
 }
 

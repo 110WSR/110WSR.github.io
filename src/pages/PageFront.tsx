@@ -22,6 +22,7 @@ import CombatStatBox from "../features/character/CombatStatBox.tsx";
 import HeaderBrand from "../shared/ui/logo";
 import { useCharacter } from "../shared/storage/CharacterContext";
 import type { Attributes, CharacterData } from "../shared/storage/types";
+import type { ClassDataEntry } from "../shared/types/types";
 import classData from "../../data/classData.json";
 import { ARMOR_OPTIONS } from "../../data/armorOptions.ts";
 import type { ArmorOption } from "../../data/armorOptions.ts";
@@ -135,7 +136,7 @@ function CombatStatsRow({ attributes }: { attributes?: Attributes }) {
 
   const handleACSelect = (armor: ArmorOption) => {
     const isSame = character?.selectedArmorId === armor.id;
-    const patch: any = { selectedArmorId: armor.id };
+    const patch: Partial<CharacterData> = { selectedArmorId: armor.id };
     if (!isSame) {
       patch.armorExtraBonus = "";
     }
@@ -511,7 +512,7 @@ function HPDisplay() {
   const computedMaxHP = useMemo(() => {
     if (!character) return 0;
     const classId = character.basicInfo["职业_id"];
-    const classEntry = classId ? (classData as any)[classId] : null;
+    const classEntry = classId ? (classData as Record<string, ClassDataEntry>)[classId] : null;
     if (!classEntry) return 0;
     const level = typeof character.level === "number" ? character.level : 1;
     const conMod = Math.floor((character.attributes.con_value - 10) / 2);
@@ -614,7 +615,7 @@ function RestIcon({ type, onShortRest, onLongRest, onPopupClose, shortRollLog, s
   const handleClick = () => {
     if (type === "long" && character) {
       const classId = character.basicInfo["职业_id"];
-      const classEntry = classId ? (classData as any)[classId] : null;
+      const classEntry = classId ? (classData as Record<string, ClassDataEntry>)[classId] : null;
       let maxHP = character.customMaxHP ?? 0;
       if (!character.customMaxHP && classEntry) {
         const level = typeof character.level === "number" ? character.level : 1;
@@ -715,7 +716,7 @@ function HitDiceDisplay({ remainingHitDice: forcedRemaining }: { remainingHitDic
   const hitDiceText = useMemo(() => {
     if (!character) return "0";
     const classId = character.basicInfo["职业_id"];
-    const classEntry = classId ? (classData as any)[classId] : null;
+    const classEntry = classId ? (classData as Record<string, ClassDataEntry>)[classId] : null;
     if (!classEntry) return "0";
     const level = typeof character.level === "number" ? character.level : 1;
     const remaining = forcedRemaining ?? level;
@@ -737,7 +738,7 @@ function HitDiceDisplay({ remainingHitDice: forcedRemaining }: { remainingHitDic
     if (!match || !character) return;
     const remaining = parseInt(match[1]);
     const classId = character.basicInfo["职业_id"];
-    const classEntry = classId ? (classData as any)[classId] : null;
+    const classEntry = classId ? (classData as Record<string, ClassDataEntry>)[classId] : null;
     if (!classEntry) return;
     updateCharacter({ customHeights: { ...character.customHeights, [-1]: remaining } });
   };
@@ -810,7 +811,7 @@ function RestsAndDeathSection() {
 
   const level = typeof character?.level === "number" ? character.level : 1;
   const classId = character?.basicInfo["职业_id"];
-  const classEntry = classId ? (classData as any)[classId] : null;
+  const classEntry = classId ? (classData as Record<string, ClassDataEntry>)[classId] : null;
   const hitDieSize = classEntry?.hitpoints[0] ?? 6;
   const totalHitDice = level;
   const remaining = Math.max(0, totalHitDice - usedHitDice);

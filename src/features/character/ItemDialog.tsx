@@ -6,6 +6,7 @@ import type { Item, Feature } from "../../shared/types/types";
 import ScrollArea from "../../shared/ui/ScrollArea";
 import ButtonComponent from "../../shared/ui/ButtonComponent";
 import { useCharacter } from "../../shared/storage/CharacterContext";
+import type { Attributes } from "../../shared/storage/types";
 import weaponPresets from "../../../data/weaponPresets.json";
 import weaponTags from "../../../data/weaponTags.json";
 import damageTypes from "../../../data/damageTypes.json";
@@ -402,7 +403,7 @@ export function ItemDialog({ open, initialItem, onSave, onDelete, onClose }: Ite
   };
 
   // ── 伤害属性调整值（实时计算，仅用于显示，不修改存储值） ──
-  const ATTR_TO_KEY: Record<string, string> = {
+  const ATTR_TO_KEY: Record<string, keyof Attributes> = {
     str: "str_value",
     dex: "dex_value",
     con: "con_value",
@@ -414,7 +415,7 @@ export function ItemDialog({ open, initialItem, onSave, onDelete, onClose }: Ite
     if (!data.isWeapon || data.attackAttr === "custom") return null;
     const attrKey = data.attackAttr ? ATTR_TO_KEY[data.attackAttr] : null;
     if (!attrKey || !character) return null;
-    const score = (character.attributes as any)[attrKey] ?? 10;
+    const score = character.attributes[attrKey] ?? 10;
     const mod = Math.floor((score - 10) / 2);
     if (mod === 0) return null;
     return mod > 0 ? `+${mod}` : `${mod}`;
@@ -608,7 +609,7 @@ export function ItemDialog({ open, initialItem, onSave, onDelete, onClose }: Ite
                       <CustomSelect
                         value={data.attackAttr ?? "str"}
                         options={ATTACK_ATTRS.map(a => ({ value: a.id, label: a.label }))}
-                        onChange={(v) => set("attackAttr", v as any)}
+                        onChange={(v) => set("attackAttr", v as Item["attackAttr"])}
                         style={{ width: 56 }}
                       />
                       <div style={{ flex: 0.5 }} />

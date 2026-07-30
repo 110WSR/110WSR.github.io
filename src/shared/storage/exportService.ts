@@ -19,6 +19,74 @@ function attrMod(value: number): number {
   return Math.floor((value - 10) / 2);
 }
 
+/** 六属性缩写键 */
+type AbilityKey = "str" | "dex" | "con" | "int" | "wis" | "cha";
+
+// ─── 枭熊（Owlbear Rodeo）导出 JSON 结构 ────────────────────────────────────
+interface OwlbearAbility {
+  total: number;
+  initial: number;
+  background: number;
+  growth: number;
+  misc: number;
+  modifier: number;
+  save: { proficient: boolean; bonus: number; misc: number };
+}
+
+interface OwlbearSkill {
+  name: string;
+  ability: string;
+  proficiency: string;
+  total: number;
+  misc_bonus: number;
+}
+
+interface OwlbearWeapon {
+  name: string;
+  proficient: boolean;
+  attack_bonus: string;
+  damage: string;
+  damage_type: string;
+  extra_damage: null;
+  extra_damage_type: null;
+  mastery: null;
+  mastery_effect: null;
+  weight: null;
+  ammo_type: null;
+  properties: null;
+}
+
+interface OwlbearFeature {
+  name: string;
+  description: string | null;
+  level: null;
+}
+
+// ─── Foundry VTT 导出 JSON 结构 ─────────────────────────────────────────────
+interface FVTTAbility {
+  value: number;
+  proficient: number;
+  max: null;
+  bonuses: { check: string; save: string; skill: string };
+}
+
+interface FVTTSkill {
+  value: number;
+  ability: string;
+  bonuses: { check: string; pass: string; save: string };
+}
+
+interface FVTTTool {
+  value: number;
+  ability: string;
+  bonuses: { check: string };
+}
+
+interface FVTTSpellSlot {
+  value: number;
+  override: null;
+}
+
 // ────────────────────────────────────────────────────────────────────────────
 // 枭熊（Owlbear Rodeo）格式
 // ────────────────────────────────────────────────────────────────────────────
@@ -93,7 +161,7 @@ export function toOwlbearJSON(character: CharacterData): string {
   }
 
   // ── 构建 abilities ─────────────────────────────────────────────
-  const abilities: Record<string, any> = {};
+  const abilities: Record<string, OwlbearAbility> = {};
   for (const k of abilityKeys) {
     const val = attrs[`${k}_value`] ?? 10;
     const mod = attrMod(val);
@@ -107,8 +175,8 @@ export function toOwlbearJSON(character: CharacterData): string {
   }
 
   // ── 技能 ────────────────────────────────────────────────────────
-  const skills: any[] = [];
-  const skillAbilityMap: Record<string, string> = {
+  const skills: OwlbearSkill[] = [];
+  const skillAbilityMap: Record<string, AbilityKey> = {
     "运动":"str","特技":"dex","巧手":"dex","隐匿":"dex",
     "调查":"int","奥秘":"int","历史":"int","自然":"int","宗教":"int",
     "察觉":"wis","洞悉":"wis","驯兽":"wis","医药":"wis","求生":"wis",
@@ -117,7 +185,7 @@ export function toOwlbearJSON(character: CharacterData): string {
   for (const name of SKILL_NAMES_CN) {
     const state = character.skills?.[name] ?? 0;
     const abil = skillAbilityMap[name] ?? "dex";
-    const abilMod = attrMod((attrs as any)[`${abil}_value`] ?? 10);
+    const abilMod = attrMod(attrs[`${abil}_value`] ?? 10);
     let total = abilMod;
     let prof: string;
     if (state === 2) { total += pb * 2; prof = "expertise"; }
@@ -127,14 +195,14 @@ export function toOwlbearJSON(character: CharacterData): string {
   }
 
   // ── 武备 ────────────────────────────────────────────────────────
-  const weapons: any[] = [];
+  const weapons: OwlbearWeapon[] = [];
   for (const item of character.items ?? []) {
     if (item.isWeapon) {
       const atkBonus = item.attackAttr && item.attackAttr !== "custom"
         ? attrMod(attrs[`${item.attackAttr}_value`] ?? 10) + (item.proficient !== false ? pb : 0) + (parseInt(item.attackBonus ?? "0") || 0)
         : 0;
       const atkStr = atkBonus >= 0 ? `+${atkBonus}` : `${atkBonus}`;
-      const dmgBonus = item.attackAttr && item.attackAttr !== "custom" ? attrMod((attrs as any)[`${item.attackAttr}_value`] ?? 10) : 0;
+      const dmgBonus = item.attackAttr && item.attackAttr !== "custom" ? attrMod(attrs[`${item.attackAttr}_value`] ?? 10) : 0;
       const dmgStr = dmgBonus >= 0 ? `${item.damageDice ?? "1d4"}+${dmgBonus}` : `${item.damageDice ?? "1d4"}${dmgBonus}`;
       weapons.push({
         name: item.name, proficient: item.proficient !== false,
@@ -153,9 +221,9 @@ export function toOwlbearJSON(character: CharacterData): string {
     : null;
 
   // ── 特性 ────────────────────────────────────────────────────────
-  const classFeatures: any[] = [];
-  const raceFeatures: any[] = [];
-  const feats: any[] = [];
+  const classFeatures: OwlbearFeature[] = [];
+  const raceFeatures: OwlbearFeature[] = [];
+  const feats: OwlbearFeature[] = [];
   let bgDescription = "";
   for (const t of character.traitList ?? []) {
     const tag = (t.tags ?? [])[0] ?? "";
@@ -175,7 +243,7 @@ export function toOwlbearJSON(character: CharacterData): string {
   const ageNum = character.characterInfo?.age ? parseInt(character.characterInfo.age, 10) || null : null;
 
   // ── 法术位（来自 customSpellSlots / spellBoxes） ───────────────
-  const spellSlots: Record<string, any> = {};
+  const spellSlots: Record<string, { current: number; max: number }> = {};
   const customSlots = character.customSpellSlots ?? {};
   // 用 customSpellSlots 确定 max，否则用 spellBoxes 的 spellCount 汇总
   const maxMap: Record<number, number> = {};
@@ -199,7 +267,7 @@ export function toOwlbearJSON(character: CharacterData): string {
   // ── 法术攻击加值 ────────────────────────────────────────────────
   const spellAtk = pb + attrMod(attrs[`${character.spellcastingAbility ?? "int"}_value`] ?? 10);
 
-  const output: any = {
+  const output = {
     schema_version: "0.3",
     meta: {
       template_name: character.name || "角色",
@@ -307,7 +375,7 @@ export function toOwlbearJSON(character: CharacterData): string {
       const ppVal = 10 + wisMod + ((character.skills?.察觉 ?? 0) >= 1 ? pb : 0);
       sb.push(`先攻:${dexMod} ac:${finalAC} dc:${dcVal} pp:${ppVal} 熟练:${pb}`);
       // 技能
-      const skillAbilityMap2: Record<string, string> = {
+      const skillAbilityMap2: Record<string, AbilityKey> = {
         "运动":"str","特技":"dex","巧手":"dex","隐匿":"dex",
         "调查":"int","奥秘":"int","历史":"int","自然":"int","宗教":"int",
         "察觉":"wis","洞悉":"wis","驯兽":"wis","医药":"wis","求生":"wis",
@@ -316,7 +384,7 @@ export function toOwlbearJSON(character: CharacterData): string {
       for (const name of SKILL_NAMES_CN) {
         const state = character.skills?.[name] ?? 0;
         const abil = skillAbilityMap2[name] ?? "dex";
-        const mod = attrMod((attrs as any)[`${abil}_value`] ?? 10);
+        const mod = attrMod(attrs[`${abil}_value`] ?? 10);
         let total = mod;
         if (state === 2) total += pb * 2;
         else if (state === 1) total += pb;
@@ -406,7 +474,7 @@ export function toFVTTJSON(character: CharacterData): string {
     finalAC = base + shieldBonus + armorExtra + shieldExtra + acExtrasBonus;
   }
 
-  const abilities: Record<string, any> = {};
+  const abilities: Record<string, FVTTAbility> = {};
   for (const k of ["str", "dex", "con", "int", "wis", "cha"] as const) {
     const val = attrs[`${k}_value`] ?? 10;
     const saveKey = k === "str" ? "strength" : k === "dex" ? "dexterity" : k === "con" ? "constitution" : k === "int" ? "intelligence" : k === "wis" ? "wisdom" : "charisma";
@@ -421,14 +489,14 @@ export function toFVTTJSON(character: CharacterData): string {
     "察觉":"wis","洞悉":"wis","驯兽":"wis","医药":"wis","求生":"wis",
     "游说":"cha","欺瞒":"cha","威吓":"cha","表演":"cha",
   };
-  const skills: Record<string, any> = {};
+  const skills: Record<string, FVTTSkill> = {};
   for (const cn of SKILL_NAMES_CN) {
     const abil = skillAbilityMap[cn] ?? "dex";
     const state = character.skills?.[cn] ?? 0;
     skills[SKILL_MAP[cn]] = { value: state, ability: abil, bonuses: { check: "", pass: "", save: "" } };
   }
 
-  const output: any = {
+  const output = {
     name: character.name || "",
     type: "character",
     img: "icons/svg/item-bag.svg",
@@ -480,7 +548,7 @@ export function toFVTTJSON(character: CharacterData): string {
       },
       skills,
       tools: (() => {
-        const t: Record<string, any> = {};
+        const t: Record<string, FVTTTool> = {};
         for (const tool of character.proficiencies?.tool ?? []) {
           const key = TOOL_MAP[tool] ?? tool;
           t[key] = { value: 1, ability: "int", bonuses: { check: "" } };
@@ -488,7 +556,7 @@ export function toFVTTJSON(character: CharacterData): string {
         return t;
       })(),
       spells: (() => {
-        const slots: Record<string, any> = {};
+        const slots: Record<string, FVTTSpellSlot> = {};
         for (const box of character.spellBoxes ?? []) {
           if (!box.isCantrip) {
             slots[`spell${box.level}`] = { value: box.spellCount, override: null };

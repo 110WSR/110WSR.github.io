@@ -1,7 +1,7 @@
 import { useCharacter } from "../shared/storage/CharacterContext";
 import SpellBox from "../features/spells/SpellBox";
 import Header from "../features/spells/Header";
-import type { SpellData } from "../shared/types/types";
+import type { SpellData, ClassDataEntry } from "../shared/types/types";
 import classData from "../../data/classData.json";
 
 const ROW_HEIGHT = 34;
@@ -148,7 +148,7 @@ export default function SpellSheet() {
   // 根据 classData 计算指定法术环位的法术位数量
   const classId = character.basicInfo?.["职业_id"];
   const charLevel = typeof character.level === "number" ? character.level : 1;
-  const classSpellData = classId ? (classData as Record<string, any>)[classId] : null;
+  const classSpellData = classId ? (classData as Record<string, ClassDataEntry>)[classId] : null;
   const spellSlotsData = classSpellData?.spellSlots ?? null;
   const getTotalSlots = (spellLevel: number): number => {
     // 优先使用自定义覆写
@@ -156,7 +156,7 @@ export default function SpellSheet() {
     if (custom !== undefined) return custom;
     // 否则从 classData 读取
     if (!spellSlotsData || !Array.isArray(spellSlotsData)) return 0;
-    const levelEntry = spellSlotsData.find((entry: any) => entry.level === charLevel);
+    const levelEntry = spellSlotsData.find((entry) => entry.level === charLevel);
     if (!levelEntry) return 0;
     return levelEntry.slots[spellLevel - 1] ?? 0;
   };

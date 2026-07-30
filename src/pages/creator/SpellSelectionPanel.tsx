@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import spellData from "../../../data/spellData.json";
-import classStructuredData from "../../../5E_Classes_Structured.json";
+import classStructuredData from "../../../data/5E_Classes_Structured.json";
 
 /** 法术选择面板属性 */
 interface SpellSelectionPanelProps {

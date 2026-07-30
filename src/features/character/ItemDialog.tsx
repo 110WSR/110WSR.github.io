@@ -7,6 +7,16 @@ import ScrollArea from "../../shared/ui/ScrollArea";
 import ButtonComponent from "../../shared/ui/ButtonComponent";
 import { useCharacter } from "../../shared/storage/CharacterContext";
 import type { Attributes } from "../../shared/storage/types";
+
+// ── 攻击属性 → 角色属性字段映射 ──
+const ATTR_TO_KEY: Record<string, keyof Attributes> = {
+  str: "str_value",
+  dex: "dex_value",
+  con: "con_value",
+  int: "int_value",
+  wis: "wis_value",
+  cha: "cha_value",
+};
 import weaponPresets from "../../../data/weaponPresets.json";
 import weaponTags from "../../../data/weaponTags.json";
 import damageTypes from "../../../data/damageTypes.json";
@@ -403,14 +413,6 @@ export function ItemDialog({ open, initialItem, onSave, onDelete, onClose }: Ite
   };
 
   // ── 伤害属性调整值（实时计算，仅用于显示，不修改存储值） ──
-  const ATTR_TO_KEY: Record<string, keyof Attributes> = {
-    str: "str_value",
-    dex: "dex_value",
-    con: "con_value",
-    int: "int_value",
-    wis: "wis_value",
-    cha: "cha_value",
-  };
   const damageModDisplay = useMemo(() => {
     if (!data.isWeapon || data.attackAttr === "custom") return null;
     const attrKey = data.attackAttr ? ATTR_TO_KEY[data.attackAttr] : null;

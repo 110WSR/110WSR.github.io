@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useRef, useEffect, useMemo } from "react";
 import ReactDOM from "react-dom";
 import SectionContainer from "../../shared/ui/SectionContainer";
 import ScrollArea from "../../shared/ui/ScrollArea";
@@ -15,8 +15,8 @@ interface TraitsPanelProps {
 
 export default function TraitsPanel({ className }: TraitsPanelProps) {
   const { character, updateCharacter } = useCharacter();
-  const traitList = character?.traitList ?? [];
-  const setTraitList = (list: TraitItem[]) => updateCharacter({ traitList: list });
+  const traitList = useMemo(() => character?.traitList ?? [], [character?.traitList]);
+  const setTraitList = useCallback((list: TraitItem[]) => updateCharacter({ traitList: list }), [updateCharacter]);
 
   const [inputText, setInputText] = useState("");
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -54,7 +54,7 @@ export default function TraitsPanel({ className }: TraitsPanelProps) {
         });
       }
     }
-  }, []);
+  }, [character?.traits, character?.traitList, updateCharacter]);
 
   const commitInput = useCallback(() => {
     const text = inputText.trim();

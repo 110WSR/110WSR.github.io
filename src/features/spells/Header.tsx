@@ -8,6 +8,9 @@ import { sheetColors } from "../../shared/tokens/colors";
 import ScrollArea from "../../shared/ui/ScrollArea";
 import classData from "../../../data/classData.json";
 
+// 全部 9 个环位（显示顺序）
+const ALL_LEVELS = [1, 4, 7, 2, 5, 8, 3, 6, 9];
+
 /** Shared shell for an info field (label + value box + border) */
 function InfoFieldShell({ label, children }: { label: string; children: React.ReactNode }) {
   return (
@@ -158,15 +161,12 @@ export default function Header() {
   const classSpellData = classId ? (classData as Record<string, ClassDataEntry>)[classId] : null;
   const spellSlotsData = classSpellData?.spellSlots ?? null;
 
-  const getDefaultSlots = (spellLevel: number): number => {
+  const getDefaultSlots = useCallback((spellLevel: number): number => {
     if (!spellSlotsData || !Array.isArray(spellSlotsData)) return 0;
     const levelEntry = spellSlotsData.find((entry) => entry.level === charLevel);
     if (!levelEntry) return 0;
     return levelEntry.slots[spellLevel - 1] ?? 0;
-  };
-
-  // 全部 9 个环位
-  const ALL_LEVELS = [1, 4, 7, 2, 5, 8, 3, 6, 9];
+  }, [spellSlotsData, charLevel]);
 
   // 编辑中的值
   const [editSlots, setEditSlots] = useState<Record<number, string>>({});

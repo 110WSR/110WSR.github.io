@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import ReactDOM from "react-dom";
 import SectionContainer from "../../shared/ui/SectionContainer";
 import ScrollArea from "../../shared/ui/ScrollArea";
@@ -16,7 +16,7 @@ interface InventorySectionProps {
 
 export default function InventorySection({ value, onChange }: InventorySectionProps) {
   const { character, updateCharacter } = useCharacter();
-  const items = character?.items ?? [];
+  const items = useMemo(() => character?.items ?? [], [character?.items]);
   const [libraryOpen, setLibraryOpen] = useState(false);
   const [contextMenu, setContextMenu] = useState<{ index: number; x: number; y: number } | null>(null);
 

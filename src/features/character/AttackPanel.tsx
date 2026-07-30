@@ -20,6 +20,11 @@ interface AttackPanelProps {
 }
 
 const FVAR = "'CTGR' 0, 'wdth' 100";
+
+// ── 拖拽行高常量 ──
+const ITEM_H = 28;
+const ITEM_GAP = 8;
+const SLOT = ITEM_H + ITEM_GAP;
 const T: React.CSSProperties = {
   fontSize: "13px", fontFamily: "var(--font-serif-regular)", color: sheetColors.textDark, fontVariationSettings: FVAR,
 };
@@ -164,20 +169,20 @@ function AttackPanelInner({ className, character }: AttackPanelInnerProps) {
   // 收集所有法术
   const allSpells = useMemo(() => spellBoxes.flatMap(box => box.spells ?? []), [spellBoxes]);
 
-  const attrs: AttrMap = {
+  const attrs: AttrMap = useMemo(() => ({
     str: attributes.str_value,
     dex: attributes.dex_value,
     con: attributes.con_value,
     int: attributes.int_value,
     wis: attributes.wis_value,
     cha: attributes.cha_value,
-  };
+  }), [attributes]);
 
   // 确保至少有 1 个空条目
-  const safeEntries = attackEntries.length > 0 ? attackEntries : [];
+  const safeEntries = useMemo(() => attackEntries.length > 0 ? attackEntries : [], [attackEntries]);
 
-  const setAttackEntries = (entries: AttackEntry[]) => updateCharacter({ attackEntries: entries });
-  const setItems = (newItems: Item[]) => updateCharacter({ items: newItems });
+  const setAttackEntries = useCallback((entries: AttackEntry[]) => updateCharacter({ attackEntries: entries }), [updateCharacter]);
+  const setItems = useCallback((newItems: Item[]) => updateCharacter({ items: newItems }), [updateCharacter]);
 
   const [itemDialogOpen, setItemDialogOpen] = useState(false);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);
@@ -201,10 +206,6 @@ function AttackPanelInner({ className, character }: AttackPanelInnerProps) {
   const placeholderIndexRef = useRef<number | null>(null);
   const longPressTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const _dragHappened = useRef(false);
-
-  const ITEM_H = 28;
-  const ITEM_GAP = 8;
-  const SLOT = ITEM_H + ITEM_GAP;
 
   // ── 右键菜单 ──
   const [contextMenu, setContextMenu] = useState<{ index: number; x: number; y: number } | null>(null);
@@ -244,7 +245,7 @@ function AttackPanelInner({ className, character }: AttackPanelInnerProps) {
     // 末尾始终留一个空行（+号）
     result.push({ name: "", attackBonus: "", damage: "" });
     return result;
-  }, [safeEntries, items, allSpells, attrs, proficiencyBonus, spellcastingAbility, attributes, spellAttackExtras, spellSaveDCExtras]);
+  }, [safeEntries, items, allSpells, attrs, proficiencyBonus, spellcastingAbility, spellAttackExtras, spellSaveDCExtras]);
 
   // ── 保存物品条目 ──
   const handleSaveItem = useCallback((item: Item) => {

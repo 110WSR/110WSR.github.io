@@ -34,7 +34,7 @@ function useAutoFontSize(
       }
       setFontSize(size);
     });
-  }, [text, maxSize]);
+  }, [text, maxSize, containerRef, textRef]);
   return fontSize;
 }
 

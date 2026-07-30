@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useRef, useEffect, useMemo } from "react";
 import ReactDOM from "react-dom";
 import SectionContainer from "../../shared/ui/SectionContainer";
 import ScrollArea from "../../shared/ui/ScrollArea";
@@ -16,8 +16,8 @@ interface EquipmentPanelProps {
 
 export default function EquipmentPanel({ className }: EquipmentPanelProps) {
   const { character, updateCharacter } = useCharacter();
-  const items = character?.items ?? [];
-  const setItems = (newItems: Item[]) => updateCharacter({ items: newItems });
+  const items = useMemo(() => character?.items ?? [], [character?.items]);
+  const setItems = useCallback((newItems: Item[]) => updateCharacter({ items: newItems }), [updateCharacter]);
 
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingIndex, setEditingIndex] = useState<number | null>(null);

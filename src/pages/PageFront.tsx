@@ -104,7 +104,7 @@ function CombatStatsRow({ attributes }: { attributes?: Attributes }) {
   const acExtrasBonus = (character?.acExtras ?? []).reduce((s, e) => s + (parseInt(e.bonus || "0", 10) || 0), 0);
 
   // 解析自定义公式：支持数字、+/-、xx调整值（必须在 acValue 之前定义）
-  const evalFormula = (formula: string): number => {
+  const evalFormula = useCallback((formula: string): number => {
     let expr = formula
       .replace(/力量调整值/g, String(strMod))
       .replace(/敏捷调整值/g, String(dexMod))
@@ -118,7 +118,7 @@ function CombatStatsRow({ attributes }: { attributes?: Attributes }) {
     } catch {
       return 10;
     }
-  };
+  }, [strMod, dexMod, conMod, intMod, wisMod, chaMod]);
 
   const acValue = useMemo(() => {
     const isCustom = character?.selectedArmorId === "custom";
@@ -129,7 +129,7 @@ function CombatStatsRow({ attributes }: { attributes?: Attributes }) {
     }
     const base = selectedArmor ? selectedArmor.calcAC(dexMod, conMod, wisMod) : 10 + dexMod;
     return base + shieldBonus + armorExtra + shieldExtra + extras;
-  }, [selectedArmor, strMod, dexMod, conMod, intMod, wisMod, chaMod, shieldBonus, armorExtra, shieldExtra, acExtrasBonus, character?.selectedArmorId, character?.customACFormula]);
+  }, [selectedArmor, dexMod, conMod, wisMod, shieldBonus, armorExtra, shieldExtra, acExtrasBonus, character?.selectedArmorId, character?.customACFormula, evalFormula]);
 
   const initValue = character?.customInitiative ?? defaultInitiative;
   const speedValue = character?.customSpeed ?? defaultSpeed;
@@ -649,7 +649,7 @@ function RestIcon({ type, onShortRest, onLongRest, onPopupClose, shortRollLog, s
     const count = shortRollLog.length;
     const diceSum = shortRollLog.reduce((s, r) => s + r.value, 0);
     return { hitDieText: `${count}d${hitDieSize ?? 6}`, diceSum };
-  }, [shortRollLog]);
+  }, [shortRollLog, hitDieSize]);
 
   // 弹窗定位
   const [popupPos, setPopupPos] = useState({ left: 0, top: 0 });
@@ -1110,7 +1110,7 @@ function CharacterCardContentInner({ character }: CharacterCardContentInnerProps
     if (proficiencyBonus !== calcBonus) {
       setProficiencyBonus(calcBonus);
     }
-  }, [effectiveLevel]);
+  }, [effectiveLevel, proficiencyBonus, setProficiencyBonus]);
 
   return (
     <div className="absolute bg-white h-[1584px] left-0 overflow-clip top-[75px] w-[1224px]" data-name="character-card">

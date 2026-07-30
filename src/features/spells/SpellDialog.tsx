@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import ReactDOM from "react-dom";
 import { sheetColors } from "../../shared/tokens/colors";
 import { createDefaultSpell } from "../../shared/types/types";
@@ -6,7 +6,9 @@ import type { SpellData, ExtraBonus } from "../../shared/types/types";
 import ScrollArea from "../../shared/ui/ScrollArea";
 import ButtonComponent from "../../shared/ui/ButtonComponent";
 import { useCharacter } from "../../shared/storage/characterHooks";
-import SpellLibraryDialog from "./SpellLibraryDialog";
+
+// 法术库对话框（含 380K spellDetails.json）按需加载
+const SpellLibraryDialog = lazy(() => import("./SpellLibraryDialog"));
 
 const FVAR = "'CTGR' 0, 'wdth' 100";
 
@@ -467,14 +469,18 @@ export function SpellDialog({
         </div>,
         document.body
       )}
-      <SpellLibraryDialog
-        open={showLibrary}
-        onClose={() => setShowLibrary(false)}
-        characterClass={characterClass}
-        onSelect={(spell: SpellData) => {
-          setData(spell);
-        }}
-      />
+      {showLibrary && (
+        <Suspense fallback={null}>
+          <SpellLibraryDialog
+            open={showLibrary}
+            onClose={() => setShowLibrary(false)}
+            characterClass={characterClass}
+            onSelect={(spell: SpellData) => {
+              setData(spell);
+            }}
+          />
+        </Suspense>
+      )}
     </>
   );
 }

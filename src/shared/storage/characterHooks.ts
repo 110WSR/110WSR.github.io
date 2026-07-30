@@ -45,7 +45,6 @@ export interface CharacterContextValue {
   setCoins: (coins: Coins) => void;
   setEquipment: (text: string) => void;
   setTraits: (text: string) => void;
-  setWeapons: (weapons: never[]) => void;
   setProficiencies: (p: Proficiencies) => void;
   setDeathSaves: (d: DeathSaves) => void;
   setCharacterInfo: (info: CharacterInfoData) => void;
@@ -77,14 +76,4 @@ export function useCharacter(): CharacterContextValue {
     throw new Error("useCharacter must be used within a CharacterProvider");
   }
   return ctx;
-}
-
-/** 便捷 hook —— 获取当前角色数据（非 null 版本，用于已确定有角色的场景） */
-export function useCharacterData(): CharacterData {
-  const { character } = useCharacter();
-  if (!character) {
-    // 如果没有角色，抛出一个可捕获的错误
-    throw new Error("No character data available");
-  }
-  return character;
 }

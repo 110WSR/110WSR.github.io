@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect, useMemo } from "react";
+import { useState, useCallback, useRef, useEffect, useMemo, lazy, Suspense } from "react";
 import ReactDOM from "react-dom";
 import SectionContainer from "../../shared/ui/SectionContainer";
 import ScrollArea from "../../shared/ui/ScrollArea";
@@ -7,8 +7,12 @@ import type { Item, AttackEntry } from "../../shared/types/types";
 import { createDefaultItem } from "../../shared/types/types";
 import { ItemDialog } from "./ItemDialog";
 import { ItemTooltip } from "./ItemTooltip";
-import { EquipmentLibraryDialog } from "./EquipmentLibraryDialog";
 import { sheetColors } from "../../shared/tokens/colors";
+
+// 装备库对话框（含 magicItems.json）按需加载
+const EquipmentLibraryDialog = lazy(() =>
+  import("./EquipmentLibraryDialog").then(m => ({ default: m.EquipmentLibraryDialog }))
+);
 
 interface EquipmentPanelProps {
   className?: string;
@@ -313,11 +317,15 @@ export default function EquipmentPanel({ className }: EquipmentPanelProps) {
       )}
 
       {/* 装备库检索 */}
-      <EquipmentLibraryDialog
-        open={libraryOpen}
-        onSelect={handleLibrarySelect}
-        onClose={() => setLibraryOpen(false)}
-      />
+      {libraryOpen && (
+        <Suspense fallback={null}>
+          <EquipmentLibraryDialog
+            open={libraryOpen}
+            onSelect={handleLibrarySelect}
+            onClose={() => setLibraryOpen(false)}
+          />
+        </Suspense>
+      )}
 
       {/* 右键菜单 */}
       {contextMenu && ReactDOM.createPortal(

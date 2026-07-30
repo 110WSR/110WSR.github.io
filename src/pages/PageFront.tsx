@@ -33,6 +33,64 @@ const T: React.CSSProperties = {
 };
 
 // ============================================================================
+// 自定义 AC 公式安全求值（仅支持数字、括号与 + - * /，替代 Function 动态执行）
+// ============================================================================
+
+/** 递归下降解析四则运算表达式，非法输入抛错 */
+function parseArithmetic(s: string): number {
+  let pos = 0;
+  const skipWs = () => { while (pos < s.length && /\s/.test(s[pos])) pos++; };
+  function parsePrimary(): number {
+    skipWs();
+    if (s[pos] === "(") {
+      pos++;
+      const v = parseAddSub();
+      skipWs();
+      if (s[pos] !== ")") throw new Error("缺少右括号");
+      pos++;
+      return v;
+    }
+    if (s[pos] === "-") { pos++; return -parsePrimary(); }
+    if (s[pos] === "+") { pos++; return parsePrimary(); }
+    const m = /^\d+(\.\d+)?/.exec(s.slice(pos));
+    if (!m) throw new Error("期望数字");
+    pos += m[0].length;
+    return parseFloat(m[0]);
+  }
+  function parseMulDiv(): number {
+    let v = parsePrimary();
+    for (;;) {
+      skipWs();
+      if (s[pos] === "*") { pos++; v *= parsePrimary(); }
+      else if (s[pos] === "/") { pos++; v /= parsePrimary(); }
+      else return v;
+    }
+  }
+  function parseAddSub(): number {
+    let v = parseMulDiv();
+    for (;;) {
+      skipWs();
+      if (s[pos] === "+") { pos++; v += parseMulDiv(); }
+      else if (s[pos] === "-") { pos++; v -= parseMulDiv(); }
+      else return v;
+    }
+  }
+  const result = parseAddSub();
+  skipWs();
+  if (pos !== s.length) throw new Error("存在无法解析的内容");
+  return result;
+}
+
+/** 求值自定义 AC 公式：支持数字、+ - * /、括号和"xx调整值"占位符 */
+function evaluateACFormula(formula: string, mods: Record<string, number>): number {
+  let expr = formula;
+  for (const [label, mod] of Object.entries(mods)) {
+    expr = expr.replaceAll(label, String(mod));
+  }
+  return parseArithmetic(expr);
+}
+
+// ============================================================================
 // Logo 和图标组件
 // ============================================================================
 
@@ -105,18 +163,14 @@ function CombatStatsRow({ attributes }: { attributes?: Attributes }) {
   const shieldExtra = parseInt(character?.shieldExtraBonus ?? "", 10) || 0;
   const acExtrasBonus = (character?.acExtras ?? []).reduce((s, e) => s + (parseInt(e.bonus || "0", 10) || 0), 0);
 
-  // 解析自定义公式：支持数字、+/-、xx调整值（必须在 acValue 之前定义）
+  // 解析自定义公式：支持数字、+ - * /、括号和"xx调整值"（必须在 acValue 之前定义）
   const evalFormula = useCallback((formula: string): number => {
-    const expr = formula
-      .replace(/力量调整值/g, String(strMod))
-      .replace(/敏捷调整值/g, String(dexMod))
-      .replace(/体质调整值/g, String(conMod))
-      .replace(/智力调整值/g, String(intMod))
-      .replace(/感知调整值/g, String(wisMod))
-      .replace(/魅力调整值/g, String(chaMod));
     try {
-      const result = Function('"use strict"; return (' + expr + ')')();
-      return typeof result === "number" && isFinite(result) ? Math.max(1, Math.round(result)) : 10;
+      const result = evaluateACFormula(formula, {
+        力量调整值: strMod, 敏捷调整值: dexMod, 体质调整值: conMod,
+        智力调整值: intMod, 感知调整值: wisMod, 魅力调整值: chaMod,
+      });
+      return isFinite(result) ? Math.max(1, Math.round(result)) : 10;
     } catch {
       return 10;
     }

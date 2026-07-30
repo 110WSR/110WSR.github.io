@@ -1,13 +1,17 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, lazy, Suspense } from "react";
 import ReactDOM from "react-dom";
 import SectionContainer from "../../shared/ui/SectionContainer";
 import ScrollArea from "../../shared/ui/ScrollArea";
 import { useCharacter } from "../../shared/storage/characterHooks";
 import type { Item } from "../../shared/types/types";
 import { createDefaultItem } from "../../shared/types/types";
-import { EquipmentLibraryDialog } from "../character/EquipmentLibraryDialog";
 import { sheetColors } from "../../shared/tokens/colors";
 import { resolveWeaponByName } from "../../shared/utils/weaponResolver";
+
+// 装备库对话框（含 magicItems.json）按需加载
+const EquipmentLibraryDialog = lazy(() =>
+  import("../character/EquipmentLibraryDialog").then(m => ({ default: m.EquipmentLibraryDialog }))
+);
 
 interface InventorySectionProps {
   value: string;
@@ -143,11 +147,15 @@ export default function InventorySection({ value, onChange }: InventorySectionPr
       </SectionContainer>
 
       {/* 装备库检索 */}
-      <EquipmentLibraryDialog
-        open={libraryOpen}
-        onSelect={handleLibrarySelect}
-        onClose={() => setLibraryOpen(false)}
-      />
+      {libraryOpen && (
+        <Suspense fallback={null}>
+          <EquipmentLibraryDialog
+            open={libraryOpen}
+            onSelect={handleLibrarySelect}
+            onClose={() => setLibraryOpen(false)}
+          />
+        </Suspense>
+      )}
 
       {/* 右键菜单 */}
       {contextMenu && ReactDOM.createPortal(

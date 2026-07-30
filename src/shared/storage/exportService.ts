@@ -22,6 +22,14 @@ function attrMod(value: number): number {
 /** 六属性缩写键 */
 type AbilityKey = "str" | "dex" | "con" | "int" | "wis" | "cha";
 
+/** 技能中文名 → 关键属性（枭熊/FVTT 导出共用） */
+const SKILL_ABILITY_MAP: Record<string, AbilityKey> = {
+  "运动":"str","特技":"dex","巧手":"dex","隐匿":"dex",
+  "调查":"int","奥秘":"int","历史":"int","自然":"int","宗教":"int",
+  "察觉":"wis","洞悉":"wis","驯兽":"wis","医药":"wis","求生":"wis",
+  "游说":"cha","欺瞒":"cha","威吓":"cha","表演":"cha",
+};
+
 // ─── 枭熊（Owlbear Rodeo）导出 JSON 结构 ────────────────────────────────────
 interface OwlbearAbility {
   total: number;
@@ -176,15 +184,9 @@ export function toOwlbearJSON(character: CharacterData): string {
 
   // ── 技能 ────────────────────────────────────────────────────────
   const skills: OwlbearSkill[] = [];
-  const skillAbilityMap: Record<string, AbilityKey> = {
-    "运动":"str","特技":"dex","巧手":"dex","隐匿":"dex",
-    "调查":"int","奥秘":"int","历史":"int","自然":"int","宗教":"int",
-    "察觉":"wis","洞悉":"wis","驯兽":"wis","医药":"wis","求生":"wis",
-    "游说":"cha","欺瞒":"cha","威吓":"cha","表演":"cha",
-  };
   for (const name of SKILL_NAMES_CN) {
     const state = character.skills?.[name] ?? 0;
-    const abil = skillAbilityMap[name] ?? "dex";
+    const abil = SKILL_ABILITY_MAP[name] ?? "dex";
     const abilMod = attrMod(attrs[`${abil}_value`] ?? 10);
     let total = abilMod;
     let prof: string;
@@ -375,15 +377,9 @@ export function toOwlbearJSON(character: CharacterData): string {
       const ppVal = 10 + wisMod + ((character.skills?.察觉 ?? 0) >= 1 ? pb : 0);
       sb.push(`先攻:${dexMod} ac:${finalAC} dc:${dcVal} pp:${ppVal} 熟练:${pb}`);
       // 技能
-      const skillAbilityMap2: Record<string, AbilityKey> = {
-        "运动":"str","特技":"dex","巧手":"dex","隐匿":"dex",
-        "调查":"int","奥秘":"int","历史":"int","自然":"int","宗教":"int",
-        "察觉":"wis","洞悉":"wis","驯兽":"wis","医药":"wis","求生":"wis",
-        "游说":"cha","欺瞒":"cha","威吓":"cha","表演":"cha",
-      };
       for (const name of SKILL_NAMES_CN) {
         const state = character.skills?.[name] ?? 0;
-        const abil = skillAbilityMap2[name] ?? "dex";
+        const abil = SKILL_ABILITY_MAP[name] ?? "dex";
         const mod = attrMod(attrs[`${abil}_value`] ?? 10);
         let total = mod;
         if (state === 2) total += pb * 2;
@@ -483,15 +479,9 @@ export function toFVTTJSON(character: CharacterData): string {
   }
 
   // 技能
-  const skillAbilityMap: Record<string, string> = {
-    "运动":"str","特技":"dex","巧手":"dex","隐匿":"dex",
-    "调查":"int","奥秘":"int","历史":"int","自然":"int","宗教":"int",
-    "察觉":"wis","洞悉":"wis","驯兽":"wis","医药":"wis","求生":"wis",
-    "游说":"cha","欺瞒":"cha","威吓":"cha","表演":"cha",
-  };
   const skills: Record<string, FVTTSkill> = {};
   for (const cn of SKILL_NAMES_CN) {
-    const abil = skillAbilityMap[cn] ?? "dex";
+    const abil = SKILL_ABILITY_MAP[cn] ?? "dex";
     const state = character.skills?.[cn] ?? 0;
     skills[SKILL_MAP[cn]] = { value: state, ability: abil, bonuses: { check: "", pass: "", save: "" } };
   }

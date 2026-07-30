@@ -107,10 +107,6 @@ export function CharacterProvider({ children }: { children: ReactNode }) {
     (traits: string) => updateCharacter({ traits }),
     [updateCharacter]
   );
-  const setWeapons = useCallback(
-    (weapons: never[]) => updateCharacter({ weapons }),
-    [updateCharacter]
-  );
   const setProficiencies = useCallback(
     (proficiencies: Proficiencies) => updateCharacter({ proficiencies }),
     [updateCharacter]
@@ -207,7 +203,6 @@ export function CharacterProvider({ children }: { children: ReactNode }) {
     setCoins,
     setEquipment,
     setTraits,
-    setWeapons,
     setProficiencies,
     setDeathSaves,
     setCharacterInfo,

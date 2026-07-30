@@ -1,73 +1,42 @@
-# React + TypeScript + Vite
+# D&D 5e 角色构建器
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+基于 D&D 5e 规则的非官方角色卡工具，支持网页端创建、管理和导出角色卡。
 
-Currently, two official plugins are available:
+**在线使用：** https://110wsr.github.io/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 功能
 
-## React Compiler
+- 🎲 两种建卡方式：通用快速建卡向导、玩家画像式智能建卡（基于偏好问卷推荐职业/种族/背景）
+- 📋 完整角色卡：属性、技能、豁免、生命值、攻击、装备、货币、特质
+- ✨ 法术系统：法术位管理、按职业过滤的法术库、法术详情自动填充
+- 🎒 装备库：971 件魔法物品、冒险装备、武器预设
+- 📄 导出/导入：JSON 备份、PDF 导出、角色卡图片导出
+- 🗂️ 多角色存档管理
+- 📱 移动端适配
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 技术栈
 
-## Expanding the ESLint configuration
+- React 19 + TypeScript
+- Vite 8（rolldown）
+- Tailwind CSS v4
+- React Router 7（HashRouter，兼容 GitHub Pages）
+- Radix UI / lucide-react
+- jspdf + html2canvas（PDF/图片导出）
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 本地开发
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev      # 启动开发服务器
+npm run build    # 类型检查 + 生产构建
+npm run lint     # ESLint 检查
+npm run preview  # 预览生产构建
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 部署
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+push 到 `main` 分支后，GitHub Actions 自动构建并部署到 GitHub Pages（见 `.github/workflows/deploy.yml`）。
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 免责声明
+
+本项目为粉丝自制工具，与 Wizards of the Coast 无关。D&D 相关内容版权归原持有者所有。

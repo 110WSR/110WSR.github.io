@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { sheetColors } from "../../shared/tokens/colors";
 import type { TraitItem } from "../../shared/types/types";
 import traitKeywords from "../../../data/traitKeywords.json";
+import { getTraitRuleInfo } from "../../shared/utils/rulesService";
 
 const KEYWORD_PATTERNS = traitKeywords as string[];
 const HIGHLIGHT_RE = new RegExp(`(${KEYWORD_PATTERNS.join('|')})`, 'g');
@@ -44,10 +45,15 @@ export const TraitTooltip = React.memo(function TraitTooltip({
   const visible = trait && (!!trait.description || !!trait.name);
   if (!visible) return ReactDOM.createPortal(<div style={{ ...tooltipBase, left: pos.left, top: pos.top, display: "none" }} />, document.body);
 
+  // 规则库描述（玩家未填写自定义描述时自动展示）
+  const ruleInfos = trait!.description ? [] : getTraitRuleInfo(trait!.name);
+  const ruleText = ruleInfos.map((r) => r.text).join("\n\n————\n\n");
+  const ruleSource = ruleInfos.length > 0 ? ruleInfos[0].source : "";
+
   return ReactDOM.createPortal(
     <div
       ref={tooltipRef}
-      style={{ ...tooltipBase, left: pos.left, top: pos.top }}
+      style={{ ...tooltipBase, left: pos.left, top: pos.top, maxHeight: "60vh", overflowY: "auto" }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
@@ -65,14 +71,20 @@ export const TraitTooltip = React.memo(function TraitTooltip({
           ))}
         </div>
       )}
-      {/* 描述 */}
-      {trait!.description && (
+      {/* 自定义描述或规则库描述 */}
+      {(trait!.description || ruleText) && (
         <div style={{ fontSize: "12px", lineHeight: 1.5, whiteSpace: "pre-wrap", color: sheetColors.textLighter, fontFamily: "var(--font-serif-regular)", fontVariationSettings: FVAR }}>
-          {trait!.description.split(HIGHLIGHT_RE).map((part, i) =>
+          {(trait!.description || ruleText).split(HIGHLIGHT_RE).map((part, i) =>
             i % 2 === 1
               ? <span key={i} style={{ color: sheetColors.textDark, fontWeight: 600 }}>{part}</span>
               : <span key={i}>{part}</span>
           )}
+        </div>
+      )}
+      {/* 规则出处 */}
+      {!trait!.description && ruleSource && (
+        <div style={{ fontSize: "10px", color: sheetColors.textLighter, marginTop: 6, fontFamily: "var(--font-serif-regular)", opacity: 0.8 }}>
+          规则出处：{ruleSource}{ruleInfos.length > 1 ? ` 等${ruleInfos.length}处` : ""}
         </div>
       )}
     </div>,

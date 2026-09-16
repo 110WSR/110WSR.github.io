@@ -14,13 +14,15 @@ import RandomRollPanel from "./creator/RandomRollPanel";
 import RecommendedPanel from "./creator/RecommendedPanel";
 import ManualInputPanel from "./creator/ManualInputPanel";
 import EquipmentSelectionPanel from "./creator/EquipmentSelectionPanel";
-import SkillSelectionPanel from "./creator/SkillSelectionPanel";
+import SkillSelectionPanel, { EMPTY_SKILL_SELECTION, type SkillSelection } from "./creator/SkillSelectionPanel";
 import CharacterDetailsPanel from "./creator/CharacterDetailsPanel";
 import SubclassSelectionPanel from "./creator/SubclassSelectionPanel";
 import SpellSelectionPanel from "./creator/SpellSelectionPanel";
 import type { SubclassFeature } from "./creator/SubclassSelectionPanel";
 import { ATTRIBUTE_FIELDS, generateRandomAttributes, RACE_ABILITY_BONUSES, CLASS_PRIMARY_ATTRIBUTES } from "./creator/types";
 import type { AttributeMethod } from "./creator/types";
+import { getRuleset, getBackgroundSkills, getClassProficiencyIds, getRaceWeaponProfIds, getBackgroundToolId } from "../shared/utils/rulesService";
+import { createSpellDataByName } from "../shared/utils/spellDetailsResolver";
 import classIdentifiers from "../../data/classIdentifiers.json";
 import { generateTraits } from "../shared/utils/traitGenerator";
 
@@ -70,8 +72,9 @@ const SUBCLASS_LEVELS: Record<string, number> = {
 /** 施法职业列表 */
 const SPELLCASTING_CLASSES = ["吟游诗人", "牧师", "德鲁伊", "圣武士", "游侠", "术士", "邪术师", "法师"];
 
-/** 将种族属性加成应用到基础属性上 */
+/** 将种族属性加成应用到基础属性上（仅 5E·2014 规则：种族提供属性加值；5R 由背景提供） */
 function applyRaceBonuses(baseAttrs: Attributes, race: string): Attributes {
+  if (getRuleset() !== "5e2014") return { ...baseAttrs };
   const raceBonus = RACE_ABILITY_BONUSES[race];
   if (!raceBonus) return { ...baseAttrs };
   const result = { ...baseAttrs };
@@ -106,7 +109,7 @@ export default function CharacterCreator() {
   const [hasShield, setHasShield] = useState(false);
   const [equipmentText, setEquipmentText] = useState("");
 
-  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
+  const [skillSelection, setSkillSelection] = useState<SkillSelection>(EMPTY_SKILL_SELECTION);
   const [alignment, setAlignment] = useState("");
   const [localPersonality, setLocalPersonality] = useState<Personality>({
     个性特点: "", 理想: "", 牵绊: "", 缺点: "",
@@ -247,12 +250,30 @@ export default function CharacterCreator() {
     if (classId && CLASS_SAVING_THROWS[classId]) {
       updateCharacter({ savingThrows: CLASS_SAVING_THROWS[classId] as SavingThrows });
     }
-    // 保存技能熟练
+    // 保存技能熟练：职业 + 物种 + 背景（冲突改选）= 1；专精 = 2
+    const bgFixed = getBackgroundSkills(background);
+    const bgEffective = bgFixed.map((s) => skillSelection.bgOverrides[s] ?? s);
     const skillsRecord: Record<string, 0 | 1 | 2> = {};
-    for (const skillName of selectedSkills) {
+    for (const skillName of [...new Set([...skillSelection.classSkills, ...skillSelection.speciesSkills, ...bgEffective])]) {
       skillsRecord[skillName] = 1;
     }
+    for (const skillName of skillSelection.expertiseSkills) {
+      if (skillsRecord[skillName] === 1) skillsRecord[skillName] = 2;
+    }
     updateCharacter({ skills: skillsRecord });
+    // 自动写入职业/种族/背景提供的护甲、武器、工具熟练（合并保留已有项）
+    const classProfs = getClassProficiencyIds(className);
+    const raceWeaponProfs = getRaceWeaponProfIds(race);
+    const bgTool = getBackgroundToolId(background);
+    const prevProfs = character?.proficiencies ?? { armor: [], weapon: [], tool: [], language: [] };
+    updateCharacter({
+      proficiencies: {
+        armor: [...new Set([...prevProfs.armor, ...classProfs.armor])],
+        weapon: [...new Set([...prevProfs.weapon, ...classProfs.weapon, ...raceWeaponProfs])],
+        tool: [...new Set([...(prevProfs.tool ?? []), ...classProfs.tool, ...(bgTool ? [bgTool] : [])])],
+        language: prevProfs.language ?? [],
+      },
+    });
     // 自动生成特性关键词
     const traitList = generateTraits(className, level, race, background);
     // 添加子职特性
@@ -272,24 +293,28 @@ export default function CharacterCreator() {
     if (traitList.length > 0) {
       updateCharacter({ traitList });
     }
-    // 保存法术选择 - 将 selectedSpells 转换为 spellBoxes 格式
+    // 保存法术选择 - 将 selectedSpells 转换为 spellBoxes 格式（自动从法术库填入完整介绍）
     if (Object.keys(selectedSpells).length > 0) {
       // 先保存原始格式到 spells 字段
       updateCharacter({ spells: selectedSpells });
-      
-      // 同时将法术填充到 spellBoxes 中
+
+      // 同时将法术填充到 spellBoxes 中（带法术库描述）
       const nextBoxes = [...(character?.spellBoxes ?? [])];
       for (const [levelKey, spellNames] of Object.entries(selectedSpells)) {
         const level = parseInt(levelKey, 10);
         const boxIndex = nextBoxes.findIndex(b => b.level === level);
         if (boxIndex !== -1 && spellNames.length > 0) {
-          const spells: SpellData[] = spellNames.map(name => ({
-            id: `spell_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`,
-            name,
-            description: "",
-            isInnate: false,
-            prepared: true,
-          }));
+          const spells: SpellData[] = spellNames.map(name => {
+            const fromLib = createSpellDataByName(name);
+            if (fromLib) return { ...fromLib, prepared: true };
+            return {
+              id: `spell_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`,
+              name,
+              description: "",
+              isInnate: false,
+              prepared: true,
+            };
+          });
           nextBoxes[boxIndex] = {
             ...nextBoxes[boxIndex],
             spells,
@@ -301,7 +326,7 @@ export default function CharacterCreator() {
     }
     navigate("/sheet");
   }, [charName, className, race, background, level, attributes, currentHP, maxHP, alignment, localPersonality, backstory,
-      selectedWeapons, selectedArmor, hasShield, equipmentText, selectedSkills, updateCharacter,
+      selectedWeapons, selectedArmor, hasShield, equipmentText, skillSelection, updateCharacter,
       newCharacter, setAttributes, setBasicInfo, setLevel, setPersonality, setEquipment, setBackstory, navigate,
       selectedSubclass, subclassFeatures, selectedSpells, character]);
 
@@ -373,8 +398,8 @@ export default function CharacterCreator() {
             <h2 className="text-amber-300 text-lg font-semibold mb-4">确认属性值</h2>
             <div className="text-stone-500 text-xs mb-4">当前使用方式: {method === "standard" ? "官方购点法" : method === "random" ? "随机生成" : method === "recommended" ? "推荐属性" : "自行填数"}</div>
 
-            {/* 种族属性加成提示 */}
-            {race && RACE_ABILITY_BONUSES[race] && (
+            {/* 种族属性加成提示（仅 5E·2014 规则显示；5R 规则属性加值来自背景） */}
+            {race && getRuleset() === "5e2014" && RACE_ABILITY_BONUSES[race] && (
               <div className="mb-4 p-3 rounded-lg bg-emerald-900/20 border border-emerald-700/30">
                 <div className="flex items-center gap-2 mb-1">
                   <svg className="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -429,11 +454,14 @@ export default function CharacterCreator() {
 
             <div className="bg-stone-800/30 rounded-lg border border-stone-700/50 p-6">
               <h2 className="text-amber-300 text-lg font-semibold mb-4">选择技能熟练项</h2>
-              <p className="text-stone-400 text-sm mb-4">根据你的职业选择熟练的技能（点击切换）</p>
+              <p className="text-stone-400 text-sm mb-4">职业、背景与{getRuleset() === "5e2014" ? "种族" : "物种"}都会授予技能熟练，与重复项需改选（点击切换）</p>
               <SkillSelectionPanel
                 className={className}
-                selectedSkills={selectedSkills}
-                onSkillsChange={setSelectedSkills}
+                level={level}
+                race={race}
+                background={background}
+                selection={skillSelection}
+                onChange={setSkillSelection}
               />
             </div>
           </div>

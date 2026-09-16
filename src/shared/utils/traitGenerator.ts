@@ -1,10 +1,14 @@
 // ============================================================================
-// 特性关键词生成器 - 根据职业、等级、种族自动生成特性关键词
-// 基于5e玩家手册（5e6.txt职业章节、5e7.txt种族章节）
+// 特性关键词生成器 - 根据职业、等级、种族自动生成特性
+// 5R(2024) 模式：职业特性来自 class_progression（真实特性名+原文），
+//              物种特性来自 races.json（真实特性名+原文）
+// 5E(2014) 模式：使用旧的 2014 关键词表
+// 纯熟练授予不再生成特性条目（熟练度在车卡"技能"步骤选择、自动写入熟练面板）
 // ============================================================================
 
 import type { TraitItem } from "../types/types";
 import { createDefaultTrait } from "../types/types";
+import { getRuleset, getSpeciesTraits2024, getClassProgressionTraits } from "./rulesService";
 
 /**
  * 职业特性关键词映射（基于5e6.txt官方数据）
@@ -219,148 +223,106 @@ const CLASS_TRAITS: Record<string, Array<{ level: number; name: string }>> = {
 };
 
 /**
- * 种族特性关键词（基于5e7.txt官方数据）
+ * 5E(2014) 种族特性关键词表。
+ * 注意：纯熟练授予（自选技能、武器训练）不在此列——
+ * 熟练度在车卡"技能"步骤选择、武器熟练自动写入角色卡熟练面板。
  */
 const RACE_TRAITS: Record<string, string[]> = {
-  "矮人": ["黑暗视觉", "矮人韧性", "矮人战斗训练", "石工知识"],
-  "矮人(丘陵)": ["黑暗视觉", "矮人韧性", "矮人战斗训练", "石工知识", "矮人坚韧"],
-  "矮人(山)": ["黑暗视觉", "矮人韧性", "矮人战斗训练", "石工知识", "矮人护甲训练"],
-  "精灵": ["黑暗视觉", "精灵血统", "敏锐感官", "精灵武器训练"],
-  "精灵(高)": ["黑暗视觉", "精灵血统", "敏锐感官", "精灵武器训练", "额外戏法"],
-  "精灵(木)": ["黑暗视觉", "精灵血统", "敏锐感官", "精灵武器训练", "轻灵"],
-  "精灵(海)": ["黑暗视觉", "精灵血统", "敏锐感官", "精灵武器训练", "游泳速度"],
-  "卓尔": ["黑暗视觉", "精灵血统", "敏锐感官", "卓尔武器训练", "日光敏感"],
+  "矮人": ["黑暗视觉", "矮人韧性", "石工知识"],
+  "精灵": ["黑暗视觉", "精灵血统", "敏锐感官", "出神"],
+  "卓尔": ["黑暗视觉", "精灵血统", "敏锐感官", "日光敏感"],
   "半身人": ["半身人幸运", "勇敢", "灵巧"],
-  "半身人(轻足)": ["半身人幸运", "勇敢", "灵巧", "天生隐匿"],
-  "半身人(强心)": ["半身人幸运", "勇敢", "灵巧", "抗毒"],
-  "人类": ["额外技能"],
-  "人类(异)": ["额外技能", "专长"],
+  "人类": [],
+  "人类(异)": ["专长"],
   "龙裔": ["龙族血统", "吐息武器", "伤害抗性"],
-  "龙裔(黑)": ["龙族血统", "吐息武器(酸)", "伤害抗性(酸)"],
-  "龙裔(蓝)": ["龙族血统", "吐息武器(闪电)", "伤害抗性(闪电)"],
-  "龙裔(黄铜)": ["龙族血统", "吐息武器(火)", "伤害抗性(火)"],
-  "龙裔(青铜)": ["龙族血统", "吐息武器(闪电)", "伤害抗性(闪电)"],
-  "龙裔(铜)": ["龙族血统", "吐息武器(酸)", "伤害抗性(酸)"],
-  "龙裔(金)": ["龙族血统", "吐息武器(火)", "伤害抗性(火)"],
-  "龙裔(绿)": ["龙族血统", "吐息武器(毒)", "伤害抗性(毒)"],
-  "龙裔(红)": ["龙族血统", "吐息武器(火)", "伤害抗性(火)"],
-  "龙裔(银)": ["龙族血统", "吐息武器(冷)", "伤害抗性(冷)"],
-  "龙裔(白)": ["龙族血统", "吐息武器(冷)", "伤害抗性(冷)"],
   "侏儒": ["黑暗视觉", "侏儒狡黠"],
-  "侏儒(森林)": ["黑暗视觉", "侏儒狡黠", "自然亲和", "小把戏"],
-  "侏儒(岩石)": ["黑暗视觉", "侏儒狡黠", "工匠直觉", "钟表知识"],
-  "半精灵": ["黑暗视觉", "精灵血统", "多才多艺"],
+  "半精灵": ["黑暗视觉", "精灵血统", "出众魅力"],
   "半兽人": ["黑暗视觉", "凶悍", "不屈", "强力体格"],
   "提夫林": ["黑暗视觉", "地狱抗性", "炼狱遗赠"],
-  "阿斯莫": ["黑暗视觉", " celestial  resistance", " healing  hands", "光明使者"],
+  "阿斯莫": ["黑暗视觉", "天界抗性", "治愈之手", "光明使者"],
 };
 
 /**
- * 背景特性关键词（基于5e玩家手册）
+ * 根据职业和等级生成特性。
+ * 5R 模式：来自 class_progression 真实特性名+原文；
+ * 5E 模式：旧的 2014 关键词表（无原文，悬停时查规则库）。
  */
-const BACKGROUND_TRAITS: Record<string, string[]> = {
-  "侍僧": ["信仰服务", "宗教知识"],
-  "骗子": ["伪造身份", "犯罪网络"],
-  "艺人": ["表演", "受欢迎"],
-  "民间英雄": ["乡野传说", "农民支持"],
-  "赌徒": ["赌运", "街头情报"],
-  "公会工匠": ["公会身份", "工匠网络"],
-  "贵族": ["贵族身份", "特权"],
-  "骑士": ["骑士身份", "领地"],
-  "化外之民": ["野外生存", "自然向导"],
-  "学者": ["学术研究", "图书馆"],
-  "水手": ["航海经验", "水上导航"],
-  "士兵": ["军衔", "军事经验"],
-  "流浪儿": ["城市秘密", "街头智慧"],
-  "智者": ["智慧箴言", "知识传承"],
-  "罪犯": ["犯罪伙伴", "黑市联系"],
-  "英雄": ["英雄事迹", "声望"],
-  "传教士": ["信仰传播", "信徒网络"],
-  "探险家": ["探险经验", "地图绘制"],
-  "商人": ["商业嗅觉", "贸易网络"],
-  "工匠": ["手艺精湛", "工匠行会"],
-};
-
-/**
- * 根据职业和等级生成特性关键词
- */
-export function generateClassTraits(className: string, level: number): string[] {
+export function generateClassTraits(className: string, level: number): TraitItem[] {
   if (!className) return [];
+  if (getRuleset() === "5r2024") {
+    return getClassProgressionTraits(className, level).map((t) => {
+      const trait = createDefaultTrait(t.name);
+      trait.description = t.text;
+      trait.tags = ["职业"];
+      return trait;
+    });
+  }
   const classId = findClassIdByName(className);
   if (!classId) return [];
   const traits = CLASS_TRAITS[classId];
   if (!traits) return [];
   return traits
     .filter(t => t.level <= level)
-    .map(t => t.name);
+    .map((t) => {
+      const trait = createDefaultTrait(t.name);
+      trait.tags = ["职业"];
+      return trait;
+    });
 }
 
 /**
- * 根据种族生成特性关键词
+ * 根据种族/物种生成特性。
+ * 5R 模式：来自 races.json 真实特性名+原文；
+ * 5E 模式：旧的 2014 关键词表。
  */
-export function generateRaceTraits(race: string): string[] {
+export function generateRaceTraits(race: string): TraitItem[] {
   if (!race) return [];
-  // 尝试精确匹配
-  if (RACE_TRAITS[race]) return RACE_TRAITS[race];
-  // 尝试部分匹配
+  if (getRuleset() === "5r2024") {
+    const traits2024 = getSpeciesTraits2024(race);
+    if (traits2024.length > 0) {
+      return traits2024.map((t) => {
+        const trait = createDefaultTrait(t.name);
+        trait.description = t.text;
+        trait.tags = ["种族"];
+        return trait;
+      });
+    }
+  }
+  // 5E：精确匹配
+  if (RACE_TRAITS[race]) {
+    return RACE_TRAITS[race].map((name) => {
+      const trait = createDefaultTrait(name);
+      trait.tags = ["种族"];
+      return trait;
+    });
+  }
+  // 部分匹配
   for (const [key, traits] of Object.entries(RACE_TRAITS)) {
     if (race.includes(key) || key.includes(race)) {
-      return traits;
+      return traits.map((name) => {
+        const trait = createDefaultTrait(name);
+        trait.tags = ["种族"];
+        return trait;
+      });
     }
   }
   return [];
 }
 
 /**
- * 根据背景生成特性关键词
- */
-export function generateBackgroundTraits(background: string): string[] {
-  if (!background) return [];
-  if (BACKGROUND_TRAITS[background]) return BACKGROUND_TRAITS[background];
-  for (const [key, traits] of Object.entries(BACKGROUND_TRAITS)) {
-    if (background.includes(key) || key.includes(background)) {
-      return traits;
-    }
-  }
-  return [];
-}
-
-/**
- * 生成完整的特性列表（TraitItem[]）
+ * 生成完整的特性列表（TraitItem[]）。
+ * 背景不再生成特性条目（背景的技能/工具已在车卡"技能"步骤处理）。
  */
 export function generateTraits(
   className: string,
   level: number,
   race: string,
-  background: string
+  _background: string
 ): TraitItem[] {
-  const traits: TraitItem[] = [];
-
-  // 职业特性
-  const classTraits = generateClassTraits(className, level);
-  for (const name of classTraits) {
-    const trait = createDefaultTrait(name);
-    trait.tags = ["职业"];
-    traits.push(trait);
-  }
-
-  // 种族特性
-  const raceTraits = generateRaceTraits(race);
-  for (const name of raceTraits) {
-    const trait = createDefaultTrait(name);
-    trait.tags = ["种族"];
-    traits.push(trait);
-  }
-
-  // 背景特性
-  const bgTraits = generateBackgroundTraits(background);
-  for (const name of bgTraits) {
-    const trait = createDefaultTrait(name);
-    trait.tags = ["背景"];
-    traits.push(trait);
-  }
-
-  return traits;
+  return [
+    ...generateClassTraits(className, level),
+    ...generateRaceTraits(race),
+  ];
 }
 
 /**

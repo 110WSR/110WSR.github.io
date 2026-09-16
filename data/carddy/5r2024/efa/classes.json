@@ -1,0 +1,25 @@
+[
+  {
+    "name": "奇械师",
+    "name_en": "Artificer",
+    "subclasses": [
+      {"name": "炼金师"},
+      {"name": "魔炮师"},
+      {"name": "装甲师"},
+      {"name": "战地匠师"},
+      {"name": "制图师"}
+    ],
+    "hd": 8,
+    "primary_ability": ["智力"],
+    "saves": ["体质", "智力"],
+    "armor_profs": ["轻甲", "中甲", "盾牌"],
+    "weapon_profs": ["简易武器"],
+    "tool_profs": ["盗贼工具", "修补工具", "以及一种你选择的工匠工具"],
+    "skill_options_count": 2,
+    "skill_options_list": ["奥秘", "历史", "调查", "医药", "自然", "察觉", "巧手"],
+    "starting_equipment_1lv": "选择A或B：（A）镶钉皮甲、匕首、盗贼工具、修补工具、地城套组和16 GP；或（B）150 GP。",
+    "spellcasting": "half",
+    "spellcasting_ability": "智力",
+    "desc": "魔法工匠与奇迹发明家。《艾伯伦：奇械锻炉》2024 版原生奇械师。"
+  }
+]

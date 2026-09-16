@@ -1,0 +1,22 @@
+{
+  "tools": {
+    "修补工具": {
+      "name": "修补工具", "name_en": "Tinker's Tools", "category": "工具",
+      "cost": "50 GP", "weight": "10 磅", "damage": "", "properties": [],
+      "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "用于修理日常物品与构造精密装置；奇械师可将其作为施法法器。"
+    },
+    "木雕工具": {
+      "name": "木雕工具", "name_en": "Woodcarver's Tools", "category": "工具",
+      "cost": "1 GP", "weight": "5 磅", "damage": "", "properties": [],
+      "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "用于雕刻木制物品和修整箭杆；魔炮师可用它制造魔能炮台与奥法火器。"
+    },
+    "书法工具": {
+      "name": "书法工具", "name_en": "Calligrapher's Supplies", "category": "工具",
+      "cost": "10 GP", "weight": "5 磅", "damage": "", "properties": [],
+      "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "包括墨水、笔与书写用品；制图师的行业工具之一。"
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "artificer_rules_revision": "efa2024",
+  "caster_type_by_class": {"奇械师": "artificer"},
+  "asi_levels_by_class": {"奇械师": [4, 8, 12, 16, 19]},
+  "subclass_unlock_level": {"奇械师": 3},
+  "multiclass_prereqs_by_class": {"奇械师": [["智力"]]},
+  "multiclass_proficiencies_by_class": {
+    "奇械师": {"weapons": [], "armor": ["轻甲", "中甲", "盾牌"], "tools": ["修补工具"], "skills_choice": 1}
+  },
+  "artificer_slots_by_level": {
+    "1": {"1": 2}, "2": {"1": 2}, "3": {"1": 3}, "4": {"1": 3},
+    "5": {"1": 4, "2": 2}, "6": {"1": 4, "2": 2},
+    "7": {"1": 4, "2": 3}, "8": {"1": 4, "2": 3},
+    "9": {"1": 4, "2": 3, "3": 2}, "10": {"1": 4, "2": 3, "3": 2},
+    "11": {"1": 4, "2": 3, "3": 3}, "12": {"1": 4, "2": 3, "3": 3},
+    "13": {"1": 4, "2": 3, "3": 3, "4": 1}, "14": {"1": 4, "2": 3, "3": 3, "4": 1},
+    "15": {"1": 4, "2": 3, "3": 3, "4": 2}, "16": {"1": 4, "2": 3, "3": 3, "4": 2},
+    "17": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 1}, "18": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 1},
+    "19": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2}, "20": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2}
+  },
+  "class_always_prepared": {
+    "奇械师": [{"name": "修复术", "name_en": "Mending", "unlock_class_level": 1, "kind": "granted_cantrip", "source_feature": "工艺魔法"}]
+  },
+  "class_spell_list": {
+    "奇械师": [
+      "酸液飞溅", "舞光术", "四象法门", "火焰箭", "神导术", "光亮术", "法师之手", "传讯术", "毒气喷涌", "魔法伎俩", "冷冻射线", "抵抗术", "电爪", "维生术", "荆棘之鞭", "鸣雷破", "克敌先击",
+      "警报术", "疗伤术", "侦测魔法", "易容术", "脚底抹油", "妖火", "虚假生命", "羽落术", "油腻术", "鉴定术", "跳跃术", "大步奔行", "净化饮食", "庇护术",
+      "援助术", "变身术", "秘法锁", "复苏秘法", "朦胧术", "不灭明焰", "黑暗视觉", "龙息术", "强化属性", "变巨术/缩小术", "灼热金属", "人工生命仆从", "隐形术", "次等复原术", "浮空术", "魔嘴术", "魔化武器", "防护毒素", "魔绳术", "识破隐形", "蛛行术", "蛛网术",
+      "闪现术", "造粮术", "解除魔法", "元素武器", "飞行术", "守卫刻纹", "加速术", "防护能量", "回生术", "水下呼吸", "水上行走",
+      "秘法眼", "鬼斧神工", "行动自如", "李欧蒙秘藏箱", "魔邓肯忠犬", "魔邓肯私人密室", "欧提路克弹力法球", "塑石术", "石肤术", "构装召唤术",
+      "活化物件", "毕格比之手", "原力法阵", "造物术", "高等复原术", "石墙术"
+    ]
+  },
+  "artificer_magic_items_by_level": {
+    "1": {"plans_known": 0, "items_created": 0},
+    "2": {"plans_known": 4, "items_created": 2}, "3": {"plans_known": 4, "items_created": 2}, "4": {"plans_known": 4, "items_created": 2}, "5": {"plans_known": 4, "items_created": 2},
+    "6": {"plans_known": 5, "items_created": 3}, "7": {"plans_known": 5, "items_created": 3}, "8": {"plans_known": 5, "items_created": 3}, "9": {"plans_known": 5, "items_created": 3},
+    "10": {"plans_known": 6, "items_created": 4}, "11": {"plans_known": 6, "items_created": 4}, "12": {"plans_known": 6, "items_created": 4}, "13": {"plans_known": 6, "items_created": 4},
+    "14": {"plans_known": 7, "items_created": 5}, "15": {"plans_known": 7, "items_created": 5}, "16": {"plans_known": 7, "items_created": 5}, "17": {"plans_known": 7, "items_created": 5},
+    "18": {"plans_known": 8, "items_created": 6}, "19": {"plans_known": 8, "items_created": 6}, "20": {"plans_known": 8, "items_created": 6}
+  },
+  "artificer_magic_item_plans": [
+    {"name": "炼金壶", "name_en": "Alchemy Jug", "min_level": 2, "attunement": false},
+    {"name": "次元袋", "name_en": "Bag of Holding", "min_level": 2, "attunement": false},
+    {"name": "水下呼吸帽", "name_en": "Cap of Water Breathing", "min_level": 2, "attunement": false},
+    {"name": "非药水、卷轴且无诅咒的普通魔法物品", "name_en": "Common Magic Item (not Potion or Scroll; not Cursed)", "min_level": 2, "attunement": "多种", "repeatable": true},
+    {"name": "夜视镜", "name_en": "Goggles of Night", "min_level": 2, "attunement": false},
+    {"name": "百变工具", "name_en": "Manifold Tool", "min_level": 2, "attunement": true, "source": "EFA附录"},
+    {"name": "连射武器", "name_en": "Repeating Shot", "min_level": 2, "attunement": true, "source": "EFA附录"},
+    {"name": "回力武器", "name_en": "Returning Weapon", "min_level": 2, "attunement": false},
+    {"name": "攀爬绳", "name_en": "Rope of Climbing", "min_level": 2, "attunement": false},
+    {"name": "短讯石", "name_en": "Sending Stones", "min_level": 2, "attunement": false},
+    {"name": "+1盾牌", "name_en": "Shield +1", "min_level": 2, "attunement": false},
+    {"name": "侦测魔法魔杖", "name_en": "Wand of Magic Detection", "min_level": 2, "attunement": false},
+    {"name": "探秘魔杖", "name_en": "Wand of Secrets", "min_level": 2, "attunement": false},
+    {"name": "+1战法师魔杖", "name_en": "Wand of the War Mage +1", "min_level": 2, "attunement": true},
+    {"name": "+1武器", "name_en": "Weapon +1", "min_level": 2, "attunement": false},
+    {"name": "+1神威绑带", "name_en": "Wraps of Unarmed Power +1", "min_level": 2, "attunement": false},
+
+    {"name": "+1护甲", "name_en": "Armor +1", "min_level": 6, "attunement": false},
+    {"name": "精灵靴", "name_en": "Boots of Elvenkind", "min_level": 6, "attunement": false},
+    {"name": "折返之靴", "name_en": "Boots of the Winding Path", "min_level": 6, "attunement": false, "source": "EFA附录"},
+    {"name": "精灵斗篷", "name_en": "Cloak of Elvenkind", "min_level": 6, "attunement": true},
+    {"name": "蝠鲼斗篷", "name_en": "Cloak of the Manta Ray", "min_level": 6, "attunement": false},
+    {"name": "炫目武器", "name_en": "Dazzling Weapon", "min_level": 6, "attunement": true, "source": "EFA附录"},
+    {"name": "魅惑镜片", "name_en": "Eyes of Charming", "min_level": 6, "attunement": true},
+    {"name": "微视镜片", "name_en": "Eyes of Minute Seeing", "min_level": 6, "attunement": false},
+    {"name": "窃贼手套", "name_en": "Gloves of Thievery", "min_level": 6, "attunement": false},
+    {"name": "警觉之盔", "name_en": "Helm of Awareness", "min_level": 6, "attunement": false, "source": "EFA附录"},
+    {"name": "显像提灯", "name_en": "Lantern of Revealing", "min_level": 6, "attunement": false},
+    {"name": "思维砥石", "name_en": "Mind Sharpener", "min_level": 6, "attunement": false, "source": "EFA附录"},
+    {"name": "适应项链", "name_en": "Necklace of Adaptation", "min_level": 6, "attunement": true},
+    {"name": "颤栗乐笙", "name_en": "Pipes of Haunting", "min_level": 6, "attunement": false},
+    {"name": "斥力之盾", "name_en": "Repulsion Shield", "min_level": 6, "attunement": false, "source": "EFA附录"},
+    {"name": "善泳戒指", "name_en": "Ring of Swimming", "min_level": 6, "attunement": false},
+    {"name": "水上行走戒指", "name_en": "Ring of Water Walking", "min_level": 6, "attunement": false},
+    {"name": "警戒之盾", "name_en": "Sentinel Shield", "min_level": 6, "attunement": false},
+    {"name": "法力恢复戒指", "name_en": "Spell-Refueling Ring", "min_level": 6, "attunement": true, "source": "EFA附录"},
+    {"name": "魔法飞弹魔杖", "name_en": "Wand of Magic Missiles", "min_level": 6, "attunement": false},
+    {"name": "蛛网魔杖", "name_en": "Wand of Web", "min_level": 6, "attunement": true},
+    {"name": "警戒武器", "name_en": "Weapon of Warning", "min_level": 6, "attunement": true},
+
+    {"name": "抗性护甲", "name_en": "Armor of Resistance", "min_level": 10, "attunement": true},
+    {"name": "淬毒匕首", "name_en": "Dagger of Venom", "min_level": 10, "attunement": false},
+    {"name": "精灵链甲", "name_en": "Elven Chain", "min_level": 10, "attunement": false},
+    {"name": "羽落戒指", "name_en": "Ring of Feather Falling", "min_level": 10, "attunement": true},
+    {"name": "跳跃戒指", "name_en": "Ring of Jumping", "min_level": 10, "attunement": true},
+    {"name": "心灵护盾戒指", "name_en": "Ring of Mind Shielding", "min_level": 10, "attunement": true},
+    {"name": "+2盾牌", "name_en": "Shield +2", "min_level": 10, "attunement": false},
+    {"name": "无诅咒的非普通奇物", "name_en": "Uncommon Wondrous Item (not Cursed)", "min_level": 10, "attunement": "多种", "repeatable": true},
+    {"name": "+2战法师魔杖", "name_en": "Wand of the War Mage +2", "min_level": 10, "attunement": true},
+    {"name": "+2武器", "name_en": "Weapon +2", "min_level": 10, "attunement": false},
+    {"name": "+2神威绑带", "name_en": "Wraps of Unarmed Power +2", "min_level": 10, "attunement": false},
+
+    {"name": "+2护甲", "name_en": "Armor +2", "min_level": 14, "attunement": false},
+    {"name": "吸矢盾", "name_en": "Arrow-Catching Shield", "min_level": 14, "attunement": true},
+    {"name": "焰舌", "name_en": "Flame Tongue", "min_level": 14, "attunement": true},
+    {"name": "无诅咒的珍稀奇物", "name_en": "Rare Wondrous Item (not Cursed)", "min_level": 14, "attunement": "多种", "repeatable": true},
+    {"name": "自由行动戒指", "name_en": "Ring of Free Action", "min_level": 14, "attunement": true},
+    {"name": "防护戒指", "name_en": "Ring of Protection", "min_level": 14, "attunement": true},
+    {"name": "公羊戒指", "name_en": "Ring of the Ram", "min_level": 14, "attunement": true}
+  ],
+  "artificer_infusions_by_level": {},
+  "infusions": []
+}

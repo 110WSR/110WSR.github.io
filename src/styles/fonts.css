@@ -1,1 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;700&family=Noto+Sans:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap');
+/* Google Fonts 在线 @import 已移除：
+   1. 离线/桌面环境（Electron）下该请求会长时间挂起，且 CSS 会阻塞 module 脚本执行导致页面空白；
+   2. 国内网络访问 fonts.googleapis.com 经常超时，网页版同样受影响。
+   字体栈已内置 sans-serif / serif 系统字体回退，不影响功能。 */

@@ -1,0 +1,278 @@
+{
+  "_meta": "PHB 2024 魔契师魔能祈唤 Eldritch Invocations 完整列表。2024 规则里三个契约（刃/链/书）已并入祈唤，不再是 L3 的单独特性。祈唤总数按等级增量：L1=1 起始，累计 L20=10。",
+  "_note_on_boons": "2024 规则：刃之魔契 Pact of the Blade、链之魔契 Pact of the Chain、书之魔契 Pact of the Tome 本身就是祈唤选项之一。玩家在 L1 取第一个祈唤时可以选契约或其他祈唤（但若不选契约，就无法取后续需要契约的祈唤如饥渴魔刃、链主赋能、守护馈赠 等）。",
+  "pact_boons": [],
+  "invocations": [
+    {
+      "name": "幽影护甲",
+      "name_en": "Armor of Shadows",
+      "tier": "L1",
+      "prereq": {},
+      "desc": "你能对自身无需法术位地施展【法师护甲 Mage Armor】。"
+    },
+    {
+      "name": "魔能意志",
+      "name_en": "Eldritch Mind",
+      "tier": "L1",
+      "prereq": {},
+      "desc": "你为保持专注所进行的体质豁免具有优势。"
+    },
+    {
+      "name": "刃之魔契",
+      "name_en": "Pact of the Blade",
+      "tier": "L1",
+      "prereq": {},
+      "category": "契约",
+      "desc": "以附赠动作在手中咒唤一把契约武器（简易或军用近战武器）或与所触摸的魔法武器建立连结。连结期间你拥有其熟练，可作施法法器；用该武器攻击时以魅力取代力量/敏捷做攻击和伤害检定，并可令伤害改为暗蚀/心灵/光耀。再次使用本特性、武器离你 5 尺 1 分钟以上或你死亡时连结结束；咒唤出的武器在连结结束时消失。"
+    },
+    {
+      "name": "链之魔契",
+      "name_en": "Pact of the Chain",
+      "tier": "L1",
+      "prereq": {},
+      "category": "契约",
+      "desc": "习得【寻获魔宠 Find Familiar】，并能以一个魔法动作无需法术位地施展。除常规魔宠形态外，还可选择：小魔鬼、伪龙、小恶魔、骷髅、史拉蟾蝌蚪、求索斯芬克斯、小仙灵、毒蛇。你执行攻击动作时可放弃一次攻击，让魔宠用反应发动一次攻击。"
+    },
+    {
+      "name": "书之魔契",
+      "name_en": "Pact of the Tome",
+      "tier": "L1",
+      "prereq": {},
+      "category": "契约",
+      "desc": "短休或长休结束时你将幽影聚成一本影之书。书中承载只有你能理解的魔法：选 3 道戏法和 2 道带仪式标签的 1 环法术（可来自任何职业法表、不能是已准备的），书在你身上时你始终准备这些法术且视作魔契师法术。本书可作施法法器。再次咒唤新书或你死亡时旧书消失。"
+    },
+    {
+      "name": "苦痛魔爆",
+      "name_en": "Agonizing Blast",
+      "tier": "L2",
+      "prereq": {
+        "min_level": 2,
+        "requires_cantrip_damage": true
+      },
+      "repeatable": true,
+      "desc": "选一道你已知的造成伤害的魔契师戏法，你将魅力调整值加入该法术的每次伤害掷骰。可多选本祈唤；每次选不同戏法。"
+    },
+    {
+      "name": "魔鬼视界",
+      "name_en": "Devil's Sight",
+      "tier": "L2",
+      "prereq": {
+        "min_level": 2
+      },
+      "desc": "你在黑暗和微光光照中拥有 120 尺可视距离，无论魔法或非魔法性。"
+    },
+    {
+      "name": "魔能长枪",
+      "name_en": "Eldritch Spear",
+      "tier": "L2",
+      "prereq": {
+        "min_level": 2,
+        "requires_cantrip_damage": true,
+        "requires_cantrip_min_range_ft": 10
+      },
+      "repeatable": true,
+      "desc": "选一道你已知的造成伤害、射程至少 10 尺的魔契师戏法。施展时射程 + 魔契师等级 ×30 尺。可多选。"
+    },
+    {
+      "name": "邪魔活力",
+      "name_en": "Fiendish Vigor",
+      "tier": "L2",
+      "prereq": {
+        "min_level": 2
+      },
+      "desc": "你能无需法术位地施展【虚假生命 False Life】，且临时生命值自动取骰最大值（不用掷骰）。"
+    },
+    {
+      "name": "原初之一的教习",
+      "name_en": "Lessons of the First Ones",
+      "tier": "L2",
+      "prereq": {
+        "min_level": 2
+      },
+      "repeatable": true,
+      "desc": "从多元宇宙中的亘古存在处收获知识，习得一项你选择的起源专长（见第五章）。可多选本祈唤；每次选不同起源专长。"
+    },
+    {
+      "name": "千面之颜",
+      "name_en": "Mask of Many Faces",
+      "tier": "L2",
+      "prereq": {
+        "min_level": 2
+      },
+      "desc": "你能无需法术位地施展【易容术 Disguise Self】。"
+    },
+    {
+      "name": "幻象迷踪",
+      "name_en": "Misty Visions",
+      "tier": "L2",
+      "prereq": {
+        "min_level": 2
+      },
+      "desc": "你能无需法术位地施展【无声幻影 Silent Image】。"
+    },
+    {
+      "name": "超凡跳跃",
+      "name_en": "Otherworldly Leap",
+      "tier": "L2",
+      "prereq": {
+        "min_level": 2
+      },
+      "desc": "你能对自身无需法术位地施展【跳跃术 Jump】。"
+    },
+    {
+      "name": "斥力魔爆",
+      "name_en": "Repelling Blast",
+      "tier": "L2",
+      "prereq": {
+        "min_level": 2,
+        "requires_cantrip_damage": true,
+        "requires_cantrip_attack": true
+      },
+      "repeatable": true,
+      "desc": "选一道你已知的、需要攻击检定造成伤害的魔契师戏法。该戏法命中大型或更小目标时，可把目标推离至多 10 尺。可多选。"
+    },
+    {
+      "name": "星移步法",
+      "name_en": "Ascendant Step",
+      "tier": "L5",
+      "prereq": {
+        "min_level": 5
+      },
+      "desc": "你能对自身无需法术位地施展【浮空术 Levitate】。"
+    },
+    {
+      "name": "魔能斩",
+      "name_en": "Eldritch Smite",
+      "tier": "L5",
+      "prereq": {
+        "min_level": 5,
+        "requires_boon": "刃之魔契"
+      },
+      "desc": "每回合一次，用契约武器命中时可消耗一枚契约魔法法术位，额外造成 1d8 + 每法术位环阶 1d8 力场伤害；目标体型不超过巨型时可令其倒地。"
+    },
+    {
+      "name": "共视感官",
+      "name_en": "Gaze of Two Minds",
+      "tier": "L5",
+      "prereq": {
+        "min_level": 5
+      },
+      "desc": "以附赠动作触碰自愿生物并建立感官连接至你下回合结束。用附赠动作可延长。连接中借对方感官观察时享用其特殊感官，60 尺内可如同在该生物位置施法。"
+    },
+    {
+      "name": "深海馈赠",
+      "name_en": "Gift of the Depths",
+      "tier": "L5",
+      "prereq": {
+        "min_level": 5
+      },
+      "desc": "水下可呼吸，游泳速度 = 步行速度。此外无需法术位施展一次【水下呼吸 Water Breathing】，长休后重获该能力。"
+    },
+    {
+      "name": "链主赋能",
+      "name_en": "Investment of the Chain Master",
+      "tier": "L5",
+      "prereq": {
+        "min_level": 5,
+        "requires_boon": "链之魔契"
+      },
+      "desc": "施展【寻获魔宠】时灌注魔能力量给魔宠：①翔空/潜渊（40 尺飞/游速）②迅捷打击（附赠动作指挥它攻击）③光影注能（钝/刺/砍可改为光耀/暗蚀）④使用你的豁免 DC ⑤你可用反应让它对承受的一次伤害获抗性。"
+    },
+    {
+      "name": "万形之主",
+      "name_en": "Master of Myriad Forms",
+      "tier": "L5",
+      "prereq": {
+        "min_level": 5
+      },
+      "desc": "你能无需法术位地施展【变身术 Alter Self】。"
+    },
+    {
+      "name": "融身入影",
+      "name_en": "One with Shadows",
+      "tier": "L5",
+      "prereq": {
+        "min_level": 5
+      },
+      "desc": "身处微光或黑暗环境时，你能对自身无需法术位地施展【隐形术 Invisibility】。"
+    },
+    {
+      "name": "饥渴魔刃",
+      "name_en": "Thirsting Blade",
+      "tier": "L5",
+      "prereq": {
+        "min_level": 5,
+        "requires_boon": "刃之魔契"
+      },
+      "desc": "你获得额外攻击特性（仅用契约武器），回合内执行攻击动作时可用该武器攻击两次而非一次。"
+    },
+    {
+      "name": "坟茔殁语",
+      "name_en": "Whispers of the Grave",
+      "tier": "L7",
+      "prereq": {
+        "min_level": 7
+      },
+      "desc": "你能无需法术位地施展【死者交谈 Speak With Dead】。"
+    },
+    {
+      "name": "饮命者",
+      "name_en": "Lifedrinker",
+      "tier": "L9",
+      "prereq": {
+        "min_level": 9,
+        "requires_boon": "刃之魔契"
+      },
+      "desc": "每回合一次，用契约武器命中时额外造成 1d6 暗蚀/心灵/光耀伤害（你选），并可消耗一颗生命骰恢复等于骰值 + 体质调整值（最小 1）的生命值。"
+    },
+    {
+      "name": "守护馈赠",
+      "name_en": "Gift of the Protectors",
+      "tier": "L9",
+      "prereq": {
+        "min_level": 9,
+        "requires_boon": "书之魔契"
+      },
+      "desc": "影之书里新增一张书页，允许生物写下名字（至多你的魅力调整值个，最小 1）。名字在页上的生物 HP 降为 0 但未死亡时，HP 魔法地变为 1。每次触发该效应，直至你长休均不能再触发。你可用魔法动作触摸消除名字。"
+    },
+    {
+      "name": "穹宇尽视",
+      "name_en": "Visions of Distant Realms",
+      "tier": "L9",
+      "prereq": {
+        "min_level": 9
+      },
+      "desc": "你能无需法术位地施展【秘法眼 Arcane Eye】。"
+    },
+    {
+      "name": "灭世魔刃",
+      "name_en": "Devouring Blade",
+      "tier": "L12",
+      "prereq": {
+        "min_level": 12,
+        "requires_invocation": "饥渴魔刃"
+      },
+      "desc": "饥渴魔刃祈唤为你提供的额外攻击次数变为两次（即攻击动作共可攻击 3 次）。"
+    },
+    {
+      "name": "巫术视界",
+      "name_en": "Witch Sight",
+      "tier": "L15",
+      "prereq": {
+        "min_level": 15
+      },
+      "desc": "你具有 30 尺真实视觉。"
+    }
+  ],
+  "_picks_by_level": {
+    "_note": "PHB2024 魔契师魔能祈唤每级新解锁的数量（累计由 invocations_total_known 求和）。L1=1、L2=+2、L5=+2、L7=+1、L9=+1、L12=+1、L15=+1、L18=+1 → L20 累计 10。",
+    "1": 1,
+    "2": 2,
+    "5": 2,
+    "7": 1,
+    "9": 1,
+    "12": 1,
+    "15": 1,
+    "18": 1
+  }
+}

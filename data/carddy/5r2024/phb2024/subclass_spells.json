@@ -1,0 +1,1189 @@
+{
+  "_meta": "PHB2024 核心子职领域/誓约/学院/结社/宗主自动法术。从 CHM 抽取。",
+  "古贤之誓": {
+    "_class": "圣武士",
+    "spells": [
+      {
+        "name": "捕获打击",
+        "name_en": "Ensnaring Strike",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "动物交谈",
+        "name_en": "Speak with Animals",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "迷踪步",
+        "name_en": "Misty Step",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "月华之光",
+        "name_en": "Moonbeam",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "植物滋长",
+        "name_en": "Plant Growth",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "防护能量",
+        "name_en": "Protection from Energy",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "冰风暴",
+        "name_en": "Ice Storm",
+        "unlock_class_level": 13
+      },
+      {
+        "name": "石肤术",
+        "name_en": "Stoneskin",
+        "unlock_class_level": 13
+      },
+      {
+        "name": "问道自然",
+        "name_en": "Commune with Nature",
+        "unlock_class_level": 17
+      },
+      {
+        "name": "树跃术",
+        "name_en": "Tree Stride",
+        "unlock_class_level": 17
+      }
+    ]
+  },
+  "复仇之誓": {
+    "_class": "圣武士",
+    "spells": [
+      {
+        "name": "灾祸术",
+        "name_en": "Bane",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "猎人印记",
+        "name_en": "Hunter's Mark",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "定身类人",
+        "name_en": "hold person",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "迷踪步",
+        "name_en": "misty step",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "加速术",
+        "name_en": "haste",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "防护能量",
+        "name_en": "protection from energy",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "放逐术",
+        "name_en": "banishment",
+        "unlock_class_level": 13
+      },
+      {
+        "name": "任意门",
+        "name_en": "dimension door",
+        "unlock_class_level": 13
+      },
+      {
+        "name": "定身怪物",
+        "name_en": "hold monster",
+        "unlock_class_level": 17
+      },
+      {
+        "name": "探知术",
+        "name_en": "Scrying",
+        "unlock_class_level": 17
+      }
+    ]
+  },
+  "奉献之誓": {
+    "_class": "圣武士",
+    "spells": [
+      {
+        "name": "防护善恶",
+        "name_en": "Protection from Evil and Good",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "虔诚护盾",
+        "name_en": "Shield of Faith",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "援助术",
+        "name_en": "Aid",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "诚实之域",
+        "name_en": "Zone of Truth",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "希望信标",
+        "name_en": "Beacon of Hope",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "解除魔法",
+        "name_en": "Dispel Magic",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "行动自如",
+        "name_en": "Freedom of Movement",
+        "unlock_class_level": 13
+      },
+      {
+        "name": "信仰守卫",
+        "name_en": "Guardian of Faith",
+        "unlock_class_level": 13
+      },
+      {
+        "name": "通神术",
+        "name_en": "Commune",
+        "unlock_class_level": 17
+      },
+      {
+        "name": "焰击术",
+        "name_en": "Flame Strike",
+        "unlock_class_level": 17
+      }
+    ]
+  },
+  "荣耀之誓": {
+    "_class": "圣武士",
+    "spells": [
+      {
+        "name": "光导箭",
+        "name_en": "Guiding Bolt",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "英雄气概",
+        "name_en": "Heroism",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "强化属性",
+        "name_en": "Enhance Ability",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "魔化武器",
+        "name_en": "Magic Weapon",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "加速术",
+        "name_en": "Haste",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "防护能量",
+        "name_en": "Protection from Energy",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "强迫术",
+        "name_en": "Compulsion",
+        "unlock_class_level": 13
+      },
+      {
+        "name": "行动自如",
+        "name_en": "Freedom of Movement",
+        "unlock_class_level": 13
+      },
+      {
+        "name": "通晓传奇",
+        "name_en": "Legend Lore",
+        "unlock_class_level": 17
+      },
+      {
+        "name": "悠兰德王者威仪",
+        "name_en": "Yolande's Regal Presence",
+        "unlock_class_level": 17
+      }
+    ]
+  },
+  "妖精漫游者": {
+    "_class": "游侠",
+    "spells": [
+      {
+        "name": "魅惑类人",
+        "name_en": "Charm Person",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "迷踪步",
+        "name_en": "Misty Step",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "妖精召唤术",
+        "name_en": "Summon Fey",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "任意门",
+        "name_en": "Dimension Door",
+        "unlock_class_level": 13
+      },
+      {
+        "name": "假象术",
+        "name_en": "Mislead",
+        "unlock_class_level": 17
+      }
+    ]
+  },
+  "龙族术法": {
+    "_class": "术士",
+    "spells": [
+      {
+        "name": "繁彩球",
+        "name_en": "Chromatic Orb",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "命令术",
+        "name_en": "Command",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "恐惧术",
+        "name_en": "Fear",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "飞行术",
+        "name_en": "Fly",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "秘法眼",
+        "name_en": "Arcane Eye",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "魅惑怪物",
+        "name_en": "Charm Monster",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "通晓传奇",
+        "name_en": "Legend Lore",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "龙类召唤术",
+        "name_en": "Summon Dragon",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "龙息术",
+        "name_en": "Dragon's Breath",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "变身术",
+        "name_en": "Alter Self",
+        "unlock_class_level": 3
+      }
+    ]
+  },
+  "天界宗主": {
+    "_class": "魔契师",
+    "spells": [
+      {
+        "name": "昼明术",
+        "name_en": "Daylight",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "回生术",
+        "name_en": "Revivify",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "信仰守卫",
+        "name_en": "Guardian of Faith",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "火墙术",
+        "name_en": "Wall of Fire",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "高等复原术",
+        "name_en": "Greater Restoration",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "天界召唤术",
+        "name_en": "Summon Celestial",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "光亮术",
+        "name_en": "Light",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "圣火术",
+        "name_en": "Sacred Flame",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "疗伤术",
+        "name_en": "Cure Wounds",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "光导箭",
+        "name_en": "Guiding Bolt",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "援助术",
+        "name_en": "Aid",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "次等复原术",
+        "name_en": "Lesser Restoration",
+        "unlock_class_level": 3
+      }
+    ]
+  },
+  "旧日支配者宗主": {
+    "_class": "魔契师",
+    "spells": [
+      {
+        "name": "不谐低语",
+        "name_en": "Dissonant Whispers",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "塔莎狂笑术",
+        "name_en": "Tasha's Hideous Laughter",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "鹰眼术",
+        "name_en": "Clairvoyance",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "哈达之欲",
+        "name_en": "Hunger of Hadar",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "困惑术",
+        "name_en": "Confusion",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "异怪召唤术",
+        "name_en": "Summon Aberration",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "篡改记忆",
+        "name_en": "Modify Memory",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "心灵遥控",
+        "name_en": "Telekinesis",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "魅影之力",
+        "name_en": "Phantasmal Force",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "侦测思想",
+        "name_en": "Detect Thoughts",
+        "unlock_class_level": 3
+      }
+    ]
+  },
+  "至高妖精宗主": {
+    "_class": "魔契师",
+    "spells": [
+      {
+        "name": "妖火",
+        "name_en": "Faerie Fire",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "睡眠术",
+        "name_en": "Sleep",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "闪现术",
+        "name_en": "Blink",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "植物滋长",
+        "name_en": "Plant Growth",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "支配野兽",
+        "name_en": "Dominate Beast",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "高等隐形术",
+        "name_en": "Greater Invisibility",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "支配类人",
+        "name_en": "Dominate Person",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "伪装术",
+        "name_en": "Seeming",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "安定心神",
+        "name_en": "Calm Emotions",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "迷踪步",
+        "name_en": "Misty Step",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "魅影之力",
+        "name_en": "Phantasmal Force",
+        "unlock_class_level": 3
+      }
+    ]
+  },
+  "邪魔宗主": {
+    "_class": "魔契师",
+    "spells": [
+      {
+        "name": "燃烧之手",
+        "name_en": "Burning Hands",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "命令术",
+        "name_en": "Command",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "火球术",
+        "name_en": "Fireball",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "臭云术",
+        "name_en": "Stinking Cloud",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "火焰护盾",
+        "name_en": "Fire Shield",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "火墙术",
+        "name_en": "Wall of Fire",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "指使术",
+        "name_en": "Geas",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "疫病虫群",
+        "name_en": "Insect Plague",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "灼热射线",
+        "name_en": "Scorching Ray",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "暗示术",
+        "name_en": "Suggestion",
+        "unlock_class_level": 3
+      }
+    ]
+  },
+  "光明领域": {
+    "_class": "牧师",
+    "spells": [
+      {
+        "name": "燃烧之手",
+        "name_en": "Burning Hands",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "妖火",
+        "name_en": "Faerie Fire",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "灼热射线",
+        "name_en": "Scorching Ray",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "识破隐形",
+        "name_en": "See Invisibility",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "昼明术",
+        "name_en": "Daylight",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "火球术",
+        "name_en": "Fireball",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "秘法眼",
+        "name_en": "Arcane Eye",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "火墙术",
+        "name_en": "Wall of Fire",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "焰击术",
+        "name_en": "Flame Strike",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "探知术",
+        "name_en": "Scrying",
+        "unlock_class_level": 9
+      }
+    ]
+  },
+  "战争领域": {
+    "_class": "牧师",
+    "spells": [
+      {
+        "name": "光导箭",
+        "name_en": "Guiding Bolt",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "虔诚护盾",
+        "name_en": "Shield of Faith",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "十字军披风",
+        "name_en": "crusader's mantle",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "灵体卫士",
+        "name_en": "spirit guardians",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "火焰护盾",
+        "name_en": "Fire Shield",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "行动自如",
+        "name_en": "Freedom of Movement",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "定身怪物",
+        "name_en": "hold monster",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "钢风斩",
+        "name_en": "Steel Wind Strike",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "魔化武器",
+        "name_en": "Magic Weapon",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "灵体武器",
+        "name_en": "Spiritual Weapon",
+        "unlock_class_level": 3
+      }
+    ]
+  },
+  "生命领域": {
+    "_class": "牧师",
+    "spells": [
+      {
+        "name": "援助术",
+        "name_en": "Aid",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "祝福术",
+        "name_en": "Bless",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "疗伤术",
+        "name_en": "Cure Wounds",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "次等复原术",
+        "name_en": "Lesser Restoration",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "群体治愈真言",
+        "name_en": "Mass Healing Word",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "回生术",
+        "name_en": "Revivify",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "生命灵光",
+        "name_en": "Aura of Life",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "防死结界",
+        "name_en": "Death Ward",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "高等复原术",
+        "name_en": "Greater Restoration",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "群体疗伤术",
+        "name_en": "Mass Cure Wounds",
+        "unlock_class_level": 9
+      }
+    ]
+  },
+  "诡术领域": {
+    "_class": "牧师",
+    "spells": [
+      {
+        "name": "魅惑类人",
+        "name_en": "Charm Person",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "易容术",
+        "name_en": "Disguise Self",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "催眠图纹",
+        "name_en": "Hypnotic Pattern",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "回避侦测",
+        "name_en": "Nondetection",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "困惑术",
+        "name_en": "Confusion",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "任意门",
+        "name_en": "Dimension Door",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "支配类人",
+        "name_en": "Dominate Person",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "篡改记忆",
+        "name_en": "Modify Memory",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "隐形术",
+        "name_en": "Invisibility",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "行动无踪",
+        "name_en": "Pass without Trace",
+        "unlock_class_level": 3
+      }
+    ]
+  },
+  "大地结社": {
+    "_class": "德鲁伊",
+    "terrain_gated": true,
+    "terrain_options": [
+      "荒漠",
+      "极地",
+      "温带",
+      "热带"
+    ],
+    "spells": [
+      {
+        "name": "火焰箭",
+        "name_en": "Fire Bolt",
+        "terrain": "荒漠",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "燃烧之手",
+        "name_en": "Burning Hands",
+        "terrain": "荒漠",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "朦胧术",
+        "name_en": "Blur",
+        "terrain": "荒漠",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "火球术",
+        "name_en": "Fireball",
+        "terrain": "荒漠",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "枯萎术",
+        "name_en": "Blight",
+        "terrain": "荒漠",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "石墙术",
+        "name_en": "Wall of Stone",
+        "terrain": "荒漠",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "冷冻射线",
+        "name_en": "Ray of Frost",
+        "terrain": "极地",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "云雾术",
+        "name_en": "Fog Cloud",
+        "terrain": "极地",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "定身类人",
+        "name_en": "Hold Person",
+        "terrain": "极地",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "雪雨暴",
+        "name_en": "Sleet Storm",
+        "terrain": "极地",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "冰风暴",
+        "name_en": "Ice Storm",
+        "terrain": "极地",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "寒冰锥",
+        "name_en": "Cone of Cold",
+        "terrain": "极地",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "电爪",
+        "name_en": "Shocking Grasp",
+        "terrain": "温带",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "睡眠术",
+        "name_en": "Sleep",
+        "terrain": "温带",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "迷踪步",
+        "name_en": "Misty Step",
+        "terrain": "温带",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "闪电束",
+        "name_en": "Lightning Bolt",
+        "terrain": "温带",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "行动自如",
+        "name_en": "Freedom of Movement",
+        "terrain": "温带",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "树跃术",
+        "name_en": "Tree Stride",
+        "terrain": "温带",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "酸液飞溅",
+        "name_en": "Acid Splash",
+        "terrain": "热带",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "蛛网术",
+        "name_en": "Web",
+        "terrain": "热带",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "致病射线",
+        "name_en": "Ray of Sickness",
+        "terrain": "热带",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "臭云术",
+        "name_en": "Stinking Cloud",
+        "terrain": "热带",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "变形术",
+        "name_en": "Polymorph",
+        "terrain": "热带",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "疫病虫群",
+        "name_en": "Insect Plague",
+        "terrain": "热带",
+        "unlock_class_level": 9
+      }
+    ]
+  },
+  "月亮结社": {
+    "_class": "德鲁伊",
+    "spells": [
+      {
+        "name": "点点星芒",
+        "name_en": "Starry Wisp",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "疗伤术",
+        "name_en": "Cure Wounds",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "月华之光",
+        "name_en": "Moonbeam",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "咒唤兽群",
+        "name_en": "Conjure Animals",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "月光涌泉",
+        "name_en": "Fount of Moonlight",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "群体疗伤术",
+        "name_en": "Mass Cure Wounds",
+        "unlock_class_level": 9
+      }
+    ]
+  },
+  "时械术法": {
+    "_class": "术士",
+    "spells": [
+      {
+        "name": "防护善恶",
+        "name_en": "Protection from Evil and Good",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "警报术",
+        "name_en": "Alarm",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "次等复原术",
+        "name_en": "Lesser Restoration",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "援助术",
+        "name_en": "Aid",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "解除魔法",
+        "name_en": "Dispel Magic",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "防护能量",
+        "name_en": "Protection from Energy",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "行动自如",
+        "name_en": "Freedom of Movement",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "构装召唤术",
+        "name_en": "Summon Construct",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "高等复原术",
+        "name_en": "Greater Restoration",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "力场墙",
+        "name_en": "Wall of Force",
+        "unlock_class_level": 9
+      }
+    ]
+  },
+  "海洋结社": {
+    "_class": "德鲁伊",
+    "spells": [
+      {
+        "name": "冷冻射线",
+        "name_en": "Ray of Frost",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "云雾术",
+        "name_en": "Fog Cloud",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "雷鸣波",
+        "name_en": "Thunderwave",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "造风术",
+        "name_en": "Gust of Wind",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "粉碎音波",
+        "name_en": "Shatter",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "闪电束",
+        "name_en": "Lightning Bolt",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "水下呼吸",
+        "name_en": "Water Breathing",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "操控水体",
+        "name_en": "Control Water",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "冰风暴",
+        "name_en": "Ice Storm",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "咒唤元素",
+        "name_en": "Conjure Elemental",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "定身怪物",
+        "name_en": "Hold Monster",
+        "unlock_class_level": 9
+      }
+    ]
+  },
+  "畸变术法": {
+    "_class": "术士",
+    "spells": [
+      {
+        "name": "心灵之楔",
+        "name_en": "Mind Sliver",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "哈达之臂",
+        "name_en": "Arms of Hadar",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "不谐低语",
+        "name_en": "Dissonant Whispers",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "安定心神",
+        "name_en": "Calm Emotions",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "侦测思想",
+        "name_en": "Detect Thoughts",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "哈达之欲",
+        "name_en": "Hunger of Hadar",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "短讯术",
+        "name_en": "Sending",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "艾伐黑触手",
+        "name_en": "Evard's Black Tentacles",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "异怪召唤术",
+        "name_en": "Summon Aberration",
+        "unlock_class_level": 7
+      },
+      {
+        "name": "拉瑞心灵联结",
+        "name_en": "Rary's Telepathic Bond",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "心灵遥控",
+        "name_en": "Telekinesis",
+        "unlock_class_level": 9
+      }
+    ]
+  },
+  "幽域追猎者": {
+    "_class": "游侠",
+    "spells": [
+      {
+        "name": "易容术",
+        "name_en": "Disguise Self",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "魔绳术",
+        "name_en": "Rope Trick",
+        "unlock_class_level": 5
+      },
+      {
+        "name": "恐惧术",
+        "name_en": "Fear",
+        "unlock_class_level": 9
+      },
+      {
+        "name": "高等隐形术",
+        "name_en": "Greater Invisibility",
+        "unlock_class_level": 13
+      },
+      {
+        "name": "伪装术",
+        "name_en": "Seeming",
+        "unlock_class_level": 17
+      }
+    ]
+  },
+  "魅心学院": {
+    "_class": "吟游诗人",
+    "spells": [
+      {
+        "name": "魅惑类人",
+        "name_en": "Charm Person",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "镜影术",
+        "name_en": "Mirror Image",
+        "unlock_class_level": 3
+      },
+      {
+        "name": "命令术",
+        "name_en": "Command",
+        "unlock_class_level": 6
+      }
+    ]
+  },
+  "星辰结社": {
+    "_class": "德鲁伊",
+    "spells": [
+      {
+        "name": "光导箭",
+        "name_en": "Guiding Bolt",
+        "unlock_class_level": 3
+      }
+    ]
+  }
+}

@@ -1,5 +1,8 @@
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCharacter } from "../shared/storage/characterHooks";
+import RulesExpansionDialog from "../dialogs/RulesExpansionDialog";
+import { getRuleset, subscribeExpansions } from "../shared/utils/rulesService";
 
 // ============================================================================
 // D&D 5e 主菜单页面
@@ -22,6 +25,10 @@ function DragonIcon() {
 export default function MainMenu() {
   const navigate = useNavigate();
   const { saveList, switchCharacter, character } = useCharacter();
+  const [rulesDialogOpen, setRulesDialogOpen] = useState(false);
+  const [, setRulesVersion] = useState(0);
+  // 规则集/扩充开关变化时刷新“当前规则”显示
+  useEffect(() => subscribeExpansions(() => setRulesVersion((x) => x + 1)), []);
   // recentSaves 为 saveList 的纯派生数据，渲染期直接计算
   const recentSaves = saveList.slice(0, 5);
 
@@ -123,6 +130,23 @@ export default function MainMenu() {
             </svg>
             角色卡面板
           </button>
+
+          <button
+            onClick={() => setRulesDialogOpen(true)}
+            className="w-full py-2.5 px-6 bg-stone-800/60 hover:bg-stone-700/60 text-stone-400 hover:text-stone-200 rounded-lg
+                       transition-all duration-200 text-sm tracking-wider border border-stone-700/40
+                       hover:border-stone-600/40 flex items-center justify-center gap-2"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+            规则与扩充
+            <span className="text-stone-600 text-xs font-normal">
+              当前：{getRuleset() === "5e2014" ? "5E · 2014 经典" : "5R · 2024 新规"}
+            </span>
+          </button>
+
+          <RulesExpansionDialog open={rulesDialogOpen} onClose={() => setRulesDialogOpen(false)} />
         </div>
 
         {/* 最近存档 */}

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { sheetColors } from "../../shared/tokens/colors";
 import type { SpellData } from "../../shared/types/types";
+import SpellRangeGrid from "./SpellRangeGrid";
 
 const FVAR = "'CTGR' 0, 'wdth' 100";
 const T: React.CSSProperties = {
@@ -30,6 +31,11 @@ interface SpellTooltipProps {
 
 const ABILITY_LABELS: Record<string, string> = { int: "智力", wis: "感知", cha: "魅力" };
 
+/** 将描述按空行拆成块（第一块为施法时间/距离/成分/持续时间的元信息） */
+function splitDescription(description: string): string[] {
+  return description.split(/\n\s*\n/).map((b) => b.trim()).filter(Boolean);
+}
+
 export const SpellTooltip = React.memo(function SpellTooltip({
   spell, mouseY: initY, cardLeft: initLeft,
   onMouseEnter, onMouseLeave,
@@ -52,8 +58,16 @@ export const SpellTooltip = React.memo(function SpellTooltip({
       </div>
 
       {spell.description && (
-        <div style={{ ...MUTED, fontSize: "11px", lineHeight: 1.4, marginBottom: 6 }}>
-          {spell.description}
+        <div style={{ display: "flex", gap: 8, marginBottom: 6, alignItems: "flex-start" }}>
+          <div style={{ ...MUTED, fontSize: "11px", lineHeight: 1.4, flex: 1, minWidth: 0 }}>
+            {splitDescription(spell.description).map((block, i) => (
+              <div key={i} style={i === 1 ? { marginTop: 6 } : undefined}>
+                {block}
+              </div>
+            ))}
+          </div>
+          {/* 范围格子小图（解析"施法距离"行绘制） */}
+          <SpellRangeGrid description={spell.description} size={104} />
         </div>
       )}
 

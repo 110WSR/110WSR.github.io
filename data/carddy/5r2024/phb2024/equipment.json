@@ -1,0 +1,1678 @@
+{
+  "weapons": {
+    "短棒": {
+      "name": "短棒",
+      "name_en": "Club",
+      "category": "简易近战",
+      "cost": "1 SP",
+      "weight": "2 磅",
+      "damage": "1d4 钝击",
+      "properties": [
+        "轻型"
+      ],
+      "mastery": "缓速",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "便宜的木棒。掌握【缓速】：命中后目标速度 -10 尺至你下回合开始。"
+    },
+    "匕首": {
+      "name": "匕首",
+      "name_en": "Dagger",
+      "category": "简易近战",
+      "cost": "2 GP",
+      "weight": "1 磅",
+      "damage": "1d4 穿刺",
+      "properties": [
+        "灵巧",
+        "轻型",
+        "投掷(20/60)"
+      ],
+      "mastery": "迅击",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "轻便灵巧的近战或投掷武器。掌握【迅击】：双持时那下附赠动作攻击直接合并到主动作，不占附赠动作。"
+    },
+    "巨棒": {
+      "name": "巨棒",
+      "name_en": "Greatclub",
+      "category": "简易近战",
+      "cost": "2 SP",
+      "weight": "10 磅",
+      "damage": "1d8 钝击",
+      "properties": [
+        "双手"
+      ],
+      "mastery": "推离",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "粗重的双手木棒。掌握【推离】：命中大型或更小目标可把它直线推离你 10 尺。"
+    },
+    "手斧": {
+      "name": "手斧",
+      "name_en": "Handaxe",
+      "category": "简易近战",
+      "cost": "5 GP",
+      "weight": "2 磅",
+      "damage": "1d6 挥砍",
+      "properties": [
+        "轻型",
+        "投掷(20/60)"
+      ],
+      "mastery": "侵扰",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "小型战斧，也可扔出去。掌握【侵扰】：命中并造成伤害后，你对同一目标的下一次攻击具有优势。"
+    },
+    "标枪": {
+      "name": "标枪",
+      "name_en": "Javelin",
+      "category": "简易近战",
+      "cost": "5 SP",
+      "weight": "2 磅",
+      "damage": "1d6 穿刺",
+      "properties": [
+        "投掷(30/120)"
+      ],
+      "mastery": "缓速",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "可投掷的长矛，射程远于普通投掷武器。掌握【缓速】：命中后减速 10 尺至你下回合。"
+    },
+    "轻锤": {
+      "name": "轻锤",
+      "name_en": "Light Hammer",
+      "category": "简易近战",
+      "cost": "2 GP",
+      "weight": "2 磅",
+      "damage": "1d4 钝击",
+      "properties": [
+        "轻型",
+        "投掷(20/60)"
+      ],
+      "mastery": "迅击",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "轻便单手锤。掌握【迅击】：双持时那下附赠动作攻击合并到主动作。"
+    },
+    "硬头锤": {
+      "name": "硬头锤",
+      "name_en": "Mace",
+      "category": "简易近战",
+      "cost": "5 GP",
+      "weight": "4 磅",
+      "damage": "1d6 钝击",
+      "properties": [],
+      "mastery": "削弱",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "沉重的铁头锤。掌握【削弱】：命中后目标下一次攻击检定具有劣势，到你下回合开始前。"
+    },
+    "长棍": {
+      "name": "长棍",
+      "name_en": "Quarterstaff",
+      "category": "简易近战",
+      "cost": "2 SP",
+      "weight": "4 磅",
+      "damage": "1d6 钝击",
+      "properties": [
+        "多用(1d8)"
+      ],
+      "mastery": "失衡",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "武僧心头好，平衡的长棍。双手握伤害变 1d8。掌握【失衡】：命中后目标须体质豁免，失败倒地。"
+    },
+    "镰刀": {
+      "name": "镰刀",
+      "name_en": "Sickle",
+      "category": "简易近战",
+      "cost": "1 GP",
+      "weight": "2 磅",
+      "damage": "1d4 挥砍",
+      "properties": [
+        "轻型"
+      ],
+      "mastery": "迅击",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "弧形小刃。掌握【迅击】：双持时那下附赠动作合并到主动作。"
+    },
+    "矛": {
+      "name": "矛",
+      "name_en": "Spear",
+      "category": "简易近战",
+      "cost": "1 GP",
+      "weight": "3 磅",
+      "damage": "1d6 穿刺",
+      "properties": [
+        "投掷(20/60)",
+        "多用(1d8)"
+      ],
+      "mastery": "削弱",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "近战 / 投掷两用。双手握伤害 1d8。掌握【削弱】：命中后目标下一次攻击劣势。"
+    },
+    "飞镖": {
+      "name": "飞镖",
+      "name_en": "Dart",
+      "category": "简易远程",
+      "cost": "5 CP",
+      "weight": "1/4 磅",
+      "damage": "1d4 穿刺",
+      "properties": [
+        "灵巧",
+        "投掷(20/60)"
+      ],
+      "mastery": "侵扰",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "可批量投掷的小型飞镖。掌握【侵扰】：命中后你对同目标的下次攻击具有优势。"
+    },
+    "轻弩": {
+      "name": "轻弩",
+      "name_en": "Light Crossbow",
+      "category": "简易远程",
+      "cost": "25 GP",
+      "weight": "5 磅",
+      "damage": "1d8 穿刺",
+      "properties": [
+        "弹药(80/320)",
+        "装填",
+        "双手"
+      ],
+      "mastery": "缓速",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "入门远程武器，装填限制每动作/附赠/反应只能开一枪。掌握【缓速】：命中减速 10 尺。"
+    },
+    "短弓": {
+      "name": "短弓",
+      "name_en": "Shortbow",
+      "category": "简易远程",
+      "cost": "25 GP",
+      "weight": "2 磅",
+      "damage": "1d6 穿刺",
+      "properties": [
+        "弹药(80/320)",
+        "双手"
+      ],
+      "mastery": "侵扰",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "轻便快射弓。掌握【侵扰】：命中后你对同目标下次攻击具有优势。"
+    },
+    "投石索": {
+      "name": "投石索",
+      "name_en": "Sling",
+      "category": "简易远程",
+      "cost": "1 SP",
+      "weight": "—",
+      "damage": "1d4 钝击",
+      "properties": [
+        "弹药(30/120)"
+      ],
+      "mastery": "缓速",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "最便宜的远程武器。掌握【缓速】：命中减速 10 尺。"
+    },
+    "战斧": {
+      "name": "战斧",
+      "name_en": "Battleaxe",
+      "category": "军用近战",
+      "cost": "10 GP",
+      "weight": "4 磅",
+      "damage": "1d8 挥砍",
+      "properties": [
+        "多用(1d10)"
+      ],
+      "mastery": "失衡",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "矮人经典武器，单手 1d8 / 双手 1d10。掌握【失衡】：命中后目标须体质豁免，失败倒地。"
+    },
+    "链枷": {
+      "name": "链枷",
+      "name_en": "Flail",
+      "category": "军用近战",
+      "cost": "10 GP",
+      "weight": "2 磅",
+      "damage": "1d8 钝击",
+      "properties": [],
+      "mastery": "削弱",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "铁链连接钉头的挥击武器。掌握【削弱】：命中后目标下次攻击劣势。"
+    },
+    "长柄刀": {
+      "name": "长柄刀",
+      "name_en": "Glaive",
+      "category": "军用近战",
+      "cost": "20 GP",
+      "weight": "6 磅",
+      "damage": "1d10 挥砍",
+      "properties": [
+        "重型",
+        "触及",
+        "双手"
+      ],
+      "mastery": "擦掠",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "长柄大砍刀，触及 10 尺。掌握【擦掠】：未命中也造成你属性调整值的伤害。"
+    },
+    "巨斧": {
+      "name": "巨斧",
+      "name_en": "Greataxe",
+      "category": "军用近战",
+      "cost": "30 GP",
+      "weight": "7 磅",
+      "damage": "1d12 挥砍",
+      "properties": [
+        "重型",
+        "双手"
+      ],
+      "mastery": "横扫",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "野蛮人首选，伤害骰 d12。掌握【横扫】：命中后可对相邻另一敌人再来一次（无属性调整值）。"
+    },
+    "巨剑": {
+      "name": "巨剑",
+      "name_en": "Greatsword",
+      "category": "军用近战",
+      "cost": "50 GP",
+      "weight": "6 磅",
+      "damage": "2d6 挥砍",
+      "properties": [
+        "重型",
+        "双手"
+      ],
+      "mastery": "擦掠",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "双手巨剑，2d6 稳定伤害。掌握【擦掠】：未命中也造成属性调整值伤害。"
+    },
+    "戟": {
+      "name": "戟",
+      "name_en": "Halberd",
+      "category": "军用近战",
+      "cost": "20 GP",
+      "weight": "6 磅",
+      "damage": "1d10 挥砍",
+      "properties": [
+        "重型",
+        "触及",
+        "双手"
+      ],
+      "mastery": "横扫",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "长柄斧，触及 10 尺。掌握【横扫】：命中后对相邻另一敌人追加一次攻击。"
+    },
+    "骑枪": {
+      "name": "骑枪",
+      "name_en": "Lance",
+      "category": "军用近战",
+      "cost": "10 GP",
+      "weight": "6 磅",
+      "damage": "1d10 穿刺",
+      "properties": [
+        "重型",
+        "触及",
+        "双手（骑乘时除外）"
+      ],
+      "mastery": "失衡",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "骑乘时可单手用。触及 10 尺。掌握【失衡】：命中后目标体质豁免，失败倒地。"
+    },
+    "长剑": {
+      "name": "长剑",
+      "name_en": "Longsword",
+      "category": "军用近战",
+      "cost": "15 GP",
+      "weight": "3 磅",
+      "damage": "1d8 挥砍",
+      "properties": [
+        "多用(1d10)"
+      ],
+      "mastery": "削弱",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "经典骑士剑。单手 1d8 / 双手 1d10。掌握【削弱】：命中后目标下次攻击劣势。"
+    },
+    "巨锤": {
+      "name": "巨锤",
+      "name_en": "Maul",
+      "category": "军用近战",
+      "cost": "10 GP",
+      "weight": "10 磅",
+      "damage": "2d6 钝击",
+      "properties": [
+        "重型",
+        "双手"
+      ],
+      "mastery": "失衡",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "双手巨钝器，2d6 伤害。掌握【失衡】：命中后目标体质豁免，失败倒地。"
+    },
+    "钉头锤": {
+      "name": "钉头锤",
+      "name_en": "Morningstar",
+      "category": "军用近战",
+      "cost": "15 GP",
+      "weight": "4 磅",
+      "damage": "1d8 穿刺",
+      "properties": [],
+      "mastery": "削弱",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "布满钉刺的锤，穿刺伤害。掌握【削弱】：命中后目标下次攻击劣势。"
+    },
+    "长矛": {
+      "name": "长矛",
+      "name_en": "Pike",
+      "category": "军用近战",
+      "cost": "5 GP",
+      "weight": "18 磅",
+      "damage": "1d10 穿刺",
+      "properties": [
+        "重型",
+        "触及",
+        "双手"
+      ],
+      "mastery": "推离",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "长矛，触及 10 尺。掌握【推离】：命中大型或更小目标可推开 10 尺。"
+    },
+    "刺剑": {
+      "name": "刺剑",
+      "name_en": "Rapier",
+      "category": "军用近战",
+      "cost": "25 GP",
+      "weight": "2 磅",
+      "damage": "1d8 穿刺",
+      "properties": [
+        "灵巧"
+      ],
+      "mastery": "侵扰",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "灵巧单手刺剑，1d8 伤害。掌握【侵扰】：命中后你对同目标下次攻击具有优势。"
+    },
+    "弯刀": {
+      "name": "弯刀",
+      "name_en": "Scimitar",
+      "category": "军用近战",
+      "cost": "25 GP",
+      "weight": "3 磅",
+      "damage": "1d6 挥砍",
+      "properties": [
+        "灵巧",
+        "轻型"
+      ],
+      "mastery": "迅击",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "灵巧轻型弯刀，双持好选择。掌握【迅击】：双持时附赠动作攻击合并到主动作。"
+    },
+    "短剑": {
+      "name": "短剑",
+      "name_en": "Shortsword",
+      "category": "军用近战",
+      "cost": "10 GP",
+      "weight": "2 磅",
+      "damage": "1d6 穿刺",
+      "properties": [
+        "灵巧",
+        "轻型"
+      ],
+      "mastery": "侵扰",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "灵巧轻型短剑，游荡者 / 武僧常用。掌握【侵扰】：命中后你对同目标下次攻击具有优势。"
+    },
+    "三叉戟": {
+      "name": "三叉戟",
+      "name_en": "Trident",
+      "category": "军用近战",
+      "cost": "5 GP",
+      "weight": "4 磅",
+      "damage": "1d8 穿刺",
+      "properties": [
+        "投掷(20/60)",
+        "多用(1d10)"
+      ],
+      "mastery": "失衡",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "可投掷的三股叉。双手握 1d10。掌握【失衡】：命中后目标体质豁免，失败倒地。"
+    },
+    "战镐": {
+      "name": "战镐",
+      "name_en": "War Pick",
+      "category": "军用近战",
+      "cost": "5 GP",
+      "weight": "2 磅",
+      "damage": "1d8 穿刺",
+      "properties": [
+        "多用(1d10)"
+      ],
+      "mastery": "削弱",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "尖头战镐，单手 1d8 / 双手 1d10。掌握【削弱】：命中后目标下次攻击劣势。"
+    },
+    "战锤": {
+      "name": "战锤",
+      "name_en": "Warhammer",
+      "category": "军用近战",
+      "cost": "15 GP",
+      "weight": "5 磅",
+      "damage": "1d8 钝击",
+      "properties": [
+        "多用(1d10)"
+      ],
+      "mastery": "推离",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "单手战锤，单手 1d8 / 双手 1d10。掌握【推离】：命中大型或更小目标可推开 10 尺。"
+    },
+    "鞭": {
+      "name": "鞭",
+      "name_en": "Whip",
+      "category": "军用近战",
+      "cost": "2 GP",
+      "weight": "3 磅",
+      "damage": "1d4 挥砍",
+      "properties": [
+        "灵巧",
+        "触及"
+      ],
+      "mastery": "缓速",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "灵巧触及武器，伤害低但攻击范围 10 尺。掌握【缓速】：命中减速 10 尺。"
+    },
+    "吹箭筒": {
+      "name": "吹箭筒",
+      "name_en": "Blowgun",
+      "category": "军用远程",
+      "cost": "10 GP",
+      "weight": "1 磅",
+      "damage": "1 穿刺",
+      "properties": [
+        "弹药(25/100)",
+        "装填"
+      ],
+      "mastery": "侵扰",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "暗杀专用，伤害固定 1 点但可附毒。掌握【侵扰】：命中后你对同目标下次攻击具有优势。"
+    },
+    "手弩": {
+      "name": "手弩",
+      "name_en": "Hand Crossbow",
+      "category": "军用远程",
+      "cost": "75 GP",
+      "weight": "3 磅",
+      "damage": "1d6 穿刺",
+      "properties": [
+        "弹药(30/120)",
+        "轻型",
+        "装填"
+      ],
+      "mastery": "侵扰",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "单手可用的轻弩。装填限制每动作/附赠/反应一发。掌握【侵扰】：命中后你对同目标下次攻击具有优势。"
+    },
+    "重弩": {
+      "name": "重弩",
+      "name_en": "Heavy Crossbow",
+      "category": "军用远程",
+      "cost": "50 GP",
+      "weight": "18 磅",
+      "damage": "1d10 穿刺",
+      "properties": [
+        "弹药(100/400)",
+        "重型",
+        "装填",
+        "双手"
+      ],
+      "mastery": "推离",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "双手重型十字弩，1d10 伤害，最远 400 尺。掌握【推离】：命中大型或更小目标可推开 10 尺。"
+    },
+    "长弓": {
+      "name": "长弓",
+      "name_en": "Longbow",
+      "category": "军用远程",
+      "cost": "50 GP",
+      "weight": "2 磅",
+      "damage": "1d8 穿刺",
+      "properties": [
+        "弹药(150/600)",
+        "重型",
+        "双手"
+      ],
+      "mastery": "缓速",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "双手长弓，射程最远（150/600）。掌握【缓速】：命中减速 10 尺。"
+    },
+    "火铳": {
+      "name": "火铳",
+      "name_en": "Musket",
+      "category": "军用远程",
+      "cost": "500 GP",
+      "weight": "10 磅",
+      "damage": "1d12 穿刺",
+      "properties": [
+        "弹药(40/120)",
+        "装填",
+        "双手"
+      ],
+      "mastery": "缓速",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "火器世界观用。双手火枪，装填限制。掌握【缓速】：命中减速 10 尺。"
+    },
+    "手铳": {
+      "name": "手铳",
+      "name_en": "Pistol",
+      "category": "军用远程",
+      "cost": "250 GP",
+      "weight": "3 磅",
+      "damage": "1d10 穿刺",
+      "properties": [
+        "弹药(30/90)",
+        "装填"
+      ],
+      "mastery": "侵扰",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "火器世界观用。单手短枪，射程 30/90。掌握【侵扰】：命中后你对同目标下次攻击具有优势。"
+    }
+  },
+  "armor": {
+    "布甲": {
+      "name": "布甲",
+      "name_en": "Padded Armor",
+      "category": "轻甲",
+      "base_ac": 11,
+      "dex_cap": null,
+      "strength": 0,
+      "stealth_disadv": true,
+      "ac": "11 + 敏捷",
+      "weight": "8 磅",
+      "cost": "5 GP",
+      "don": "1分钟",
+      "doff": "1分钟",
+      "effect": "棉布与皮革填充。隐匿劣势但便宜。新手入门轻甲。"
+    },
+    "皮甲": {
+      "name": "皮甲",
+      "name_en": "Leather Armor",
+      "category": "轻甲",
+      "base_ac": 11,
+      "dex_cap": null,
+      "strength": 0,
+      "stealth_disadv": false,
+      "ac": "11 + 敏捷",
+      "weight": "10 磅",
+      "cost": "10 GP",
+      "don": "1分钟",
+      "doff": "1分钟",
+      "effect": "硬化皮革。最常见的入门轻甲，隐匿不受影响。"
+    },
+    "镶钉皮甲": {
+      "name": "镶钉皮甲",
+      "name_en": "Studded Leather Armor",
+      "category": "轻甲",
+      "base_ac": 12,
+      "dex_cap": null,
+      "strength": 0,
+      "stealth_disadv": false,
+      "ac": "12 + 敏捷",
+      "weight": "13 磅",
+      "cost": "45 GP",
+      "don": "1分钟",
+      "doff": "1分钟",
+      "effect": "皮甲嵌钉。AC 比皮甲高 1，无隐匿劣势，是大多数游荡者/游侠首选。"
+    },
+    "兽皮甲": {
+      "name": "兽皮甲",
+      "name_en": "Hide Armor",
+      "category": "中甲",
+      "base_ac": 12,
+      "dex_cap": 2,
+      "strength": 0,
+      "stealth_disadv": false,
+      "ac": "12 + 敏捷(max 2)",
+      "weight": "12 磅",
+      "cost": "10 GP",
+      "don": "5分钟",
+      "doff": "1分钟",
+      "effect": "兽皮拼接。野蛮人/德鲁伊常见。AC 12 + 敏捷上限 +2。"
+    },
+    "链甲衫": {
+      "name": "链甲衫",
+      "name_en": "Chain Shirt",
+      "category": "中甲",
+      "base_ac": 13,
+      "dex_cap": 2,
+      "strength": 0,
+      "stealth_disadv": false,
+      "ac": "13 + 敏捷(max 2)",
+      "weight": "20 磅",
+      "cost": "50 GP",
+      "don": "5分钟",
+      "doff": "1分钟",
+      "effect": "金属环纺织成的胸甲。AC 13 + 敏捷上限 +2，无隐匿劣势。"
+    },
+    "鳞甲": {
+      "name": "鳞甲",
+      "name_en": "Scale Mail",
+      "category": "中甲",
+      "base_ac": 14,
+      "dex_cap": 2,
+      "strength": 0,
+      "stealth_disadv": true,
+      "ac": "14 + 敏捷(max 2)",
+      "weight": "45 磅",
+      "cost": "50 GP",
+      "don": "5分钟",
+      "doff": "1分钟",
+      "effect": "金属鳞片缝在皮上。AC 14 + 敏捷上限 +2，但隐匿劣势。"
+    },
+    "胸甲": {
+      "name": "胸甲",
+      "name_en": "Breastplate",
+      "category": "中甲",
+      "base_ac": 14,
+      "dex_cap": 2,
+      "strength": 0,
+      "stealth_disadv": false,
+      "ac": "14 + 敏捷(max 2)",
+      "weight": "20 磅",
+      "cost": "400 GP",
+      "don": "5分钟",
+      "doff": "1分钟",
+      "effect": "金属胸板 + 软皮内衬。AC 14 + 敏捷上限 +2，无隐匿劣势，相对较贵。"
+    },
+    "半身板甲": {
+      "name": "半身板甲",
+      "name_en": "Half Plate Armor",
+      "category": "中甲",
+      "base_ac": 15,
+      "dex_cap": 2,
+      "strength": 0,
+      "stealth_disadv": true,
+      "ac": "15 + 敏捷(max 2)",
+      "weight": "40 磅",
+      "cost": "750 GP",
+      "don": "5分钟",
+      "doff": "1分钟",
+      "effect": "覆盖大部分身体的金属板甲。AC 15 + 敏捷上限 +2，但隐匿劣势。"
+    },
+    "环甲": {
+      "name": "环甲",
+      "name_en": "Ring Mail",
+      "category": "重甲",
+      "base_ac": 14,
+      "dex_cap": 0,
+      "strength": 0,
+      "stealth_disadv": true,
+      "ac": "14",
+      "weight": "40 磅",
+      "cost": "30 GP",
+      "don": "10分钟",
+      "doff": "5分钟",
+      "effect": "皮甲缝上金属环。最便宜的重甲（AC 14），但比链甲（AC 16）差不少。基本是过渡用。"
+    },
+    "链甲": {
+      "name": "链甲",
+      "name_en": "Chain Mail",
+      "category": "重甲",
+      "base_ac": 16,
+      "dex_cap": 0,
+      "strength": 13,
+      "stealth_disadv": true,
+      "ac": "16",
+      "weight": "55 磅",
+      "cost": "75 GP",
+      "don": "10分钟",
+      "doff": "5分钟",
+      "effect": "整身金属环编织。AC 16，需力量 13，否则速度 -10 尺。重甲入门首选。"
+    },
+    "板条甲": {
+      "name": "板条甲",
+      "name_en": "Splint Armor",
+      "category": "重甲",
+      "base_ac": 17,
+      "dex_cap": 0,
+      "strength": 15,
+      "stealth_disadv": true,
+      "ac": "17",
+      "weight": "60 磅",
+      "cost": "200 GP",
+      "don": "10分钟",
+      "doff": "5分钟",
+      "effect": "金属条片。AC 17，需力量 15，否则速度 -10 尺。比链甲贵但 AC 更高。"
+    },
+    "板甲": {
+      "name": "板甲",
+      "name_en": "Plate Armor",
+      "category": "重甲",
+      "base_ac": 18,
+      "dex_cap": 0,
+      "strength": 15,
+      "stealth_disadv": true,
+      "ac": "18",
+      "weight": "65 磅",
+      "cost": "1500 GP",
+      "don": "10分钟",
+      "doff": "5分钟",
+      "effect": "全套金属板甲。AC 18 顶配，需力量 15。圣武士 / 战士 高级首选。"
+    },
+    "盾牌": {
+      "name": "盾牌",
+      "name_en": "Shield",
+      "category": "盾牌",
+      "base_ac": 2,
+      "dex_cap": null,
+      "strength": 0,
+      "stealth_disadv": false,
+      "ac": "+2",
+      "weight": "6 磅",
+      "cost": "10 GP",
+      "don": "1动作",
+      "doff": "1动作",
+      "effect": "+2 AC。需『盾牌受训』才能受益。一手专用，不能与双手武器同时使用。"
+    }
+  },
+  "tools": {
+    "工匠工具": {
+      "name": "工匠工具", "name_en": "Artisan's Tools", "category": "工具",
+      "cost": "—", "weight": "—", "ability": "", "utilize": "", "craft": "",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "工匠工具的主要用途为制造物品或辅助交易贸易；每种工具需要独立熟练。"
+    },
+    "炼金工具": {
+      "name": "炼金工具", "name_en": "Alchemist's Supplies", "category": "工匠工具",
+      "cost": "50 GP", "weight": "8 磅", "ability": "智力", "utilize": "辨析一种物质（DC15），或生起一场火（DC15）", "craft": "强酸、炽火胶、材料包、燃油、纸张、香水",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：智力；操作：辨析一种物质（DC15），或生起一场火（DC15）；制造：强酸、炽火胶、材料包、燃油、纸张、香水。"
+    },
+    "酿酒工具": {
+      "name": "酿酒工具", "name_en": "Brewer's Supplies", "category": "工匠工具",
+      "cost": "20 GP", "weight": "9 磅", "ability": "智力", "utilize": "检测饮品是否下毒（DC15），或辨识酒精（DC10）", "craft": "抗毒剂",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：智力；操作：检测饮品是否下毒（DC15），或辨识酒精（DC10）；制造：抗毒剂。"
+    },
+    "书法工具": {
+      "name": "书法工具", "name_en": "Calligrapher's Supplies", "category": "工匠工具",
+      "cost": "10 GP", "weight": "5 磅", "ability": "敏捷", "utilize": "以华丽的字迹撰写文字防止造假（DC15）", "craft": "墨水、法术卷轴",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：敏捷；操作：以华丽的字迹撰写文字防止造假（DC15）；制造：墨水、法术卷轴。"
+    },
+    "木匠工具": {
+      "name": "木匠工具", "name_en": "Carpenter's Tools", "category": "工匠工具",
+      "cost": "8 GP", "weight": "6 磅", "ability": "力量", "utilize": "封死或撬开一扇门或一个容器（DC20）", "craft": "短棒、巨棒、长棍、木桶、箱子、梯子、长杆、便携式攻城锤、火把",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：力量；操作：封死或撬开一扇门或一个容器（DC20）；制造：短棒、巨棒、长棍、木桶、箱子、梯子、长杆、便携式攻城锤、火把。"
+    },
+    "制图工具": {
+      "name": "制图工具", "name_en": "Cartographer's Tools", "category": "工匠工具",
+      "cost": "15 GP", "weight": "6 磅", "ability": "感知", "utilize": "为一小片区域绘制地图（DC15）", "craft": "地图",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：感知；操作：为一小片区域绘制地图（DC15）；制造：地图。"
+    },
+    "鞋匠工具": {
+      "name": "鞋匠工具", "name_en": "Cobbler's Tools", "category": "工匠工具",
+      "cost": "5 GP", "weight": "5 磅", "ability": "敏捷", "utilize": "改造足具来为穿戴者的下一次敏捷（特技）检定提供优势（DC10）", "craft": "攀爬工具",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：敏捷；操作：改造足具来为穿戴者的下一次敏捷（特技）检定提供优势（DC10）；制造：攀爬工具。"
+    },
+    "厨师工具": {
+      "name": "厨师工具", "name_en": "Cook's Utensils", "category": "工匠工具",
+      "cost": "1 GP", "weight": "8 磅", "ability": "感知", "utilize": "改善食物风味（DC10），检查食物是否腐坏或有毒（DC15）", "craft": "口粮",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：感知；操作：改善食物风味（DC10），检查食物是否腐坏或有毒（DC15）；制造：口粮。"
+    },
+    "玻璃匠工具": {
+      "name": "玻璃匠工具", "name_en": "Glassblower's Tools", "category": "工匠工具",
+      "cost": "30 GP", "weight": "5 磅", "ability": "智力", "utilize": "判断一个玻璃物件在过去24小时内盛过什么内容物（DC15）", "craft": "玻璃瓶、放大镜、望远镜、小瓶",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：智力；操作：判断一个玻璃物件在过去24小时内盛过什么内容物（DC15）；制造：玻璃瓶、放大镜、望远镜、小瓶。"
+    },
+    "珠宝匠工具": {
+      "name": "珠宝匠工具", "name_en": "Jeweler's Tools", "category": "工匠工具",
+      "cost": "25 GP", "weight": "2 磅", "ability": "智力", "utilize": "判断珠宝价值（DC15）", "craft": "奥术法器、圣徽",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：智力；操作：判断珠宝价值（DC15）；制造：奥术法器、圣徽。"
+    },
+    "皮匠工具": {
+      "name": "皮匠工具", "name_en": "Leatherworker's Tools", "category": "工匠工具",
+      "cost": "5 GP", "weight": "5 磅", "ability": "敏捷", "utilize": "对一个皮制品进行图案设计（DC10）", "craft": "投石索、鞭子、兽皮甲、皮甲、镶钉皮甲、背包、弩矢匣、地图或卷轴匣、羊皮纸、小包、箭袋、水袋",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：敏捷；操作：对一个皮制品进行图案设计（DC10）；制造：投石索、鞭子、兽皮甲、皮甲、镶钉皮甲、背包、弩矢匣、地图或卷轴匣、羊皮纸、小包、箭袋、水袋。"
+    },
+    "石匠工具": {
+      "name": "石匠工具", "name_en": "Mason's Tools", "category": "工匠工具",
+      "cost": "10 GP", "weight": "8 磅", "ability": "力量", "utilize": "在石头上凿出一个符号标志或一个洞（DC10）", "craft": "滑轮组",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：力量；操作：在石头上凿出一个符号标志或一个洞（DC10）；制造：滑轮组。"
+    },
+    "画家工具": {
+      "name": "画家工具", "name_en": "Painter's Supplies", "category": "工匠工具",
+      "cost": "10 GP", "weight": "5 磅", "ability": "感知", "utilize": "画出你所见过的某个事物的可辨图像（DC10）", "craft": "德鲁伊法器、圣徽",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：感知；操作：画出你所见过的某个事物的可辨图像（DC10）；制造：德鲁伊法器、圣徽。"
+    },
+    "陶匠工具": {
+      "name": "陶匠工具", "name_en": "Potter's Tools", "category": "工匠工具",
+      "cost": "10 GP", "weight": "3 磅", "ability": "智力", "utilize": "判断一个陶瓷物件在过去24小时内盛过什么内容物（DC15）", "craft": "壶、灯",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：智力；操作：判断一个陶瓷物件在过去24小时内盛过什么内容物（DC15）；制造：壶、灯。"
+    },
+    "铁匠工具": {
+      "name": "铁匠工具", "name_en": "Smith's Tools", "category": "工匠工具",
+      "cost": "20 GP", "weight": "8 磅", "ability": "力量", "utilize": "撬开一扇门或容器（DC20）", "craft": "任意近战武器（除了短棒、巨棒、长棍和鞭子）、中甲（除了兽皮甲）、重甲、滚珠、吊桶、铁蒺藜、链条、撬棍、枪械子弹、爪钩、铁锅、铁钉、投石索子弹",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：力量；操作：撬开一扇门或容器（DC20）；制造：任意近战武器（除了短棒、巨棒、长棍和鞭子）、中甲（除了兽皮甲）、重甲、滚珠、吊桶、铁蒺藜、链条、撬棍、枪械子弹、爪钩、铁锅、铁钉、投石索子弹。"
+    },
+    "修补工具": {
+      "name": "修补工具", "name_en": "Tinker's Tools", "category": "工匠工具",
+      "cost": "50 GP", "weight": "10 磅", "ability": "敏捷", "utilize": "用废料组装出一个微型物品，这个物品会在一分钟后散架（DC20）", "craft": "火铳、手铳、铃铛、牛眼提灯、扁瓶、附盖提灯、捕猎陷阱、锁、镣铐、镜子、铲子、信号笛、火绒盒",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：敏捷；操作：用废料组装出一个微型物品，这个物品会在一分钟后散架（DC20）；制造：火铳、手铳、铃铛、牛眼提灯、扁瓶、附盖提灯、捕猎陷阱、锁、镣铐、镜子、铲子、信号笛、火绒盒。"
+    },
+    "织布工具": {
+      "name": "织布工具", "name_en": "Weaver's Tools", "category": "工匠工具",
+      "cost": "1 GP", "weight": "5 磅", "ability": "敏捷", "utilize": "修补衣服上的破口（DC10），或是缝制一个微型图案（DC10）", "craft": "布甲、篮子、铺盖、毯子、高档服装、捕网、长袍、绳索、麻袋、细绳、帐篷、旅行服装",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：敏捷；操作：修补衣服上的破口（DC10），或是缝制一个微型图案（DC10）；制造：布甲、篮子、铺盖、毯子、高档服装、捕网、长袍、绳索、麻袋、细绳、帐篷、旅行服装。"
+    },
+    "木雕工具": {
+      "name": "木雕工具", "name_en": "Woodcarver's Tools", "category": "工匠工具",
+      "cost": "1 GP", "weight": "5 磅", "ability": "敏捷", "utilize": "在木头上雕刻图案（DC10）", "craft": "短棒、巨棒、长棍、远程武器（除了手铳、火铳和投石索）、奥术法器、箭矢、弩矢、德鲁伊法器、墨水笔、吹矢",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：敏捷；操作：在木头上雕刻图案（DC10）；制造：短棒、巨棒、长棍、远程武器（除了手铳、火铳和投石索）、奥术法器、箭矢、弩矢、德鲁伊法器、墨水笔、吹矢。"
+    },
+    "易容工具": {
+      "name": "易容工具", "name_en": "Disguise Kit", "category": "工具",
+      "cost": "25 GP", "weight": "3 磅", "ability": "魅力", "utilize": "化妆（DC10）", "craft": "戏服",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：魅力；操作：化妆（DC10）；制造：戏服。"
+    },
+    "文书伪造工具": {
+      "name": "文书伪造工具", "name_en": "Forgery Kit", "category": "工具",
+      "cost": "15 GP", "weight": "5 磅", "ability": "敏捷", "utilize": "模仿其他人的笔迹，至多10个单词（DC15），或伪造一份火漆（DC20）", "craft": "",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：敏捷；操作：模仿其他人的笔迹，至多10个单词（DC15），或伪造一份火漆（DC20）。"
+    },
+    "赌具": {
+      "name": "赌具", "name_en": "Gaming Set", "category": "工具",
+      "cost": "多种", "weight": "—", "ability": "感知", "utilize": "判断某人是否作弊（DC10），或赢取游戏（DC20）", "craft": "", "variants": ["骰子", "龙棋", "纸牌", "三龙牌"],
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：感知；操作：判断某人是否作弊（DC10），或赢取游戏（DC20）；变体：骰子、龙棋、纸牌、三龙牌。"
+    },
+    "骰子": {
+      "name": "骰子", "name_en": "Dice Set", "category": "赌具",
+      "cost": "1 SP", "weight": "—", "ability": "感知", "utilize": "判断某人是否作弊（DC10），或赢取游戏（DC20）", "craft": "",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "赌具变体。属性：感知；操作：判断某人是否作弊（DC10），或赢取游戏（DC20）。"
+    },
+    "龙棋": {
+      "name": "龙棋", "name_en": "Dragonchess Set", "category": "赌具",
+      "cost": "1 GP", "weight": "—", "ability": "感知", "utilize": "判断某人是否作弊（DC10），或赢取游戏（DC20）", "craft": "",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "赌具变体。属性：感知；操作：判断某人是否作弊（DC10），或赢取游戏（DC20）。"
+    },
+    "纸牌": {
+      "name": "纸牌", "name_en": "Playing Card Set", "category": "赌具",
+      "cost": "5 SP", "weight": "—", "ability": "感知", "utilize": "判断某人是否作弊（DC10），或赢取游戏（DC20）", "craft": "",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "赌具变体。属性：感知；操作：判断某人是否作弊（DC10），或赢取游戏（DC20）。"
+    },
+    "三龙牌": {
+      "name": "三龙牌", "name_en": "Three-Dragon Ante Set", "category": "赌具",
+      "cost": "1 GP", "weight": "—", "ability": "感知", "utilize": "判断某人是否作弊（DC10），或赢取游戏（DC20）", "craft": "",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "赌具变体。属性：感知；操作：判断某人是否作弊（DC10），或赢取游戏（DC20）。"
+    },
+    "草药工具": {
+      "name": "草药工具", "name_en": "Herbalism Kit", "category": "工具",
+      "cost": "5 GP", "weight": "3 磅", "ability": "智力", "utilize": "辨认植物（DC10）", "craft": "抗毒剂、蜡烛、医疗包、治疗药水",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：智力；操作：辨认植物（DC10）；制造：抗毒剂、蜡烛、医疗包、治疗药水。"
+    },
+    "乐器": {
+      "name": "乐器", "name_en": "Musical Instrument", "category": "工具",
+      "cost": "多种", "weight": "多种", "ability": "魅力", "utilize": "演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）", "craft": "", "variants": ["风笛", "鼓", "扬琴", "长笛", "号角", "鲁特琴", "里拉琴", "排箫", "芦笛", "提琴"],
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：魅力；操作：演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）；每种乐器变体的熟练彼此独立。"
+    },
+    "风笛": {
+      "name": "风笛", "name_en": "Bagpipes", "category": "乐器",
+      "cost": "30 GP", "weight": "6 磅", "ability": "魅力", "utilize": "演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）", "craft": "",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "乐器变体。属性：魅力；操作：演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）。"
+    },
+    "鼓": {
+      "name": "鼓", "name_en": "Drum", "category": "乐器",
+      "cost": "6 GP", "weight": "3 磅", "ability": "魅力", "utilize": "演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）", "craft": "",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "乐器变体。属性：魅力；操作：演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）。"
+    },
+    "扬琴": {
+      "name": "扬琴", "name_en": "Dulcimer", "category": "乐器",
+      "cost": "25 GP", "weight": "10 磅", "ability": "魅力", "utilize": "演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）", "craft": "",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "乐器变体。属性：魅力；操作：演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）。"
+    },
+    "长笛": {
+      "name": "长笛", "name_en": "Flute", "category": "乐器",
+      "cost": "2 GP", "weight": "1 磅", "ability": "魅力", "utilize": "演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）", "craft": "",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "乐器变体。属性：魅力；操作：演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）。"
+    },
+    "号角": {
+      "name": "号角", "name_en": "Horn", "category": "乐器",
+      "cost": "3 GP", "weight": "2 磅", "ability": "魅力", "utilize": "演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）", "craft": "",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "乐器变体。属性：魅力；操作：演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）。"
+    },
+    "鲁特琴": {
+      "name": "鲁特琴", "name_en": "Lute", "category": "乐器",
+      "cost": "35 GP", "weight": "2 磅", "ability": "魅力", "utilize": "演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）", "craft": "",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "乐器变体。属性：魅力；操作：演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）。"
+    },
+    "里拉琴": {
+      "name": "里拉琴", "name_en": "Lyre", "category": "乐器",
+      "cost": "30 GP", "weight": "2 磅", "ability": "魅力", "utilize": "演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）", "craft": "",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "乐器变体。属性：魅力；操作：演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）。"
+    },
+    "排箫": {
+      "name": "排箫", "name_en": "Pan Flute", "category": "乐器",
+      "cost": "12 GP", "weight": "2 磅", "ability": "魅力", "utilize": "演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）", "craft": "",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "乐器变体。属性：魅力；操作：演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）。"
+    },
+    "芦笛": {
+      "name": "芦笛", "name_en": "Shawm", "category": "乐器",
+      "cost": "2 GP", "weight": "1 磅", "ability": "魅力", "utilize": "演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）", "craft": "",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "乐器变体。属性：魅力；操作：演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）。"
+    },
+    "提琴": {
+      "name": "提琴", "name_en": "Viol", "category": "乐器",
+      "cost": "30 GP", "weight": "1 磅", "ability": "魅力", "utilize": "演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）", "craft": "",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "乐器变体。属性：魅力；操作：演奏一个熟知的曲调（DC10），或是演奏一首即兴的乐曲（DC15）。"
+    },
+    "领航工具": {
+      "name": "领航工具", "name_en": "Navigator's Tools", "category": "工具",
+      "cost": "25 GP", "weight": "2 磅", "ability": "感知", "utilize": "计划路线（DC10），或通过观星判断位置（DC15）", "craft": "",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：感知；操作：计划路线（DC10），或通过观星判断位置（DC15）。"
+    },
+    "毒药工具": {
+      "name": "毒药工具", "name_en": "Poisoner's Kit", "category": "工具",
+      "cost": "50 GP", "weight": "2 磅", "ability": "智力", "utilize": "侦测有毒物件（DC10）", "craft": "基础毒药",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：智力；操作：侦测有毒物件（DC10）；制造：基础毒药。"
+    },
+    "盗贼工具": {
+      "name": "盗贼工具", "name_en": "Thieves' Tools", "category": "工具",
+      "cost": "25 GP", "weight": "1 磅", "ability": "敏捷", "utilize": "撬锁（DC15），或解除陷阱（DC15）", "craft": "",
+      "damage": "", "properties": [], "mastery": "", "ac": "", "stealth_disadv": false,
+      "effect": "属性：敏捷；操作：撬锁（DC15），或解除陷阱（DC15）。"
+    }
+  },
+  "gear": {
+    "箭矢(20支)": {
+      "name": "箭矢(20支)",
+      "name_en": "Arrows (20)",
+      "category": "弹药",
+      "cost": "1 GP",
+      "weight": "1 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "弓用弹药；一份为 20 支，并使用箭袋盛装。"
+    },
+    "弩矢(20支)": {
+      "name": "弩矢(20支)",
+      "name_en": "Bolts (20)",
+      "category": "弹药",
+      "cost": "1 GP",
+      "weight": "1.5 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "弩用弹药；一份为 20 支，并使用弩矢匣盛装。"
+    },
+    "枪械子弹(10发)": {
+      "name": "枪械子弹(10发)",
+      "name_en": "Bullets, Firearm (10)",
+      "category": "弹药",
+      "cost": "3 GP",
+      "weight": "2 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "枪械用弹药；一份为 10 发，并使用小包盛装。"
+    },
+    "投石索子弹(20发)": {
+      "name": "投石索子弹(20发)",
+      "name_en": "Bullets, Sling (20)",
+      "category": "弹药",
+      "cost": "4 CP",
+      "weight": "1.5 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "投石索用弹药；一份为 20 发，并使用小包盛装。"
+    },
+    "吹矢(50支)": {
+      "name": "吹矢(50支)",
+      "name_en": "Needles (50)",
+      "category": "弹药",
+      "cost": "1 GP",
+      "weight": "1 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "吹箭筒用弹药；一份为 50 支，并使用小包盛装。"
+    },
+    "箭袋": {
+      "name": "箭袋",
+      "name_en": "Quiver",
+      "category": "冒险装备",
+      "cost": "1 GP",
+      "weight": "1 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "至多能装入 20 支箭矢。"
+    },
+    "弩矢匣": {
+      "name": "弩矢匣",
+      "name_en": "Case, Crossbow Bolt",
+      "category": "冒险装备",
+      "cost": "1 GP",
+      "weight": "1 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "至多能装入 20 支弩矢。"
+    },
+    "小包": {
+      "name": "小包",
+      "name_en": "Pouch",
+      "category": "冒险装备",
+      "cost": "5 SP",
+      "weight": "1 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "可盛装弹药或其他小型物品。"
+    },
+    "探险用具": {
+      "name": "探险用具",
+      "name_en": "Explorer's Pack",
+      "category": "物品包",
+      "cost": "10 GP",
+      "weight": "-",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "野外冒险必备包，含铺盖卷、口粮、水袋、绳索、火把等。新手推荐直接选这个。"
+    },
+    "外交官用具": {
+      "name": "外交官用具",
+      "name_en": "Diplomat's Pack",
+      "category": "物品包",
+      "cost": "39 GP",
+      "weight": "-",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "谈判包，含信纸、香水、优质服饰。适合宫廷、外交向角色。"
+    },
+    "牢狱用具": {
+      "name": "牢狱用具",
+      "name_en": "Dungeoneer's Pack",
+      "category": "物品包",
+      "cost": "12 GP",
+      "weight": "-",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "地下城专用包，含铁撬棍、锤、铁钉、油瓶、火把。打地下城性价比高。"
+    },
+    "牧师套装": {
+      "name": "牧师套装",
+      "name_en": "Priest's Pack",
+      "category": "物品包",
+      "cost": "33 GP",
+      "weight": "-",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "含圣徽、圣水瓶、香、教士袍。牧师开局首选包。"
+    },
+    "隐秘套装": {
+      "name": "隐秘套装",
+      "name_en": "Burglar's Pack",
+      "category": "物品包",
+      "cost": "16 GP",
+      "weight": "-",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "潜行包，含黑斗篷、铃铛、粉笔、撬棍、小镜子等。游荡者专用。"
+    },
+    "仆从用具": {
+      "name": "仆从用具",
+      "name_en": "Entertainer's Pack",
+      "category": "物品包",
+      "cost": "40 GP",
+      "weight": "-",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "表演者包，含戏服、化妆品、香水、小道具。诗人开局常选。"
+    },
+    "法师用具": {
+      "name": "法师用具",
+      "name_en": "Scholar's Pack",
+      "category": "物品包",
+      "cost": "40 GP",
+      "weight": "-",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "学者包，含法术书备份、墨水、羊皮纸、参考书。法师必备。"
+    },
+    "背包": {
+      "name": "背包",
+      "name_en": "Backpack",
+      "category": "物品",
+      "cost": "2 GP",
+      "weight": "5 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "可装约 30 磅物品的背包。几乎所有冒险者的基础装备。"
+    },
+    "旅行者衣装": {
+      "name": "旅行者衣装",
+      "name_en": "Traveler's Clothes",
+      "category": "物品",
+      "cost": "2 GP",
+      "weight": "4 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "耐穿的旅行服，含靴子、披风。冒险者默认日常着装。"
+    },
+    "贵族服饰": {
+      "name": "贵族服饰",
+      "name_en": "Fine Clothes",
+      "category": "物品",
+      "cost": "15 GP",
+      "weight": "3 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "丝绸与天鹅绒制的高级服装。出席宴会或冒充贵族时必备。"
+    },
+    "普通服饰": {
+      "name": "普通服饰",
+      "name_en": "Common Clothes",
+      "category": "物品",
+      "cost": "5 SP",
+      "weight": "3 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "平民日常着装。适合混入城镇不引人注目。"
+    },
+    "袋子": {
+      "name": "袋子",
+      "name_en": "Pouch",
+      "category": "物品",
+      "cost": "5 SP",
+      "weight": "1 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "小皮袋，可装硬币、法术材料或小件物品。"
+    },
+    "灯笼": {
+      "name": "灯笼",
+      "name_en": "Lantern, Hooded",
+      "category": "物品",
+      "cost": "5 GP",
+      "weight": "2 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "遮罩提灯，亮明光 30 尺，暗弱光再 30 尺。一瓶灯油可点 6 小时。"
+    },
+    "火把": {
+      "name": "火把",
+      "name_en": "Torch",
+      "category": "物品",
+      "cost": "1 CP",
+      "weight": "1 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "燃烧约 1 小时，亮明光 20 尺、暗弱光再 20 尺。可当武器造成 1 点火焰伤害。"
+    },
+    "绳索": {
+      "name": "绳索",
+      "name_en": "Rope, Hempen (50 ft.)",
+      "category": "物品",
+      "cost": "1 GP",
+      "weight": "10 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "50 尺麻绳，可承受 600 磅。攀爬、绑缚敌人、过山涧都用得上。"
+    },
+    "牛角": {
+      "name": "牛角",
+      "name_en": "Signal Horn",
+      "category": "物品",
+      "cost": "3 GP",
+      "weight": "2 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "信号号角，响声能传半里。可作警报或呼唤同伴的信号。"
+    },
+    "口粮": {
+      "name": "口粮",
+      "name_en": "Rations (1 day)",
+      "category": "物品",
+      "cost": "5 SP",
+      "weight": "2 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "一天份的旅行干粮。长途冒险必备，饿肚子会有疲乏等级。"
+    },
+    "水袋": {
+      "name": "水袋",
+      "name_en": "Waterskin",
+      "category": "物品",
+      "cost": "2 SP",
+      "weight": "5 磅(满时)",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "可盛 4 品脱水。沙漠或长途跋涉必备，脱水会产生疲乏。"
+    },
+    "铺盖卷": {
+      "name": "铺盖卷",
+      "name_en": "Bedroll",
+      "category": "物品",
+      "cost": "1 GP",
+      "weight": "7 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "野外睡觉用的铺盖。长休恢复全 HP 基本需要舒适睡眠。"
+    },
+    "50 尺丝绳": {
+      "name": "50 尺丝绳",
+      "name_en": "Rope, Silk (50 ft.)",
+      "category": "物品",
+      "cost": "10 GP",
+      "weight": "5 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "比麻绳轻且强韧，50 尺承 1000 磅。攀爬与救援首选。"
+    },
+    "窃贼套组": {
+      "name": "窃贼套组",
+      "category": "冒险者套组",
+      "weight": "42 磅",
+      "cost": "16 GP",
+      "contents": "背包、滚珠、铃铛、10根蜡烛、撬棍、附盖提灯、7扁瓶燃油、五天份的口粮、绳索、火绒盒和水袋",
+      "effect": "游荡者起始装备包。整套 16 GP 包含冒险用基础物资 + 潜行/翻箱工具。"
+    },
+    "地城套组": {
+      "name": "地城套组",
+      "category": "冒险者套组",
+      "weight": "55 磅",
+      "cost": "12 GP",
+      "contents": "背包、铁蒺藜、撬棍、2扁瓶燃油、10天份的口粮、绳索、火绒盒、10根火把和水袋",
+      "effect": "战士/术士起始装备包。最便宜的基础冒险包，含火把和口粮。"
+    },
+    "艺人套组": {
+      "name": "艺人套组",
+      "category": "冒险者套组",
+      "weight": "58.5 磅",
+      "cost": "40 GP",
+      "contents": "背包、铺盖、铃铛、牛眼提灯、3套戏服、镜子、8扁瓶燃油、9天份的口粮、火绒盒和水袋",
+      "effect": "吟游诗人起始装备包。含戏服/镜子等表演物品。"
+    },
+    "探索套组": {
+      "name": "探索套组",
+      "category": "冒险者套组",
+      "weight": "55 磅",
+      "cost": "10 GP",
+      "contents": "背包、铺盖、2扁瓶燃油、10天份的口粮、绳索、火绒盒、10根火把和水袋",
+      "effect": "野蛮人/游侠/武僧/德鲁伊起始装备包。野外求生向。"
+    },
+    "祭司套组": {
+      "name": "祭司套组",
+      "category": "冒险者套组",
+      "weight": "29 磅",
+      "cost": "33 GP",
+      "contents": "背包、毯子、圣水、油灯、7天份的口粮、长袍和火绒盒",
+      "effect": "牧师/圣武士起始装备包。含圣水 + 长袍。"
+    },
+    "学者套组": {
+      "name": "学者套组",
+      "category": "冒险者套组",
+      "weight": "22 磅",
+      "cost": "40 GP",
+      "contents": "背包、书、墨水、墨水笔、油灯、10扁瓶燃油、10张羊皮纸和火绒盒",
+      "effect": "法师/魔契师起始装备包。含书写材料 + 参考书。"
+    },
+    "外交套组": {
+      "name": "外交套组",
+      "category": "冒险者套组",
+      "weight": "39 磅",
+      "cost": "39 GP",
+      "contents": "箱子、高档服装、墨水、5支墨水笔、油灯、2个地图或卷轴匣、4扁瓶燃油、5张纸张、5张羊皮纸、香水和火绒盒",
+      "effect": "外交官向起始装备包。含高档服装 + 书写工具。"
+    },
+    "书(隐秘学识)": {
+      "name": "书(隐秘学识)",
+      "category": "冒险装备",
+      "weight": "5 磅",
+      "cost": "25 GP",
+      "effect": "魔契师起始装备。一本关于隐秘学识的书籍，可作为学识参考。"
+    },
+    "长袍": {
+      "name": "长袍",
+      "name_en": "Robe",
+      "category": "冒险装备",
+      "weight": "4 磅",
+      "cost": "1 GP",
+      "effect": "法师/术士/魔契师起始装束。宽松长袍，可以作为随身服饰。"
+    }
+  },
+  "focus": {
+    "圣徽": {
+      "name": "圣徽",
+      "name_en": "Holy Symbol",
+      "category": "法器",
+      "cost": "5 GP",
+      "weight": "1 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "神明标志物，牧师与圣武士的施法焦点。可挂颈、戴指或镶在盾上。"
+    },
+    "德鲁伊之焦": {
+      "name": "德鲁伊之焦",
+      "name_en": "Druidic Focus",
+      "category": "法器",
+      "cost": "1-20 GP",
+      "weight": "1 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "槲寄生枝、图腾杖或符木等。德鲁伊专用焦点，代替法术材料。"
+    },
+    "法师法杖": {
+      "name": "法师法杖",
+      "name_en": "Arcane Focus (Staff)",
+      "category": "法器",
+      "cost": "5 GP",
+      "weight": "4 磅",
+      "damage": "1d6 钝击",
+      "properties": [
+        "双手",
+        "多用途(1d8)"
+      ],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "双用途法杖，既是施法焦点也是武器。法师、术士常用。"
+    },
+    "法术书": {
+      "name": "法术书",
+      "name_en": "Spellbook",
+      "category": "法器",
+      "cost": "50 GP",
+      "weight": "3 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "法师的命根子，记载所有已学法术。丢失需要额外费用抄写复制。"
+    },
+    "祈祷书": {
+      "name": "祈祷书",
+      "name_en": "Prayer Book",
+      "category": "法器",
+      "cost": "25 GP",
+      "weight": "3 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "神明经文集，部分牧师用作圣徽替代品。风味物。"
+    },
+    "法器": {
+      "name": "法器",
+      "name_en": "Component Pouch",
+      "category": "法器",
+      "cost": "25 GP",
+      "weight": "2 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "装有所有基础法术材料的小袋。带上它就不必单独买法术材料。"
+    },
+    "水晶球": {
+      "name": "水晶球",
+      "name_en": "Crystal Orb",
+      "category": "法器",
+      "cost": "20 GP",
+      "weight": "3 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "奥术焦点之一。法师、术士、术能者手中的经典施法道具。"
+    },
+    "水晶": {
+      "name": "水晶",
+      "name_en": "Crystal",
+      "category": "法器",
+      "cost": "10 GP",
+      "weight": "1 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "小型施法水晶，便宜的奥术焦点。戴在项链上也行。"
+    },
+    "权杖": {
+      "name": "权杖",
+      "name_en": "Rod",
+      "category": "法器",
+      "cost": "10 GP",
+      "weight": "2 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "短而粗的施法杖，奥术焦点之一。外观威严，适合贵族法师。"
+    },
+    "魔杖": {
+      "name": "魔杖",
+      "name_en": "Wand",
+      "category": "法器",
+      "cost": "10 GP",
+      "weight": "1 磅",
+      "damage": "",
+      "properties": [],
+      "mastery": "",
+      "ac": "",
+      "stealth_disadv": false,
+      "effect": "细长施法杖，奥术焦点。轻便好带，童话法师经典形象。"
+    },
+    "奥术法器(水晶)": {
+      "name": "奥术法器(水晶)",
+      "name_en": "Arcane Focus (Crystal)",
+      "category": "奥术法器",
+      "weight": "1 磅",
+      "cost": "10 GP",
+      "effect": "术士起始法器。切割过的宝石，可引导奥术魔法。"
+    },
+    "奥术法器(法球)": {
+      "name": "奥术法器(法球)",
+      "name_en": "Arcane Focus (Orb)",
+      "category": "奥术法器",
+      "weight": "3 磅",
+      "cost": "20 GP",
+      "effect": "魔契师起始法器。水晶球体，引导奥术魔法。"
+    },
+    "奥术法器(权杖)": {
+      "name": "奥术法器(权杖)",
+      "name_en": "Arcane Focus (Rod)",
+      "category": "奥术法器",
+      "weight": "2 磅",
+      "cost": "10 GP",
+      "effect": "短杖形态奥术法器。"
+    },
+    "奥术法器(长棍)": {
+      "name": "奥术法器(长棍)",
+      "name_en": "Arcane Focus (Staff)",
+      "category": "奥术法器",
+      "weight": "4 磅",
+      "cost": "5 GP",
+      "effect": "长棍形态奥术法器（也视作长棍武器）。"
+    },
+    "奥术法器(魔杖)": {
+      "name": "奥术法器(魔杖)",
+      "name_en": "Arcane Focus (Wand)",
+      "category": "奥术法器",
+      "weight": "1 磅",
+      "cost": "10 GP",
+      "effect": "轻巧的魔杖形奥术法器。"
+    },
+    "德鲁伊法器(槲寄生枝条)": {
+      "name": "德鲁伊法器(槲寄生枝条)",
+      "name_en": "Druidic Focus (Sprig of Mistletoe)",
+      "category": "德鲁伊法器",
+      "weight": "—",
+      "cost": "1 GP",
+      "effect": "游侠起始法器。新鲜槲寄生小枝。"
+    },
+    "德鲁伊法器(长棍)": {
+      "name": "德鲁伊法器(长棍)",
+      "name_en": "Druidic Focus (Wooden Staff)",
+      "category": "德鲁伊法器",
+      "weight": "4 磅",
+      "cost": "5 GP",
+      "effect": "德鲁伊起始法器。刻纹木杖，也可作为长棍使用。"
+    },
+    "德鲁伊法器(紫杉魔杖)": {
+      "name": "德鲁伊法器(紫杉魔杖)",
+      "name_en": "Druidic Focus (Yew Wand)",
+      "category": "德鲁伊法器",
+      "weight": "1 磅",
+      "cost": "10 GP",
+      "effect": "以紫杉木制成的魔杖形德鲁伊法器。"
+    }
+  }
+}

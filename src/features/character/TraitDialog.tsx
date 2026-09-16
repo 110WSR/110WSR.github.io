@@ -4,6 +4,7 @@ import { sheetColors } from "../../shared/tokens/colors";
 import type { TraitItem } from "../../shared/types/types";
 import traitTagPresets from "../../../data/traitTagPresets.json";
 import ScrollArea from "../../shared/ui/ScrollArea";
+import { getTraitRuleInfo } from "../../shared/utils/rulesService";
 
 const TAG_PRESETS = traitTagPresets as string[];
 
@@ -148,10 +149,12 @@ export default function TraitDialog({ open, initialTrait, onSave, onDelete, onCl
             }} />
           </div>
 
+          <RuleInfoBlock name={data.name} onFill={(text) => set("description", text)} />
+
           <textarea
             value={data.description ?? ""}
             onChange={(e) => set("description", e.target.value)}
-            placeholder="特性描述"
+            placeholder="特性描述（留空时悬停自动显示规则库中的标准描述）"
             rows={6}
             style={{
               ...T, width: "100%", resize: "vertical", boxSizing: "border-box",
@@ -165,6 +168,40 @@ export default function TraitDialog({ open, initialTrait, onSave, onDelete, onCl
       </div>
     </div>,
     document.body
+  );
+}
+
+// ═══ 规则库描述区块 ═════════════════════════════════════════════════════════
+
+function RuleInfoBlock({ name, onFill }: { name: string; onFill: (text: string) => void }) {
+  const infos = name ? getTraitRuleInfo(name) : [];
+  if (infos.length === 0) return null;
+  return (
+    <div style={{ marginTop: 10, border: `1px solid ${sheetColors.hoverBg}`, borderRadius: "4px", overflow: "hidden" }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "5px 8px", backgroundColor: sheetColors.pageBg }}>
+        <span style={{ ...T, fontSize: "11px", color: sheetColors.textPlaceholder }}>
+          规则库描述（{infos[0].source}{infos.length > 1 ? ` 等${infos.length}处` : ""}）
+        </span>
+        <span
+          onClick={() => onFill(infos.map((i) => i.text).join("\n\n"))}
+          style={{ ...T, fontSize: "11px", color: sheetColors.textDark, cursor: "pointer", padding: "1px 6px", borderRadius: "2px", border: "1px solid var(--color-border)" }}
+          onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = sheetColors.hoverBg; }}
+          onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; }}
+        >
+          填入描述
+        </span>
+      </div>
+      <div style={{ maxHeight: 160, overflowY: "auto", padding: "6px 8px", fontSize: "12px", lineHeight: 1.55, color: sheetColors.textDark, fontFamily: "var(--font-serif-regular)", whiteSpace: "pre-wrap" }}>
+        {infos.map((info, i) => (
+          <div key={i} style={{ marginBottom: i < infos.length - 1 ? 8 : 0 }}>
+            {infos.length > 1 && (
+              <div style={{ fontSize: "10px", color: sheetColors.textLighter, marginBottom: 2 }}>{info.source}</div>
+            )}
+            {info.text}
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 

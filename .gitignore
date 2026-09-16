@@ -38,3 +38,13 @@ DND_2024_玩家画像式建卡指南.xlsx
 
 # Claude Code 本地工作区
 .claude/
+
+# 桌面版打包产物（electron-builder / app-dist）
+desktop/node_modules
+desktop/release
+desktop/app-dist
+desktop/dist
+
+# 单文件离线版构建产物
+dist-offline
+离线版

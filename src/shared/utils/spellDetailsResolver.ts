@@ -1,5 +1,9 @@
 import type { SpellData } from "../types/types";
 import spellDetails from "../../../data/spellDetails.json";
+import spellNameAliases from "../../../data/spellNameAliases.json";
+
+// 法术旧译名/2014版译名 → 2024版规范名（由 data/carddy 数据集对照生成）
+const ALIAS_MAP = spellNameAliases as Record<string, string>;
 
 // 法术详细信息类型
 export interface SpellDetail {
@@ -37,12 +41,25 @@ const SCHOOL_LABEL_MAP: Record<string, string> = {
   transmutation: "变化",
 };
 
+// 构建 名称 -> 详情 索引（含旧译名别名回退）
+let detailMap: Map<string, SpellDetail> | null = null;
+function getDetailMap(): Map<string, SpellDetail> {
+  if (!detailMap) {
+    detailMap = new Map();
+    for (const s of spellDetails as SpellDetail[]) {
+      detailMap.set(s["名称（中）"], s);
+    }
+  }
+  return detailMap;
+}
+
 /**
  * 从法术名称获取法术详细信息
+ * 先按 2024 规范名精确匹配，失败则按旧译名别名表重试
  */
 export function getSpellDetailByName(name: string): SpellDetail | undefined {
-  const details = spellDetails as SpellDetail[];
-  return details.find(s => s["名称（中）"] === name);
+  const map = getDetailMap();
+  return map.get(name) ?? map.get(ALIAS_MAP[name]);
 }
 
 /**
@@ -105,7 +122,9 @@ export function checkConcentration(description: string): boolean {
  */
 export function createSpellDataFromDetail(detail: SpellDetail): SpellData {
   const { level, school, ritual } = parseLevelAndSchool(detail["环阶与学派"]);
-  const concentration = checkConcentration(detail["描述"]);
+  // 专注信息在 2024 数据集中位于"持续时间"字段（如"专注，至多1分钟"）
+  const concentration =
+    checkConcentration(detail["持续时间"]) || checkConcentration(detail["描述"]);
 
   // 构建描述文本（包含施法时间、施法距离、法术成分、持续时间等元信息）
   const fullDescription = `施法时间：${detail["施法时间"]}\n施法距离：${detail["施法距离"]}\n法术成分：${detail["法术成分"]}\n持续时间：${detail["持续时间"]}\n\n${detail["描述"]}`;

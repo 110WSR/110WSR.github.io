@@ -1,7 +1,9 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import spellData from "../../../data/spellData.json";
 import classStructuredData from "../../../data/5E_Classes_Structured.json";
 import type { ClassLevelEntry } from "../../shared/types/types";
+import { getSpellDetailByName } from "../../shared/utils/spellDetailsResolver";
+import SpellRangeGrid from "../../features/spells/SpellRangeGrid";
 
 /** 法术选择面板属性 */
 interface SpellSelectionPanelProps {
@@ -155,7 +157,11 @@ export default function SpellSelectionPanel({
   }, [classSpells, maxSpellLevel, maxCantrips]);
   
   // 切换法术选择
+  // 最近点选的法术（在面板底部显示详情 + 范围格子小图）
+  const [previewSpell, setPreviewSpell] = useState<string | null>(null);
+
   const toggleSpell = (level: string, spellName: string) => {
+    setPreviewSpell(spellName);
     const current = selectedSpells[level] || [];
     let newSpells: Record<string, string[]>;
     
@@ -276,6 +282,7 @@ export default function SpellSelectionPanel({
                   <button
                     key={spellName}
                     onClick={() => toggleSpell(levelKey, spellName)}
+                    onMouseEnter={() => setPreviewSpell(spellName)}
                     disabled={isExtra || (!isSelected && isMaxed)}
                     className={`px-2.5 py-1.5 rounded-md text-xs transition-all duration-200 text-left ${
                       isExtra
@@ -298,6 +305,33 @@ export default function SpellSelectionPanel({
           </div>
         );
       })}
+
+      {/* 法术详情预览（最近悬停/点选的法术，含范围格子小图） */}
+      {(() => {
+        const detail = previewSpell ? getSpellDetailByName(previewSpell) : undefined;
+        if (!detail) return null;
+        return (
+          <div className="bg-stone-800/30 rounded-lg border border-stone-700/50 p-4">
+            <div className="flex gap-4 items-start">
+              <div className="flex-1 min-w-0">
+                <h3 className="text-amber-300 text-sm font-semibold mb-1">
+                  {detail["名称（中）"]}
+                  <span className="text-stone-500 text-xs ml-2 font-normal">
+                    {detail["环阶与学派"]} · {detail["施法时间"]} · {detail["持续时间"]}
+                  </span>
+                </h3>
+                <p className="text-stone-400 text-xs leading-relaxed max-h-28 overflow-y-auto whitespace-pre-wrap">
+                  {detail["描述"]}
+                </p>
+              </div>
+              <SpellRangeGrid
+                description={`施法距离：${detail["施法距离"]}\n${detail["描述"]}`}
+                size={120}
+              />
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }

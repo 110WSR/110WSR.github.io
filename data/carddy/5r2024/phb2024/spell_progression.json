@@ -1,0 +1,889 @@
+{
+  "_meta": "2024 PHB 每职业每级法术学习/准备数。type=prepared 表示长休换备；type=known 表示学会就一直会、升级换 1。法师独有 has_spellbook=true，每级 book_adds 法术免费入书。键是字符串等级 1-20。",
+  "法师": {
+    "type": "prepared",
+    "ability": "智力",
+    "has_spellbook": true,
+    "levels": {
+      "1": {
+        "cantrips": 3,
+        "prepared": 4,
+        "book_adds": 6
+      },
+      "2": {
+        "cantrips": 3,
+        "prepared": 5,
+        "book_adds": 2
+      },
+      "3": {
+        "cantrips": 3,
+        "prepared": 6,
+        "book_adds": 2
+      },
+      "4": {
+        "cantrips": 4,
+        "prepared": 7,
+        "book_adds": 2
+      },
+      "5": {
+        "cantrips": 4,
+        "prepared": 9,
+        "book_adds": 2
+      },
+      "6": {
+        "cantrips": 4,
+        "prepared": 10,
+        "book_adds": 2
+      },
+      "7": {
+        "cantrips": 4,
+        "prepared": 11,
+        "book_adds": 2
+      },
+      "8": {
+        "cantrips": 4,
+        "prepared": 12,
+        "book_adds": 2
+      },
+      "9": {
+        "cantrips": 4,
+        "prepared": 14,
+        "book_adds": 2
+      },
+      "10": {
+        "cantrips": 5,
+        "prepared": 15,
+        "book_adds": 2
+      },
+      "11": {
+        "cantrips": 5,
+        "prepared": 16,
+        "book_adds": 2
+      },
+      "12": {
+        "cantrips": 5,
+        "prepared": 16,
+        "book_adds": 2
+      },
+      "13": {
+        "cantrips": 5,
+        "prepared": 17,
+        "book_adds": 2
+      },
+      "14": {
+        "cantrips": 5,
+        "prepared": 18,
+        "book_adds": 2
+      },
+      "15": {
+        "cantrips": 5,
+        "prepared": 19,
+        "book_adds": 2
+      },
+      "16": {
+        "cantrips": 5,
+        "prepared": 21,
+        "book_adds": 2
+      },
+      "17": {
+        "cantrips": 5,
+        "prepared": 22,
+        "book_adds": 2
+      },
+      "18": {
+        "cantrips": 5,
+        "prepared": 23,
+        "book_adds": 2
+      },
+      "19": {
+        "cantrips": 5,
+        "prepared": 24,
+        "book_adds": 2
+      },
+      "20": {
+        "cantrips": 5,
+        "prepared": 25,
+        "book_adds": 2
+      }
+    }
+  },
+  "牧师": {
+    "type": "prepared",
+    "ability": "感知",
+    "has_spellbook": false,
+    "levels": {
+      "1": {
+        "cantrips": 3,
+        "prepared": 4
+      },
+      "2": {
+        "cantrips": 3,
+        "prepared": 5
+      },
+      "3": {
+        "cantrips": 3,
+        "prepared": 6
+      },
+      "4": {
+        "cantrips": 4,
+        "prepared": 7
+      },
+      "5": {
+        "cantrips": 4,
+        "prepared": 9
+      },
+      "6": {
+        "cantrips": 4,
+        "prepared": 10
+      },
+      "7": {
+        "cantrips": 4,
+        "prepared": 11
+      },
+      "8": {
+        "cantrips": 4,
+        "prepared": 12
+      },
+      "9": {
+        "cantrips": 4,
+        "prepared": 14
+      },
+      "10": {
+        "cantrips": 5,
+        "prepared": 15
+      },
+      "11": {
+        "cantrips": 5,
+        "prepared": 16
+      },
+      "12": {
+        "cantrips": 5,
+        "prepared": 16
+      },
+      "13": {
+        "cantrips": 5,
+        "prepared": 17
+      },
+      "14": {
+        "cantrips": 5,
+        "prepared": 17
+      },
+      "15": {
+        "cantrips": 5,
+        "prepared": 18
+      },
+      "16": {
+        "cantrips": 5,
+        "prepared": 18
+      },
+      "17": {
+        "cantrips": 5,
+        "prepared": 19
+      },
+      "18": {
+        "cantrips": 5,
+        "prepared": 20
+      },
+      "19": {
+        "cantrips": 5,
+        "prepared": 21
+      },
+      "20": {
+        "cantrips": 5,
+        "prepared": 22
+      }
+    }
+  },
+  "德鲁伊": {
+    "type": "prepared",
+    "ability": "感知",
+    "has_spellbook": false,
+    "levels": {
+      "1": {
+        "cantrips": 2,
+        "prepared": 4
+      },
+      "2": {
+        "cantrips": 2,
+        "prepared": 5
+      },
+      "3": {
+        "cantrips": 2,
+        "prepared": 6
+      },
+      "4": {
+        "cantrips": 3,
+        "prepared": 7
+      },
+      "5": {
+        "cantrips": 3,
+        "prepared": 9
+      },
+      "6": {
+        "cantrips": 3,
+        "prepared": 10
+      },
+      "7": {
+        "cantrips": 3,
+        "prepared": 11
+      },
+      "8": {
+        "cantrips": 3,
+        "prepared": 12
+      },
+      "9": {
+        "cantrips": 3,
+        "prepared": 14
+      },
+      "10": {
+        "cantrips": 4,
+        "prepared": 15
+      },
+      "11": {
+        "cantrips": 4,
+        "prepared": 16
+      },
+      "12": {
+        "cantrips": 4,
+        "prepared": 16
+      },
+      "13": {
+        "cantrips": 4,
+        "prepared": 17
+      },
+      "14": {
+        "cantrips": 4,
+        "prepared": 17
+      },
+      "15": {
+        "cantrips": 4,
+        "prepared": 18
+      },
+      "16": {
+        "cantrips": 4,
+        "prepared": 18
+      },
+      "17": {
+        "cantrips": 4,
+        "prepared": 19
+      },
+      "18": {
+        "cantrips": 4,
+        "prepared": 20
+      },
+      "19": {
+        "cantrips": 4,
+        "prepared": 21
+      },
+      "20": {
+        "cantrips": 4,
+        "prepared": 22
+      }
+    }
+  },
+  "圣武士": {
+    "type": "prepared",
+    "ability": "魅力",
+    "has_spellbook": false,
+    "levels": {
+      "1": {
+        "cantrips": 0,
+        "prepared": 2
+      },
+      "2": {
+        "cantrips": 0,
+        "prepared": 3
+      },
+      "3": {
+        "cantrips": 0,
+        "prepared": 4
+      },
+      "4": {
+        "cantrips": 0,
+        "prepared": 5
+      },
+      "5": {
+        "cantrips": 0,
+        "prepared": 6
+      },
+      "6": {
+        "cantrips": 0,
+        "prepared": 6
+      },
+      "7": {
+        "cantrips": 0,
+        "prepared": 7
+      },
+      "8": {
+        "cantrips": 0,
+        "prepared": 7
+      },
+      "9": {
+        "cantrips": 0,
+        "prepared": 9
+      },
+      "10": {
+        "cantrips": 0,
+        "prepared": 9
+      },
+      "11": {
+        "cantrips": 0,
+        "prepared": 10
+      },
+      "12": {
+        "cantrips": 0,
+        "prepared": 10
+      },
+      "13": {
+        "cantrips": 0,
+        "prepared": 11
+      },
+      "14": {
+        "cantrips": 0,
+        "prepared": 11
+      },
+      "15": {
+        "cantrips": 0,
+        "prepared": 12
+      },
+      "16": {
+        "cantrips": 0,
+        "prepared": 12
+      },
+      "17": {
+        "cantrips": 0,
+        "prepared": 14
+      },
+      "18": {
+        "cantrips": 0,
+        "prepared": 14
+      },
+      "19": {
+        "cantrips": 0,
+        "prepared": 15
+      },
+      "20": {
+        "cantrips": 0,
+        "prepared": 15
+      }
+    }
+  },
+  "游侠": {
+    "type": "prepared",
+    "ability": "感知",
+    "has_spellbook": false,
+    "levels": {
+      "1": {
+        "cantrips": 0,
+        "prepared": 2
+      },
+      "2": {
+        "cantrips": 0,
+        "prepared": 3
+      },
+      "3": {
+        "cantrips": 0,
+        "prepared": 4
+      },
+      "4": {
+        "cantrips": 0,
+        "prepared": 5
+      },
+      "5": {
+        "cantrips": 0,
+        "prepared": 6
+      },
+      "6": {
+        "cantrips": 0,
+        "prepared": 6
+      },
+      "7": {
+        "cantrips": 0,
+        "prepared": 7
+      },
+      "8": {
+        "cantrips": 0,
+        "prepared": 7
+      },
+      "9": {
+        "cantrips": 0,
+        "prepared": 9
+      },
+      "10": {
+        "cantrips": 0,
+        "prepared": 9
+      },
+      "11": {
+        "cantrips": 0,
+        "prepared": 10
+      },
+      "12": {
+        "cantrips": 0,
+        "prepared": 10
+      },
+      "13": {
+        "cantrips": 0,
+        "prepared": 11
+      },
+      "14": {
+        "cantrips": 0,
+        "prepared": 11
+      },
+      "15": {
+        "cantrips": 0,
+        "prepared": 12
+      },
+      "16": {
+        "cantrips": 0,
+        "prepared": 12
+      },
+      "17": {
+        "cantrips": 0,
+        "prepared": 14
+      },
+      "18": {
+        "cantrips": 0,
+        "prepared": 14
+      },
+      "19": {
+        "cantrips": 0,
+        "prepared": 15
+      },
+      "20": {
+        "cantrips": 0,
+        "prepared": 15
+      }
+    }
+  },
+  "吟游诗人": {
+    "type": "prepared",
+    "prepared_change": "level_up_one",
+    "ability": "魅力",
+    "has_spellbook": false,
+    "levels": {
+      "1": {
+        "cantrips": 2,
+        "prepared": 4
+      },
+      "2": {
+        "cantrips": 2,
+        "prepared": 5
+      },
+      "3": {
+        "cantrips": 2,
+        "prepared": 6
+      },
+      "4": {
+        "cantrips": 3,
+        "prepared": 7
+      },
+      "5": {
+        "cantrips": 3,
+        "prepared": 9
+      },
+      "6": {
+        "cantrips": 3,
+        "prepared": 10
+      },
+      "7": {
+        "cantrips": 3,
+        "prepared": 11
+      },
+      "8": {
+        "cantrips": 3,
+        "prepared": 12
+      },
+      "9": {
+        "cantrips": 3,
+        "prepared": 14
+      },
+      "10": {
+        "cantrips": 4,
+        "prepared": 15
+      },
+      "11": {
+        "cantrips": 4,
+        "prepared": 16
+      },
+      "12": {
+        "cantrips": 4,
+        "prepared": 16
+      },
+      "13": {
+        "cantrips": 4,
+        "prepared": 17
+      },
+      "14": {
+        "cantrips": 4,
+        "prepared": 17
+      },
+      "15": {
+        "cantrips": 4,
+        "prepared": 18
+      },
+      "16": {
+        "cantrips": 4,
+        "prepared": 18
+      },
+      "17": {
+        "cantrips": 4,
+        "prepared": 19
+      },
+      "18": {
+        "cantrips": 4,
+        "prepared": 20
+      },
+      "19": {
+        "cantrips": 4,
+        "prepared": 21
+      },
+      "20": {
+        "cantrips": 4,
+        "prepared": 22
+      }
+    }
+  },
+  "术士": {
+    "type": "prepared",
+    "prepared_change": "level_up_one",
+    "ability": "魅力",
+    "has_spellbook": false,
+    "levels": {
+      "1": {
+        "cantrips": 4,
+        "prepared": 2
+      },
+      "2": {
+        "cantrips": 4,
+        "prepared": 4
+      },
+      "3": {
+        "cantrips": 4,
+        "prepared": 6
+      },
+      "4": {
+        "cantrips": 5,
+        "prepared": 7
+      },
+      "5": {
+        "cantrips": 5,
+        "prepared": 9
+      },
+      "6": {
+        "cantrips": 5,
+        "prepared": 10
+      },
+      "7": {
+        "cantrips": 5,
+        "prepared": 11
+      },
+      "8": {
+        "cantrips": 5,
+        "prepared": 12
+      },
+      "9": {
+        "cantrips": 5,
+        "prepared": 14
+      },
+      "10": {
+        "cantrips": 6,
+        "prepared": 15
+      },
+      "11": {
+        "cantrips": 6,
+        "prepared": 16
+      },
+      "12": {
+        "cantrips": 6,
+        "prepared": 16
+      },
+      "13": {
+        "cantrips": 6,
+        "prepared": 17
+      },
+      "14": {
+        "cantrips": 6,
+        "prepared": 17
+      },
+      "15": {
+        "cantrips": 6,
+        "prepared": 18
+      },
+      "16": {
+        "cantrips": 6,
+        "prepared": 18
+      },
+      "17": {
+        "cantrips": 6,
+        "prepared": 19
+      },
+      "18": {
+        "cantrips": 6,
+        "prepared": 20
+      },
+      "19": {
+        "cantrips": 6,
+        "prepared": 21
+      },
+      "20": {
+        "cantrips": 6,
+        "prepared": 22
+      }
+    }
+  },
+  "魔契师": {
+    "type": "prepared",
+    "prepared_change": "level_up_one",
+    "ability": "魅力",
+    "has_spellbook": false,
+    "uses_pact_magic": true,
+    "levels": {
+      "1": {
+        "cantrips": 2,
+        "prepared": 2
+      },
+      "2": {
+        "cantrips": 2,
+        "prepared": 3
+      },
+      "3": {
+        "cantrips": 2,
+        "prepared": 4
+      },
+      "4": {
+        "cantrips": 3,
+        "prepared": 5
+      },
+      "5": {
+        "cantrips": 3,
+        "prepared": 6
+      },
+      "6": {
+        "cantrips": 3,
+        "prepared": 7
+      },
+      "7": {
+        "cantrips": 3,
+        "prepared": 8
+      },
+      "8": {
+        "cantrips": 3,
+        "prepared": 9
+      },
+      "9": {
+        "cantrips": 3,
+        "prepared": 10
+      },
+      "10": {
+        "cantrips": 4,
+        "prepared": 10
+      },
+      "11": {
+        "cantrips": 4,
+        "prepared": 11
+      },
+      "12": {
+        "cantrips": 4,
+        "prepared": 11
+      },
+      "13": {
+        "cantrips": 4,
+        "prepared": 12
+      },
+      "14": {
+        "cantrips": 4,
+        "prepared": 12
+      },
+      "15": {
+        "cantrips": 4,
+        "prepared": 13
+      },
+      "16": {
+        "cantrips": 4,
+        "prepared": 13
+      },
+      "17": {
+        "cantrips": 4,
+        "prepared": 14
+      },
+      "18": {
+        "cantrips": 4,
+        "prepared": 14
+      },
+      "19": {
+        "cantrips": 4,
+        "prepared": 15
+      },
+      "20": {
+        "cantrips": 4,
+        "prepared": 15
+      }
+    }
+  },
+  "奥法骑士": {
+    "_note": "战士子职（Eldritch Knight）三分施法者，用法师法表。class_level=战士级。一环及以上法术是准备法术，每获得一个战士等级可替换其中一道。",
+    "type": "prepared",
+    "prepared_change": "level_up_one",
+    "ability": "智力",
+    "has_spellbook": false,
+    "spell_list_class": "法师",
+    "parent_class": "战士",
+    "levels": {
+      "3": {
+        "cantrips": 2,
+        "prepared": 3
+      },
+      "4": {
+        "cantrips": 2,
+        "prepared": 4
+      },
+      "5": {
+        "cantrips": 2,
+        "prepared": 4
+      },
+      "6": {
+        "cantrips": 2,
+        "prepared": 4
+      },
+      "7": {
+        "cantrips": 2,
+        "prepared": 5
+      },
+      "8": {
+        "cantrips": 2,
+        "prepared": 6
+      },
+      "9": {
+        "cantrips": 2,
+        "prepared": 6
+      },
+      "10": {
+        "cantrips": 3,
+        "prepared": 7
+      },
+      "11": {
+        "cantrips": 3,
+        "prepared": 8
+      },
+      "12": {
+        "cantrips": 3,
+        "prepared": 8
+      },
+      "13": {
+        "cantrips": 3,
+        "prepared": 9
+      },
+      "14": {
+        "cantrips": 3,
+        "prepared": 10
+      },
+      "15": {
+        "cantrips": 3,
+        "prepared": 10
+      },
+      "16": {
+        "cantrips": 3,
+        "prepared": 11
+      },
+      "17": {
+        "cantrips": 3,
+        "prepared": 11
+      },
+      "18": {
+        "cantrips": 3,
+        "prepared": 11
+      },
+      "19": {
+        "cantrips": 3,
+        "prepared": 12
+      },
+      "20": {
+        "cantrips": 3,
+        "prepared": 13
+      }
+    }
+  },
+  "诡术师": {
+    "_note": "游荡者子职（Arcane Trickster）三分施法者，用法师法表。class_level=游荡者级。一环及以上法术是准备法术，每获得一个游荡者等级可替换其中一道。",
+    "type": "prepared",
+    "prepared_change": "level_up_one",
+    "ability": "智力",
+    "has_spellbook": false,
+    "spell_list_class": "法师",
+    "parent_class": "游荡者",
+    "levels": {
+      "3": {
+        "cantrips": 3,
+        "prepared": 3
+      },
+      "4": {
+        "cantrips": 3,
+        "prepared": 4
+      },
+      "5": {
+        "cantrips": 3,
+        "prepared": 4
+      },
+      "6": {
+        "cantrips": 3,
+        "prepared": 4
+      },
+      "7": {
+        "cantrips": 3,
+        "prepared": 5
+      },
+      "8": {
+        "cantrips": 3,
+        "prepared": 6
+      },
+      "9": {
+        "cantrips": 3,
+        "prepared": 6
+      },
+      "10": {
+        "cantrips": 4,
+        "prepared": 7
+      },
+      "11": {
+        "cantrips": 4,
+        "prepared": 8
+      },
+      "12": {
+        "cantrips": 4,
+        "prepared": 8
+      },
+      "13": {
+        "cantrips": 4,
+        "prepared": 9
+      },
+      "14": {
+        "cantrips": 4,
+        "prepared": 10
+      },
+      "15": {
+        "cantrips": 4,
+        "prepared": 10
+      },
+      "16": {
+        "cantrips": 4,
+        "prepared": 11
+      },
+      "17": {
+        "cantrips": 4,
+        "prepared": 11
+      },
+      "18": {
+        "cantrips": 4,
+        "prepared": 11
+      },
+      "19": {
+        "cantrips": 4,
+        "prepared": 12
+      },
+      "20": {
+        "cantrips": 4,
+        "prepared": 13
+      }
+    }
+  }
+}

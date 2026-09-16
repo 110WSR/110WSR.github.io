@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { sheetColors } from "../../shared/tokens/colors";
 import type { SpellData } from "../../shared/types/types";
 import spellDescriptionLabels from "../../../data/spellDescriptionLabels.json";
+import SpellRangeGrid from "./SpellRangeGrid";
 
 const DESCRIPTON_LABELS = spellDescriptionLabels as string[];
 // 构建正则：同时匹配所有标签（如 "施法时间：|施法距离：|..."）
@@ -129,14 +130,17 @@ export default function SpellTip({ spell, mouseY: initY, cardLeft: initLeft, onM
         </div>
       )}
 
-      {/* 描述（自动高亮标签字段） */}
+      {/* 描述（自动高亮标签字段）+ 范围格子小图 */}
       {spell.description && (
-        <div style={{ fontSize: "12px", lineHeight: 1.5, whiteSpace: "pre-wrap", color: sheetColors.textLighter, fontFamily: "var(--font-serif-regular)", fontVariationSettings: FVAR }}>
-          {spell.description.split(LABEL_PATTERN).map((part, i) =>
-            DESCRIPTON_LABELS.includes(part)
-              ? <span key={i} style={{ color: sheetColors.textDark, fontWeight: 600 }}>{part}</span>
-              : <span key={i}>{part}</span>
-          )}
+        <div style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
+          <div style={{ flex: 1, minWidth: 0, fontSize: "12px", lineHeight: 1.5, whiteSpace: "pre-wrap", color: sheetColors.textLighter, fontFamily: "var(--font-serif-regular)", fontVariationSettings: FVAR }}>
+            {spell.description.split(LABEL_PATTERN).map((part, i) =>
+              DESCRIPTON_LABELS.includes(part)
+                ? <span key={i} style={{ color: sheetColors.textDark, fontWeight: 600 }}>{part}</span>
+                : <span key={i}>{part}</span>
+            )}
+          </div>
+          <SpellRangeGrid description={spell.description} size={104} />
         </div>
       )}
 

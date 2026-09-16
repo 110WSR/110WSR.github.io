@@ -1,0 +1,29 @@
+{
+  "奇械师": {
+    "type": "prepared",
+    "ability": "智力",
+    "has_spellbook": false,
+    "levels": {
+      "1": {"cantrips": 2, "prepared": 2},
+      "2": {"cantrips": 2, "prepared": 3},
+      "3": {"cantrips": 2, "prepared": 4},
+      "4": {"cantrips": 2, "prepared": 5},
+      "5": {"cantrips": 2, "prepared": 6},
+      "6": {"cantrips": 2, "prepared": 6},
+      "7": {"cantrips": 2, "prepared": 7},
+      "8": {"cantrips": 2, "prepared": 7},
+      "9": {"cantrips": 2, "prepared": 9},
+      "10": {"cantrips": 3, "prepared": 9},
+      "11": {"cantrips": 3, "prepared": 10},
+      "12": {"cantrips": 3, "prepared": 10},
+      "13": {"cantrips": 3, "prepared": 11},
+      "14": {"cantrips": 4, "prepared": 11},
+      "15": {"cantrips": 4, "prepared": 12},
+      "16": {"cantrips": 4, "prepared": 12},
+      "17": {"cantrips": 4, "prepared": 14},
+      "18": {"cantrips": 4, "prepared": 14},
+      "19": {"cantrips": 4, "prepared": 15},
+      "20": {"cantrips": 4, "prepared": 15}
+    }
+  }
+}

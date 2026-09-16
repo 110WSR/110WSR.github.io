@@ -1,0 +1,52 @@
+{
+  "name": "dnd-character-sheet-desktop",
+  "private": true,
+  "version": "0.1.0",
+  "description": "DND 5e (2024) 角色卡桌面应用",
+  "main": "main.cjs",
+  "scripts": {
+    "prepare": "node scripts/prepare.js",
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "dist": "npm run prepare && electron-builder && npm run offline",
+    "offline": "npm --prefix .. run build -- --config vite.config.offline.ts && node ../scripts/build-offline-html.mjs"
+  },
+  "devDependencies": {
+    "electron": "^38.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "com.wsr110.dndsheet",
+    "productName": "DND角色卡",
+    "directories": {
+      "output": "release",
+      "buildResources": "build-resources"
+    },
+    "files": [
+      "main.cjs",
+      "app-dist/**/*"
+    ],
+    "asar": true,
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "DND角色卡"
+    },
+    "portable": {
+      "artifactName": "DND角色卡-便携版-${version}.${ext}"
+    }
+  }
+}

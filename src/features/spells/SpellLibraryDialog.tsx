@@ -6,6 +6,7 @@ import spellData from "../../../data/spellData.json";
 import type { SpellData } from "../../shared/types/types";
 import { createDefaultSpell } from "../../shared/types/types";
 import { getSpellDetailByName, createSpellDataFromDetail } from "../../shared/utils/spellDetailsResolver";
+import SpellRangeGrid from "./SpellRangeGrid";
 
 const FVAR = "'CTGR' 0, 'wdth' 100";
 
@@ -335,12 +336,18 @@ export default function SpellLibraryDialog({
                           </span>
                         </div>
                         
-                        {/* 法术元信息 */}
-                        <div style={{ ...T, fontSize: "11px", color: sheetColors.textMedium, lineHeight: 1.8 }}>
-                          <div><span style={{ color: sheetColors.textPlaceholder }}>施法时间：</span>{detail["施法时间"]}</div>
-                          <div><span style={{ color: sheetColors.textPlaceholder }}>施法距离：</span>{detail["施法距离"]}</div>
-                          <div><span style={{ color: sheetColors.textPlaceholder }}>法术成分：</span>{detail["法术成分"]}</div>
-                          <div><span style={{ color: sheetColors.textPlaceholder }}>持续时间：</span>{detail["持续时间"]}</div>
+                        {/* 法术元信息 + 范围格子小图 */}
+                        <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                          <div style={{ ...T, fontSize: "11px", color: sheetColors.textMedium, lineHeight: 1.8, flex: 1, minWidth: 0 }}>
+                            <div><span style={{ color: sheetColors.textPlaceholder }}>施法时间：</span>{detail["施法时间"]}</div>
+                            <div><span style={{ color: sheetColors.textPlaceholder }}>施法距离：</span>{detail["施法距离"]}</div>
+                            <div><span style={{ color: sheetColors.textPlaceholder }}>法术成分：</span>{detail["法术成分"]}</div>
+                            <div><span style={{ color: sheetColors.textPlaceholder }}>持续时间：</span>{detail["持续时间"]}</div>
+                          </div>
+                          <SpellRangeGrid
+                            description={`施法距离：${detail["施法距离"]}\n${detail["描述"]}`}
+                            size={110}
+                          />
                         </div>
                         
                         {/* 分隔线 */}

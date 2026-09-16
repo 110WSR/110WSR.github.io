@@ -1,0 +1,79 @@
+{
+  "_meta": "EFA 奇械师子职法术；全部为始终准备，且不计入职业表准备数量。",
+  "炼金师": {
+    "_class": "奇械师",
+    "spells": [
+      {"name": "治愈真言", "name_en": "Healing Word", "unlock_class_level": 3},
+      {"name": "致病射线", "name_en": "Ray of Sickness", "unlock_class_level": 3},
+      {"name": "炽焰法球", "name_en": "Flaming Sphere", "unlock_class_level": 5},
+      {"name": "马友夫强酸箭", "name_en": "Melf's Acid Arrow", "unlock_class_level": 5},
+      {"name": "气化形体", "name_en": "Gaseous Form", "unlock_class_level": 9},
+      {"name": "群体治愈真言", "name_en": "Mass Healing Word", "unlock_class_level": 9},
+      {"name": "防死结界", "name_en": "Death Ward", "unlock_class_level": 13},
+      {"name": "浓酸球", "name_en": "Vitriolic Sphere", "unlock_class_level": 13},
+      {"name": "死云术", "name_en": "Cloudkill", "unlock_class_level": 17},
+      {"name": "死者复活", "name_en": "Raise Dead", "unlock_class_level": 17}
+    ]
+  },
+  "魔炮师": {
+    "_class": "奇械师",
+    "spells": [
+      {"name": "护盾术", "name_en": "Shield", "unlock_class_level": 3},
+      {"name": "雷鸣波", "name_en": "Thunderwave", "unlock_class_level": 3},
+      {"name": "灼热射线", "name_en": "Scorching Ray", "unlock_class_level": 5},
+      {"name": "粉碎音波", "name_en": "Shatter", "unlock_class_level": 5},
+      {"name": "火球术", "name_en": "Fireball", "unlock_class_level": 9},
+      {"name": "风墙术", "name_en": "Wind Wall", "unlock_class_level": 9},
+      {"name": "冰风暴", "name_en": "Ice Storm", "unlock_class_level": 13},
+      {"name": "火墙术", "name_en": "Wall of Fire", "unlock_class_level": 13},
+      {"name": "寒冰锥", "name_en": "Cone of Cold", "unlock_class_level": 17},
+      {"name": "力场墙", "name_en": "Wall of Force", "unlock_class_level": 17}
+    ]
+  },
+  "装甲师": {
+    "_class": "奇械师",
+    "spells": [
+      {"name": "魔法飞弹", "name_en": "Magic Missile", "unlock_class_level": 3},
+      {"name": "雷鸣波", "name_en": "Thunderwave", "unlock_class_level": 3},
+      {"name": "镜影术", "name_en": "Mirror Image", "unlock_class_level": 5},
+      {"name": "粉碎音波", "name_en": "Shatter", "unlock_class_level": 5},
+      {"name": "催眠图纹", "name_en": "Hypnotic Pattern", "unlock_class_level": 9},
+      {"name": "闪电束", "name_en": "Lightning Bolt", "unlock_class_level": 9},
+      {"name": "火焰护盾", "name_en": "Fire Shield", "unlock_class_level": 13},
+      {"name": "高等隐形术", "name_en": "Greater Invisibility", "unlock_class_level": 13},
+      {"name": "穿墙术", "name_en": "Passwall", "unlock_class_level": 17},
+      {"name": "力场墙", "name_en": "Wall of Force", "unlock_class_level": 17}
+    ]
+  },
+  "战地匠师": {
+    "_class": "奇械师",
+    "spells": [
+      {"name": "英雄气概", "name_en": "Heroism", "unlock_class_level": 3},
+      {"name": "护盾术", "name_en": "Shield", "unlock_class_level": 3},
+      {"name": "闪耀斩", "name_en": "Shining Smite", "unlock_class_level": 5},
+      {"name": "守护之链", "name_en": "Warding Bond", "unlock_class_level": 5},
+      {"name": "活力灵光", "name_en": "Aura of Vitality", "unlock_class_level": 9},
+      {"name": "箭如雨下", "name_en": "Conjure Barrage", "unlock_class_level": 9},
+      {"name": "净化灵光", "name_en": "Aura of Purity", "unlock_class_level": 13},
+      {"name": "火焰护盾", "name_en": "Fire Shield", "unlock_class_level": 13},
+      {"name": "放逐斩", "name_en": "Banishing Smite", "unlock_class_level": 17},
+      {"name": "群体疗伤术", "name_en": "Mass Cure Wounds", "unlock_class_level": 17}
+    ]
+  },
+  "制图师": {
+    "_class": "奇械师",
+    "spells": [
+      {"name": "妖火", "name_en": "Faerie Fire", "unlock_class_level": 3},
+      {"name": "光导箭", "name_en": "Guiding Bolt", "unlock_class_level": 3},
+      {"name": "治愈真言", "name_en": "Healing Word", "unlock_class_level": 3},
+      {"name": "物件定位术", "name_en": "Locate Object", "unlock_class_level": 5},
+      {"name": "心灵尖刺", "name_en": "Mind Spike", "unlock_class_level": 5},
+      {"name": "召雷术", "name_en": "Call Lightning", "unlock_class_level": 9},
+      {"name": "鹰眼术", "name_en": "Clairvoyance", "unlock_class_level": 9},
+      {"name": "放逐术", "name_en": "Banishment", "unlock_class_level": 13},
+      {"name": "生物定位术", "name_en": "Locate Creature", "unlock_class_level": 13},
+      {"name": "探知术", "name_en": "Scrying", "unlock_class_level": 17},
+      {"name": "传送法阵", "name_en": "Teleportation Circle", "unlock_class_level": 17}
+    ]
+  }
+}

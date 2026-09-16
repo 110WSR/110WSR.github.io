@@ -1,0 +1,92 @@
+[
+  {
+    "name": "特技",
+    "name_en": "Acrobatics",
+    "ability": "敏捷"
+  },
+  {
+    "name": "驯兽",
+    "name_en": "Animal Handling",
+    "ability": "感知"
+  },
+  {
+    "name": "奥秘",
+    "name_en": "Arcana",
+    "ability": "智力"
+  },
+  {
+    "name": "运动",
+    "name_en": "Athletics",
+    "ability": "力量"
+  },
+  {
+    "name": "欺瞒",
+    "name_en": "Deception",
+    "ability": "魅力"
+  },
+  {
+    "name": "历史",
+    "name_en": "History",
+    "ability": "智力"
+  },
+  {
+    "name": "洞悉",
+    "name_en": "Insight",
+    "ability": "感知"
+  },
+  {
+    "name": "威吓",
+    "name_en": "Intimidation",
+    "ability": "魅力"
+  },
+  {
+    "name": "调查",
+    "name_en": "Investigation",
+    "ability": "智力"
+  },
+  {
+    "name": "医药",
+    "name_en": "Medicine",
+    "ability": "感知"
+  },
+  {
+    "name": "自然",
+    "name_en": "Nature",
+    "ability": "智力"
+  },
+  {
+    "name": "察觉",
+    "name_en": "Perception",
+    "ability": "感知"
+  },
+  {
+    "name": "表演",
+    "name_en": "Performance",
+    "ability": "魅力"
+  },
+  {
+    "name": "游说",
+    "name_en": "Persuasion",
+    "ability": "魅力"
+  },
+  {
+    "name": "宗教",
+    "name_en": "Religion",
+    "ability": "智力"
+  },
+  {
+    "name": "巧手",
+    "name_en": "Sleight of Hand",
+    "ability": "敏捷"
+  },
+  {
+    "name": "隐匿",
+    "name_en": "Stealth",
+    "ability": "敏捷"
+  },
+  {
+    "name": "求生",
+    "name_en": "Survival",
+    "ability": "感知"
+  }
+]

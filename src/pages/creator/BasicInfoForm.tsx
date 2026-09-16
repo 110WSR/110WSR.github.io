@@ -1,8 +1,35 @@
+import { useState, useEffect } from "react";
 import { CLASS_OPTIONS, RACE_OPTIONS, BACKGROUND_OPTIONS } from "./types";
+import {
+  getRaceOptions,
+  getBackgroundOptions,
+  getClassOptions,
+  getAncestryLabel,
+  subscribeExpansions,
+} from "../../shared/utils/rulesService";
+
+/** 订阅规则扩充开关变化，开关后建卡选项实时更新 */
+function useExpansionVersion(): number {
+  const [v, setV] = useState(0);
+  useEffect(() => subscribeExpansions(() => setV((x) => x + 1)), []);
+  return v;
+}
 
 export default function BasicInfoForm({ name, onNameChange, className: classValue, onClassChange, race, onRaceChange, background, onBackgroundChange, level, onLevelChange }: {
   name: string; onNameChange: (v: string) => void; className: string; onClassChange: (v: string) => void; race: string; onRaceChange: (v: string) => void; background: string; onBackgroundChange: (v: string) => void; level: number; onLevelChange: (v: number) => void;
 }) {
+  useExpansionVersion();
+
+  // 规则服务取基础规则集+已启用扩充；数据异常时回退到旧硬编码常量
+  let races = RACE_OPTIONS, backgrounds = BACKGROUND_OPTIONS, classes = CLASS_OPTIONS;
+  let ancestryLabel = "种族";
+  try {
+    races = getRaceOptions();
+    backgrounds = getBackgroundOptions();
+    classes = getClassOptions();
+    ancestryLabel = getAncestryLabel();
+  } catch { /* 回退旧常量 */ }
+
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -17,19 +44,19 @@ export default function BasicInfoForm({ name, onNameChange, className: classValu
         <div><label className="block text-stone-400 text-xs tracking-wider mb-1.5">职业</label>
           <select value={classValue} onChange={(e) => onClassChange(e.target.value)} className="w-full px-3 py-2 bg-stone-900 border border-stone-700 rounded text-stone-200 outline-none focus:border-amber-600/50 transition-colors text-sm appearance-none cursor-pointer">
             <option value="">选择职业...</option>
-            {CLASS_OPTIONS.map((c) => <option key={c} value={c}>{c}</option>)}
+            {classes.map((c) => <option key={c} value={c}>{c}</option>)}
           </select>
         </div>
-        <div><label className="block text-stone-400 text-xs tracking-wider mb-1.5">种族</label>
+        <div><label className="block text-stone-400 text-xs tracking-wider mb-1.5">{ancestryLabel}</label>
           <select value={race} onChange={(e) => onRaceChange(e.target.value)} className="w-full px-3 py-2 bg-stone-900 border border-stone-700 rounded text-stone-200 outline-none focus:border-amber-600/50 transition-colors text-sm appearance-none cursor-pointer">
-            <option value="">选择种族...</option>
-            {RACE_OPTIONS.map((r) => <option key={r} value={r}>{r}</option>)}
+            <option value="">选择{ancestryLabel}...</option>
+            {races.map((r) => <option key={r} value={r}>{r}</option>)}
           </select>
         </div>
         <div><label className="block text-stone-400 text-xs tracking-wider mb-1.5">背景</label>
           <select value={background} onChange={(e) => onBackgroundChange(e.target.value)} className="w-full px-3 py-2 bg-stone-900 border border-stone-700 rounded text-stone-200 outline-none focus:border-amber-600/50 transition-colors text-sm appearance-none cursor-pointer">
             <option value="">选择背景...</option>
-            {BACKGROUND_OPTIONS.map((b) => <option key={b} value={b}>{b}</option>)}
+            {backgrounds.map((b) => <option key={b} value={b}>{b}</option>)}
           </select>
         </div>
       </div>

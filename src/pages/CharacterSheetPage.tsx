@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCharacter } from "../shared/storage/characterHooks";
 import BottomToolbar from "../dialogs/BottomToolbar";
+import QuickReferenceDialog from "../dialogs/QuickReferenceDialog";
 import CharacterSheet from "./PageFront";
 import CharacterBackSide from "./PageBack";
 import SpellSheet from "./PageSpell";
@@ -43,6 +44,7 @@ export default function CharacterSheetPage() {
   const navigate = useNavigate();
   const { character } = useCharacter();
   const [activeDialog, setActiveDialog] = useState<string | null>(null);
+  const [quickRefOpen, setQuickRefOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
   const [diceRollerOpen, setDiceRollerOpen] = useState(false);
 
@@ -86,6 +88,24 @@ export default function CharacterSheetPage() {
             )}
           </div>
           <div className="flex items-center gap-2">
+            <BottomToolbar
+              onExportFileClick={() => setActiveDialog("export")}
+              onBuildGuideClick={() => {}}
+              onArchiveManageClick={() => setActiveDialog("archive")}
+              onCustomItemClick={() => setActiveDialog("customItem")}
+            />
+            <span className="text-gray-200">|</span>
+            <button
+              onClick={() => setQuickRefOpen(true)}
+              className="px-3 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-600 hover:text-gray-800 rounded-md
+                         transition-colors text-xs font-medium flex items-center gap-1"
+              title="规则速查：检索 / 战斗轮 / 小知识 / 换算"
+            >
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              规则速查
+            </button>
             <button
               onClick={() => navigate("/create")}
               className="px-3 py-1.5 bg-amber-600 hover:bg-amber-500 text-white rounded-md
@@ -233,13 +253,7 @@ export default function CharacterSheetPage() {
         </div>
       </div>
 
-      {/* 底部工具栏 */}
-      <BottomToolbar
-        onExportFileClick={() => setActiveDialog("export")}
-        onBuildGuideClick={() => {}}
-        onArchiveManageClick={() => setActiveDialog("archive")}
-        onCustomItemClick={() => setActiveDialog("customItem")}
-      />
+      {/* 悬浮工具栏已移至顶部导航栏（导出/存档/自定义） */}
 
       {/* 掷骰器按钮 - 悬浮在右下角 */}
       {!diceRollerOpen && (
@@ -263,6 +277,7 @@ export default function CharacterSheetPage() {
       <ArchiveDialog open={activeDialog === "archive"} onOpenChange={(open) => { if (!open) closeDialog(); }} />
       <ExportImportDialog open={activeDialog === "export"} onOpenChange={(open) => { if (!open) closeDialog(); }} />
       <CustomItemDialog open={activeDialog === "customItem"} onOpenChange={(open) => { if (!open) closeDialog(); }} />
+      <QuickReferenceDialog open={quickRefOpen} onClose={() => setQuickRefOpen(false)} />
     </div>
   );
 }
